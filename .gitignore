@@ -1,0 +1,11 @@
+﻿################################################################################
+# Ce fichier .gitignore a été automatiquement créé par Microsoft(R) Visual Studio.
+################################################################################
+
+/EXEMPLE-FBMarketSearch
+/astreinteant
+/Budjet-py
+/EXEMPLE-FBMarketPublish
+/ASADedicatedManager_Releases
+git_push.cmd
+.vs
