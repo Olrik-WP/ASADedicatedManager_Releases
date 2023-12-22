@@ -6,6 +6,10 @@ ASA Dedicated Server Manager
 Introduction
 ASA Dedicated Server Manager is an innovative application designed to simplify the management and configuration of dedicated servers for "Ark Survival Ascended". This robust and user-friendly tool offers an intuitive interface for managing the game's complex settings, making server experience more enjoyable and accessible.
 
+## Captures d'Écran
+
+![Screenshot](https://image.noelshack.com/fichiers/2023/51/5/1703269756-asadm3.jpg)
+
 ## Key Features
 
 ### Automatic Configuration Object Construction
