@@ -43,3 +43,27 @@ The journey with ASA Dedicated Server Manager is just beginning. We are committe
 Embark on an unprecedented server management journey with ASA Dedicated Server Manager - your ultimate partner for a seamless and captivating ASA adventure!
 
 ---
+
+# Gestionnaire de Serveur Dédié ASA
+
+## Introduction
+
+ASA Dedicated Server Manager est une application robuste et innovante conçue pour la configuration et la gestion des serveurs dédiés pour le jeu Ark: Survival Ascended. Conçue avec flexibilité à l'esprit, cette application automatise la construction des objets à partir des fichiers de configuration `GameUserSettings.ini` et `Game.ini`, permettant une adaptation rapide aux changements fréquents du jeu.
+
+Grâce à sa conception intuitive, ASA Dedicated Server Manager intègre des descriptions traduites des paramètres de configuration, offrant ainsi une expérience utilisateur améliorée pour les administrateurs de serveurs du monde entier. Cette fonctionnalité multilingue rend l'application accessible et facile à utiliser, peu importe votre langue maternelle.
+
+## Captures d'Écran
+
+![Screenshot](https://image.noelshack.com/fichiers/2023/51/5/1703269756-asadm3.jpg)
+
+## Fonctionnalités Principales
+
+- **Construction Automatique des Objets de Configuration** : Les objets de configuration sont construits automatiquement à partir des fichiers `GameUserSettings.ini` et `Game.ini`, assurant une grande adaptabilité aux mises à jour du jeu.
+- **Traductions Intégrées** : Les descriptions des paramètres de configuration sont traduites, rendant l'application facile à utiliser pour un public international.
+- **Interface Utilisateur Intuitive** : Conçu pour une facilité d'utilisation maximale, permettant une gestion de serveur efficace et sans tracas.
+- **Prêt pour l'Avenir** : Conçu pour s'adapter facilement aux changements et aux nouvelles fonctionnalités du jeu.
+- **Support Multilingue** : L'interface utilisateur et les descriptions sont disponibles en plusieurs langues.
+
+## Mises à jour à Venir
+
+De nouvelles fonctionnalités passionnantes sont en cours de développement et seront ajoutées dans les futures mises à jour. Restez à l'écoute!
