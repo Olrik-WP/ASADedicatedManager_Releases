@@ -16,6 +16,16 @@ Before using ASA Dedicated Server Manager, ensure that your system meets the fol
 
 Download and install it from the provided link if it's not already installed on your system.
 
+## Existing Servers
+
+ASA Dedicated Server Manager is designed for flexibility. If you already have an existing server, you can easily integrate it with our manager:
+
+- Simply select the folder of your existing server. 
+- The program will perform a check to see if the necessary files are present.
+- If the files are found, they will be used; if not, you have the option to install a new server.
+
+This makes it effortless to switch between managing an existing server and setting up a new one.
+
 ## Key Features
 
 ### Automatic Configuration Object Construction
@@ -71,6 +81,16 @@ Avant d'utiliser ASA Dedicated Server Manager, assurez-vous que votre système r
 - [.NET Framework 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net48-web-installer) ou supérieur installé sur votre système.
 
 Téléchargez et installez-le à partir du lien fourni s'il n'est pas déjà installé sur votre système.
+
+## Serveurs Existant
+
+ASA Dedicated Server Manager est conçu pour être flexible. Si vous avez déjà un serveur existant, vous pouvez facilement l'intégrer avec notre gestionnaire :
+
+- Sélectionnez simplement le dossier de votre serveur existant.
+- Le programme effectuera une vérification pour voir si les fichiers nécessaires sont présents.
+- Si les fichiers sont trouvés, ils seront utilisés ; sinon, vous avez la possibilité d'installer un nouveau serveur.
+
+Cela rend le passage de la gestion d'un serveur existant à la configuration d'un nouveau serveur sans effort.
 
 ## Fonctionnalités Principales
 
