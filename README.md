@@ -8,6 +8,14 @@ ASA Dedicated Server Manager is an innovative application designed to simplify t
 
 ![Screenshot](https://image.noelshack.com/fichiers/2023/51/5/1703269756-asadm3.jpg)
 
+## Prerequisites
+
+Before using ASA Dedicated Server Manager, ensure that your system meets the following requirements:
+
+- [.NET Framework 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net48-web-installer) or higher installed on your system.
+
+Download and install it from the provided link if it's not already installed on your system.
+
 ## Key Features
 
 ### Automatic Configuration Object Construction
@@ -55,6 +63,14 @@ Grâce à sa conception intuitive, ASA Dedicated Server Manager intègre des des
 ## Captures d'Écran
 
 ![Screenshot](https://image.noelshack.com/fichiers/2023/51/5/1703269756-asadm3.jpg)
+
+## Prérequis
+
+Avant d'utiliser ASA Dedicated Server Manager, assurez-vous que votre système répond aux exigences suivantes :
+
+- [.NET Framework 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net48-web-installer) ou supérieur installé sur votre système.
+
+Téléchargez et installez-le à partir du lien fourni s'il n'est pas déjà installé sur votre système.
 
 ## Fonctionnalités Principales
 
