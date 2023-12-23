@@ -168,6 +168,6 @@ Des configurations avancées supplémentaires seront également incluses :
 
 ## Fonctionnalités Futures
 
-- **Sauvegarde et Restauration des Profils de Joueurs et des Données du Monde** : Les mises à jour à venir incluront la capacité de sauvegarder et de restaurer les profils des joueurs et les données du monde. Cette fonctionnalité garantira que les administrateurs de serveurs peuvent facilement sauvegarder et sécuriser les progrès des joueurs et les configurations du monde, offrant un filet de sécurité contre la perte de données. Avec cette fonctionnalité, restaurer votre serveur à un moment spécifique, y compris la progression des joueurs et l'état du monde, sera à quelques clics.
+- **Sauvegarde et Restauration des Profils de Joueurs et des Données du Monde** : Les mises à jour à venir incluront la capacité de sauvegarder et de restaurer les profils des joueurs et le monde. Cette fonctionnalité garantira que les administrateurs de serveurs peuvent facilement sauvegarder et sécuriser les progrès des joueurs et les configurations du monde, offrant un filet de sécurité contre la perte de données. Avec cette fonctionnalité, restaurer votre serveur à un moment spécifique, y compris la progression des joueurs et l'état du monde, sera à quelques clics.
 
 Restez à l'écoute pour ces améliorations significatives qui visent à fournir une solution de gestion de serveur complète et sans souci.
