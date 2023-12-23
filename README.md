@@ -56,12 +56,6 @@ ASA Dedicated Server Manager is more than just a server management tool. It is a
 
 ## Upcoming Updates
 
-The journey with ASA Dedicated Server Manager is just beginning. We are committed to continually enhancing the application with new functionalities and improvements. Stay tuned for exciting updates that will bring even more features and capabilities to your server management experience.
-
-Embark on an unprecedented server management journey with ASA Dedicated Server Manager - your ultimate partner for a seamless and captivating ASA adventure!
-
-## Upcoming Updates
-
 ASA Dedicated Server Manager is constantly evolving. In upcoming updates, we will be addressing the following options:
 
 - LevelExperienceRampOverrides
@@ -93,7 +87,11 @@ Additional advanced configurations will also be included:
 - PlayerBaseStatMultipliers[<attribute>]
 - ItemStatClamps[<attribute>]
 
-Stay tuned for these exciting updates to enhance your server management experience.
+## Future Features
+
+- **Profile and World Data Backup and Restore**: Upcoming updates will include the capability to back up and restore player profiles and world data. This feature will ensure that server administrators can easily save and secure player progress and world, providing a safety net against data loss. With this feature, restoring your server to a specific point in time, including player progress and world state, will be just a few clicks away.
+
+Stay tuned for these significant enhancements that aim to provide a complete and worry-free server management solution.
 
 ---
 
@@ -135,8 +133,6 @@ Cela rend le passage de la gestion d'un serveur existant à la configuration d'u
 - **Prêt pour l'Avenir** : Conçu pour s'adapter facilement aux changements et aux nouvelles fonctionnalités du jeu.
 - **Support Multilingue** : L'interface utilisateur et les descriptions sont disponibles en plusieurs langues.
 
-## Mises à jour à Venir
-
 ## Mises à Jour à Venir
 
 ASA Dedicated Server Manager est en constante évolution. Dans les prochaines mises à jour, nous allons traiter les options suivantes :
@@ -170,4 +166,8 @@ Des configurations avancées supplémentaires seront également incluses :
 - PlayerBaseStatMultipliers[<attribute>]
 - ItemStatClamps[<attribute>]
 
-De nouvelles fonctionnalités passionnantes sont en cours de développement et seront ajoutées dans les futures mises à jour. Restez à l'écoute!
+## Fonctionnalités Futures
+
+- **Sauvegarde et Restauration des Profils de Joueurs et des Données du Monde** : Les mises à jour à venir incluront la capacité de sauvegarder et de restaurer les profils des joueurs et les données du monde. Cette fonctionnalité garantira que les administrateurs de serveurs peuvent facilement sauvegarder et sécuriser les progrès des joueurs et les configurations du monde, offrant un filet de sécurité contre la perte de données. Avec cette fonctionnalité, restaurer votre serveur à un moment spécifique, y compris la progression des joueurs et l'état du monde, sera à quelques clics.
+
+Restez à l'écoute pour ces améliorations significatives qui visent à fournir une solution de gestion de serveur complète et sans souci.
