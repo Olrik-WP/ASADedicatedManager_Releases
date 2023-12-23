@@ -60,6 +60,41 @@ The journey with ASA Dedicated Server Manager is just beginning. We are committe
 
 Embark on an unprecedented server management journey with ASA Dedicated Server Manager - your ultimate partner for a seamless and captivating ASA adventure!
 
+## Upcoming Updates
+
+ASA Dedicated Server Manager is constantly evolving. In upcoming updates, we will be addressing the following options:
+
+- LevelExperienceRampOverrides
+- OverrideEngramEntries
+- OverrideNamedEngramEntries
+- EngramEntryAutoUnlocks
+- DinoSpawnWeightMultipliers
+- DinoClassResistanceMultipliers
+- TamedDinoClassResistanceMultipliers
+- DinoClassDamageMultipliers
+- TamedDinoClassDamageMultipliers
+- HarvestResourceItemAmountClassMultipliers
+- NPCReplacements
+- ConfigOverrideItemCraftingCosts
+- ConfigOverrideItemMaxQuantity
+- ConfigOverrideSupplyCrateItems
+- ConfigOverrideNPCSpawnEntriesContainer
+- ConfigAddNPCSpawnEntriesContainer
+- ConfigSubtractNPCSpawnEntriesContainer
+
+Additional advanced configurations will also be included:
+
+- OverridePlayerLevelEngramPoints
+- MutagenLevelBoost[<Stat_ID>]
+- MutagenLevelBoost_Bred[<Stat_ID>]
+- PerLevelStatsMultiplier_Player[<integer>]
+- PerLevelStatsMultiplier_DinoTamed<_type>[<integer>]
+- PerLevelStatsMultiplier_DinoWild[<integer>]
+- PlayerBaseStatMultipliers[<attribute>]
+- ItemStatClamps[<attribute>]
+
+Stay tuned for these exciting updates to enhance your server management experience.
+
 ---
 
 # Gestionnaire de Serveur Dédié ASA
@@ -101,5 +136,38 @@ Cela rend le passage de la gestion d'un serveur existant à la configuration d'u
 - **Support Multilingue** : L'interface utilisateur et les descriptions sont disponibles en plusieurs langues.
 
 ## Mises à jour à Venir
+
+## Mises à Jour à Venir
+
+ASA Dedicated Server Manager est en constante évolution. Dans les prochaines mises à jour, nous allons traiter les options suivantes :
+
+- LevelExperienceRampOverrides
+- OverrideEngramEntries
+- OverrideNamedEngramEntries
+- EngramEntryAutoUnlocks
+- DinoSpawnWeightMultipliers
+- DinoClassResistanceMultipliers
+- TamedDinoClassResistanceMultipliers
+- DinoClassDamageMultipliers
+- TamedDinoClassDamageMultipliers
+- HarvestResourceItemAmountClassMultipliers
+- NPCReplacements
+- ConfigOverrideItemCraftingCosts
+- ConfigOverrideItemMaxQuantity
+- ConfigOverrideSupplyCrateItems
+- ConfigOverrideNPCSpawnEntriesContainer
+- ConfigAddNPCSpawnEntriesContainer
+- ConfigSubtractNPCSpawnEntriesContainer
+
+Des configurations avancées supplémentaires seront également incluses :
+
+- OverridePlayerLevelEngramPoints
+- MutagenLevelBoost[<Stat_ID>]
+- MutagenLevelBoost_Bred[<Stat_ID>]
+- PerLevelStatsMultiplier_Player[<integer>]
+- PerLevelStatsMultiplier_DinoTamed<_type>[<integer>]
+- PerLevelStatsMultiplier_DinoWild[<integer>]
+- PlayerBaseStatMultipliers[<attribute>]
+- ItemStatClamps[<attribute>]
 
 De nouvelles fonctionnalités passionnantes sont en cours de développement et seront ajoutées dans les futures mises à jour. Restez à l'écoute!
