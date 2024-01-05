@@ -1,0 +1,618 @@
+Item,Engram Class Name,Engram Index,EP Cost,Required Level
+Absorbent Substrate,EngramEntry_SubstrateAbsorbent_C,413,60,84
+Adobe Ceiling,EngramEntry_AdobeCeiling_C,106,5,15
+Adobe Dinosaur Gate,EngramEntry_AdobeGateway_C,183,8,30
+Adobe Dinosaur Gateway,EngramEntry_AdobeGate_C,182,12,30
+Adobe Door,EngramEntry_AdobeDoor_C,110,4,15
+Adobe Doorframe,EngramEntry_AdobeWallWithDoor_C,109,6,15
+Adobe Double Door,EngramEntry_DoubleDoor_Adobe_C,532,4,22
+Adobe Double Doorframe,EngramEntry_DoubleDoorframe_Adobe_C,538,6,22
+Adobe Fence Foundation,EngramEntry_AdobeFenceFoundation_C,107,6,15
+Adobe Fence Support,EngramEntry_FenceSupport_Adobe_C,544,6,15
+Adobe Foundation,EngramEntry_AdobeFloor_C,104,6,15
+Adobe Hatchframe,EngramEntry_AdobeCeilingWithTrapdoor_C,136,8,16
+Adobe Ladder,EngramEntry_AdobeLadder_C,111,6,16
+Adobe Pillar,EngramEntry_AdobePillar_C,131,8,17
+Adobe Railing,EngramEntry_AdobeRailing_C,108,2,17
+Adobe Ramp,EngramEntry_AdobeRamp_C,135,3,16
+Adobe Staircase,EngramEntry_AdobeStairs_C,140,15,17
+Adobe Stairs,EngramEntry_Ramp_Adobe_C,556,3,16
+Adobe Trapdoor,EngramEntry_AdobeTrapdoor_C,137,6,16
+Adobe Triangle Ceiling,EngramEntry_TriCeiling_Adobe_C,561,5,15
+Adobe Triangle Foundation,EngramEntry_TriFoundation_Adobe_C,567,6,15
+Adobe Triangle Roof,EngramEntry_TriRoof_Adobe_C,572,5,18
+Adobe Wall,EngramEntry_AdobeWall_C,105,7,15
+Adobe Window,EngramEntry_AdobeWindow_C,139,6,20
+Adobe Windowframe,EngramEntry_AdobeWallWithWindow_C,138,8,20
+Advanced Bullet,EngramEntry_AdvancedBullet_C,331,8,55
+Advanced Rifle Bullet,EngramEntry_AdvancedRifleBullet_C,354,8,58
+Advanced Sniper Bullet,EngramEntry_AdvancedSniperBullet_C,385,16,83
+Air Conditioner,EngramEntry_AirConditioner_C,348,21,61
+Allosaurus Saddle,EngramEntry_Saddle_Allo_C,338,35,67
+Amargasaurus Saddle,EngramEntry_Saddle_Amarga_C,613,18,55
+Ammo Box,EngramEntry_AmmoBox_C,596,24,29
+Ankylo Saddle,EngramEntry_Saddle_Ankylo_C,264,18,36
+Andrewsarchus Saddle,EngramEntry_Saddle_Andrewsarchus_C,613,45,74
+Araneo Saddle,EngramEntry_Saddle_Spider_C,266,18,40
+Argentavis Saddle,EngramEntry_Saddle_Argentavis_C,345,21,62
+Arthropluera Saddle,EngramEntry_Saddle_Arthro_C,339,30,54
+Artifact Pedestal,EngramEntry_TrophyBase_C,126,10,25
+Assault Rifle,EngramEntry_MachinedRifle_C,353,24,58
+Astrocetus Tek Saddle,EngramEntry_TekSpaceWhaleSaddle_C,579,0,0
+Astrodelphis Starwing Saddle,EngramEntry_SpaceDolphin_Saddle_C,604,60,120
+Auto Turret,EngramEntry_Turret_C,370,40,68
+Ballista Turret,EngramEntry_BallistaTurret_C,190,25,29
+Baryonyx Saddle,EngramEntry_Saddle_Baryonyx_C,292,24,49
+Basilisk Saddle,EngramEntry_BasiliskSaddle_C,494,28,85
+Basilosaurus Saddle,EngramEntry_Saddle_Basilosaurus_C,344,30,60
+Bear Trap,EngramEntry_BearTrap_C,174,9,28
+Beelzebufo Saddle,EngramEntry_Saddle_Toad_C,154,16,40
+Beer Barrel,EngramEntry_BeerBarrel_C,237,24,36
+Behemoth Adobe Dinosaur Gate,EngramEntry_AdobeGate_Large_C,270,15,38
+Behemoth Adobe Dinosaur Gateway,EngramEntry_AdobeGateway_Large_C,269,18,38
+Behemoth Gate,EngramEntry_MetalGate_Large_C,359,15,57
+Behemoth Gateway,EngramEntry_MetalGateway_Large_C,358,28,57
+Behemoth Reinforced Dinosaur Gate,EngramEntry_StoneGateLarge_C,193,16,31
+Behemoth Stone Dinosaur Gateway,EngramEntry_StoneGateway_Large_C,192,12,31
+Behemoth Tek Gate,EngramEntry_Tek_Gate_Large_C,432,0,0
+Behemoth Tek Gateway,EngramEntry_Tek_Gategrame_Large_C,434,0,0
+Blood Extraction Syringe,EngramEntry_BloodExtractor_C,28,6,6
+Bola,EngramEntry_Bola_C,50,8,9
+Bookshelf,EngramEntry_Bookshelf_C,153,15,19
+Boomerang,EngramEntry_Boomerang_C,42,2,9
+Bow,EngramEntry_Bow_C,76,11,10
+Bronto Platform Saddle,EngramEntry_Saddle_Sauro_Platform_C,389,35,82
+Bronto Saddle,EngramEntry_Saddle_Sauro_C,346,21,63
+Bug Repellant,EngramEntry_BugRepel_C,85,12,16
+Bunk Bed,EngramEntry_ModernBed_C,364,28,54
+C4 Charge,EngramEntry_C4Ammo_C,352,12,65
+C4 Remote Detonator,EngramEntry_WeaponC4_C,351,24,65
+Camera,EngramEntry_Camera_C,336,30,50
+Campfire,EngramEntry_Campfire_C,0,3,2
+Cannon,EngramEntry_Cannon_C,256,25,34
+Cannon Ball,EngramEntry_CannonBall_C,257,5,34
+Cannon Shell,EngramEntry_MekCannonShell_C,523,35,97
+Canoe,EngramEntry_Canoe_C,597,10,8
+Canteen,EngramEntry_Canteen_C,323,24,54
+Carcharo Saddle,EngramEntry_Saddle_Carcha_C,615,75,96
+Carbonemys Saddle,EngramEntry_Saddle_Turtle_C,178,12,10
+Carno Saddle,EngramEntry_Saddle_Carno_C,321,21,46
+Castoroides Saddle,EngramEntry_Saddle_Beaver_C,356,50,61
+Catapult Turret,EngramEntry_CatapultTurret_C,200,25,31
+Cementing Paste,EngramEntry_ChitinPaste_C,44,3,13
+Chain Bola,EngramEntry_ChainBola_C,305,30,51
+Chainsaw,EngramEntry_ChainSaw_C,283,21,55
+Chalicotherium Saddle,EngramEntry_Saddle_Chalico_C,320,30,42
+Charge Battery,EngramEntry_ChargeBattery_C,495,22,71
+Charge Lantern,EngramEntry_ChargeLantern_C,496,32,80
+Chemistry Bench,EngramEntry_ChemBench_C,411,65,82
+Chitin Boots,EngramEntry_ChitinBoots_C,231,15,37
+Chitin Chestpiece,EngramEntry_ChitinShirt_C,198,18,37
+Chitin Gauntlets,EngramEntry_ChitinGloves_C,230,15,37
+Chitin Helmet,EngramEntry_ChitinHelmet_C,199,18,37
+Chitin Leggings,EngramEntry_ChitinPants_C,197,15,37
+Clay,EngramEntry_Clay_C,27,3,5
+Climbing Pick,EngramEntry_ClimbingPick_C,497,16,34
+Cloning Chamber,EngramEntry_TekCloningChamber_C,461,0,0
+Cloth Boots,EngramEntry_ClothBoots_C,13,3,3
+Cloth Gloves,EngramEntry_ClothGloves_C,12,3,3
+Cloth Hat,EngramEntry_ClothHelmet_C,14,3,3
+Cloth Pants,EngramEntry_ClothPants_C,7,3,3
+Cloth Shirt,EngramEntry_ClothShirt_C,8,3,3
+Cluster Grenade,EngramEntry_ClusterGrenade_C,324,8,80
+Compass,EngramEntry_Compass_C,51,5,8
+Compost Bin,EngramEntry_CompostBin_C,93,6,15
+Compound Bow,EngramEntry_CompoundBow_C,386,40,79
+Cooking Pot,EngramEntry_CookingPot_C,43,9,8
+Crossbow,EngramEntry_Crossbow_C,171,12,25
+Cruise Missile,EngramEntry_CruiseMissile_C,581,0,0
+Cryofridge,EngramEntry_CryoFridge_C,525,60,88
+Daeodon Saddle,EngramEntry_Saddle_Daeodon_C,328,24,59
+Deinonychus Saddle,EngramEntry_Saddle_Deinonychus_C,594,30,32
+Delivery Crate,EngramEntry_StorageBox_Balloon_C,511,6,16
+Desert Cloth Boots,EngramEntry_DesertClothBoots_C,196,7,28
+Desert Cloth Gloves,EngramEntry_DesertClothGloves_C,195,7,28
+Desert Cloth Pants,EngramEntry_DesertClothPants_C,165,5,28
+Desert Cloth Shirt,EngramEntry_DesertClothShirt_C,164,4,28
+Desert Goggles and Hat,EngramEntry_DesertClothGooglesHelmet_C,194,7,28
+Dino Leash,EngramEntry_DinoLeash_C,527,6,22
+Desmodus Saddle,EngramEntry_Saddle_Desmodus_C,614,45,74
+Dinosaur Gate,EngramEntry_WoodGate_C,100,5,18
+Dinosaur Gateway,EngramEntry_WoodGateway_C,99,7,18
+Diplodocus Saddle,EngramEntry_Saddle_Diplodocus_C,229,30,32
+Dire Bear Saddle,EngramEntry_Saddle_Direbear_C,228,24,45
+Doedicurus Saddle,EngramEntry_Saddle_Doed_C,215,20,34
+Dunkleosteus Saddle,EngramEntry_Saddle_Dunkle_C,267,20,44
+Egg Incubator,EngramEntry_EggIncubator_C,598,55,89
+Electric Prod,EngramEntry_ElectricProd_C,399,60,95
+Electrical Cable Intersection,EngramEntry_PowerCableIntersection_C,343,24,49
+Electrical Generator,EngramEntry_PowerGenerator_C,326,24,49
+Electrical Outlet,EngramEntry_PowerOutlet_C,329,16,49
+Electronics,EngramEntry_Electronics_C,280,6,48
+Elevator Track,EngramEntry_ElevatorTrack_C,374,40,70
+Cryopod,EngramEntry_EmptyCryopod_C,519,20,51
+Equus Saddle,EngramEntry_Saddle_Equus_C,163,22,20
+Fabricated Pistol,EngramEntry_MachinedPistol_C,330,18,55
+Fabricated Sniper Rifle,EngramEntry_MachinedSniper_C,384,36,83
+Fabricator,EngramEntry_Fabricator_C,260,24,48
+Feeding Trough,EngramEntry_FeedingTrough_C,113,12,18
+Fish Basket,EngramEntry_Fishbasket_C,498,6,13
+Fish Net,EngramEntry_FishingNet_C,582,4,6
+Fishing Rod,EngramEntry_FishingRod_C,120,15,18
+Flak Boots,EngramEntry_MetalBoots_C,306,16,56
+Flak Chestpiece,EngramEntry_MetalShirt_C,282,18,56
+Flak Gauntlets,EngramEntry_MetalGloves_C,307,16,56
+Flak Helmet,EngramEntry_MetalHelmet_C,308,20,56
+Flak Leggings,EngramEntry_MetalPants_C,281,15,56
+Flame Arrow,EngramEntry_FlameArrow_C,172,15,26
+Flamethrower,EngramEntry_Flamethrower_C,349,25,65
+Flamethrower Ammo,EngramEntry_FlamethrowerAmmo_C,350,10,65
+Flare Gun,EngramEntry_FlareLauncher_C,47,6,15
+Flashlight Attachment,EngramEntry_Flashlight_C,303,18,52
+Flexible Electrical Cable,EngramEntry_Wire_Flex_C,578,24,49
+Fur Boots,EngramEntry_FurBoots_C,166,12,23
+Fur Cap,EngramEntry_FurHelmet_C,168,14,23
+Fur Chestpiece,EngramEntry_FurShirt_C,170,16,23
+Fur Gauntlets,EngramEntry_FurGloves_C,167,12,23
+Fur Leggings,EngramEntry_FurPants_C,169,16,23
+GPS,EngramEntry_GPS_C,304,21,52
+Gacha Saddle,EngramEntry_GachaSaddle_C,522,6,38
+Gallimimus Saddle,EngramEntry_Saddle_Galli_C,208,20,29
+Gas Collector,EngramEntry_GasCollector_C,506,35,40
+Gas Mask,EngramEntry_GasMask_C,414,100,85
+Gasbags Saddle,EngramEntry_GasBagsSaddle_C,517,6,43
+Ghillie Boots,EngramEntry_GhillieBoots_C,259,11,33
+Ghillie Chestpiece,EngramEntry_GhillieShirt_C,233,11,33
+Ghillie Gauntlets,EngramEntry_GhillieGloves_C,258,11,33
+Ghillie Leggings,EngramEntry_GhilliePants_C,232,11,33
+Ghillie Mask,EngramEntry_GhillieHelmet_C,234,13,33
+Giant Adobe Hatchframe,EngramEntry_AdobeCeilingWithDoorWay_Giant_C,203,15,34
+Giant Adobe Trapdoor,EngramEntry_AdobeCeilingDoorGiant_C,204,12,34
+Giant Metal Hatchframe,EngramEntry_MetalCeilingWithTrapdoorGiant_C,316,30,54
+Giant Metal Trapdoor,EngramEntry_MetalTrapdoorGiant_C,317,30,54
+Giant Reinforced Trapdoor,EngramEntry_StoneTrapdoorGiant_C,252,20,30
+Giant Stone Hatchframe,EngramEntry_StoneCeilingWithTrapdoorGiant_C,251,20,30
+Giganotosaurus Saddle,EngramEntry_Saddle_Gigant_C,410,75,96
+Glider Suit Skin,EngramEntry_Glider_C,499,26,62
+Glow Stick,EngramEntry_Glowstick_C,500,4,10
+Grappling Hook,EngramEntry_GrapplingHook_C,325,40,47
+Gravestone,EngramEntry_Gravestone_C,54,8,16
+Greenhouse Ceiling,EngramEntry_GreenhouseCeiling_C,300,30,42
+Greenhouse Door,EngramEntry_GreenhouseDoor_C,302,15,43
+Greenhouse Doorframe,EngramEntry_GreenhouseWallWithDoor_C,301,15,43
+Greenhouse Double Door,EngramEntry_DoubleDoor_Greenhouse_C,533,15,50
+Greenhouse Double Doorframe,EngramEntry_DoubleDoorframe_Greenhouse_C,539,15,50
+Greenhouse Triangle Ceiling,EngramEntry_TriCeiling_Greenhouse_C,562,30,42
+Greenhouse Triangle Roof,EngramEntry_TriRoof_Greenhouse_C,573,30,44
+Greenhouse Wall,EngramEntry_GreenhouseWall_C,299,30,42
+Greenhouse Window,EngramEntry_GreenhouseWindow_C,315,15,44
+Grenade,EngramEntry_Grenade_C,218,20,38
+Gunpowder,EngramEntry_Gunpowder_C,46,2,15
+Handcuffs,EngramEntry_Handcuffs_C,156,16,28
+Harpoon Launcher,EngramEntry_HarpoonGun_C,466,38,43
+Hazard Suit Boots,EngramEntry_HazardSuit_Boots_C,501,16,68
+Hazard Suit Gloves,EngramEntry_HazardSuit_Gloves_C,476,16,68
+Hazard Suit Hat,EngramEntry_HazardSuit_Helmet_C,477,28,68
+Hazard Suit Pants,EngramEntry_HazardSuit_Pants_C,478,22,68
+Hazard Suit Shirt,EngramEntry_HazardSuit_Chest_C,502,22,68
+Heavy Auto Turret,EngramEntry_HeavyTurret_C,507,100,100
+Heavy Miner's Helmet,EngramEntry_MinersHelmet_C,378,35,63
+Hide Boots,EngramEntry_HideBoots_C,115,7,15
+Hide Gloves,EngramEntry_HideGloves_C,114,7,15
+Hide Hat,EngramEntry_HideHelmet_C,116,9,15
+Hide Pants,EngramEntry_HidePants_C,74,9,15
+Hide Shirt,EngramEntry_HideShirt_C,75,6,15
+Hide Sleeping Bag,EngramEntry_HideSleepingBag_C,16,3,4
+Holo-Scope Attachment,EngramEntry_HoloScope_C,357,24,77
+Homing Underwater Mine,EngramEntry_SeaMine_C,396,30,88
+Hyaenodon Meatpack,EngramEntry_Saddle_Hyaenodon_C,462,14,19
+Ichthyosaurus Saddle,EngramEntry_Saddle_Dolphin_C,57,8,13
+Iguanodon Saddle,EngramEntry_Saddle_Iguanodon_C,89,12,30
+Improvised Explosive Device,EngramEntry_TripwireC4_C,284,30,44
+Inclined Electrical Cable,EngramEntry_PowerCableIncline_C,341,16,49
+Industrial Cooker,EngramEntry_IndustrialCookingPot_C,398,60,89
+Industrial Forge,EngramEntry_IndustrialForge_C,407,90,80
+Industrial Grill,EngramEntry_Grill_C,296,40,50
+Industrial Grinder,EngramEntry_Grinder_C,371,45,64
+Jar of Pitch,EngramEntry_Boulder_Fire_C,611,18,35
+Kaprosuchus Saddle,EngramEntry_Saddle_Kaprosuchus_C,268,28,39
+Karkinos Saddle,EngramEntry_KarkinoSaddle_C,479,28,65
+Lamppost,EngramEntry_Lamppost_C,335,20,50
+Lance,EngramEntry_Lance_C,255,30,32
+Large Adobe Wall,EngramEntry_LargeWall_Adobe_C,549,9,19
+Large Bear Trap,EngramEntry_BearTrap_Large_C,175,12,31
+Large Crop Plot,EngramEntry_CropPlot_Large_C,240,15,36
+Large Elevator Platform,EngramEntry_ElevatorPlatformLarge_C,377,40,73
+Large Metal Wall,EngramEntry_LargeWall_Metal_C,550,17,49
+Large Stone Wall,EngramEntry_LargeWall_Stone_C,551,10,28
+Large Storage Box,EngramEntry_StorageBox_Large_C,80,9,16
+Large Taxidermy Base,EngramEntry_TaxidermyBase_Large_C,510,4,32
+Large Tek Wall,EngramEntry_LargeWall_Tek_C,552,0,0
+Large Wood Elevator Platform,EngramEntry_WoodElevatorPlatform_Large_C,489,8,30
+Large Wooden Wall,EngramEntry_LargeWall_Wood_C,553,9,15
+Laser Attachment,EngramEntry_Laser_C,355,24,59
+Lesser Antidote,EngramEntry_CureLow_C,119,16,18
+Loadout Mannequin,EngramEntry_LoadoutMannequin_C,600,8,23
+Longneck Rifle,EngramEntry_SimpleRifle_C,238,18,35
+Lymantria Saddle,EngramEntry_Saddle_Moth_C,235,12,36
+M.D.S.M.,EngramEntry_MekBackpack_Shield_C,515,40,93
+M.R.L.M.,EngramEntry_MekBackpack_Missiles_C,514,40,95
+M.S.C.M.,EngramEntry_MekBackpack_Cannon_C,513,40,97
+Maewing Saddle,EngramEntry_Milkglider_Saddle_C,601,24,19
+Magmasaur Saddle,EngramEntry_CherufeSaddle_C,580,35,95
+Magnifying Glass,EngramEntry_MagnifyingGlass_C,152,16,25
+Mammoth Saddle,EngramEntry_Saddle_Mammoth_C,265,18,31
+Managarmr Saddle,EngramEntry_IceJumperSaddle_C,526,8,66
+Manta Saddle,EngramEntry_Saddle_Manta_C,216,16,28
+Mantis Saddle,EngramEntry_Saddle_Mantis_C,319,18,45
+Medium Crop Plot,EngramEntry_CropPlot_Medium_C,179,12,26
+Medium Elevator Platform,EngramEntry_ElevatorPlatformMedium_C,376,40,72
+Medium Taxidermy Base,EngramEntry_TaxidermyBase_Medium_C,509,4,21
+Medium Wood Elevator Platform,EngramEntry_WoodElevatorPlatform_Medium_C,490,7,23
+Megachelon Platform Saddle,EngramEntry_GiantTurtleSaddle_C,583,35,45
+Megalania Saddle,EngramEntry_Saddle_Megalania_C,467,65,73
+Megaloceros Saddle,EngramEntry_Saddle_Stag_C,206,20,30
+Megalodon Saddle,EngramEntry_Saddle_Megalodon_C,291,18,47
+Megalodon Tek Saddle,EngramEntry_TekMegalodonSaddle_C,457,0,0
+Megalosaurus Saddle,EngramEntry_Saddle_Megalosaurus_C,388,50,57
+Megatherium Saddle,EngramEntry_Saddle_Megatherium_C,463,24,52
+Metal Arrow,EngramEntry_CompoundArrow_C,387,35,79
+Metal Billboard,EngramEntry_MetalSign_Large_C,309,15,46
+Metal Catwalk,EngramEntry_MetalCatwalk_C,311,18,47
+Metal Ceiling,EngramEntry_MetalCeiling_C,246,15,45
+Metal Cliff Platform,EngramEntry_MetalCliffPlatform_C,480,48,51
+Metal Dinosaur Gate,EngramEntry_MetalGate_C,277,8,52
+Metal Dinosaur Gateway,EngramEntry_MetalGateway_C,276,12,52
+Metal Door,EngramEntry_MetalDoor_C,248,12,45
+Metal Doorframe,EngramEntry_MetalWallWithDoor_C,227,24,45
+Metal Double Door,EngramEntry_DoubleDoor_Metal_C,534,12,52
+Metal Double Doorframe,EngramEntry_DoubleDoorframe_Metal_C,540,24,52
+Metal Fence Foundation,EngramEntry_MetalFenceFoundation_C,275,12,48
+Metal Fence Support,EngramEntry_FenceSupport_Metal_C,545,12,48
+Metal Foundation,EngramEntry_MetalFloor_C,222,24,45
+Metal Hatchet,EngramEntry_MetalHatchet_C,159,6,20
+Metal Hatchframe,EngramEntry_MetalCeilingWithTrapdoor_C,273,18,48
+Metal Irrigation Pipe - Flexible,EngramEntry_PipeFlex_Metal_C,554,18,40
+Metal Irrigation Pipe - Inclined,EngramEntry_MetalPipeIncline_C,287,12,40
+Metal Irrigation Pipe - Intake,EngramEntry_MetalPipeIntake_C,271,15,40
+Metal Irrigation Pipe - Intersection,EngramEntry_MetalPipeIntersection_C,286,18,40
+Metal Irrigation Pipe - Straight,EngramEntry_MetalPipeStraight_C,272,12,40
+Metal Irrigation Pipe - Tap,EngramEntry_MetalPipeTap_C,289,18,40
+Metal Irrigation Pipe - Vertical,EngramEntry_MetalPipeVertical_C,288,12,40
+Metal Ladder,EngramEntry_MetalLadder_C,298,21,48
+Metal Ocean Platform,EngramEntry_OceanPlatformMetal_C,592,50,53
+Metal Pick,EngramEntry_MetalPick_C,158,6,20
+Metal Pillar,EngramEntry_MetalPillar_C,245,18,46
+Metal Railing,EngramEntry_MetalRailing_C,224,7,46
+Metal Ramp,EngramEntry_MetalRamp_C,249,12,47
+Metal Shield,EngramEntry_MetalShield_C,207,9,39
+Metal Sickle,EngramEntry_MetalSickle_C,213,12,30
+Metal Sign,EngramEntry_MetalSign_C,180,10,50
+Metal Spike Wall,EngramEntry_MetalSpikeWall_C,157,11,29
+Metal Staircase,EngramEntry_MetalStairs_C,250,20,46
+Metal Stairs,EngramEntry_Ramp_Metal_C,557,12,47
+Metal Trapdoor,EngramEntry_MetalTrapdoor_C,274,14,48
+Metal Tree Platform,EngramEntry_TreePlatformMetal_C,365,55,59
+Metal Triangle Ceiling,EngramEntry_TriCeiling_Metal_C,563,15,45
+Metal Triangle Foundation,EngramEntry_TriFoundation_Metal_C,568,24,45
+Metal Triangle Roof,EngramEntry_TriRoof_Metal_C,574,10,47
+Metal Wall,EngramEntry_MetalWall_C,223,15,45
+Metal Wall Sign,EngramEntry_MetalSign_Wall_C,221,6,50
+Metal Water Reservoir,EngramEntry_WaterTankMetal_C,290,20,41
+Metal Window,EngramEntry_MetalWindow_C,310,18,46
+Metal Windowframe,EngramEntry_MetalWallWithWindow_C,297,18,46
+Minigun,EngramEntry_Minigun_C,602,35,94
+Minigun Turret,EngramEntry_MinigunTurret_C,408,80,94
+Mining Drill,EngramEntry_MiningDrill_C,584,35,80
+Mirror,EngramEntry_Mirror_C,254,25,32
+Morellatops Saddle,EngramEntry_Saddle_Camelsaurus_C,86,11,11
+Mortar and Pestle,EngramEntry_MortarAndPestle_C,24,6,6
+Mosasaur Platform Saddle,EngramEntry_Saddle_Mosa_Platform_C,409,80,93
+Mosasaur Saddle,EngramEntry_Saddle_Mosa_C,397,60,78
+Mosasaur Tek Saddle,EngramEntry_TekMosaSaddle_C,458,0,0
+Motorboat,EngramEntry_Motorboat_C,468,45,57
+Multi-Panel Flag,EngramEntry_Flag_C,32,6,8
+Narcotic,EngramEntry_Narcotic_C,29,6,6
+Net Projectile,EngramEntry_NetGun_Ammo_C,603,12,43
+Night Vision Goggles,EngramEntry_NightVisionGoggles_C,417,100,86
+Note,EngramEntry_NotePaper_C,4,0,1
+Oil Jar,EngramEntry_OilJar_C,124,15,24
+Oil Pump,EngramEntry_OilPump_C,363,24,60
+Omnidirectional Lamppost,EngramEntry_LamppostOmni_C,334,20,50
+Pachy Saddle,EngramEntry_Saddle_Pachy_C,87,9,14
+Pachyrhinosaurus Saddle,EngramEntry_Saddle_PachyRhino_C,176,18,27
+Paintbrush,EngramEntry_Paintbrush_C,30,3,9
+Painting Canvas,EngramEntry_PaintingCanvas_C,72,2,21
+Paracer Platform Saddle,EngramEntry_Saddle_Paracer_Platform_C,294,24,50
+Paracer Saddle,EngramEntry_Saddle_Paracer_C,217,18,41
+Parachute,EngramEntry_Parachute_C,84,6,22
+Parasaur Saddle,EngramEntry_Saddle_Para_C,56,9,9
+Pelagornis Saddle,EngramEntry_Saddle_Pela_C,279,30,43
+Pheromone Dart,EngramEntry_AggroTranqDart_C,418,60,90
+Phiomia Saddle,EngramEntry_Saddle_Phiomia_C,23,6,5
+Pike,EngramEntry_Pike_C,160,10,25
+Plesiosaur Platform Saddle,EngramEntry_Saddle_Plesio_Platform_C,400,80,84
+Plesiosaur Saddle,EngramEntry_Saddle_Plesia_C,367,40,64
+Pliers,EngramEntry_Pliers_C,481,16,45
+Poison Grenade,EngramEntry_PoisonGrenade_C,261,18,40
+Polymer,EngramEntry_Polymer_C,278,6,48
+Portable Rope Ladder,EngramEntry_PortableRopeLadder_C,482,7,15
+Preserving Bin,EngramEntry_PreservingBin_C,127,9,18
+Preserving Salt,EngramEntry_PreservingSalt_C,26,3,5
+Pressure Plate,EngramEntry_PressurePlate_C,589,6,12
+Procoptodon Saddle,EngramEntry_Saddle_Procop_C,340,35,23
+Propellant,EngramEntry_Propellant_C,121,12,22
+Pteranodon Saddle,EngramEntry_Saddle_Ptero_C,241,15,38
+Pulmonoscorpius Saddle,EngramEntry_Saddle_Scorpion_C,177,12,22
+Pump-Action Shotgun,EngramEntry_MachinedShotgun_C,332,18,55
+Quetz Platform Saddle,EngramEntry_Saddle_Quetz_Platform_C,401,80,97
+Quetz Saddle,EngramEntry_Saddle_Quetz_C,372,44,76
+Radio,EngramEntry_Radio_C,188,8,51
+Raptor Saddle,EngramEntry_Saddle_Raptor_C,88,9,18
+Ravager Saddle,EngramEntry_RavagerSaddle_C,483,20,47
+Re-Fertilizer,EngramEntry_MiracleGro_C,253,20,38
+Refining Forge,EngramEntry_Forge_C,122,21,20
+Refrigerator,EngramEntry_IceBox_C,347,20,60
+Reinforced Dinosaur Gate,EngramEntry_StoneGate_C,151,6,27
+Reinforced Double Door,EngramEntry_DoubleDoor_Stone_C,535,4,31
+Reinforced Trapdoor,EngramEntry_StoneTrapdoor_C,219,10,26
+Reinforced Window,EngramEntry_StoneWindow_C,220,10,26
+Reinforced Wooden Door,EngramEntry_StoneDoor_C,149,4,24
+Remote Keypad,EngramEntry_Keypad_C,333,18,53
+Rex Saddle,EngramEntry_Saddle_Rex_C,361,40,74
+Rex Tek Saddle,EngramEntry_TekRexSaddle_C,427,0,0
+Rhyniognatha Saddle,EngramEntry_Saddle_Rhynio_C,616,65,90
+Riot Boots,EngramEntry_RiotBoots_C,405,40,98
+Riot Chestpiece,EngramEntry_RiotShirt_C,403,40,98
+Riot Gauntlets,EngramEntry_RiotGloves_C,404,40,98
+Riot Helmet,EngramEntry_RiotHelmet_C,406,40,98
+Riot Leggings,EngramEntry_RiotPants_C,402,40,98
+Riot Shield,EngramEntry_RiotShield_C,390,35,92
+Rock Drake Saddle,EngramEntry_ShadowDrakeSaddle_C,485,26,75
+Rock Drake Tek Saddle,EngramEntry_TekRockDrakeSaddle_C,505,0,0
+Rock Golem Saddle,EngramEntry_Saddle_RockGolem_C,373,40,70
+Rocket Homing Missile,EngramEntry_RocketHommingAmmo_C,395,25,90
+Rocket Launcher,EngramEntry_RocketLauncher_C,368,32,87
+Rocket Pod,EngramEntry_MekRocketPod_C,524,35,95
+Rocket Propelled Grenade,EngramEntry_RocketAmmo_C,369,8,87
+Rocket Turret,EngramEntry_RocketTurret_C,415,100,99
+Roll Rat Saddle,EngramEntry_RollratSaddle_C,484,26,58
+Rope Ladder,EngramEntry_RopeLadder_C,61,5,16
+SCUBA Flippers,EngramEntry_ScubaBoots_Flippers_C,393,20,81
+SCUBA Leggings,EngramEntry_ScubaPants_C,394,35,81
+SCUBA Mask,EngramEntry_ScubaHelmet_Goggles_C,392,25,81
+SCUBA Tank,EngramEntry_ScubaShirt_SuitWithTank_C,391,35,81
+Sabertooth Saddle,EngramEntry_Saddle_Saber_C,293,18,37
+Sarco Saddle,EngramEntry_Saddle_Sarco_C,242,15,35
+Scissors,EngramEntry_Scissors_C,161,10,21
+Scope Attachment,EngramEntry_Scope_C,212,13,35
+Shag Rug,EngramEntry_ShagRug_C,486,4,17
+Shocking Tranquilizer Dart,EngramEntry_RefinedTranqDart_C,412,30,96
+Shotgun,EngramEntry_SimpleShotgun_C,243,18,39
+Silencer Attachment,EngramEntry_Silencer_C,262,13,41
+Simple Bed,EngramEntry_SimpleBed_C,22,8,7
+Simple Bullet,EngramEntry_SimpleBullet_C,211,6,34
+Simple Pistol,EngramEntry_Pistol_C,210,15,34
+Simple Rifle Ammo,EngramEntry_SimpleRifleBullet_C,239,6,35
+Simple Shotgun Ammo,EngramEntry_SimpleShotgunBullet_C,244,6,39
+Single Panel Flag,EngramEntry_FlagSingle_C,31,6,7
+Slingshot,EngramEntry_Slingshot_C,20,6,5
+Sloped Adobe Roof,EngramEntry_AdobeRoof_C,132,5,18
+Sloped Adobe Wall Left,EngramEntry_AdobeSlopedWall_Left_C,133,3,18
+Sloped Adobe Wall Right,EngramEntry_AdobeSlopedWall_Right_C,134,3,18
+Sloped Greenhouse Roof,EngramEntry_GreenhouseRoof_C,314,30,44
+Sloped Greenhouse Wall Left,EngramEntry_GreenhouseSlopedWall_Left_C,312,15,44
+Sloped Greenhouse Wall Right,EngramEntry_GreenhouseSlopedWall_Right_C,313,15,44
+Sloped Metal Roof,EngramEntry_MetalRoof_C,247,10,47
+Sloped Metal Wall Left,EngramEntry_MetalSlopedWall_Left_C,225,7,47
+Sloped Metal Wall Right,EngramEntry_MetalSlopedWall_Right_C,226,7,47
+Sloped Stone Roof,EngramEntry_StoneRoof_C,147,4,27
+Sloped Stone Wall Left,EngramEntry_StoneSlopedWall_Left_C,145,4,27
+Sloped Stone Wall Right,EngramEntry_StoneSlopedWall_Right_C,146,4,27
+Sloped Tek Roof,EngramEntry_TekRoof_C,451,0,0
+Sloped Tek Wall Left,EngramEntry_TekSlopedWall_Left_C,448,0,0
+Sloped Tek Wall Right,EngramEntry_TekSlopedWall_Right_C,449,0,0
+Sloped Thatch Roof,EngramEntry_ThatchRoof_C,36,3,5
+Sloped Thatch Wall Left,EngramEntry_ThatchSlopedWall_left_C,34,3,5
+Sloped Thatch Wall Right,EngramEntry_ThatchSlopedWall_Right_C,35,3,5
+Sloped Wood Wall Left,EngramEntry_WoodSlopedWall_Left_C,66,3,12
+Sloped Wood Wall Right,EngramEntry_WoodSlopedWall_Right_C,67,3,12
+Sloped Wooden Roof,EngramEntry_WoodRoof_C,68,4,14
+Small Crop Plot,EngramEntry_CropPlot_Small_C,53,9,10
+Small Elevator Platform,EngramEntry_ElevatorPlatformSmall_C,375,40,70
+Small Taxidermy Base,EngramEntry_TaxidermyBase_Small_C,508,4,10
+Small Wood Elevator Platform,EngramEntry_WoodElevatorPlatform_Small_C,491,4,20
+Smithy,EngramEntry_AnvilBench_C,155,18,20
+Smoke Grenade,EngramEntry_GasGrenade_C,189,18,24
+Snow Owl Saddle,EngramEntry_OwlSaddle_C,516,6,61
+Sparkpowder,EngramEntry_Sparkpowder_C,25,3,6
+Spear,EngramEntry_Spear_C,3,3,2
+Spear Bolt,EngramEntry_BallistaArrow_C,191,10,29
+Spino Saddle,EngramEntry_Saddle_Spino_C,362,40,71
+Spray Painter,EngramEntry_SprayPainter_C,366,30,53
+Spyglass,EngramEntry_Spyglass_C,52,2,7
+Standing Torch,EngramEntry_StandingTorch_C,33,6,7
+Stego Saddle,EngramEntry_Saddle_Stego_C,214,15,26
+Stimulant,EngramEntry_Stimulant_C,45,6,11
+Stone Arrow,EngramEntry_ArrowStone_C,77,2,10
+Stone Ceiling,EngramEntry_StoneCeiling_C,143,6,24
+Stone Cliff Platform,EngramEntry_StoneCliffPlatform_C,487,28,37
+Stone Dinosaur Gateway,EngramEntry_StoneGateway_C,150,9,27
+Stone Doorframe,EngramEntry_StoneWallWithDoor_C,148,6,24
+Stone Double Doorframe,EngramEntry_DoubleDoorframe_Stone_C,541,6,31
+Stone Fence Foundation,EngramEntry_StoneFenceFoundation_C,94,6,25
+Stone Fence Support,EngramEntry_FenceSupport_Stone_C,546,6,25
+Stone Fireplace,EngramEntry_Fireplace_C,202,15,28
+Stone Foundation,EngramEntry_StoneFloor_C,142,6,24
+Stone Hatchet,EngramEntry_StoneHatchet_C,1,3,2
+Stone Hatchframe,EngramEntry_StoneCeilingWithTrapdoor_C,185,8,26
+Stone Irrigation Pipe - Flexible,EngramEntry_PipeFlex_Stone_C,555,5,17
+Stone Irrigation Pipe - Inclined,EngramEntry_StonePipeInclined_C,91,3,17
+Stone Irrigation Pipe - Intake,EngramEntry_StonePipeIntake_C,58,5,17
+Stone Irrigation Pipe - Intersection,EngramEntry_StonePipeIntersection_C,90,5,17
+Stone Irrigation Pipe - Straight,EngramEntry_StonePipeStraight_C,59,2,17
+Stone Irrigation Pipe - Tap,EngramEntry_StonePipeTap_C,60,5,17
+Stone Irrigation Pipe - Vertical,EngramEntry_StonePipeVertical_C,92,3,17
+Stone Pick,EngramEntry_StonePick_C,5,0,1
+Stone Pillar,EngramEntry_StonePillar_C,184,8,25
+Stone Railing,EngramEntry_StoneRailing_C,144,4,28
+Stone Staircase,EngramEntry_StoneStairs_C,141,15,28
+Stone Stairs,EngramEntry_Ramp_Stone_C,558,6,24
+Stone Triangle Ceiling,EngramEntry_TriCeiling_Stone_C,564,6,24
+Stone Triangle Foundation,EngramEntry_TriFoundation_Stone_C,569,6,24
+Stone Triangle Roof,EngramEntry_TriRoof_Stone_C,575,4,27
+Stone Wall,EngramEntry_StoneWall_C,95,8,24
+Stone Windowframe,EngramEntry_StoneWallWithWindow_C,186,11,26
+Storage Box,EngramEntry_StorageBox_Small_C,21,6,4
+Straight Electrical Cable,EngramEntry_PowerCableStraight_C,327,16,49
+Sword,EngramEntry_Sword_C,209,11,30
+Tapejara Saddle,EngramEntry_Saddle_Tapejara_C,322,21,55
+Tapejara Tek Saddle,EngramEntry_TekTapejaraSaddle_C,470,0,0
+Taxidermy Tool,EngramEntry_TaxidermyTool_C,512,3,10
+Tek ATV,EngramEntry_TekATV_C,471,0,0
+Tek Boots,EngramEntry_TekBoots_C,419,0,0
+Tek Bow,EngramEntry_TekBow_C,605,53,116
+Tek Bridge,EngramEntry_TekBridge_C,520,32,72
+Tek Canteen,EngramEntry_TekCanteen_C,606,6,101
+Tek Catwalk,EngramEntry_TekCatwalk_C,435,0,0
+Tek Ceiling,EngramEntry_TekCeiling_C,436,0,0
+Tek Chestpiece,EngramEntry_TekShirt_C,423,0,0
+Tek Claws,EngramEntry_TekClaws_C,586,0,0
+Tek Crop Plot,EngramEntry_TekCropPlot_C,607,32,104
+Tek Dedicated Storage,EngramEntry_DedicatedStorage_C,531,0,0
+Tek Dinosaur Gate,EngramEntry_Tek_Gate_C,431,0,0
+Tek Dinosaur Gateway,EngramEntry_Tek_Gategrame_C,433,0,0
+Tek Door,EngramEntry_TekDoor_C,438,0,0
+Tek Doorframe,EngramEntry_TekWallWithDoor_C,445,0,0
+Tek Double Door,EngramEntry_DoubleDoor_Tek_C,536,0,0
+Tek Double Doorframe,EngramEntry_DoubleDoorframe_Tek_C,542,0,0
+Tek Fence Foundation,EngramEntry_TekFenceFoundation_C,453,0,0
+Tek Fence Support,EngramEntry_FenceSupport_Tek_C,547,0,0
+Tek Forcefield,EngramEntry_TekShield_C,430,0,0
+Tek Foundation,EngramEntry_TekFloor_C,439,0,0
+Tek Gauntlets,EngramEntry_TekGloves_C,420,0,0
+Tek Generator,EngramEntry_TekGenerator_C,454,0,0
+Tek Gravity Grenade,EngramEntry_TekGravityGrenade_C,521,20,79
+Tek Grenade,EngramEntry_TekGrenade_C,425,0,0
+Tek Grenade Launcher,EngramEntry_TekGrenadeLauncher_C,587,0,0
+Tek Hatchframe,EngramEntry_TekCeilingWithTrapdoor_C,437,0,0
+Tek Helmet,EngramEntry_TekHelmet_C,421,0,0
+Tek Hoversail,EngramEntry_TekHoverSail_C,608,45,112
+Tek Jump Pad,EngramEntry_JumpPad_C,590,30,70
+Tek Ladder,EngramEntry_TekLadder_C,440,0,0
+Tek Leggings,EngramEntry_TekPants_C,422,0,0
+Tek Light,EngramEntry_TekLight_C,472,0,0
+Tek Phase Pistol,EngramEntry_TekPistol_C,609,55,118
+Tek Pillar,EngramEntry_TekPillar_C,441,0,0
+Tek Railgun,EngramEntry_TekSniper_C,488,0,0
+Tek Railing,EngramEntry_TekRailing_C,452,0,0
+Tek Ramp,EngramEntry_TekRamp_C,442,0,0
+Tek Replicator,EngramEntry_TekReplicator_C,428,0,0
+Tek Rifle,EngramEntry_TekRifle_C,424,0,0
+Tek Sensor,EngramEntry_TekAlarm_C,588,0,0
+Tek Shield,EngramEntry_TekShieldArmor_C,474,0,0
+Tek Shoulder Cannon,EngramEntry_ShoulderCannon_C,585,0,0
+Tek Sleeping Pod,EngramEntry_TekBed_C,475,0,0
+Tek Staircase,EngramEntry_TekStairs_C,450,0,0
+Tek Stairs,EngramEntry_Ramp_Tek_C,559,0,0
+Tek Surveillance Console,EngramEntry_TekSecuirtyConsole_C,610,60,108
+Tek Sword,EngramEntry_TekSword_C,473,0,0
+Tek Teleporter,EngramEntry_TekTeleporter_C,456,0,0
+Tek Transmitter,EngramEntry_TekTransmitter_C,429,0,0
+Tek Trapdoor,EngramEntry_TekTrapdoor_C,443,0,0
+Tek Triangle Ceiling,EngramEntry_TriCeiling_Tek_C,565,0,0
+Tek Triangle Foundation,EngramEntry_TriFoundation_Tek_C,570,0,0
+Tek Triangle Roof,EngramEntry_TriRoof_Tek_C,576,0,0
+Tek Trough,EngramEntry_TekTrough_C,455,0,0
+Tek Turret,EngramEntry_TurretTek_C,426,0,0
+Tek Wall,EngramEntry_TekWall_C,444,0,0
+Tek Window,EngramEntry_TekWindow_C,447,0,0
+Tek Windowframe,EngramEntry_TekWallWithWindow_C,446,0,0
+Tent,EngramEntry_Tent_C,41,8,7
+Terror Bird Saddle,EngramEntry_Saddle_TerrorBird_C,162,15,33
+Thatch Ceiling,EngramEntry_ThatchCeiling_C,17,3,4
+Thatch Door,EngramEntry_ThatchDoor_C,19,3,4
+Thatch Doorframe,EngramEntry_ThatchWallWithDoor_C,10,3,4
+Thatch Foundation,EngramEntry_ThatchFloor_C,9,3,4
+Thatch Wall,EngramEntry_ThatchWall_C,18,3,4
+Therizinosaurus Saddle,EngramEntry_Saddle_Therizino_C,360,40,69
+Thorny Dragon Saddle,EngramEntry_Saddle_SpineyLizard_C,263,18,40
+Thylacoleo Saddle,EngramEntry_Saddle_Thylaco_C,318,18,51
+Titanosaur Platform Saddle,EngramEntry_Saddle_Titano_Platform_C,416,120,100
+Toilet,EngramEntry_Toilet_C,465,35,32
+Torch,EngramEntry_Torch_C,6,0,1
+Training Dummy,EngramEntry_TrainingDummy_C,71,8,9
+Tranq Arrow,EngramEntry_ArrowTranq_C,117,8,21
+Tranq Spear Bolt,EngramEntry_TranqSpearBolt_C,469,40,72
+Tranquilizer Dart,EngramEntry_TranqDart_C,383,30,62
+Transponder Node,EngramEntry_TransGPSAmmo_C,381,20,66
+Transponder Tracker,EngramEntry_TransGPS_C,380,30,66
+Tree Sap Tap,EngramEntry_TreeSapTap_C,236,18,36
+Trike Saddle,EngramEntry_Saddle_Trike_C,123,12,16
+Tripwire Alarm Trap,EngramEntry_AlarmTrap_C,125,7,22
+Tripwire Narcotic Trap,EngramEntry_PoisonTrap_C,173,9,29
+Tropeognathus Saddle,EngramEntry_Saddle_Tropeognathus_C,595,21,65
+Trophy Wall-Mount,EngramEntry_TrophyWall_C,118,10,22
+Tusoteuthis Saddle,EngramEntry_Saddle_Tuso_C,379,40,91
+Unassembled Exo-Mek,EngramEntry_TekExosuit_C,599,0,0
+Unassembled Mek,EngramEntry_MekSpawner_C,529,38,91
+Unassembled TEK Hover Skiff,EngramEntry_HoverSkiff_C,593,0,0
+Unstable Element,EngramEntry_RefinedElement_C,528,6,58
+Unstable Element Shard,EngramEntry_RefinedShards_C,530,6,55
+Vacuum Compartment,EngramEntry_TekUnderwaterBase_C,459,0,0
+Vacuum Compartment Moonpool,EngramEntry_TekUnderwaterBase_BottomEntry_C,460,0,0
+Vault,EngramEntry_StorageBox_Huge_C,382,30,75
+Velonasaur Saddle,EngramEntry_SpindlesSaddle_C,518,8,27
+Vertical Electrical Cable,EngramEntry_PowerCableVertical_C,342,16,49
+Vessel,EngramEntry_Vessel_C,112,10,13
+Wall Torch,EngramEntry_WallTorch_C,181,8,21
+War Map,EngramEntry_WarMap_C,337,15,51
+Wardrums,EngramEntry_Wardrums_C,55,6,13
+Water Jar,EngramEntry_WaterJar_C,201,12,26
+Water Reservoir,EngramEntry_WaterTank_C,96,7,17
+Water Well,EngramEntry_WaterWell_C,79,10,15
+Waterskin,EngramEntry_Waterskin_C,11,6,3
+Whip,EngramEntry_WeaponWhip_C,78,6,20
+Wind Turbine,EngramEntry_WindTurbine_C,285,18,50
+Wood Elevator Top Switch,EngramEntry_WoodElevator_Switch_C,504,16,20
+Wood Elevator Track,EngramEntry_WoodElevator_Track_C,503,4,20
+Wood Ocean Platform,EngramEntry_OceanPlatformWood_C,591,24,25
+Wooden Bench,EngramEntry_WoodBench_C,81,10,19
+Wooden Billboard,EngramEntry_WoodSign_Large_C,97,4,19
+Wooden Cage,EngramEntry_WoodCage_C,49,10,12
+Wooden Catwalk,EngramEntry_WoodCatwalk_C,128,8,14
+Wooden Ceiling,EngramEntry_WoodCeiling_C,64,6,11
+Wooden Chair,EngramEntry_WoodChair_C,39,6,19
+Wooden Club,EngramEntry_StoneClub_C,2,4,8
+Wooden Door,EngramEntry_WoodDoor_C,70,4,11
+Wooden Doorframe,EngramEntry_WoodWallWithDoor_C,69,6,11
+Wooden Double Door,EngramEntry_DoubleDoor_Wood_C,537,4,18
+Wooden Double Doorframe,EngramEntry_DoubleDoorframe_Wood_C,543,6,18
+Wooden Fence Foundation,EngramEntry_WoodFenceFoundation_C,73,6,11
+Wooden Fence Support,EngramEntry_FenceSupport_Wood_C,548,6,11
+Wooden Foundation,EngramEntry_WoodFloor_C,37,6,11
+Wooden Hatchframe,EngramEntry_WoodCeilingWithTrapdoor_C,102,9,13
+Wooden Ladder,EngramEntry_WoodLadder_C,103,6,13
+Wooden Pillar,EngramEntry_WoodPillar_C,101,9,12
+Wooden Raft,EngramEntry_Raft_C,83,11,16
+Wooden Railing,EngramEntry_WoodRailing_C,65,3,14
+Wooden Ramp,EngramEntry_WoodRamp_C,98,3,12
+Wooden Shield,EngramEntry_WoodShield_C,48,7,12
+Wooden Sign,EngramEntry_WoodSign_C,15,3,5
+Wooden Spike Wall,EngramEntry_WoodSpikeWall_C,62,4,13
+Wooden Staircase,EngramEntry_WoodStairs_C,40,10,14
+Wooden Stairs,EngramEntry_Ramp_Wood_C,560,3,12
+Wooden Table,EngramEntry_Furniture_WoodTable_C,82,7,19
+Wooden Trapdoor,EngramEntry_WoodTrapdoor_C,129,6,13
+Wooden Tree Platform,EngramEntry_TreePlatformWood_C,205,28,33
+Wooden Triangle Ceiling,EngramEntry_TriCeiling_Wood_C,566,6,11
+Wooden Triangle Foundation,EngramEntry_TriFoundation_Wood_C,571,6,11
+Wooden Triangle Roof,EngramEntry_TriRoof_Wood_C,577,4,14
+Wooden Wall,EngramEntry_WoodWall_C,38,7,11
+Wooden Wall Sign,EngramEntry_WoodSign_Wall_C,63,2,19
+Wooden Window,EngramEntry_WoodWindow_C,187,6,14
+Wooden Windowframe,EngramEntry_WoodWallWithWindow_C,130,9,14
+Woolly Rhino Saddle,EngramEntry_Saddle_Rhino_C,295,24,53
+Yutyrannus Saddle,EngramEntry_Saddle_Yuty_C,464,50,80
+Zip-Line Anchor,EngramEntry_ZiplineAmmo_C,492,8,31
+Zip-Line Motor Attachment Skin,EngramEntry_ZiplineMotor_C,493,34,54
