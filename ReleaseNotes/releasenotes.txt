@@ -1,0 +1,23 @@
+﻿1.4.2.0
+- Added the ability to know if the server needs an update
+- reworked profile management in server\Profile folder for options:
+  * SelectedMap
+  * MapsFile
+  * SelectedMap
+  * CustomCommand
+  * BattlEye
+  * RespawnDinos
+  * NoWildBabies
+  * ForceAllowCaveFlyers
+  * BackupInterval
+  * BackupFilesToKeep
+  * ServerPlatform
+- Select server install path: Show current server path instead of Not_set
+- Release notes stored in a file
+- Lots of code refactoring
+
+1.4.1.0
+- Fix Wip Server button remove map in map file combobox. 
+- Moved the mod storage file to use the server folder rather than the application. You will need to add the mods again if you are coming from version 1.4.0.1 
+- Added release notes. 
+- Under development: ConfigOverrideItemCraftingCosts
