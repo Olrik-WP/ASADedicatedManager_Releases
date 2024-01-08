@@ -1,4 +1,7 @@
-﻿1.4.2.0
+﻿1.4.2.1
+- Emergency fix if no mod crash the server
+
+1.4.2.0
 - Added the ability to know if the server needs an update
 - reworked profile management in server\Profile folder for options:
   * SelectedMap
