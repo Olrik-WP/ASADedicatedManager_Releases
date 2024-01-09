@@ -1,4 +1,8 @@
-﻿1.4.2.1
+﻿1.4.2.2
+- Added google analytics stats this allows me to see how many users are using the application anonymously
+- ConfigOverrideItemCraftingCosts ready and functional but still some adjustments before release stay tuned!
+
+1.4.2.1
 - Emergency fix if no mod crash the server
 
 1.4.2.0
