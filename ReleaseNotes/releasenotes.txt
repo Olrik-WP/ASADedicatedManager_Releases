@@ -1,4 +1,12 @@
-﻿1.4.2.2
+﻿1.4.2.3
+- Releasing the ConfigOverrideItemCraftingCosts feature
+- Added the ability to delete multiple backup files
+- Added a Refresh backup file list button
+- Better error handling for World Backup
+- Improved graphics space
+- Messagebox improvement
+
+1.4.2.2
 - Added google analytics stats this allows me to see how many users are using the application anonymously
 - ConfigOverrideItemCraftingCosts ready and functional but still some adjustments before release stay tuned!
 
