@@ -10,7 +10,8 @@ TRUE,TRUE,BabyImprintingStatScaleMultiplier,Default value: 1.0Value type: floatS
 TRUE,TRUE,BabyMatureSpeedMultiplier,Default value: 1.0Value type: floatScales the maturation speed of babies. A higher number decreases (by percentage) time needed for baby tames to mature. See Times for Breeding tables for values at 1.0
 None,TRUE,bAllowUnclaimDinos,"Default value: TrueValue type: booleanIf False, prevents players to unclaim tame creatures."
 None,TRUE,bAllowCustomRecipes,"Default value: TrueValue type: booleanIf False, disabled custom RP-oriented Recipe/Cooking System (including Skill-Based results)."
-None,TRUE,bAllowFlyerSpeedLeveling,Default value: FalseValue type: booleanSpecifies whether flyer creatures can have their Movement Speed levelled up.
+FALSE,TRUE,bAllowFlyerSpeedLeveling,Default value: FalseValue type: booleanSpecifies whether flyer creatures and player character can have their Movement Speed levelled up.
+TRUE,FALSE,bAllowSpeedLeveling,Default value: FalseValue type: booleanSpecifies whether creatures can have their movement speed increased.
 None,TRUE,bAllowPlatformSaddleMultiFloors,"Default value: FalseValue type: booleanIf True, allows multiple platform floors."
 TRUE,TRUE,bAllowUnlimitedRespecs,"Default value: FalseValue type: booleanIf True, allows more than one usage of Mindwipe Tonic without 24 hours cooldown."
 None,TRUE,BaseTemperatureMultiplier,"Default value: 1.0Value type: floatSpecifies the map base temperature scaling factor: lower value makes the environment colder, higher value makes the environment hotter."

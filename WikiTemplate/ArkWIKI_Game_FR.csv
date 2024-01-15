@@ -10,7 +10,8 @@ TRUE,TRUE,BabyImprintingStatScaleMultiplier,Valeur par défaut : 1.0Type de val
 TRUE,TRUE,BabyMatureSpeedMultiplier,"Valeur par défaut : 1.0Type de valeur : floatAjuste la vitesse de maturation des bébés. Un nombre plus élevé diminue (en pourcentage) le temps nécessaire à l'apprivoisement du bébé pour mûrir. Voir les tableaux des temps de reproduction pour les valeurs à 1,0"
 None,TRUE,bAllowUnclaimDinos,"Valeur par défaut : TrueValue type : booleanIf False, empêche les joueurs de retirer les créatures apprivoisées."
 None,TRUE,bAllowCustomRecipes,"Valeur par défaut : TrueValue type : booleanIf False, système de recette/cuisine personnalisé orienté RP désactivé (y compris les résultats basés sur les compétences)."
-None,TRUE,bAllowFlyerSpeedLeveling,Valeur par défaut : FalseType de valeur : booléenSpécifie si les créatures volantes peuvent voir leur vitesse de déplacement augmenter.
+FALSE,TRUE,bAllowFlyerSpeedLeveling,Valeur par défaut : FalseType de valeur : booléenSpécifie si les créatures volantes et le joueur peuvent voir leur vitesse de déplacement augmenter.
+TRUE,FALSE,bAllowSpeedLeveling,Valeur par défaut : FalseType de valeur : booléenSpécifie si les créatures peuvent voir leur vitesse de déplacement augmenter.
 None,TRUE,bAllowPlatformSaddleMultiFloors,"Valeur par défaut : FalseType de valeur : booléenSi vrai, autorise plusieurs étages de plate-forme."
 TRUE,TRUE,bAllowUnlimitedRespecs,"Valeur par défaut : FalseType de valeur : booléenSi vrai, autorise plus d'une utilisation de Mindwipe Tonic sans temps de recharge de 24 heures."
 None,TRUE,BaseTemperatureMultiplier,"Valeur par défaut : 1.0Type de valeur : floatSpécifie le facteur d'échelle de température de base de la carte : une valeur inférieure rend l'environnement plus froid, une valeur plus élevée rend l'environnement plus chaud."

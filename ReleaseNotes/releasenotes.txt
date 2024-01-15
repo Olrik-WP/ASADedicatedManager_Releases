@@ -1,4 +1,15 @@
-﻿1.4.2.3
+﻿1.4.2.4
+- Reorganization of the main window
+- Redesign of the icon
+- Added loading screen
+- Added link to website and forum
+- Added the paypal donate button if you want to support us
+- Added New info in ConfigOverrideItemCraftingCosts
+- Added classification for AdminListURL in GameUserSettings.ini 
+- Added classification for bAllowSpeedLeveling in Game.ini  
+- Note for AdminListURL and bAllowSpeedLeveling: You must add this parameter if necessary in your ini files, ASADedicatedManager will classify them as required. If you are installing ASADedicated manager for the first time no need to add them manually.
+
+1.4.2.3
 - Releasing the ConfigOverrideItemCraftingCosts feature
 - Added the ability to delete multiple backup files
 - Added a Refresh backup file list button
