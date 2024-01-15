@@ -1,4 +1,7 @@
-﻿1.4.2.4
+﻿1.4.2.5
+- Removed ExtinctionEventTimeInterval=2592000 in GameUserSettings.ini Template file. Old Users nedd to delete this line manualy in GameUserSettings.ini For stop this event (ARKpocalypse). thx for Dimensional Star for report!
+
+1.4.2.4
 - Reorganization of the main window
 - Redesign of the icon
 - Added loading screen
