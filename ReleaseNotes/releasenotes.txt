@@ -1,4 +1,12 @@
-﻿1.4.2.5
+﻿1.4.2.6
+- Added real-time monitoring of memory used by the dedicated server
+- The ASADedicatedManager window remains in front even when the dedicated server is launched
+- The Stop server button is only available after 50 seconds
+- Launch Server is now Start server
+- Application compiled in 64-bit vs 32-bit mode This means that if you still use a 32-bit system, you will not be able to run the application.
+
+
+1.4.2.5
 - Removed ExtinctionEventTimeInterval=2592000 in GameUserSettings.ini Template file. Old Users nedd to delete this line manualy in GameUserSettings.ini For stop this event (ARKpocalypse). thx for Dimensional Star for report!
 
 1.4.2.4
