@@ -1,4 +1,7 @@
-﻿1.4.2.8
+﻿1.4.2.9
+- Emergency fix if the modInfos.json file is empty the application crashes
+
+1.4.2.8
 - fixed a bug when installing a new server indicating that serverProfil.json does not exist
 
 1.4.2.7
