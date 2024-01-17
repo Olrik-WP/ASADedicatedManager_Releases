@@ -1,4 +1,7 @@
-﻿1.4.3.1
+﻿1.4.3.2
+- Fixed ConfigOverrideItemCraftingCosts Profile server path change
+
+1.4.3.1
 - Emergency Rollback 1.4.3.0 "Creation of json files when installing a new server in a correct format" because this causes a deserialization error. last modification of the code to handle this problem
 - Fixed profile mixing bug when installing a new server while another server is already installed
 - Fixed profile mixing bug when when changing server path
