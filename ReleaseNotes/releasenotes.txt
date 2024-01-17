@@ -1,4 +1,7 @@
-﻿1.4.2.9
+﻿1.4.3.0
+- Creation of json files when installing a new server in a correct format
+
+1.4.2.9
 - Emergency fix if the modInfos.json file is empty the application crashes
 
 1.4.2.8
