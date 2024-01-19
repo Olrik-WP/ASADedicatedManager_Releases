@@ -1,4 +1,7 @@
-﻿1.4.4.0
+﻿1.4.4.1
+- Added Always on top checkbox If you don't want to keep the window in the foreground
+
+1.4.4.0
 - Complete graphic redesign and addition of the dark theme
 - Added Item Stack Tab ConfigOverrideItemMaxQuantity Feature Allows manually overriding item stack size on a per-item basis.
 - Excluded in game.ini and correctly handled if existing when writing to the file
