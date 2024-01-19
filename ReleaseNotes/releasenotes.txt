@@ -1,4 +1,34 @@
-﻿1.4.3.2
+﻿1.4.4.0
+- Complete graphic redesign and addition of the dark theme
+- Added Item Stack Tab ConfigOverrideItemMaxQuantity Feature Allows manually overriding item stack size on a per-item basis.
+- Excluded in game.ini and correctly handled if existing when writing to the file
+  * LevelExperienceRampOverrides
+  * OverrideEngramEntries
+  * OverrideNamedEngramEntries
+  * EngramEntryAutoUnlocks
+  * DinoSpawnWeightMultipliers
+  * DinoClassResistanceMultipliers
+  * TamedDinoClassResistanceMultipliers
+  * DinoClassDamageMultipliers
+  * TamedDinoClassDamageMultipliers
+  * HarvestResourceItemAmountClassMultipliers
+  * NPCReplacements
+  * ConfigOverrideItemCraftingCosts
+  * ConfigOverrideItemMaxQuantity
+  * ConfigOverrideSupplyCrateItems
+  * ConfigOverrideNPCSpawnEntriesContainer
+  * ConfigAddNPCSpawnEntriesContainer
+  * ConfigSubtractNPCSpawnEntriesContainer
+  * OverridePlayerLevelEngramPoints
+  * MutagenLevelBoost
+  * MutagenLevelBoost_Bred
+  * PerLevelStatsMultiplier
+  * PerLevelStatsMultiplier
+  * PerLevelStatsMultiplier
+  * PlayerBaseStatMultipliers
+  * ItemStatClamps
+
+1.4.3.2
 - Fixed ConfigOverrideItemCraftingCosts Profile server path change
 
 1.4.3.1
