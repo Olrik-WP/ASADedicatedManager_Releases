@@ -1,4 +1,9 @@
-﻿1.4.4.1
+﻿1.4.4.2
+- Added New WebSite and Forum https://asadedicatedmanager.eu/ https://asadedicatedmanager.eu/forum/
+- Added Guide on Forum for Existing Server Integration and Installation Guide
+- Bug Fix messagebox popup at start if server is not installed
+
+1.4.4.1
 - Added Always on top checkbox If you don't want to keep the window in the foreground
 
 1.4.4.0
