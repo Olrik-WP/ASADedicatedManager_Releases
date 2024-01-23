@@ -1,6 +1,10 @@
-﻿1.4.4.3
-- Reworked start server en stop server to use PID instead of process name (Feature request to launch multiple server with multiple ASADedicatedManager instances)
-  * be careful if you launch several servers via several instances of the manager configure different RCON ports in GUS.ini for each instance
+﻿1.4.4.4
+- Removed unwanted msgbox with pid
+- The used memory display feature now uses the PID rather than the process name
+
+1.4.4.3
+- Reworked start server and kill server to use PID instead of process name Feature request to launch multiple server with multiple ASADedicatedManager instances (NOT TESTED)
+  * be careful if you have enough RAM to launch several dedicated servers via several instances of the manager configure different RCON ports in GUS.ini for each instance. stop server and backup world use rcon if you do not modify the rcon ports it could interfere
 
 1.4.4.2
 - Added New WebSite and Forum https://asadedicatedmanager.eu/ https://asadedicatedmanager.eu/forum/
