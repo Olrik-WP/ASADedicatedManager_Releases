@@ -1,4 +1,8 @@
-﻿1.4.4.2
+﻿1.4.4.3
+- Reworked start server en stop server to use PID instead of process name (Feature request to launch multiple server with multiple ASADedicatedManager instances)
+  * be careful if you launch several servers via several instances of the manager configure different RCON ports in GUS.ini for each instance
+
+1.4.4.2
 - Added New WebSite and Forum https://asadedicatedmanager.eu/ https://asadedicatedmanager.eu/forum/
 - Added Guide on Forum for Existing Server Integration and Installation Guide
 - Bug Fix messagebox popup at start if server is not installed
