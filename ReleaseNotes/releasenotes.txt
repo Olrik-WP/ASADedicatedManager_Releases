@@ -1,4 +1,7 @@
-﻿1.4.4.5
+﻿1.4.4.6
+- Quick graphical interface fix for multihome consistency
+
+1.4.4.5
 - Add multi-home capability
   * Be careful to use the appropriate RCON IP or some features will not work!
 - Fix the tab selection color issue.
