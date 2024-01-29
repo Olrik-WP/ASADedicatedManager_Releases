@@ -1,4 +1,7 @@
-﻿1.4.4.7
+﻿1.4.4.8
+- The dedicated server deletes certain parameters from the GameUserSettings.ini if they are at 1.0 this update modifies the GameUserSettings.ini template provided by ASADedicatedManager to put the parameters at = instead of 1.0 Existing user you must update manually in the GameUserSettings.ini file see forum update note
+
+1.4.4.7
 - Quick fix On loading ASADedicatedManager adds spaces around the = signs in the GameUserSettings.ini
 
 1.4.4.6
