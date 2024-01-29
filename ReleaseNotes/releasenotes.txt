@@ -1,4 +1,7 @@
-﻿1.4.4.6
+﻿1.4.4.7
+- Quick fix On loading ASADedicatedManager adds spaces around the = signs in the GameUserSettings.ini
+
+1.4.4.6
 - Quick graphical interface fix for multihome consistency
 
 1.4.4.5
