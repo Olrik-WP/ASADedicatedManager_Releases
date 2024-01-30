@@ -1,4 +1,11 @@
-﻿1.4.4.8
+﻿1.5.0.0
+- Add Profile Management at start
+	* This allows you to launch multiple instances of ASADedicatedManager to manage multiple servers
+- Less strict command line checking
+- Select server install path button
+- Removed Open app settings button
+
+1.4.4.8
 - The dedicated server deletes certain parameters from the GameUserSettings.ini if they are at 1.0 this update modifies the GameUserSettings.ini template provided by ASADedicatedManager to put the parameters at = instead of 1.0 Existing user you must update manually in the GameUserSettings.ini file see forum update note
 
 1.4.4.7
