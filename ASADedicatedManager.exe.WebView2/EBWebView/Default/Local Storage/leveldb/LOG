@@ -1,0 +1,5 @@
+2024/01/26-14:03:54.491 7108 Creating DB H:\GIT-Local\ASADedicatedManager\ASADedicatedManager\ASADedicatedManager\bin\Release\ASADedicatedManager.exe.WebView2\EBWebView\Default\Local Storage\leveldb since it was missing.
+2024/01/26-14:03:54.518 7108 Reusing MANIFEST H:\GIT-Local\ASADedicatedManager\ASADedicatedManager\ASADedicatedManager\bin\Release\ASADedicatedManager.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
+2024/01/26-14:05:09.213 6010 Level-0 table #5: started
+2024/01/26-14:05:09.225 6010 Level-0 table #5: 29596 bytes OK
+2024/01/26-14:05:09.227 6010 Delete type=0 #3
