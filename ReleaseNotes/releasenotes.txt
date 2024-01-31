@@ -1,4 +1,7 @@
-﻿1.5.0.0
+﻿1.5.1.0
+- New functionality AltSaveDirectoryName in the map management tab will be used for MAP and BACKUP automatically adds the correct parameter when launching the server?AltSaveDirectoryName=SelectedFolder. If the checkbox "Use Custom map folder and Add in command line: ?AltSaveDirectoryName=" is checked you can create as many maps as you want in this new alternative directory
+
+1.5.0.0
 - Add Profile Management at start
 	* This allows you to launch multiple instances of ASADedicatedManager to manage multiple servers
 - Less strict command line checking
@@ -128,9 +131,9 @@
 1.4.2.0
 - Added the ability to know if the server needs an update
 - reworked profile management in server\Profile folder for options:
-  * SelectedMap
-  * MapsFile
-  * SelectedMap
+  * MapFile
+  * MapFolder
+  * MapFile
   * CustomCommand
   * BattlEye
   * RespawnDinos
