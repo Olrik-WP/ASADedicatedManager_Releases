@@ -1,4 +1,9 @@
-﻿1.5.1.1
+﻿1.5.2.0
+- Lots of style modifications
+- Review of the main window and all tabs and placement of objects to adapt the window to small screens
+
+
+1.5.1.1
 - Updated the Wipe Server function for custom maps
 - Added a visual in the main window to know if Custom map folder is active
 
