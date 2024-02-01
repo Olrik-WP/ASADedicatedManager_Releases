@@ -1,4 +1,9 @@
-﻿1.5.1.0
+﻿1.5.1.1
+- Updated the Wipe Server function for custom maps
+- Added a visual in the main window to know if Custom map folder is active
+
+
+1.5.1.0
 - New functionality AltSaveDirectoryName in the map management tab will be used for MAP and BACKUP automatically adds the correct parameter when launching the server?AltSaveDirectoryName=SelectedFolder. If the checkbox "Use Custom map folder and Add in command line: ?AltSaveDirectoryName=" is checked you can create as many maps as you want in this new alternative directory
 
 1.5.0.0
