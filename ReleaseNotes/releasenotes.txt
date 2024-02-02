@@ -1,4 +1,10 @@
-﻿1.5.2.0
+﻿1.5.3.0
+- Added system tray minimize option, special thanks to @leyshonusmc for the idea
+- First implementation of the new tab for the Server Management tab. Currently allows you to plan a basic server restart If the server is started. More to follow but the skeleton is implemented, special thanks to @arkdex for the idea
+- Review of the server shutdown function to wait for the server to complete successfully
+
+
+1.5.2.0
 - Lots of style modifications
 - Review of the main window and all tabs and placement of objects to adapt the window to small screens
 
