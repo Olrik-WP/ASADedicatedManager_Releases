@@ -1,5 +1,8 @@
-﻿1.5.3.1
-- fixed a bug that deletes the rest of the text after spaces in the SessionName. thanks to @ArkDex @bomber for the reporting
+﻿1.5.3.2
+- Fixed a bug that ForceAllowCaveFlyers checkbox Notworking. thanks to @leyshonusmc for the reporting
+
+1.5.3.1
+- Fixed a bug that deletes the rest of the text after spaces in the SessionName. thanks to @ArkDex @bomber for the reporting
 
 1.5.3.0
 - Added system tray minimize option, special thanks to @leyshonusmc for the idea
