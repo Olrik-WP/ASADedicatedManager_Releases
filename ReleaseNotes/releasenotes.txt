@@ -1,4 +1,10 @@
-﻿1.5.3.2
+﻿1.5.4.0
+- New advanced method for Server Management tab.
+	* A lot of code was modified in the launch, shutdown and update of the server I'll let you report any new bugs. Unfortunately I haven't had internet for 2 days it's complicated for me to test correctly. So I couldn't provide you the RCON schedule message for this update... stay tuned :)
+- Added a log panel for the autoschedule and this includes the removal of messageboxes that occur in manual mode (with buttons: start, stop, update)
+- All checkbox saving methods have been redone to simplify the code
+
+1.5.3.2
 - Fixed a bug that ForceAllowCaveFlyers checkbox Notworking. thanks to @leyshonusmc for the reporting
 
 1.5.3.1
