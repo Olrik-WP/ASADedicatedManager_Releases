@@ -1,4 +1,4 @@
-﻿1.5.4.3
+﻿1.5.4.4
 - Fix of the Update ARK server button which sends lots of unwanted messageboxes. Correct redirection to the logs in automatic and manual mode
 - Fix Auto schedule logs Scrollviewer
 - Fix the update remains blocked because two manager instances are launched
