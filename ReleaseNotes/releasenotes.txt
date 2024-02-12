@@ -1,4 +1,7 @@
-﻿1.5.4.1
+﻿1.5.4.2
+- Emergency fix for dinos not appearing. Go to the forum for details topic: (latest-updates) to resolve temporarily click on the Reset server config file button be careful this will reset all your settings otherwise you can make the changes manually read the forum
+
+1.5.4.1
 - Quick Fix for Shutdown Server CheckBox unchecked don't stop the timer
 
 1.5.4.0
