@@ -1,4 +1,10 @@
-﻿1.5.4.4
+﻿1.5.5.0
+- Added RCON Automatic message before shutdown every 15,10,5,1 minutes
+- Added RCON Manual message button for send any personal messages. Leave your mouse on the textbox for more info
+- Added the Verify button to check if the server is up to date without having to restart the program
+- ServerManagement tab UI reworked
+
+1.5.4.4
 - Fix of the Update ARK server button which sends lots of unwanted messageboxes. Correct redirection to the logs in automatic and manual mode
 - Fix Auto schedule logs Scrollviewer
 - Fix the update remains blocked because two manager instances are launched
