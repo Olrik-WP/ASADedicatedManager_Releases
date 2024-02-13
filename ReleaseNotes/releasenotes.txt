@@ -1,4 +1,8 @@
-﻿1.5.5.0
+﻿1.5.6.0
+- To prevent parameter deletion from Game.ini and GameUserSettings.ini by the dedicated server, a solution involves setting these files to read-only upon server start and reversing this when the server stops, with additional measures for emergency unlocking, amidst a lack of alternative lasting solutions and hope for a fix from wildcard studio.
+- See the forum Latest Updates 1.5.6.0 for more info
+
+1.5.5.0
 - Added RCON Automatic message before shutdown every 15,10,5,1 minutes
 - Added RCON Manual message button for send any personal messages. Leave your mouse on the textbox for more info
 - Added the Verify button to check if the server is up to date without having to restart the program
