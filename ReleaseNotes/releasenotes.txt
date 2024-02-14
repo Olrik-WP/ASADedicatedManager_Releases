@@ -1,4 +1,7 @@
-﻿1.5.8.1
+﻿1.5.9.0
+- Added Cluster Management
+
+1.5.8.1
 - Added the list of connected players with their ID in the Server Management tab
 - Added the number of players connected to the main window
 
