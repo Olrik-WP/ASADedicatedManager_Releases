@@ -1,5 +1,17 @@
-﻿1.5.9.0
-- Added Cluster Management
+﻿1.6.0.0
+- You can now load all your servers into the interface, it is no longer necessary to launch 2 managers
+- Full implementation of the ProfileManager
+- Added drop-down menu for profile management
+- Added drop-down menu for Always on top
+- Added CPU Priority in Command Line Tab
+- Fixed Cluster CheckBox not saved
+- Completely refactoring systrazy for server tab
+- The function that checks if the server has started is now real rather than based on a timer
+- Added a RCON port check when loading the profile
+- Added Classification for DisableCryopodEnemyCheck, AllowCryoFridgeOnSaddle, DisableCryopodFridgeRequirement You can add them manually in GameUserSettings.ini or use the Reset server config file button Please note this resets your default settings
+- Added Classification for DestroyTamesOverTheSoftTameLimit, MaxTamedDinos_SoftTameLimit, MaxTamedDinos_SoftTameLimit_CountdownForDeletionDuration You can add them manually in GameUserSettings.ini or use the Reset server config file button Please note this resets your default settings
+- Moving the IP address save to the server profile rather than the general save
+- Added dark theme to MainWindow
 
 1.5.8.1
 - Added the list of connected players with their ID in the Server Management tab
