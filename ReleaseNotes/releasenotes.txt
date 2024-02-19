@@ -1,4 +1,7 @@
-﻿1.6.0.0
+﻿1.6.0.1
+- Added contributors and acknowledgments window
+
+1.6.0.0
 - You can now load all your servers into the interface, it is no longer necessary to launch 2 managers
 - Full implementation of the ProfileManager
 - Added drop-down menu for profile management
