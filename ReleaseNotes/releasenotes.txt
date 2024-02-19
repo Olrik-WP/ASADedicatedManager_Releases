@@ -1,4 +1,7 @@
-﻿1.6.0.1
+﻿1.6.0.2
+- Fix contributors date
+
+1.6.0.1
 - Added contributors and acknowledgments window
 
 1.6.0.0
