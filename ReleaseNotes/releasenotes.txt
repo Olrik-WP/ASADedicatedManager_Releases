@@ -1,4 +1,12 @@
-﻿1.6.0.2
+﻿1.6.1.0
+- Enhanced error handling in WebView2: Now includes better exception management.
+- Profile manager now supports persistence: it saves and restores the last open tab.
+- Deleting a profile also removes its saved tab entry.
+- Profiles cannot be deleted if their tab is currently open.
+- Dark theme for the main window has been updated.
+- Dark theme for the profile window has been updated.
+
+1.6.0.2
 - Fix contributors date
 
 1.6.0.1
