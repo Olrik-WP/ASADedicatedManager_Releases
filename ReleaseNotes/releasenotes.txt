@@ -1,4 +1,7 @@
-﻿1.6.1.0
+﻿1.6.1.1
+- Fix for Full Screen Mode Bug Causing Windows Taskbar Disappearance
+
+1.6.1.0
 - Enhanced error handling in WebView2: Now includes better exception management.
 - Profile manager now supports persistence: it saves and restores the last open tab.
 - Deleting a profile also removes its saved tab entry.
