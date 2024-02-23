@@ -1,4 +1,7 @@
-﻿1.6.1.1
+﻿1.6.1.2
+- Prerelease try fix webview2 problem in multiple tab
+
+1.6.1.1
 - Fix for Full Screen Mode Bug Causing Windows Taskbar Disappearance
 
 1.6.1.0
