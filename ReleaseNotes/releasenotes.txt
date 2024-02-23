@@ -1,4 +1,8 @@
-﻿1.6.1.2
+﻿1.6.1.3
+- Confirmed fix for webview2 problem in multiple tab (introducted with multiple profile open)
+- Clean the webview2 directory which can quickly grow given that now the webview2 is autonomous by profiles
+
+1.6.1.2
 - Prerelease try fix webview2 problem in multiple tab
 
 1.6.1.1
