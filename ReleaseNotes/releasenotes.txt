@@ -1,4 +1,7 @@
-﻿1.6.1.4
+﻿1.6.1.5
+- Added configuration of backup times over several days and more time range
+
+1.6.1.4
 - Moved server memory and player count display to the correct location
 - Changing the release notes display
 - Moved all buttons not linked to the server in the main window interface
