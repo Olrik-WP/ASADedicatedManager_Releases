@@ -1,4 +1,9 @@
-﻿1.6.1.6
+﻿1.6.1.7
+- Updated release notes for 1.6.1.6 add missing:
+ * Deleting the profile now deletes the folder from the server be careful
+
+1.6.1.6
+- Deleting the profile now deletes the folder from the server be careful
 - Add a time counter after server startup
 - Bug fix report for profile creation issue
   * Added an Initialize a new profile button
