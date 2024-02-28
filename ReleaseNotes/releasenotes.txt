@@ -1,4 +1,10 @@
-﻿1.6.1.5
+﻿1.6.1.6
+- Add a time counter after server startup
+- Bug fix report for profile creation issue
+  * Added an Initialize a new profile button
+  * locking buttons that could impact the creation of the profile folder due to misunderstanding of the mechanism
+
+1.6.1.5
 - Added configuration of backup times over several days and more time range
 
 1.6.1.4
