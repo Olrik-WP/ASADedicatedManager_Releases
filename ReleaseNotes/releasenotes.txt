@@ -1,4 +1,7 @@
-﻿1.6.1.8
+﻿1.6.1.9
+- Emergency fix for update server and verify not working after 1.6.1.8
+
+1.6.1.8
 - Finalizing the profile creation process
 - Update the profile manager interface for greater clarity
 - If the profile.json does not exist display the profile creation window (in addition to checking if no profile exists) 
