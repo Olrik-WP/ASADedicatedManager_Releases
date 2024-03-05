@@ -1,4 +1,7 @@
-﻿1.6.2.0
+﻿1.6.2.1
+- Add a launch check and error message if GameUserSettings.ini contains duplicate key. Thanks to @pollyetta for the report
+
+1.6.2.0
 - First integration of the gameservershub.com loader API, there is still a lot to do to integrate it correctly but here is the basis which will allow you to at least launch the server with the API
 * Shortly:
 ** Plugin management
