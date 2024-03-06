@@ -1,4 +1,7 @@
-﻿1.6.2.4
+﻿1.6.2.5
+- Small correction of text and buttons from the last update
+
+1.6.2.4
 - Added a button that will allow you to automatically add your mod configurations in GameUserSettings.ini
 - Better error handling in case of missing port, warn the user and try to report and find the error
 - Improvement of the server startup code
