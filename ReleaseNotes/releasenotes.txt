@@ -1,4 +1,10 @@
-﻿1.6.2.3
+﻿1.6.2.4
+- Added a button that will allow you to automatically add your mod configurations in GameUserSettings.ini
+- Better error handling in case of missing port, warn the user and try to report and find the error
+- Improvement of the server startup code
+- Display of duplicate RCON port dialog box corrected because displayed too early
+
+1.6.2.3
 - Added the integration of the management of personalized mods in the GUS.ini they will be displayed in the Mod Settings Or Unclassified Settings section this will allow you to manage the configuration of your mods more easily
 
 1.6.2.1
