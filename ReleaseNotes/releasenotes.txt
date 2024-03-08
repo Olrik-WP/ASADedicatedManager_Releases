@@ -1,4 +1,9 @@
-﻿1.6.2.8
+﻿1.6.2.9
+- Added new command line: servergamelog, servergamelogincludetribelogs, ServerRCONOutputTribeLogs
+- Updated cluster checkbox deactivation behavior
+- Deleting unnecessary ASADedicatedManager.exe.WebView2 folder
+
+1.6.2.8
 - Added new command line: DisableCustomCosmeticsCheckBox, noundermeshchecking, noundermeshkilling
 - Updated donator list
 
