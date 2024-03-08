@@ -1,4 +1,7 @@
-﻿1.6.2.6
+﻿1.6.2.7
+- Quick fix for GBUsageToForceRestart note working
+
+1.6.2.6
 - Added new command line: GBUsageToForceRestart, culture, NoTransferFromFiltering
 
 1.6.2.5
