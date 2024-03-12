@@ -1,4 +1,15 @@
-﻿1.6.2.9
+﻿1.6.3.0
+- Graphical redesign of the Command line tab
+- Added new command line: ServerIP,NoAI,NoDinos,NoDinosExceptForcedSpawn,NoDinosExceptStreamingSpawn,NoDinosExceptManualSpawn,NoDinosExceptWaterSpawn,forceuseperfthreads,noperfthreads,nosound,onethread,disabledinonetrangescaling,UnstasisDinoObstructionCheck,AlwaysTickDedicatedSkeletalMeshes,AutoDestroyStructures,StasisKeepControllers,disableCharacterTracker,UseServerNetSpeedCheck,exclusivejoin,ignoredupeditems
+- Added public IP display
+- Added Use Local Ip  button
+- Added Use External Ip button
+- Added Auto Add External IP Checkbox
+- Updated ip Address selected for RCON combobox deactivation behavior
+- Added unique activation behavior of certain checkboxes depending on the need
+- Better message for application rollback
+
+1.6.2.9
 - Added new command line: servergamelog, servergamelogincludetribelogs, ServerRCONOutputTribeLogs
 - Updated cluster checkbox deactivation behavior
 - Deleting unnecessary ASADedicatedManager.exe.WebView2 folder
