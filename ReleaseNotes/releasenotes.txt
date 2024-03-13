@@ -1,4 +1,10 @@
-﻿1.6.3.0
+﻿1.6.4.0
+- Added a language menu
+- Added a start of translation of the UI into French (main interface)
+- Added information on each Option in the command lines tab in English and French
+- Updated text color for necessary update
+
+1.6.3.0
 - Graphical redesign of the Command line tab
 - Added new command line: ServerIP,NoAI,NoDinos,NoDinosExceptForcedSpawn,NoDinosExceptStreamingSpawn,NoDinosExceptManualSpawn,NoDinosExceptWaterSpawn,forceuseperfthreads,noperfthreads,nosound,onethread,disabledinonetrangescaling,UnstasisDinoObstructionCheck,AlwaysTickDedicatedSkeletalMeshes,AutoDestroyStructures,StasisKeepControllers,disableCharacterTracker,UseServerNetSpeedCheck,exclusivejoin,ignoredupeditems
 - Added public IP display
