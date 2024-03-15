@@ -1,10 +1,12 @@
-﻿1.6.4.1
-- Added ability to copy mods list for past it in another profile
-- Added ability to add mods manually
-- Added Server Version
-- Add custom mod settings disabled when server is running
-- Remove Read-Only disabled when server is running
-- Fix for a potential crash in the logwatcher to retrieve the server's started status
+﻿1.6.4.2
+- Improved the method for retrieving server version
+- Improvement the method which allows to know if the server is started
+
+1.6.4.1
+- Added a language menu
+- Added a start of translation of the UI into French (main interface)
+- Added information on each Option in the command lines tab in English and French
+- Updated text color for necessary update
 
 1.6.4.0
 - Added a language menu
