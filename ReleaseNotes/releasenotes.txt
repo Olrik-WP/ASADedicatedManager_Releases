@@ -1,4 +1,9 @@
-﻿1.6.4.2
+﻿1.6.4.3
+- Added more RCON messages when stopping the server previously 15, 10, 5, 1 minute now 15, 10, 5, 4, 3, 2, 1
+- Improved the restart calculation method to display RCON messages correctly in advanced mode
+- Translation of the restart message into French if the language is selected from the language menu
+
+1.6.4.2
 - Improved the method for retrieving server version
 - Improvement the method which allows to know if the server is started
 
