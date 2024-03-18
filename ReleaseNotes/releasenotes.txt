@@ -1,4 +1,8 @@
-﻿1.6.4.4
+﻿1.6.4.5
+- Moved the list of connected players to the right place
+- Added a right-click menu on the list of connected players to copy the data
+
+1.6.4.4
 - Small translation advancement: Tab translation
 
 1.6.4.3
