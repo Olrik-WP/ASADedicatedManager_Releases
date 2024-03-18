@@ -1,4 +1,10 @@
-﻿1.6.4.5
+﻿1.6.4.6
+- Complete review of the backup method so as not to block the user window during a manual backup
+- Wait 30 seconds before creating the zip after saveworld instead of 10 seconds for more security
+- Small advance in translation: Server management tab translated into French
+- Small advance in translation: Backup tab translated into French
+
+1.6.4.5
 - Moved the list of connected players to the right place
 - Added a right-click menu on the list of connected players to copy the data
 
