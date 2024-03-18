@@ -1,4 +1,7 @@
-﻿1.6.4.7
+﻿1.6.4.8
+- Quick graphic fix for Personal RCON Message for Server Startup and Shutdown
+
+1.6.4.7
 - Added Personal RCON Message for Server Startup and Shutdown notes that the number of minutes remaining will be displayed at the end of the message
 
 1.6.4.6
