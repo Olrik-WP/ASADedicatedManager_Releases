@@ -1,4 +1,7 @@
-﻿1.6.5.0
+﻿1.6.5.1
+- Quick fix for the English translation of Reload Gus.ini where the text did not appear
+
+1.6.5.0
 - Small change in the size of the window to adapt to the content
 - Big advance in translation: All tab translated into French at 99%
 - Fixed bug that did not display if Custom Map is active after restarting the application
