@@ -1,4 +1,10 @@
-﻿1.6.4.9
+﻿1.6.5.0
+- Small change in the size of the window to adapt to the content
+- Big advance in translation: All tab translated into French at 99%
+- Fixed bug that did not display if Custom Map is active after restarting the application
+- Fixed bug where Always on Top is enabled by default
+
+1.6.4.9
 - Added PVP PVE filter in the gus.ini and game.ini tabs
 - Added Toggle Expanders button in the gus.ini and game.ini tabs
 - Reviewed the placement of buttons in the gus.ini and game.ini tabs
