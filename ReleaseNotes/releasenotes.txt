@@ -1,4 +1,9 @@
-﻿1.6.4.8
+﻿1.6.4.9
+- Added PVP PVE filter in the gus.ini and game.ini tabs
+- Added Toggle Expanders button in the gus.ini and game.ini tabs
+- Reviewed the placement of buttons in the gus.ini and game.ini tabs
+
+1.6.4.8
 - Quick graphic fix for Personal RCON Message for Server Startup and Shutdown
 
 1.6.4.7
