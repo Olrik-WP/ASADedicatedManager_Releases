@@ -1,4 +1,8 @@
-﻿1.6.5.1
+﻿1.6.5.2
+- End of tab translation into French 
+- Removed ActiveMods ActiveMapMod in template for Gus.ini (not used old config for Evolved) only new users are affected.
+
+1.6.5.1
 - Quick fix for the English translation of Reload Gus.ini where the text did not appear
 
 1.6.5.0
