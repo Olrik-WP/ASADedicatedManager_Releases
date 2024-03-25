@@ -1,4 +1,7 @@
-﻿1.6.5.3
+﻿1.6.5.4
+- Fix 1 Memory leak identified on GetProcessInfos is not disposed correctly
+
+1.6.5.3
 - Finalization of tab translation into French at 100%
 - Fixed a bug in saving server version
 
