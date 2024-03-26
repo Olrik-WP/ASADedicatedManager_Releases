@@ -1,4 +1,7 @@
-﻿1.6.5.6
+﻿1.6.5.7
+- The verify button also updates the version and status of official servers
+
+1.6.5.6
 - Updated API to https://github.com/ArkServerApi/AsaApi vs old https://github.com/ServersHub/AsaApiLoader
 - Added Official server status on main tab
 
