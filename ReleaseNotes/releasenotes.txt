@@ -1,4 +1,8 @@
-﻿1.6.5.5
+﻿1.6.5.6
+- Updated API to https://github.com/ArkServerApi/AsaApi vs old https://github.com/ServersHub/AsaApiLoader
+- Added Official server status on main tab
+
+1.6.5.5
 - Fixed an issue where personalized RCON messages were not properly sent based on the Personal message CheckBox state during scheduled events. Now, custom messages are correctly handled for both manual sends and scheduled notifications, adhering to user preferences.
 
 1.6.5.4
