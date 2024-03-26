@@ -1,4 +1,7 @@
-﻿1.6.5.4
+﻿1.6.5.5
+- Fixed an issue where personalized RCON messages were not properly sent based on the Personal message CheckBox state during scheduled events. Now, custom messages are correctly handled for both manual sends and scheduled notifications, adhering to user preferences.
+
+1.6.5.4
 - Fix 1 Memory leak identified on GetProcessInfos is not disposed correctly
 
 1.6.5.3
