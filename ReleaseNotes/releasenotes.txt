@@ -1,4 +1,9 @@
-﻿1.6.5.7
+﻿1.6.6.0
+- Crash Detection and Restart: Added the server monitoring to detect server crashes effectively. Upon identifying a crash, the system attempts an automatic restart, ensuring minimal downtime and improved reliability.
+- Automated Maintenance Handling: We've implemented a mechanism that automatically disables and re-enables automatic server restart during scheduled maintenance activities. This ensures that server maintenance, including updates and shutdowns, can be performed without triggering unintended restarts.
+- Don't forget the state of the check box is not saved this is intentional and forces you to check it each time you start or after each intentional shutdown
+
+1.6.5.7
 - The verify button also updates the version and status of official servers
 
 1.6.5.6
