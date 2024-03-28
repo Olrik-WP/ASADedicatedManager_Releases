@@ -1,4 +1,10 @@
-﻿1.6.7.1
+﻿1.6.8.0
+- Profil Manager: Added option to copy either the entire server or just the Profile directory.
+- Profil Manager: Implemented non-blocking UI with progress indication for server copy operations.
+- Profil Manager: Standardized ProfilesComboBox behavior post-folder selection, ensuring consistency.
+- Profil Manager: General code improvements for better readability and maintainability.
+
+1.6.7.1
 - Fixed a graphical bug in cluster path textbox text hidden if to long
 
 1.6.7.0
