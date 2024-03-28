@@ -1,4 +1,7 @@
-﻿1.6.8.1
+﻿1.6.8.2
+- V2 Try fix Multihome ip is not used in RCON for stop server and show ip used at start en stop
+
+1.6.8.1
 - Try fix Multihome ip is not used in RCON for stop server and show ip used at start en stop
 
 1.6.8.0
