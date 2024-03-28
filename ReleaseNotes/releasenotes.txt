@@ -1,4 +1,7 @@
-﻿1.6.8.3
+﻿1.6.8.4
+- MAP: Try add Scorched Earth before release ScorchedEarth_P Please note the name of the map is currently unknown, it may not work upon release, an update will be published to correct it if this is the case.
+
+1.6.8.3
 - Profil Manager: Fixed a major bug deletion of the file storing the server pid when copying the profile this could interfere with your running server and the copied server !
 - Profil Manager: When deleting the profile fixed a bug that prevented the deletion of a profile copied from a running server
 - Profil Manager: Removed log copy when a full server is copied
