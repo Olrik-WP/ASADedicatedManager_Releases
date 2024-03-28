@@ -1,4 +1,11 @@
-﻿1.6.8.2
+﻿1.6.8.3
+- Profil Manager: Fixed a major bug deletion of the file storing the server pid when copying the profile this could interfere with your running server and the copied server !
+- Profil Manager: When deleting the profile fixed a bug that prevented the deletion of a profile copied from a running server
+- Profil Manager: Removed log copy when a full server is copied
+- Systray: Update the message box if you close the manager while the servers are still running
+- Remove debug from previous version for false Multihome ip is not used in RCON for stop server, it was not a bug but a configuration problem reported by a user
+
+1.6.8.2
 - V2 Try fix Multihome ip is not used in RCON for stop server and show ip used at start en stop
 
 1.6.8.1
