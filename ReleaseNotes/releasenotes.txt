@@ -1,4 +1,7 @@
-﻿1.6.8.0
+﻿1.6.8.1
+- Try fix Multihome ip is not used in RCON for stop server and show ip used at start en stop
+
+1.6.8.0
 - Profil Manager: Added option to copy either the entire server or just the Profile directory.
 - Profil Manager: Implemented non-blocking UI with progress indication for server copy operations.
 - Profil Manager: Standardized ProfilesComboBox behavior post-folder selection, ensuring consistency.
