@@ -1,4 +1,7 @@
-﻿1.6.7.0
+﻿1.6.7.1
+- Fixed a graphical bug in cluster path textbox text hidden if to long
+
+1.6.7.0
 - Regain control of the servers when the manager is closed and reopened while the servers are still running. This update enables seamless manager updates without impacting server operations.
 - Added automatic start server when launching the Manager, this automatically activates the Crash detection for you
 - Fixed a bug that prevented crash detection from being disabled when stopping or killing the server under certain conditions
