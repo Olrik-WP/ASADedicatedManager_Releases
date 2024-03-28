@@ -1,4 +1,17 @@
-﻿1.6.6.1
+﻿1.6.7.0
+- Regain control of the servers when the manager is closed and reopened while the servers are still running. This update enables seamless manager updates without impacting server operations.
+- Added automatic start server when launching the Manager, this automatically activates the Crash detection for you
+- Fixed a bug that prevented crash detection from being disabled when stopping or killing the server under certain conditions
+- Fixed a graphical bug in the mod tab which could cause the button to add mods manually to disappear
+- Fixed a graphics bug that could cause text to overflow
+- Fixed a bug that could lead to a memory leak on the logwatcher which allows you to know the server version and if the server has started. Correct memory cleaning in the event of a shutdown via the stop or kill server button
+- Reset server configuration and Delete game save are now disabled when the server is launched
+- Translation: Added Portuguese - Brazil thanking ArkDex @arkdex for the contribution !
+- Credits: Added new contributor
+- Credits: Added new contributor for Discord Server
+- Credits: Added new contributor for translation
+
+1.6.6.1
 - Crash Detection: Fixed a bug that restarted the server during scheduled maintenance if the server is only shut down without a scheduled restart. This update prevents the crash detection setting from being re-enabled if the server is just shut down.
 
 1.6.6.0
