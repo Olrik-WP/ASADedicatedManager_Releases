@@ -1,4 +1,10 @@
-﻿1.6.8.4
+﻿1.6.8.5
+- MAP Added ScorchedEarth_WP, Everyone in 1.6.8.4 can delete the ScorchedEarth_P folder and file which was not the correct name anticipated. Normally this is automatically done for you
+- *PLEASE READ:
+- !! You must launch the manager as Administrator for the card folder to be created
+- !! You will have to restart the manager after the first launch to see ScorchedEarth_WP appear
+
+1.6.8.4
 - MAP: Try add Scorched Earth before release ScorchedEarth_P Please note the name of the map is currently unknown, it may not work upon release, an update will be published to correct it if this is the case.
 
 1.6.8.3
