@@ -1,3 +1,13 @@
+﻿1.6.8.6
+- Critical BUG fix: API Loader, process is not correctly identified if multiple servers are launched
+- Review and update the interface for the GameUserSettings.ini and Game.ini tabs
+- Improved Search fonction to new interface in Game.ini and GameUserSettings.ini
+- Update PVP PVE filter to New Interface in GUS.ini and GameUserSettings.ini
+- Fix: Server Update, Updated message box to ask to reinstall Steam cmd if file is missing
+- Translation: Added  Spanish, Castellano thanking @Stevie senpai for the contribution !
+- Credits: Added new contributors
+- Credits: Added new contributor for translation
+
 ﻿1.6.8.5
 - MAP Added ScorchedEarth_WP, Everyone in 1.6.8.4 can delete the ScorchedEarth_P folder and file which was not the correct name anticipated. Normally this is automatically done for you
 - *PLEASE READ:
