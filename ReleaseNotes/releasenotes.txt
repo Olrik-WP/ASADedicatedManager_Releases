@@ -1,4 +1,9 @@
-﻿1.6.8.7
+﻿1.6.9.0
+- Complete review of the recovery of the server's pid in the launch of the server when the apiloader is used we will now recover the pid of the dedicated server rather than the apiloader
+- Complete review of the automatic server launch when starting the application to launch them sequentially from the mainwindow rather than from the usercontrol (tabs) this allows the servers to be launched sequentially and avoid pid mixtures
+- Implementation of a method in the mainwindow to manage the state of the Start Server buttons of each usercontrol (tab) and lock them as long as the pid of the launched server is not retrieved, this implies a delay for users before being able to launch a second server in the tabs
+
+1.6.8.7
 - Player list extended to the entire space
 
 1.6.8.6
