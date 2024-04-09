@@ -1,4 +1,7 @@
-﻿1.7.0.0
+1.7.0.1
+Implementation of periodic checking of the availability of a manager update every hour
+
+1.7.0.0
 - Critical bug fix: Fixed a critical bug which caused the user interface to hang at each automatic backup if several servers were launched, this caused an interminable blocking of the application (note: manual backup was not affected)
 - Bug fix: Fixed a bug that deleted API plugins when updating the API
 - Added the ability to shrink the window horizontally for small screens
