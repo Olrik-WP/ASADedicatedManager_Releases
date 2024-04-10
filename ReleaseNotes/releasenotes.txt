@@ -1,3 +1,6 @@
+1.7.1.2
+- One minute withdrawal used for testing the DestroyWildDinos combobox
+
 1.7.1.1
 - Fixed a critical bug in the server kill method introduced in 1.7.1.0 where the interface was no longer updated as well as all related statuses
 - Display of remaining time for the DestroyWildDinos timer
