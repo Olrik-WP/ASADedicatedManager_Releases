@@ -1,3 +1,12 @@
+1.7.1.0
+- Added the DestroyWildDinos functionality with possible planning and correct management: For the implementation we save the world with a full backup (zip), we make sure that no automated planned backup is in progress. And we are performing a DestroyWildDinos
+- It is no longer possible to stop or kill the server when a backup is in progress to avoid corruption of a save, a wait is carried out, the shutdown order is recorded and carried out at the end of the backup. This also applies to automatic scheduling.
+- Added the sending of an RCON message to players each time they save or launch DestroyWildDinos
+- Updated the display format of the "Last Check" time indicator to enhance UI compactness. The text now utilizes a concise prefix and shows only the time of the last check for manager update.
+- Translation: Added  Russian thanking @Mr.1 for the contribution !
+- Translation: Added  Chinese (China) fro main inerface thanking @EmptyDream for the contribution !
+- Credits: Added new contributors
+
 1.7.0.1
 Implementation of periodic checking of the availability of a manager update every hour
 
