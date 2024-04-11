@@ -1,3 +1,8 @@
+1.7.2.1
+- Single Instance Enforcement: Introduced a custom modal dialog to ensure that only one instance of the application can run at a time. 
+	If a second instance is attempted, a user-friendly dialog window now appears, informing the user that the application is already running.
+	This window remains visible until the user acknowledges it by clicking "OK", ensuring clear communication and preventing unintentional multiple instances.
+
 1.7.2.0
 - GameUserSettings.ini:
 	* Changed the duplicate checking method to allow duplicates in different sections
