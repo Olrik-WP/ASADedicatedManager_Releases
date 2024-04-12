@@ -1,7 +1,13 @@
+1.7.3.0
+- Added dark style to the manager's multiple instance verification window
+- The manager now launches in the center of the screen
+- Implemented an asynchronous ConfigureProcessAffinityAsync method to set CPU affinity after two minutes ensuring server process stability.
+- Bug Fix: Enhanced the Timer DestroyDinos to include days in the time remaining display. Previously, the timer only showed hours, minutes, and seconds. 
+
 1.7.2.1
 - Single Instance Enforcement: Introduced a custom modal dialog to ensure that only one instance of the application can run at a time. 
-	If a second instance is attempted, a user-friendly dialog window now appears, informing the user that the application is already running.
-	This window remains visible until the user acknowledges it by clicking "OK", ensuring clear communication and preventing unintentional multiple instances.
+If a second instance is attempted, a user-friendly dialog window now appears, informing the user that the application is already running.
+This window remains visible until the user acknowledges it by clicking "OK", ensuring clear communication and preventing unintentional multiple instances.
 
 1.7.2.0
 - GameUserSettings.ini:
