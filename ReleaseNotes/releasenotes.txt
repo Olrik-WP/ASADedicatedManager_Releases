@@ -1,3 +1,7 @@
+1.7.3.1
+- Enhanced CPU Affinity Setting: Improved error handling and added validation checks for CPU core index and selection in SetProcessAffinity method to prevent incorrect parameter errors and ensure robust configuration.
+- Enhanced 64-bit Compatibility: Updated CPU affinity mask calculation to use ulong for full 64-bit support, ensuring compatibility with systems having a large number of processors.
+
 1.7.3.0
 - Added dark style to the manager's multiple instance verification window
 - The manager now launches in the center of the screen
