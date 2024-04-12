@@ -1,3 +1,6 @@
+1.7.4.0
+- Updated application manifest to require administrator privileges on startup, ensuring elevated permissions for all operations.
+
 1.7.3.1
 - Enhanced CPU Affinity Setting: Improved error handling and added validation checks for CPU core index and selection in SetProcessAffinity method to prevent incorrect parameter errors and ensure robust configuration.
 - Enhanced 64-bit Compatibility: Updated CPU affinity mask calculation to use ulong for full 64-bit support, ensuring compatibility with systems having a large number of processors.
