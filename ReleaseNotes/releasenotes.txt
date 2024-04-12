@@ -1,3 +1,6 @@
+1.7.4.1
+- Added the ability to not display ingame save messages
+
 1.7.4.0
 - Updated application manifest to require administrator privileges on startup, ensuring elevated permissions for all operations.
 

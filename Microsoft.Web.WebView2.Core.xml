@@ -68,6 +68,22 @@
             <summary>
             WebView2 enables you to host web content using the latest Microsoft Edge browser and web technology.
             </summary>
+            <summary>
+            WebView2 enables you to host web content using the latest Microsoft Edge browser and web technology.
+            </summary>
+            <summary>
+            WebView2 enables you to host web content using the latest Microsoft Edge browser and web technology.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2.CreateFromComICoreWebView2(System.IntPtr)">
+            <summary>
+            Creates a CoreWebView2 object that wraps an existing COM ICoreWebView2 object.
+            This allows interacting with the CoreWebView2 using .NET, even if it was originally created using COM.
+            </summary>
+            <param name="value">Pointer to a COM object that implements the ICoreWebView2 COM interface.</param>
+            <returns>Returns a .NET CoreWebView2 object that wraps the COM object.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when the provided COM pointer is null.</exception>
+            <exception cref="T:System.Runtime.InteropServices.InvalidComObjectException">Thrown when the value is not an ICoreWebView2 COM object and cannot be wrapped.</exception>
         </member>
         <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2.PrintToPdfAsync(System.String,Microsoft.Web.WebView2.Core.CoreWebView2PrintSettings)">
              <summary>
@@ -81,6 +97,22 @@
              The async PrintToPdf operation completes when the data has been written to the PDF file. If the application exits before printing is complete, the file is not saved. Only one `Printing` operation can be in progress at a time.
              If PrintToPdf is called while a `PrintToPdf` or `PrintToPdfStream` or `Print` operation is in progress, the operation completes and returns false.
              </remarks>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2.AddWebResourceRequestedFilter(System.String,Microsoft.Web.WebView2.Core.CoreWebView2WebResourceContext,Microsoft.Web.WebView2.Core.CoreWebView2WebResourceRequestSourceKinds)">
+            <summary>
+            Adds a URI and resource context filter for corresponding request sources for the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebResourceRequested"/> event.
+            </summary>
+            <param name="uri">A URI to be added to the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebResourceRequested"/> event.</param>
+            <param name="ResourceContext">A resource context filter to be added to the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebResourceRequested"/> event.</param>
+            <param name="RequestSourceKinds">A request source filter to be added to the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebResourceRequested"/> event.</param>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2.RemoveWebResourceRequestedFilter(System.String,Microsoft.Web.WebView2.Core.CoreWebView2WebResourceContext,Microsoft.Web.WebView2.Core.CoreWebView2WebResourceRequestSourceKinds)">
+            <summary>
+            Removes a matching WebResource filter that was previously added for the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebResourceRequested"/> event.
+            </summary>
+            <param name="uri">An URI to be added to the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebResourceRequested"/> event.</param>
+            <param name="ResourceContext">A resource context filter to be added to the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebResourceRequested"/> event.</param>
+            <param name="RequestSourceKinds">A request source filter to be added to the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebResourceRequested"/> event.</param>
         </member>
         <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2.ShowPrintUI">
             <summary>
@@ -1428,7 +1460,7 @@
             If a setting on the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Settings"/> interface has been changed, navigating to an external URI scheme will trigger the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Settings"/> to update.
             
             The WebView2 may not display the default dialog based on user settings, browser settings, and whether the origin is determined as a [trustworthy origin](https://w3c.github.io/webappsec-secure-contexts#potentially-trustworthy-origin); however, the event will still be raised.
-            If the request is initiated by a cross-origin frame without a user gesture, the request will be blocked and the `LaunchingExternalUriScheme` event will not be raised.
+            If the request is initiated by a cross-origin frame without a user gesture, the request will be blocked and the `LaunchingExternalUriScheme` event will not be raised. A URI scheme may be blocked for safety reasons. In this case the `LaunchingExternalUriScheme` event will not be raised. The default dialog may show an "always allow" checkbox which allows the user to opt-in to relaxed security (i.e. skipping future default dialogs) for the combination of the URI scheme and the origin of the page initiating this external URI scheme launch. The checkbox is offered so long as the group policy to show the checkbox is not explicitly disabled and there is a trustworthy initiating origin. If the user has checked this box, future attempts to launch this URI scheme will still raise the event.
             </remarks>
             <example>
             :::code language="csharp" source="../code/sample/SampleApps/WebView2WpfBrowser/MainWindow.xaml.cs" id="LaunchingExternalUriScheme":::
@@ -1466,6 +1498,14 @@
             <remarks>
             FrameId may not be valid if <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> has not done any navigation. It's safe to get this value during or after the first <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.ContentLoading"/> event. Otherwise, it could return the invalid frame Id <c>0</c>.
             </remarks>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2.ExecuteScriptWithResultAsync(System.String)">
+            <summary>
+            Runs JavaScript code from the <c>javaScript</c> parameter in the current top-level document rendered in the WebView, The result of the execution is returned asynchronously in the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2ExecuteScriptResult"/> object which has methods and properties to obtain the successful result of script execution as well as any unhandled JavaScript exceptions.
+            </summary>
+            <example>
+            :::code language="csharp" source="../code/sample/SampleApps/WebView2WpfBrowser/MainWindow.xaml.cs" id="ExecuteScriptWithResult":::
+            </example>
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2Certificate">
             <summary>
@@ -2627,6 +2667,20 @@
             WebView2 Runtime installation is missing.
             </exception>
         </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2Environment.GetAvailableBrowserVersionString(System.String,Microsoft.Web.WebView2.Core.CoreWebView2EnvironmentOptions)">
+            <summary>
+            Gets the browser version info including channel name if it is not the stable channel or WebView2 Runtime.
+            </summary>
+            <param name="browserExecutableFolder">
+            The relative path to the folder that contains the WebView2 Runtime.
+            </param>
+            <param name="environmentOptions">
+            The environment options used to create the environment.
+            </param>
+            <exception cref="T:Microsoft.Web.WebView2.Core.WebView2RuntimeNotFoundException">
+            WebView2 Runtime installation is missing.
+            </exception>
+        </member>
         <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2Environment.CompareBrowserVersions(System.String,System.String)">
             <summary>
             Compares two instances of browser versions correctly and returns an integer that indicates whether the first instance is older, the same as, or newer than the second instance.
@@ -3124,7 +3178,7 @@
         </member>
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Frame.Name">
             <summary>
-            The name of the iframe from the iframe html tag declaring it.
+            The value of iframe's <c>window.name</c> property. The default value equals to iframe html tag declaring it.
             </summary>
         </member>
         <member name="E:Microsoft.Web.WebView2.Core.CoreWebView2Frame.NameChanged">
@@ -4016,6 +4070,34 @@
         <member name="F:Microsoft.Web.WebView2.Core.Dispatchcontainerscriptbehavior.Ap">
             
         </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2WebResourceRequestSourceKinds">
+            <summary>
+            Specifies the source of <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebResourceRequested"/>.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2WebResourceRequestSourceKinds.None">
+            
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2WebResourceRequestSourceKinds.Document">
+            <summary>
+            Indicates that web resource is requested from main page including dedicated workers and iframes.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2WebResourceRequestSourceKinds.SharedWorker">
+            <summary>
+            Indicates that web resource is requested from shared worker.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2WebResourceRequestSourceKinds.ServiceWorker">
+            <summary>
+            Indicates that web resource is requested from service worker.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2WebResourceRequestSourceKinds.All">
+            <summary>
+            Indicates that web resource is requested from any supported source.
+            </summary>
+        </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2WebResourceContext">
             <summary>
             Specifies the web resource request contexts.
@@ -4803,6 +4885,26 @@
             The setting and more button on PDF toolbar.
             </summary>
         </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2NonClientRegionKind">
+            <summary>
+            Enum which represents the kind of non-client regions.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2NonClientRegionKind.Nowhere">
+            <summary>
+            Enum value which represents a region entirely outside the WebView2 window.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2NonClientRegionKind.Client">
+            <summary>
+            Enum value which represents the client area.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2NonClientRegionKind.Caption">
+            <summary>
+            Enum value which represents the caption area.
+            </summary>
+        </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2NavigationKind">
             <summary>
             Specifies the navigation kind of each navigation.
@@ -5090,12 +5192,12 @@
         </member>
         <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2FrameKind.Embed">
             <summary>
-            Indicates that the frame is an <see href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed">embed</see> element.
+            Indicates that the frame is an [embed](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed) element.
             </summary>
         </member>
         <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2FrameKind.Object">
             <summary>
-            Indicates that the frame is an <see href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object">object</see> element.
+            Indicates that the frame is an [object](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object) element.
             </summary>
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2FaviconImageFormat">
@@ -5761,6 +5863,9 @@
             <summary>
             Event args for the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebResourceRequested"/> event.
             </summary>
+            <summary>
+            Event args for the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebResourceRequested"/> event.
+            </summary>
         </member>
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2WebResourceRequestedEventArgs.Request">
             <summary>
@@ -5791,6 +5896,11 @@
             <remarks>
             Use this to <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Deferral.Complete"/> the event at a later time.
             </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2WebResourceRequestedEventArgs.RequestedSourceKind">
+            <summary>
+            Gets the source of web resource request.
+            </summary>
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2WebResourceRequest">
             <summary>
@@ -5832,6 +5942,12 @@
             </summary>
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2Settings">
+            <summary>
+            Defines properties that enable, disable, or modify WebView features.
+            </summary>
+            <remarks>
+            Changes to <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2Settings.IsGeneralAutofillEnabled"/> and <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2Settings.IsPasswordAutosaveEnabled"/> will take effect immediately, while other setting changes made after <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NavigationStarting"/> event do not apply until the next top-level navigation.
+            </remarks>
             <summary>
             Defines properties that enable, disable, or modify WebView features.
             </summary>
@@ -5962,7 +6078,7 @@
             Determines WebView2's User Agent.
             </summary>
             <remarks>
-            The default value is the default User Agent of the Edge browser. This property may be overridden if the User-Agent header is set in a request. If the parameter is empty the User Agent will not be updated and the current User Agent will remain.
+            The default value is the default User Agent of the Edge browser. This property may be overridden if the User-Agent header is set in a request. If the parameter is empty the User Agent will not be updated and the current User Agent will remain. Setting this property will cause the other user agent client hints Sec-CH-UA-* headers to be overridden and dropped.
             </remarks>
             <example>
             :::code language="csharp" source="../code/sample/SampleApps/WebView2WpfBrowser/MainWindow.xaml.cs" id="SetUserAgent":::
@@ -6112,6 +6228,11 @@
             SmartScreen of WebView2 apps can be controlled by Windows system setting "SmartScreen for Microsoft Edge", specially, for WebView2 in Windows Store apps, SmartScreen is controlled by another Windows system setting "SmartScreen for Microsoft Store apps". When the Windows setting is enabled, the SmartScreen operates under the control of the `IsReputationCheckingRequired`. When the Windows setting is disabled, the SmartScreen will be disabled regardless of the `IsReputationCheckingRequired` value set in WebView2 apps. In other words, under this circumstance the value of `IsReputationCheckingRequired` will be saved but overridden by system setting. Upon re-enabling the Windows setting, the CoreWebview2 will reference the `IsReputationCheckingRequired` to determine the SmartScreen status.
             </remarks>
         </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Settings.IsNonClientRegionSupportEnabled">
+            <summary>
+            Use this property to get/set if nonclient region support is enabled
+            </summary>
+        </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2ServerCertificateErrorDetectedEventArgs">
             <summary>
             Event args for the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.ServerCertificateErrorDetected"/> event.
@@ -6147,6 +6268,36 @@
             <remarks>
             Use this to <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Deferral.Complete"/> the event at a later time.
             </remarks>
+        </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2ScriptException">
+            <summary>
+            This interface represents a JavaScript exception.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ScriptException.LineNumber">
+            <summary>
+            The line number of the source where the exception occurred. Note that this position starts at 0.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ScriptException.ColumnNumber">
+            <summary>
+            The column number of the source where the exception occurred. Note that this position starts at 0.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ScriptException.Name">
+            <summary>
+            The Name is the exception's class name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ScriptException.Message">
+            <summary>
+            The Message is the exception's message and potentially stack.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ScriptException.ToJson">
+            <summary>
+            This will return all details of the exception as a JSON string.
+            </summary>
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2ScriptDialogOpeningEventArgs">
             <summary>
@@ -6227,6 +6378,9 @@
             <summary>
             Event args for the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.ProcessFailed"/> event.
             </summary>
+            <summary>
+            Event args for the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.ProcessFailed"/> event.
+            </summary>
         </member>
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ProcessFailedEventArgs.ProcessFailedKind">
             <summary>
@@ -6292,6 +6446,12 @@
             The content in these frames is replaced with an error page.
             This is only available when <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2ProcessFailedEventArgs.ProcessFailedKind"/> is <see cref="F:Microsoft.Web.WebView2.Core.CoreWebView2ProcessFailedKind.FrameRenderProcessExited"/>; the returned collection is empty for all other process failure kinds, including the case in which the failed process was the renderer for the main frame and subframes within it, for which the failure kind is <see cref="F:Microsoft.Web.WebView2.Core.CoreWebView2ProcessFailedKind.RenderProcessExited"/>.
             </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ProcessFailedEventArgs.FailureSourceModulePath">
+            <summary>
+            When ProcessFailed occurred due to a failed Code Integrity check, this property returns the full path of the file that was prevented from loading on the system.
+            </summary>
+            The webview2 process which tried to load the DLL will fail with exit code STATUS_INVALID_IMAGE_HASH(-1073740760).
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2ProcessExtendedInfo">
             <summary>
@@ -6928,6 +7088,16 @@
             The permission state set from the <c>PermissionRequested</c>  event is saved in the profile by default; it is persisted across sessions and becomes the new default behavior for future <c>PermissionRequested</c>  events. Browser heuristics can affect whether the event continues to be raised when the state is persisted.
             </remarks>
         </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2NonClientRegionChangedEventArgs">
+            <summary>
+            Event args for the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2CompositionController.NonClientRegionChanged"/> event.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2NonClientRegionChangedEventArgs.RegionKind">
+            <summary>
+            Gets the region kind <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2NonClientRegionKind" /> corresponding to the event.
+            </summary>
+        </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2NewWindowRequestedEventArgs">
             <summary>
             Event args for the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NewWindowRequested"/> event.
@@ -7048,7 +7218,7 @@
             Determines whether to cancel the navigation.
             </summary>
             <remarks>
-            If set to <c>true</c>, the navigation is no longer present and the content of the current page is intact. For performance reasons, <c>GET</c> HTTP requests may happen, while the host is responding. You may set cookies and use part of a request for the navigation. Cancellation for navigation to <c>about:blank</c> or frame navigation to srcdoc is not supported and ignored.
+            If set to <c>true</c>, the navigation is no longer present and the content of the current page is intact. For performance reasons, <c>GET</c> HTTP requests may happen, while the host is responding. You may set cookies and use part of a request for the navigation. Navigations to about schemes are cancellable, unless `msWebView2CancellableAboutNavigations` feature flag is disabled. Cancellation of frame navigation to `srcdoc` is not supported and will be ignored.
             </remarks>
         </member>
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2NavigationStartingEventArgs.NavigationId">
@@ -7205,10 +7375,10 @@
         </member>
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2FrameInfo.Name">
             <summary>
-            Gets the name attribute of the frame, as in <c>&lt;iframe name="frame-name" ...&gt;</c>.
+            Gets the value of frame's <c>window.name</c> property. The default value equals to frame html tag declaring it, as in <c>&lt;iframe name="frame-name" ...&gt;</c>.
             </summary>
             <remarks>
-            The returned string is empty when the frame has no name attribute.
+            The returned string is empty when the frame has no name attribute and no assigned value for window.name.
             </remarks>
         </member>
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2FrameInfo.Source">
@@ -7262,6 +7432,31 @@
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2File.Path">
             <summary>
             The absolute file path.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2ExecuteScriptResult">
+            <summary>
+            The result for <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.ExecuteScriptWithResultAsync(System.String)"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ExecuteScriptResult.Succeeded">
+            <summary>
+            This property is true if <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.ExecuteScriptWithResultAsync(System.String)"/> successfully executed script with no unhandled exceptions and the result is available in the <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2ExecuteScriptResult.ResultAsJson"/> property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ExecuteScriptResult.ResultAsJson">
+            <summary>
+            A function that has no explicit return value returns undefined. If the script that was run throws an unhandled exception, then the result is also null.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ExecuteScriptResult.Exception">
+            <summary>
+            If Succeeded is false, you can use this property to get the unhandled exception thrown by script execution
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2ExecuteScriptResult.TryGetResultAsString(System.String@,System.Int32@)">
+            <summary>
+            If Succeeded is true and the result of script execution is a string, this method provides the value of the string result, and we will get the false var value when the js result is not string type.
             </summary>
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2DownloadStartingEventArgs">
@@ -7584,6 +7779,9 @@
             <summary>
             This class is an extension of the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Controller"/> class to support visual hosting.
             </summary>
+            <summary>
+            This class is an extension of the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Controller"/> class to support visual hosting.
+            </summary>
         </member>
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2CompositionController.RootVisualTarget">
             <summary>
@@ -7645,6 +7843,28 @@
             </summary>
             <remarks>
             Corresponds to the [ICoreDropOperationTarget.LeaveAsync](/uwp/api/windows.applicationmodel.datatransfer.dragdrop.core.icoredropoperationtarget.leaveasync) method when performing a drag operation into the WebView.
+            </remarks>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Core.CoreWebView2CompositionController.NonClientRegionChanged">
+            <summary>
+            This event is raised when elements on the page with "app-region" CSS property values corresponding to non-client regions change. Use the <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2NonClientRegionChangedEventArgs.RegionKind" /> to see the kind of non-client region that changed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2CompositionController.GetNonClientRegionAtPoint(System.Drawing.Point)">
+            <summary>
+            Call this method to perform hit-testing inside of your message loop when the message is WM_NCHITTEST.
+            </summary>
+            <param name="point">The point parameter is expected to be in the client coordinate space of the WebView2.</param>
+            <returns>The type of <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2NonClientRegionKind"/> region which contains the point.</returns>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2CompositionController.QueryNonClientRegion(Microsoft.Web.WebView2.Core.CoreWebView2NonClientRegionKind)">
+            <summary>
+            This method retrieves the non-client regions on the page which corresponds to a given kind <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2NonClientRegionKind" />.
+            </summary>
+            <param name="Kind">The kind of non-client region.</param>
+            <returns>This method returns a vector of rectangles.</returns>
+            <remarks>
+            This method can be used inside the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2CompositionController.NonClientRegionChanged"/> event handler to get the list of rects for the specific region that changed.
             </remarks>
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateRequestedEventArgs">
