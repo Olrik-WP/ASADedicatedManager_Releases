@@ -1,3 +1,12 @@
+1.7.5.0
+- Added dedicated server auto-update check functionality every hour on Steam. Informs in-game players every minute for 5 minutes before the update is applied.
+- Modification of the method for modifying CPU affinity for a 60-minute loop if the process is not identified (in the event of a long update) temporary will be improved later
+- The server update button is now disabled if the server is running
+- Mods can no longer be added twice
+
+1.7.4.2
+- Added validation to prevent adding duplicate mods based on Project ID.
+
 1.7.4.1
 - Added the ability to not display ingame save messages
 
