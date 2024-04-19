@@ -1,3 +1,13 @@
+1.7.5.1
+- Fixed loading of Game.ini for ConfigOverrideItemMaxQuantity and ConfigOverrideItemCraftingCosts spaces or lowercase letters are automatically corrected to allow correct loading of bad user data
+- Fixed a bug in saving the game.ini which deleted the custom settings for:
+  * OverridePlayerLevelEngramPoints
+  * DinoClassResistanceMultipliers
+  * DinoClassDamageMultipliers 
+  * TamedDinoClassResistanceMultipliers
+  * TamedDinoClassDamageMultipliers
+  * MutagenLevelBoost_Bred
+
 1.7.5.0
 - Added dedicated server auto-update check functionality every hour on Steam. Informs in-game players every minute for 5 minutes before the update is applied.
 - Modification of the method for modifying CPU affinity for a 60-minute loop if the process is not identified (in the event of a long update) temporary will be improved later
