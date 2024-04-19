@@ -1,3 +1,6 @@
+1.7.5.2
+- Translation: Added  Romanian thanking @McG0496 for the contribution !
+
 1.7.5.1
 - Fixed loading of Game.ini for ConfigOverrideItemMaxQuantity and ConfigOverrideItemCraftingCosts spaces or lowercase letters are automatically corrected to allow correct loading of bad user data
 - Fixed a bug in saving the game.ini which deleted the custom settings for:
