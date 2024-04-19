@@ -1,3 +1,7 @@
+1.7.5.3
+- For any modification of the game.ini or gus.ini files performs a backup of the files in .bak before saving
+- Credits: Added new contributors
+
 1.7.5.2
 - Translation: Added  Romanian thanking @McG0496 for the contribution !
 
