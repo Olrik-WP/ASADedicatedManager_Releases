@@ -1,3 +1,10 @@
+1.7.6.0
+- Added NPCRemplacement allows you to replace dino spawns for example to remove alphas... your existing configurations will be loaded
+- Simplifying and improving translation files for all languages ArkWIKI_Game_ALL.csv ArkWIKI_GameUserSettings_ALL.csv
+- Translation: Added German for main interface thanking @patrick/mezo for the contribution !
+- Translation: Added German for game.ini and gameusersettings.ini thanking @patrick/mezo for the contribution !
+- Credits: Added new contributor for translation
+
 1.7.5.3
 - For any modification of the game.ini or gus.ini files performs a backup of the files in .bak before saving
 - Credits: Added new contributors

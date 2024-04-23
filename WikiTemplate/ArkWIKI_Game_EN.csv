@@ -1,17 +1,17 @@
 ASA,ASE,Variable,Description
 None,TRUE,AutoPvEStartTimeSeconds,"Default value: 0.0Value type: floatStates when the PvE mode should start in a PvPvE server. Valid values are from 0 to 86400. Options bAutoPvETimer, bAutoPvEUseSystemTime and AutoPvEStopTimeSeconds must also be set. Note: although at code level it is defined as a floating point number, it is suggested to use an integer instead."
 None,TRUE,AutoPvEStopTimeSeconds,"Default value: 0.0Value type: floatStates when the PvE mode should end in a PvPvE server. Valid values are from 0 to 86400. Options bAutoPvETimer, bAutoPvEUseSystemTime and AutoPvEStopTimeSeconds must also be set. Note: although at code level it is defined as a floating point number, it is suggested to use an integer instead."
-TRUE,TRUE,BabyCuddleGracePeriodMultiplier,Default value: 1.0Value type: floatScales how long after delaying cuddling with the Baby before Imprinting Quality starts to decrease.
-TRUE,TRUE,BabyCuddleIntervalMultiplier,Default value: 1.0Value type: floatScales how often babies needs attention for imprinting. More often means you'll need to cuddle with them more frequently to gain Imprinting Quality. Scales according to BabyMatureSpeedMultiplier: if both set at 1.0 the imprint request is every 8 hours.
-TRUE,TRUE,BabyCuddleLoseImprintQualitySpeedMultiplier,Default value: 1.0Value type: floatScales how fast Imprinting Quality decreases after the grace period if you haven't yet cuddled with the Baby.
-TRUE,TRUE,BabyFoodConsumptionSpeedMultiplier,Default value: 1.0Value type: floatScales the speed that baby tames eat their food. A lower value decreases (by percentage) the food eaten by babies.
+TRUE,TRUE,BabyCuddleGracePeriodMultiplier,"Default value: 1.0Value type: floatScales how long after delaying cuddling with the Baby before Imprinting Quality starts to decrease."
+TRUE,TRUE,BabyCuddleIntervalMultiplier,"Default value: 1.0Value type: floatScales how often babies needs attention for imprinting. More often means you'll need to cuddle with them more frequently to gain Imprinting Quality. Scales according to BabyMatureSpeedMultiplier: if both set at 1.0 the imprint request is every 8 hours."
+TRUE,TRUE,BabyCuddleLoseImprintQualitySpeedMultiplier,"Default value: 1.0Value type: floatScales how fast Imprinting Quality decreases after the grace period if you haven't yet cuddled with the Baby."
+TRUE,TRUE,BabyFoodConsumptionSpeedMultiplier,"Default value: 1.0Value type: floatScales the speed that baby tames eat their food. A lower value decreases (by percentage) the food eaten by babies."
 TRUE,TRUE,BabyImprintAmountMultiplier,"Default value: 1.0Value type: floatScales the percentage each imprint provides. For example, if an imprint usually give 10%, setting this multiplier to 0.5 means they would now give 5% each. While setting it to 2.0 means they would now give 20% each, etc. This multiplier is global, meaning it will affect the imprinting progression of every species."
-TRUE,TRUE,BabyImprintingStatScaleMultiplier,Default value: 1.0Value type: floatScales how much of an effect on stats the Imprinting Quality has. Set it to 0 to effectively disable the system.
-TRUE,TRUE,BabyMatureSpeedMultiplier,Default value: 1.0Value type: floatScales the maturation speed of babies. A higher number decreases (by percentage) time needed for baby tames to mature. See Times for Breeding tables for values at 1.0
+TRUE,TRUE,BabyImprintingStatScaleMultiplier,"Default value: 1.0Value type: floatScales how much of an effect on stats the Imprinting Quality has. Set it to 0 to effectively disable the system."
+TRUE,TRUE,BabyMatureSpeedMultiplier,"Default value: 1.0Value type: floatScales the maturation speed of babies. A higher number decreases (by percentage) time needed for baby tames to mature. See Times for Breeding tables for values at 1.0"
 None,TRUE,bAllowUnclaimDinos,"Default value: TrueValue type: booleanIf False, prevents players to unclaim tame creatures."
 None,TRUE,bAllowCustomRecipes,"Default value: TrueValue type: booleanIf False, disabled custom RP-oriented Recipe/Cooking System (including Skill-Based results)."
-FALSE,TRUE,bAllowFlyerSpeedLeveling,Default value: FalseValue type: booleanSpecifies whether flyer creatures and player character can have their Movement Speed levelled up.
-TRUE,FALSE,bAllowSpeedLeveling,Default value: FalseValue type: booleanSpecifies whether creatures can have their movement speed increased.
+FALSE,TRUE,bAllowFlyerSpeedLeveling,"Default value: FalseValue type: booleanSpecifies whether flyer creatures and player character can have their Movement Speed levelled up."
+TRUE,FALSE,bAllowSpeedLeveling,"Default value: FalseValue type: booleanSpecifies whether creatures can have their movement speed increased."
 None,TRUE,bAllowPlatformSaddleMultiFloors,"Default value: FalseValue type: booleanIf True, allows multiple platform floors."
 TRUE,TRUE,bAllowUnlimitedRespecs,"Default value: FalseValue type: booleanIf True, allows more than one usage of Mindwipe Tonic without 24 hours cooldown."
 None,TRUE,BaseTemperatureMultiplier,"Default value: 1.0Value type: floatSpecifies the map base temperature scaling factor: lower value makes the environment colder, higher value makes the environment hotter."
@@ -36,94 +36,94 @@ None,TRUE,bShowCreativeMode,"Default value: FalseValue type: booleanIf True, ena
 None,TRUE,bUseCorpseLocator,"Default value: TrueValue type: booleanIf False, prevents survivors to see a green light beam at the location of their dead body."
 TRUE,TRUE,bUseDinoLevelUpAnimations,"Default value: TrueValue type: booleanIf False, tame creatures on level-up will not perform the related animation."
 TRUE,TRUE,bUseSingleplayerSettings,"Default value: FalseValue type: booleanIf True, all game settings will be more balanced for an individual player experience. Useful for dedicated server with a very small amount of players. See Single Player Settings section for more details."
-None,TRUE,bUseTameLimitForStructuresOnly,Default value: FalseValue type: booleanIf True will make Tame Units only be applied and used for Platforms with Structures and Rafts effectively disabling Tame Units for tames without Platform Structures.
-None,TRUE,ConfigAddNPCSpawnEntriesContainer,Default value: N/AValue type: (...)Adds specific creatures in spawn areas. See Creature Spawn related section for more detail.
-None,TRUE,ConfigOverrideItemCraftingCosts,Default value: N/AValue type: (...)Overrides items crafting resource requirements. See Item related section for more details.
-None,TRUE,ConfigOverrideItemMaxQuantity,Default value: N/AValue type: (...)Overrides items stack size on a per-item basis. See Item related section for more details.
-None,TRUE,ConfigOverrideNPCSpawnEntriesContainer,Default value: N/AValue type: (...)Overrides specific creatures in spawn areas. See Creature Spawn related section for more details.
-None,TRUE,ConfigOverrideSupplyCrateItems,Default value: N/AValue type: (...)Overrides items contained in loot crates. See Items related section for more details.
-None,TRUE,ConfigSubtractNPCSpawnEntriesContainer,Default value: N/AValue type: (...)Removes specific creatures in spawn areas. See Creature Spawn related section for more detail.
-TRUE,TRUE,CraftingSkillBonusMultiplier,Default value: 1.0Value type: floatScales the bonus received from upgrading the Crafting Skill.
-TRUE,TRUE,CraftXPMultiplier,Default value: 1.0Value type: floatScales the amount of XP earned for crafting.
-TRUE,TRUE,CropDecaySpeedMultiplier,Default value: 1.0Value type: floatScales the speed of crop decay in plots. A higher value decrease (by percentage) speed of crop decay in plots.
-TRUE,TRUE,CropGrowthSpeedMultiplier,Default value: 1.0Value type: floatScales the speed of crop growth in plots. A higher value increases (by percentage) speed of crop growth.
-TRUE,TRUE,CustomRecipeEffectivenessMultiplier,Default value: 1.0Value type: floatScales the effectiveness of custom recipes. A higher value increases (by percentage) their effectiveness.
-TRUE,TRUE,CustomRecipeSkillMultiplier,Default value: 1.0Value type: floatScales the effect of the players crafting speed level that is used as a base for the formula in creating a custom recipe. A higher number increases (by percentage) the effect.
-TRUE,TRUE,DestroyTamesOverLevelClamp,Default value: 0Value type: integerTames that exceed that level will be deleted on server start. Official servers have it set to 450.
-None,TRUE,DinoClassDamageMultipliers,Default value: N/AValue type: (...)Globally overrides wild creatures damages. See Creature Stats related section for more detail.
-None,TRUE,DinoClassResistanceMultipliers,Default value: N/AValue type: (...)Globally overrides wild creatures resistance. See Creature Stats related section for more detail.
-None,TRUE,DinoHarvestingDamageMultiplier,Default value: 3.2Value type: floatScales the damage done to a harvestable item/entity by a tame. A higher number increases (by percentage) the speed of harvesting.
-None,TRUE,DinoSpawnWeightMultipliers,Default value: N/AValue type: (...)Globally overrides creatures spawns likelihood. See Creature Spawn related section for more detail.
-None,TRUE,DinoTurretDamageMultiplier,Default value: 1.0Value type: floatScales the damage done by Turrets towards a creature. A higher values increases it (by percentage).
-TRUE,TRUE,EggHatchSpeedMultiplier,Default value: 1.0Value type: floatScales the time needed for a fertilised egg to hatch. A higher value decreases (by percentage) that time.
-None,TRUE,EngramEntryAutoUnlocks,Default value: N/AValue type: (...)Automatically unlocks the specified Engram when reaching the level specified. See Engram Entries related section for more detail.
-None,TRUE,ExcludeItemIndices,Default value: N/AValue type: integerExcludes an item from supply crates specifying its Item ID. You can have multiple lines of this option.
-None,TRUE,FastDecayInterval,"Default value: 43200Value type: integerSpecifies the decay period for ""Fast Decay"" structures (such as pillars or lone foundations). Value is in seconds. FastDecayUnsnappedCoreStructures in GameUserSettings.ini must be set to True as well to take any effect."
-None,TRUE,FishingLootQualityMultiplier,Default value: 1.0Value type: floatSets the quality of items that have a quality when fishing. Valid values are from 1.0 to 5.0.
-None,TRUE,FuelConsumptionIntervalMultiplier,Default value: 1.0Value type: floatDefines the interval of fuel consumption.
-TRUE,TRUE,GenericXPMultiplier,Default value: 1.0Value type: floatScales the amount of XP earned for generic XP (automatic over time).
+None,TRUE,bUseTameLimitForStructuresOnly,"Default value: FalseValue type: booleanIf True will make Tame Units only be applied and used for Platforms with Structures and Rafts effectively disabling Tame Units for tames without Platform Structures."
+None,TRUE,ConfigAddNPCSpawnEntriesContainer,"Default value: N/AValue type: (...)Adds specific creatures in spawn areas. See Creature Spawn related section for more detail."
+None,TRUE,ConfigOverrideItemCraftingCosts,"Default value: N/AValue type: (...)Overrides items crafting resource requirements. See Item related section for more details."
+None,TRUE,ConfigOverrideItemMaxQuantity,"Default value: N/AValue type: (...)Overrides items stack size on a per-item basis. See Item related section for more details."
+None,TRUE,ConfigOverrideNPCSpawnEntriesContainer,"Default value: N/AValue type: (...)Overrides specific creatures in spawn areas. See Creature Spawn related section for more details."
+None,TRUE,ConfigOverrideSupplyCrateItems,"Default value: N/AValue type: (...)Overrides items contained in loot crates. See Items related section for more details."
+None,TRUE,ConfigSubtractNPCSpawnEntriesContainer,"Default value: N/AValue type: (...)Removes specific creatures in spawn areas. See Creature Spawn related section for more detail."
+TRUE,TRUE,CraftingSkillBonusMultiplier,"Default value: 1.0Value type: floatScales the bonus received from upgrading the Crafting Skill."
+TRUE,TRUE,CraftXPMultiplier,"Default value: 1.0Value type: floatScales the amount of XP earned for crafting."
+TRUE,TRUE,CropDecaySpeedMultiplier,"Default value: 1.0Value type: floatScales the speed of crop decay in plots. A higher value decrease (by percentage) speed of crop decay in plots."
+TRUE,TRUE,CropGrowthSpeedMultiplier,"Default value: 1.0Value type: floatScales the speed of crop growth in plots. A higher value increases (by percentage) speed of crop growth."
+TRUE,TRUE,CustomRecipeEffectivenessMultiplier,"Default value: 1.0Value type: floatScales the effectiveness of custom recipes. A higher value increases (by percentage) their effectiveness."
+TRUE,TRUE,CustomRecipeSkillMultiplier,"Default value: 1.0Value type: floatScales the effect of the players crafting speed level that is used as a base for the formula in creating a custom recipe. A higher number increases (by percentage) the effect."
+TRUE,TRUE,DestroyTamesOverLevelClamp,"Default value: 0Value type: integerTames that exceed that level will be deleted on server start. Official servers have it set to 450."
+None,TRUE,DinoClassDamageMultipliers,"Default value: N/AValue type: (...)Globally overrides wild creatures damages. See Creature Stats related section for more detail."
+None,TRUE,DinoClassResistanceMultipliers,"Default value: N/AValue type: (...)Globally overrides wild creatures resistance. See Creature Stats related section for more detail."
+None,TRUE,DinoHarvestingDamageMultiplier,"Default value: 3.2Value type: floatScales the damage done to a harvestable item/entity by a tame. A higher number increases (by percentage) the speed of harvesting."
+None,TRUE,DinoSpawnWeightMultipliers,"Default value: N/AValue type: (...)Globally overrides creatures spawns likelihood. See Creature Spawn related section for more detail."
+None,TRUE,DinoTurretDamageMultiplier,"Default value: 1.0Value type: floatScales the damage done by Turrets towards a creature. A higher values increases it (by percentage)."
+TRUE,TRUE,EggHatchSpeedMultiplier,"Default value: 1.0Value type: floatScales the time needed for a fertilised egg to hatch. A higher value decreases (by percentage) that time."
+None,TRUE,EngramEntryAutoUnlocks,"Default value: N/AValue type: (...)Automatically unlocks the specified Engram when reaching the level specified. See Engram Entries related section for more detail."
+None,TRUE,ExcludeItemIndices,"Default value: N/AValue type: integerExcludes an item from supply crates specifying its Item ID. You can have multiple lines of this option."
+None,TRUE,FastDecayInterval,"Default value: 43200Value type: integerSpecifies the decay period for Fast Decay structures (such as pillars or lone foundations). Value is in seconds. FastDecayUnsnappedCoreStructures in GameUserSettings.ini must be set to True as well to take any effect."
+None,TRUE,FishingLootQualityMultiplier,"Default value: 1.0Value type: floatSets the quality of items that have a quality when fishing. Valid values are from 1.0 to 5.0."
+None,TRUE,FuelConsumptionIntervalMultiplier,"Default value: 1.0Value type: floatDefines the interval of fuel consumption."
+TRUE,TRUE,GenericXPMultiplier,"Default value: 1.0Value type: floatScales the amount of XP earned for generic XP (automatic over time)."
 None,TRUE,GlobalCorpseDecompositionTimeMultiplier,"Default value: 1.0Value type: floatScales the decomposition time of corpses, (player and creature), globally. Higher values prolong the time."
 TRUE,TRUE,GlobalItemDecompositionTimeMultiplier,"Default value: 1.0Value type: floatScales the decomposition time of dropped items, loot bags etc. globally. Higher values prolong the time."
-None,TRUE,GlobalPoweredBatteryDurabilityDecreasePerSecond,Default value: 3.0Value type: floatSpecifies the rate at which charge batteries are used in electrical objects.
-TRUE,TRUE,GlobalSpoilingTimeMultiplier,Default value: 1.0Value type: floatScales the spoiling time of perishables globally. Higher values prolong the time.
-None,TRUE,HairGrowthSpeedMultiplier,Default value: 1.0Value type: floatScales the hair growth. Higher values increase speed of growth.
+None,TRUE,GlobalPoweredBatteryDurabilityDecreasePerSecond,"Default value: 3.0Value type: floatSpecifies the rate at which charge batteries are used in electrical objects."
+TRUE,TRUE,GlobalSpoilingTimeMultiplier,"Default value: 1.0Value type: floatScales the spoiling time of perishables globally. Higher values prolong the time."
+None,TRUE,HairGrowthSpeedMultiplier,"Default value: 1.0Value type: floatScales the hair growth. Higher values increase speed of growth."
 TRUE,TRUE,HarvestResourceItemAmountClassMultipliers,"Default value: N/AValue type: (...)Scales on a per-resource type basis, the amount of resources harvested. See Items related section for more details."
-TRUE,TRUE,HarvestXPMultiplier,Default value: 1.0Value type: floatScales the amount of XP earned for harvesting.
+TRUE,TRUE,HarvestXPMultiplier,"Default value: 1.0Value type: floatScales the amount of XP earned for harvesting."
 None,TRUE,IncreasePvPRespawnIntervalBaseAmount,"Default value: 60.0Value type: floatIf bIncreasePvPRespawnInterval is True, sets the additional PvP re-spawn time in seconds that scales (IncreasePvPRespawnIntervalMultiplier) when a player is killed by a team within a certain amount of time (IncreasePvPRespawnIntervalCheckPeriod)."
 None,TRUE,IncreasePvPRespawnIntervalCheckPeriod,"Default value: 300.0Value type: floatIf bIncreasePvPRespawnInterval is True, sets the amount of time in seconds within a player re-spawn time increases (IncreasePvPRespawnIntervalBaseAmount) and scales (IncreasePvPRespawnIntervalMultiplier) when it is killed by a team in PvP."
 None,TRUE,IncreasePvPRespawnIntervalMultiplier,"Default value: 2.0Value type: floatIf bIncreasePvPRespawnInterval is True, scales the PvP additional re-spawn time (IncreasePvPRespawnIntervalBaseAmount) when a player is killed by a team within a certain amount of time (IncreasePvPRespawnIntervalCheckPeriod)."
-None,TRUE,ItemStatClamps[<attribute>],Default value: N/AValue type: valueGlobally clamps item stats. See Items related section for more details. Requires ?ClampItemStats=true option in the command line.
-TRUE,TRUE,KillXPMultiplier,Default value: 1.0Value type: floatScale the amount of XP earned for a kill.
-TRUE,TRUE,LayEggIntervalMultiplier,Default value: 1.0Value type: floatScales the time between eggs are spawning / being laid. Higher number increases it (by percentage).
-None,TRUE,LevelExperienceRampOverrides,Default value: N/AValue type: (...)Configures the total number of levels available to players and tame creatures and the experience points required to reach each level. See Players and tames levels override related section for more details.
-None,TRUE,LimitNonPlayerDroppedItemsCount,Default value: 0Value type: integerLimits the number of dropped items in the area defined by LimitNonPlayerDroppedItemsRange. Official servers have it set to 600.
-None,TRUE,LimitNonPlayerDroppedItemsRange,Default value: 0Value type: integerSets the area range (in Unreal Units) in which the option LimitNonPlayerDroppedItemsCount applies. Official servers have it set to 1600.
-None,TRUE,MatingIntervalMultiplier,Default value: 1.0Value type: floatScales the interval between tames can mate. A lower value decreases it (on a percentage scale). Example: a value of 0.5 would allow tames to mate 50% sooner.
-None,TRUE,MatingSpeedMultiplier,Default value: 1.0Value type: floatScales the speed at which tames mate with each other. A higher value increases it (by percentage). Example: MatingSpeedMultiplier=2.0 would cause tames to complete mating in half the normal time.
+None,TRUE,ItemStatClamps[<attribute>],"Default value: N/AValue type: valueGlobally clamps item stats. See Items related section for more details. Requires ?ClampItemStats=true option in the command line."
+TRUE,TRUE,KillXPMultiplier,"Default value: 1.0Value type: floatScale the amount of XP earned for a kill."
+TRUE,TRUE,LayEggIntervalMultiplier,"Default value: 1.0Value type: floatScales the time between eggs are spawning / being laid. Higher number increases it (by percentage)."
+None,TRUE,LevelExperienceRampOverrides,"Default value: N/AValue type: (...)Configures the total number of levels available to players and tame creatures and the experience points required to reach each level. See Players and tames levels override related section for more details."
+None,TRUE,LimitNonPlayerDroppedItemsCount,"Default value: 0Value type: integerLimits the number of dropped items in the area defined by LimitNonPlayerDroppedItemsRange. Official servers have it set to 600."
+None,TRUE,LimitNonPlayerDroppedItemsRange,"Default value: 0Value type: integerSets the area range (in Unreal Units) in which the option LimitNonPlayerDroppedItemsCount applies. Official servers have it set to 1600."
+None,TRUE,MatingIntervalMultiplier,"Default value: 1.0Value type: floatScales the interval between tames can mate. A lower value decreases it (on a percentage scale). Example: a value of 0.5 would allow tames to mate 50% sooner."
+None,TRUE,MatingSpeedMultiplier,"Default value: 1.0Value type: floatScales the speed at which tames mate with each other. A higher value increases it (by percentage). Example: MatingSpeedMultiplier=2.0 would cause tames to complete mating in half the normal time."
 None,TRUE,MaxAlliancesPerTribe,"Default value: N/AValue type: integerIf set, defines the maximum alliances a tribe can form or be part of."
 None,TRUE,MaxFallSpeedMultiplier,"Default value: 1.0Value type: floatDefines the falling speed multiplier at which players starts taking fall damage. The falling speed is based on the time players spent in the air while having a negated Z axis velocity meaning that the higher this setting is, the longer players can fall without taking fall damage. For example, having it set to 0.1 means players will no longer survive a regular jump while having it set very high such as to 100.0 means players will survive a fall from the sky limit, etc. This setting doesn't affect the gravity scale of the players so there won't be any physics difference to the character movements."
-None,TRUE,MaxNumberOfPlayersInTribe,Default value: 0Value type: integerSets the maximum survivors allowed in a tribe. A value of 1 effectively disables tribes. The default value of 0 means there is no limit about how many survivors can be in a tribe.
-None,TRUE,MaxTribeLogs,Default value: 400Value type: integerSets how many Tribe log entries are displayed for each tribe.
+None,TRUE,MaxNumberOfPlayersInTribe,"Default value: 0Value type: integerSets the maximum survivors allowed in a tribe. A value of 1 effectively disables tribes. The default value of 0 means there is no limit about how many survivors can be in a tribe."
+None,TRUE,MaxTribeLogs,"Default value: 400Value type: integerSets how many Tribe log entries are displayed for each tribe."
 None,TRUE,MaxTribesPerAlliance,"Default value: N/AValue type: integerIf set, defines the maximum of tribes in an alliance."
-None,TRUE,NPCReplacements,Default value: N/AValue type: (...)Globally replaces specific creatures with another using class names. See Creature Spawn related section for more detail.
-None,TRUE,OverrideMaxExperiencePointsDino,Default value: N/AValue type: integerOverrides the max XP cap of tame characters by exact specified amount.
-None,TRUE,OverrideMaxExperiencePointsPlayer,Default value: N/AValue type: integerOverrides the max XP cap of players characters by exact specified amount.
+None,TRUE,NPCReplacements,"Default value: N/AValue type: (...)Globally replaces specific creatures with another using class names. See Creature Spawn related section for more detail."
+None,TRUE,OverrideMaxExperiencePointsDino,"Default value: N/AValue type: integerOverrides the max XP cap of tame characters by exact specified amount."
+None,TRUE,OverrideMaxExperiencePointsPlayer,"Default value: N/AValue type: integerOverrides the max XP cap of players characters by exact specified amount."
 None,TRUE,OverrideEngramEntries,"Default value: N/AValue type: (...)Configures the status and requirements for learning an engram, specified by its index. See Engram Entries related section for more detail."
 TRUE,TRUE,OverrideNamedEngramEntries,"Default value: N/AValue type: (...)Configures the status and requirements for learning an engram, specified by its name. See Engram Entries related section for more detail."
 None,TRUE,OverridePlayerLevelEngramPoints,"Default value: N/AValue type: integerConfigures the number of engram points granted to players for each level gained. This option must be repeated for each player level set on the server, e.g.: if there are 65 player levels available this option should appear 65 times, with the first setting the engram points for reaching level 1, the next one setting engram points for level 2 and so on, all the way to the 65th which configures engram points for level 65.OverridePlayerLevelEngramPoints=5OverridePlayerLevelEngramPoints=20...OverridePlayerLevelEngramPoints=300"
-None,TRUE,PassiveTameIntervalMultiplier,Default value: 1.0Value type: floatScales how often a survivor get tame requests for passive tame creatures.
-TRUE,TRUE,PerLevelStatsMultiplier_Player[<integer>],Default value: N/AValue type: floatScales Player stats. See Level stats related section for more detail.
-None,TRUE,PerLevelStatsMultiplier_DinoTamed<_type>[<integer>],Default value: N/AValue type: floatScales tamed creature stats. See Level stats related section for more detail.
-None,TRUE,PerLevelStatsMultiplier_DinoWild[<integer>],Default value: N/AValue type: floatScales wild creatures stats. See Level stats related section for more detail.
-None,TRUE,PlayerBaseStatMultipliers[<attribute>],Default value: N/AValue type: multiplierChanges the base stats of a player by multiplying with the default value. Meaning the start stats of a new spawned character. See Stats related section for more detail.
+None,TRUE,PassiveTameIntervalMultiplier,"Default value: 1.0Value type: floatScales how often a survivor get tame requests for passive tame creatures."
+TRUE,TRUE,PerLevelStatsMultiplier_Player[<integer>],"Default value: N/AValue type: floatScales Player stats. See Level stats related section for more detail."
+None,TRUE,PerLevelStatsMultiplier_DinoTamed<_type>[<integer>],"Default value: N/AValue type: floatScales tamed creature stats. See Level stats related section for more detail."
+None,TRUE,PerLevelStatsMultiplier_DinoWild[<integer>],"Default value: N/AValue type: floatScales wild creatures stats. See Level stats related section for more detail."
+None,TRUE,PlayerBaseStatMultipliers[<attribute>],"Default value: N/AValue type: multiplierChanges the base stats of a player by multiplying with the default value. Meaning the start stats of a new spawned character. See Stats related section for more detail."
 None,TRUE,PlayerHarvestingDamageMultiplier,"Default value: 1.0Value type: floatScales the damage done to a harvestable item/entity by a Player. A higher value increases it (by percentage): the higher number, the faster the survivors collects."
-TRUE,TRUE,PoopIntervalMultiplier,Default value: 1.0Value type: floatScales how frequently survivors can poop. Higher value decreases it (by percentage)
-None,TRUE,PreventBreedingForClassNames,"Default value: N/AValue type: ""<string>""Prevents breeding of specific creatures via classname. E.g. PreventBreedingForClassNames=""Argent_Character_BP_C"". Creature classnames can be found on the Creature IDs page."
-None,TRUE,PreventDinoTameClassNames,"Default value: N/AValue type: ""<string>""Prevents taming of specific dinosaurs via classname. E.g. PreventDinoTameClassNames=""Argent_Character_BP_C"". Dino classnames can be found on the Creature IDs page."
-None,TRUE,PreventOfflinePvPConnectionInvincibleInterval,Default value: 5.0Value type: floatSpecifies the time in seconds a player cannot take damages after logged-in.
-None,TRUE,PreventTransferForClassNames,"Default value: N/AValue type: ""<string>""Prevents transfer of specific creatures via classname. E.g. PreventTransferForClassNames=""Argent_Character_BP_C""Creature classnames can be found on the Creature IDs page."
+TRUE,TRUE,PoopIntervalMultiplier,"Default value: 1.0Value type: floatScales how frequently survivors can poop. Higher value decreases it (by percentage)"
+None,TRUE,PreventBreedingForClassNames,"Default value: N/AValue type: <string>Prevents breeding of specific creatures via classname. E.g. PreventBreedingForClassNames=Argent_Character_BP_C. Creature classnames can be found on the Creature IDs page."
+None,TRUE,PreventDinoTameClassNames,"Default value: N/AValue type: <string>Prevents taming of specific dinosaurs via classname. E.g. PreventDinoTameClassNames=Argent_Character_BP_C. Dino classnames can be found on the Creature IDs page."
+None,TRUE,PreventOfflinePvPConnectionInvincibleInterval,"Default value: 5.0Value type: floatSpecifies the time in seconds a player cannot take damages after logged-in."
+None,TRUE,PreventTransferForClassNames,"Default value: N/AValue type: <string>Prevents transfer of specific creatures via classname. E.g. PreventTransferForClassNames=Argent_Character_BP_CCreature classnames can be found on the Creature IDs page."
 None,TRUE,PvPZoneStructureDamageMultiplier,"Default value: 6.0Value type: floatSpecifies the scaling factor for damage structures take within caves. The lower the value, the less damage the structure takes (i.e. setting to 1.0 will make structure built in or near a cave receive the same amount of damage as those built on the surface)."
-TRUE,TRUE,ResourceNoReplenishRadiusPlayers,Default value: 1.0Value type: floatControls how resources regrow closer or farther away from players. Values higher than 1.0 increase the distance around players where resources are not allowed to grow back. Values between 0 and 1.0 will reduce it.
-TRUE,TRUE,ResourceNoReplenishRadiusStructures,Default value: 1.0Value type: floatControls how resources regrow closer or farther away from structures Values higher than 1.0 increase the distance around structures where resources are not allowed to grow back. Values between 0 and 1.0 will reduce it.
-TRUE,TRUE,SpecialXPMultiplier,Default value: 1.0Value type: floatScale the amount of XP earned for SpecialEvent.
+TRUE,TRUE,ResourceNoReplenishRadiusPlayers,"Default value: 1.0Value type: floatControls how resources regrow closer or farther away from players. Values higher than 1.0 increase the distance around players where resources are not allowed to grow back. Values between 0 and 1.0 will reduce it."
+TRUE,TRUE,ResourceNoReplenishRadiusStructures,"Default value: 1.0Value type: floatControls how resources regrow closer or farther away from structures Values higher than 1.0 increase the distance around structures where resources are not allowed to grow back. Values between 0 and 1.0 will reduce it."
+TRUE,TRUE,SpecialXPMultiplier,"Default value: 1.0Value type: floatScale the amount of XP earned for SpecialEvent."
 None,TRUE,StructureDamageRepairCooldown,"Default value: 180Value type: integerOption for cooldown period on structure repair from the last time damaged. Set to 180 seconds by default, 0 to disable it."
-None,TRUE,SupplyCrateLootQualityMultiplier,Default value: 1.0Value type: floatIncreases the quality of items that have a quality in the supply crates. Valid values are from 1.0 to 5.0. The quality also depends on the Difficulty Offset.
-None,TRUE,TamedDinoCharacterFoodDrainMultiplier,Default value: 1.0Value type: floatScales how fast tame creatures consume food.
-None,TRUE,TamedDinoClassDamageMultipliers,Default value: N/AValue type: (...)Globally overrides tamed creatures damages. See Creature Stats related section for more details.
-None,TRUE,TamedDinoClassResistanceMultipliers,Default value: N/AValue type: (...)Globally overrides tamed creatures resistance. See Creature Stats related section for more details.
-None,TRUE,TamedDinoTorporDrainMultiplier,Default value: 1.0Value type: floatScales how fast tamed creatures lose torpor.
+None,TRUE,SupplyCrateLootQualityMultiplier,"Default value: 1.0Value type: floatIncreases the quality of items that have a quality in the supply crates. Valid values are from 1.0 to 5.0. The quality also depends on the Difficulty Offset."
+None,TRUE,TamedDinoCharacterFoodDrainMultiplier,"Default value: 1.0Value type: floatScales how fast tame creatures consume food."
+None,TRUE,TamedDinoClassDamageMultipliers,"Default value: N/AValue type: (...)Globally overrides tamed creatures damages. See Creature Stats related section for more details."
+None,TRUE,TamedDinoClassResistanceMultipliers,"Default value: N/AValue type: (...)Globally overrides tamed creatures resistance. See Creature Stats related section for more details."
+None,TRUE,TamedDinoTorporDrainMultiplier,"Default value: 1.0Value type: floatScales how fast tamed creatures lose torpor."
 None,TRUE,TribeSlotReuseCooldown,"Default value: 0.0Value type: floatLocks a tribe slot for the value in seconds, e.g.: a value of 3600 would mean that if a survivor leaves the tribe, their place cannot be taken by another survivor (or re-join) for 1 hour. Used on Official Small Tribes Servers."
-None,TRUE,UseCorpseLifeSpanMultiplier,Default value: 1.0Value type: floatModifies corpse and dropped box lifespan.
-None,TRUE,WildDinoCharacterFoodDrainMultiplier,Default value: 1.0Value type: floatScales how fast wild creatures consume food.
-None,TRUE,WildDinoTorporDrainMultiplier,Default value: 1.0Value type: floatScales how fast wild creatures lose torpor.
+None,TRUE,UseCorpseLifeSpanMultiplier,"Default value: 1.0Value type: floatModifies corpse and dropped box lifespan."
+None,TRUE,WildDinoCharacterFoodDrainMultiplier,"Default value: 1.0Value type: floatScales how fast wild creatures consume food."
+None,TRUE,WildDinoTorporDrainMultiplier,"Default value: 1.0Value type: floatScales how fast wild creatures lose torpor."
 Turrets limit,,,
 None,TRUE,bHardLimitTurretsInRange,"Default value: FalseValue type: booleanIf True, enables the retroactive turret hard limit (100 turrets within a 10k unit radius)."
 None,TRUE,bLimitTurretsInRange,"Default value: TrueValue type: booleanIf False, doesn't limit the maximum allowed automated turrets (including Plant Species X) in a certain range."
-None,TRUE,LimitTurretsNum,Default value: 100Value type: integerDetermines the maximum number of turrets that are allowed in the area.
-None,TRUE,LimitTurretsRange,Default value: 10000.0Value type: floatDetermines the area in Unreal Unit in which turrets are added towards the limit.
+None,TRUE,LimitTurretsNum,"Default value: 100Value type: integerDetermines the maximum number of turrets that are allowed in the area."
+None,TRUE,LimitTurretsRange,"Default value: 10000.0Value type: floatDetermines the area in Unreal Unit in which turrets are added towards the limit."
 Genesis,,,
 None,TRUE,AdjustableMutagenSpawnDelayMultiplier,"Default value: 1.0Value type: floatScales the Mutagen spawn rates. By default, The game attempts to spawn them every 8 hours on dedicated servers, and every hour on non-dedicated servers and single-player. Rising this value will rise the re-spawn interval, lowering will make it shorter."
-None,TRUE,BaseHexagonRewardMultiplier,Default value: 1.0Value type: floatScales the missions score hexagon rewards.
+None,TRUE,BaseHexagonRewardMultiplier,"Default value: 1.0Value type: floatScales the missions score hexagon rewards."
 None,TRUE,bDisableHexagonStore,"Default value: FalseValue type: booleanIf True, disables the Hexagon store"
 None,TRUE,bDisableDefaultMapItemSets,"Default value: FalseValue type: booleanIf True, disables Genesis 2 Tek Suit on Spawn."
 None,TRUE,bDisableGenesisMissions,"Default value: FalseValue type: booleanIf True, disables missions on Genesis."
@@ -131,7 +131,7 @@ None,TRUE,bDisableWorldBuffs,"Default value: FalseValue type: booleanIf True, di
 None,TRUE,bEnableWorldBuffScaling,"Default value: FalseValue type: booleanIf True, makes world effects from Missions (Genesis: Part 2) scale from server settings, rather than add/subtract a flat amount to the value at runtime."
 None,TRUE,bGenesisUseStructuresPreventionVolumes,"Default value: FalseValue type: booleanIf True, disables building in mission areas on Genesis: Part 1."
 None,TRUE,bHexStoreAllowOnlyEngramTradeOption,"Default value: FalseValue type: booleanIf True, allows only Engrams to be sold on the Hex Store, disables everything else."
-None,TRUE,HexagonCostMultiplier,Default value: 1.0Value type: floatScales the hexagon cost of items in the Hexagon store.
-None,TRUE,MutagenLevelBoost[<Stat_ID>],Default value: N/AValue type: integerStates the number of levels  Mutagen adds to tames with wild ancestry. See Stats related section for more details.
+None,TRUE,HexagonCostMultiplier,"Default value: 1.0Value type: floatScales the hexagon cost of items in the Hexagon store."
+None,TRUE,MutagenLevelBoost[<Stat_ID>],"Default value: N/AValue type: integerStates the number of levels  Mutagen adds to tames with wild ancestry. See Stats related section for more details."
 None,TRUE,MutagenLevelBoost_Bred[<Stat_ID>],"Default value: N/AValue type: integerAlike as MutagenLevelBoost, but for bred tames. See Stats related section for more details."
 None,TRUE,WorldBuffScalingEfficacy,"Default value: 1.0Value type: floatMakes world effects from Missions (Genesis: Part 2) scaling more or less effective when setting bEnableWorldBuffScaling=True. 1 would be default, 0.5 would be 50% less effective, 100 would be 100x more effective."

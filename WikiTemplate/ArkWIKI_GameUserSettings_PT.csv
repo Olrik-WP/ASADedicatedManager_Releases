@@ -1,197 +1,197 @@
-ASA,ASE,Variable,Description,CMD
-True,True,[ServerSettings],"As seguintes opções devem estar na seção [ServerSettings] do GameUserSettings.ini:",V
-True,True,ActiveMods,"Lista de IDs de mod, separados por vírgula e sem espaços, em uma única linha (por exemplo: ModID1,ModID2,ModID3) Especifica a ordem e quais mods são carregados.",X
-True,None,ActiveMapMod,"ID do mod para mapa de mod atualmente ativo Especifica qual mapa de mod está carregado.",?
-False,True,ActiveTotalConversion,"Usado para especificar um mod de conversão total (ex.: Primitive Plus). Alternativamente, a opção de linha de comando -TotalConversionMod=<ModID> também pode ser definida.",X
-True,True,AdminLogging,"Se habilitado, os comandos do administrador serão ecoados para o bate-papo para todos verem.",V
-True,True,AllowAnyoneBabyImprintCuddle,"Se habilitado, QUALQUER PESSOA será capaz de cuidar de um Baby Dino (carinho etc), não apenas quem imprimiu nele.",V
-True,True,AllowCaveBuildingPvE,"Se habilitado, permite a construção em cavernas quando o modo PVE estiver habilitado.",X
-True,True,AllowCaveBuildingPvP,"Se habilitado, permite construir em cavernas quando o modo PvP estiver habilitado.",X
-None,True,AllowCrateSpawnsOnTopOfStructures,"Se habilitado, permitirá que os Supply Crates do ar apareçam no topo das Estruturas, em vez de serem impedidas pelas Estruturas.",V
-True,True,AllowFlyerCarryPvE,"Se habilitado, permita que os dinossauros voadores capturem outros dinossauros e jogadores quando forem montados por um jogador em PvE.",V
-None,True,AllowFlyingStaminaRecovery,"Se ativado, recupera a stamina voando.",V
-True,True,AllowHideDamageSourceFromLogs,"Se ativado, faz com que esconda o nome do jogador que o matou da mensagem de morte e do registro da tribo.",V
-True,True,AllowHitMarkers,"Se ativado, mostra marcadores de hit para ataques à distância.",V
-None,True,AllowIntegratedSPlusStructures,"Se ativado, adicionará todas as novas estruturas S + caso contrário, desabilita todas as novas estruturas S + (destinadas principalmente a permitir que funcionários não oficiais que desejam continuar usando a versão mod S + continuem usando isso sem uma tonelada de estruturas duplicadas extras).",V
-True,True,AllowMultipleAttachedC4,"Se habilitado, permitirá mais de um C4 anexado por dino.",V
-True,True,AllowRaidDinoFeeding,"Se habilitado, permite que os Titanossauros do seu servidor sejam permanentemente domados (ou seja, permite que sejam alimentado).",V
-None,True,AllowSharedConnections,"Se desativado, desativará o compartilhamento de contas familiar.",X
-None,True,AllowTekSuitPowersInGenesis,"se ativado, permitirá que o jogador use TekSuit Powers no mapa Genesis.",V
-True,True,AllowThirdPersonPlayer,"Se ativado, permite que os jogadores se vejam em terceira pessoa.",V
-True,True,AlwaysAllowStructurePickup,"Se ativado, desativará o cronômetro no sistema de coleta rápida.",V
-None,True,AlwaysNotifyPlayerLeft,"Se ativado, os jogadores sempre serão notificados se alguém deixar o servidor.",V
-None,True,AutoDestroyDecayedDinos,"Se habilitado, todos os dinossauros reivindicados com decaimento irão auto-destruir no carregamento, ao invés de tê-los permanecer como reivindicado.",V
-None,True,AutoDestroyOldStructuresMultiplier,"Permite as Estruturas se Destruirem Automático, depois de um tempo suficiente que nenhuma Tribo Entrou. Útil para servidores que deseja limpar estruturas abandonadas automaticamente ao longo do tempo. Defina como 0 para desativá-lo.",V
-True,True,AutoSavePeriodMinutes,"O tempo entre o servidor salva automaticamente.",V
-None,True,BanListURL,"Se ativado, usa o URL banimentos global do Ark. - http://arkdedicated.com/banlist.txt",X
-None,True,bForceCanRideFliers,"Se ativado, os jogadores podem montar em flyer; caso contrário, os jogadores não poderão pilotar flyers.",X
-True,True,ClampItemSpoilingTimes,"Se habilitado, mantém todos os tempos de estragar no mesmo tempo máximo de estragar os consumivéis. Útil se algum exploit infinito for usado no servidor e você quiser limpá-lo. Poderia causar problemas com Mods que alteram o tempo de spoiling.",V
-None,True,ClampItemStats,"Habilita estatísticas para itens. Consulte ItemStatClamps para obter mais informações.",V
-True,True,ClampResourceHarvestDamage,"Limita o dano causado por um dino domesticado na saúde restante do recurso. Observação: ativar esta configuração pode resultar em uma redução sensata na coleta de recursos usando ferramentas ou dinos com alto dano.",V
-None,True,CustomDynamicConfigUrl,"Se ativado, o URL de configuração dinâmica especificado será usado. - http://arkdedicated.com/dynamicconfig.ini",V
-None,True,CustomLiveTuningUrl,"Se ativado, o URL de configuração do ajuste ao vivo personalizado especificado será usado. - http://arkdedicated.com/DefaultOverloads.json",V
-True,True,DayCycleSpeedScale,"Especifica o fator de escala para a passagem do tempo no Ark, controlando com que frequência o dia muda para noite e noite muda para o dia. Valores menores que 1 retardam o ciclo; valores mais altos aceleram.",V
-True,True,DayTimeSpeedScale,"Especifica o fator de escala para a passagem do tempo no Ark durante o dia. Este valor determina a duração de cada dia, em relação à duração de cada noite. Diminuir esse valor aumenta o comprimento de cada dia.",V
-False,True,DestroyUnconnectedWaterPipes,"Se ativado, após dois dias em tempo real os canos serão destruídos automaticamente se não estiverem conectados e se não houver nenhum jogador aliado por perto.",V
-True,False,DestroyTamesOverTheSoftTameLimit,"Permite destruir domesticações acima do limite.",X
-True,True,DifficultyOffset,"Determina os níveis máximos de dinos no ark. Quanto maior o valor, maior o nível máximo do dino.",V
-True,True,DinoCharacterFoodDrainMultiplier,"Especifica o fator de escala para o consumo de alimentos dos dinossauros selvagens. Valores mais altos aumentam o consumo de alimentos.",V
-True,True,DinoCharacterHealthRecoveryMultiplier,"Especifica o fator de escala para recuperação da saúde. Valores mais altos aumentam a taxa de recuperação (curam mais rápido).",V
-True,True,DinoCharacterStaminaDrainMultiplier,"Especifica o fator de escala para o consumo de stamina. Valores mais altos aumentam o consumo de stamina (cansado mais rápido).",V
-None,True,DinoCountMultiplier,"Especifica o fator de escala para spanw de dinossauros. Valores mais altos aumentam o número de dinos gerados em toda a Ark.",V
-True,True,DinoDamageMultiplier,"Especifica o fator de escala para o dano causado pelos ataques. Valores mais altos aumentam o dano. Valores mais baixos diminuem.",V
-True,True,DinoResistanceMultiplier,"Especifica o fator de escala para a resistência ao dano recebido quando atacado. Valores mais altos diminuem a resistência, aumentando o dano por ataque. Valores menores aumentam, reduzindo o dano por ataque.",V
-True,True,DisableDinoDecayPvE,"Se habilitado, desativa o decaimento gradual da propriedade do dino no PvE; caso contrário, cada dinossauro pode ser reivindicado por qualquer jogador.",V
-True,True,DisableImprintDinoBuff,"Se habilitado, desabilitará o bônus estatístico de dino imprintado por player, onde normalmente quem imprintou especificamente no dino e o elevou para ter uma qualidade de imprint, recebe um bônus extra de dano / resistência.",V
-True,True,DisablePvEGamma,"Se ativado, permite alterações de gama no modo PvE.",V
-True,True,DisableStructureDecayPvE,"Se habilitado, habilita o decaimento das estruturas do jogador em PvE.",V
-True,True,DisableWeatherFog,"Se ativado, desativará o nevoeiro.",V
-True,True,DontAlwaysNotifyPlayerJoined,"Se habilitado, os jogadores sempre serão notificados se alguém entrar no servidor.",V
-True,True,EnableExtraStructurePreventionVolumes,"Se habilitado, desabilita completamente a construção em áreas específicas e ricas em recursos, em particular construções do próprio jogo.",V
-True,True,EnablePvPGamma,"Se ativado, permite alterações de gama no modo PvP.",V
-None,True,ExtinctionEventTimeInterval,"Define o número de dias para contagem regressiva antes que o evento de extinção ocorra.",V
-None,True,FastDecayUnsnappedCoreStructures,"Se habilitado, irá decair as fundações / pilares não fixados a uma velocidade 5x maior.",V
-None,True,ForceAllStructureLocking,"Se ativado, permite Bloquear todas as estruturas.",V
-True,True,globalVoiceChat,"Se ativado, o bate-papo de voz se torna global e todos no servidor podem ouvir; de outro modo, apenas pessoas próximas umas das outras podem ouvir.",V
-True,True,HarvestAmountMultiplier,"Especifica o fator de escala para atividades de colheita (derrubar árvores, colher bagas, minerar rochas, etc.). Valores mais altos aumentam a quantidade de materiais colhidos.",V
-True,True,HarvestHealthMultiplier,"Especifica o fator de escala da resistência de itens que podem ser colhidos (árvores, pedras, carcaças, etc). Valores mais altos aumentam a quantidade de dano (por exemplo, número de golpes) que tais objetos podem suportar antes de serem destruídos, o que resulta em rendimentos de colheita globais mais altos.",V
-None,True,IgnoreLimitMaxStructuresInRangeTypeFlag,"Remove o limite de 150 estruturas decorativas (bandeiras, letreiros, derme etc.).",X
-True,True,ItemStackSizeMultiplier,"Este é o modificador global para permitir aumentar ou diminuir o tamanho da stack de itens. NOTA: Isso funciona apenas para itens que se destinam a empilhar.",V
-True,True,KickIdlePlayersPeriod,"Se ativado, Usará um tempo limite para o jogador inativo ser Kikado.",V
-None,True,MaxGateFrameOnSaddles,"Limita o número de gateways que podem ser colocados nas selas plataforma. Esta opção exigirá algum trabalho de administração manual para limpar todas as plataformas pré-existentes que excedam o limite.",X
-None,True,MaxHexagonsPerCharacter,"Especifica o número máximo de hexagons que cada jogador pode ter.",X
-True,True,MaxPersonalTamedDinos,"Defina o número máximo de dinos domesticados por tribo.",V
-None,True,MaxPlatformSaddleStructureLimit,"Altera o número máximo de selas plataforma e jangadas permitidas em todo o servidor.",V
-True,True,MaxTamedDinos,"Defina o número máximo de dinos domados do servidor.",V
-True,False,MaxTamedDinos_SoftTameLimit,"Define o limite de soft tame para todo o servidor.",X
-True,False,MaxTamedDinos_SoftTameLimit_CountdownForDeletionDuration "Defina o cronômetro para destruição em segundos.",X
-None,True,MaxTributeCharacters,"Slots para players carregados, qualquer valor menor que o padrão será revertido. Nota: aumentá-lo pode corromper os dados do jogador/cluster e levar à perda de todos os personagens armazenados.",V
-True,True,MaxTributeDinos,"Se ativado, limitará o número de dinos que um jogador pode armazenar nos obeliscos. NOTA: Definir como alto pode causar corrupção do cluster.",V
-True,True,MaxTributeItems,"Se ativado, limitará o número de itens que um jogador pode armazenar nos obeliscos. NOTA: Definir como alto pode causar corrupção do cluster.",V
-True,True,NightTimeSpeedScale,"Especifica o fator de escala para a passagem do tempo no Ark durante a noite. Esse valor determina a duração de cada noite, em relação ao tamanho de cada dia. Diminuir esse valor aumenta a duração de cada noite.",V
-True,True,NonPermanentDiseases,"Se habilitado, fará com que as doenças não sejam permanentes (você irá perdê-las se você respawna).",V
-None,True,NPCNetworkStasisRangeScalePlayerCountStart,"O número mínimo de jogadores online quando a escala de estatísticas é ativada.",X
-None,True,NPCNetworkStasisRangeScalePlayerCountEnd,"O número máximo de jogadores online quando a escala máxima é atingida.",X
-None,True,NPCNetworkStasisRangeScalePercentEnd,"A porcentagem de escala máxima usada pelo servidor, quando o valor final da contagem de jogadores online é atingido.",X
-None,True,OnlyAutoDestroyCoreStructures,"Se ativada, impedirá que estruturas não essenciais / não básicas sejam destruídas automaticamente (no entanto, elas ainda serão destruídas automaticamente se o chão em que estiverem for destruído automaticamente).",V
-None,True,OnlyDecayUnsnappedCoreStructures,"Se habilitado, somente as estruturas não encaixadas irão decair. Útil para eliminar spam de pilar / fundação solitário em servidores.",V
-True,True,OverrideOfficialDifficulty,"Determina os níveis máximos de dinos do ark. Quanto maior o valor, maior o nível máximo dos dinos.",V
-True,True,OverrideStructurePlatformPrevention,"Se habilitado, permite que as torretas automáticas e espinhos sejam colocadas nas selas plataforma de dinos.",V
-True,True,OxygenSwimSpeedStatMultiplier,"Especifica o multiplicador de como a velocidade de natação é multiplicada pelo nível gasto em oxigênio.",V
-True,True,PerPlatformMaxStructuresMultiplier,"Especifica o fator de escala para o número máximo de estruturas permitidas em uma única plataforma / sela / jangada.",V
-None,True,PersonalTamedDinosSaddleStructureCost,"O número de estruturas que cada dino domado na tribo terá, para cada plataforma de sela (com estruturas) vai custar. Exemplo: Setando para 5, uma estrutura valera 5 dinos domesticados na tribo.",V
-True,True,PlatformSaddleBuildAreaBoundsMultiplier,"Aumenta o multiplicador e permite que as estruturas sejam colocadas mais afastadas da plataforma.",V
-True,True,PlayerCharacterFoodDrainMultiplier,"Especifica o fator de escala para o consumo de alimentos. Valores mais altos aumentam o consumo de alimentos (com mais fome).",V
-True,True,PlayerCharacterHealthRecoveryMultiplier,"Especifica o fator de escala para recuperação da saúde. Valores mais altos aumentam a taxa de recuperação (curam mais rápido).",V
-True,True,PlayerCharacterStaminaDrainMultiplier,"Especifica o fator de escala para o consumo de stamina. Valores mais altos aumentam o consumo de stamina (cansado mais rápido).",V
-True,True,PlayerCharacterWaterDrainMultiplier,"Especifica o fator de escala para o consumo de água. Valores mais altos aumentam o consumo de água (com sede mais rápida).",V
-True,True,PlayerDamageMultiplier,"Especifica o fator de escala para o dano causado pelos ataques. Valores mais altos aumentam o dano. Valores mais baixos diminuem.",V
-True,True,PlayerResistanceMultiplier,"Especifica o fator de escala para a resistência ao dano recebido quando atacado. Valores mais altos diminuem a resistência, aumentando o dano por ataque. Valores menores aumentam, reduzindo o dano por ataque.",V
-True,True,PreventDiseases,"Se ativado, as doenças serão ativadas.",V
-True,True,PreventMateBoost,"Se ativado, Os dinos não receberão o bônus do companheiro, o mesmo não receberá o bônus de 33% de dano de resistência",V
-True,True,PreventOfflinePvP,"Se ativado, ativa a opção de prevenção de ataque offline.",V
-True,True,PreventOfflinePvPInterval,"O período de tempo antes dos dinos / estruturas de uma tribo / jogadores se tornarem invulneráveis ​​/ inativos depois que eles se desconectarem (se a tribo exigir que TODOS os membros da tribo sejam desconectados).",V
-True,True,PreventSpawnAnimations,"Se habilitado, desativa a animação de respawn.",V
-True,True,PreventTribeAlliances,"Se habilitado, os jogadores podem criar alianças com outras tribos.",V
-True,True,ProximityChat,"Se habilitado, apenas os jogadores próximos um do outro podem ver suas mensagens de chat caso contrário, seu bate-papo de texto será global e todos poderão ver suas mensagens de bate-papo.",V
-True,True,PvEAllowStructuresAtSupplyDrops,"Se ativado, permitirá a colocação de estruturas nos locais de queda de SupplyDrops, Modo PVE.",V
-True,True,PvEDinoDecayPeriodMultiplier,"Multiplicador na decadência da base do tempo de propriedade do dino. Funciona somente quando Desativar Dino Decay PvE estiver desmarcado.",V
-None,True,PvEStructureDecayPeriodMultiplier,"Especifica o fator de escala para a taxa de decaimento das estruturas do player no modo PvE.",V
-True,True,PvPDinoDecay,"Se habilitado, desativa o decaimento gradual da propriedade do dino no PvP caso contrário, cada dinossauro pode ser reivindicado por qualquer jogador.",V
-None,True,PvPStructureDecay,"Se ativado, as estruturas no PvP serão automaticamente decaídas se não forem usadas após um período de tempo.",V
-True,True,RaidDinoCharacterFoodDrainMultiplier,"Especifica o multiplicador para drenagem de comida dos dinossauros. Valores mais altos aumentam o drenagem de alimentos; valores mais baixos diminuem o drenagem de alimentos.",V
-True,True,RandomSupplyCratePoints,"Se habilitado, fará os Supply Crates aleatórios.",V
-None,True,RCONEnabled,"Se ativado, o recurso RCON será ativado.",V
-True,True,RCONPort,"A porta que o RCON usará no seu servidor.",V
-True,True,RCONServerGameLogBuffer,"Define o tamanho máximo do buffer de log do jogo RCON (padrão 600).",V
-True,True,ResourcesRespawnPeriodMultiplier,"Especifica o fator de escala para a taxa de reaparecimento de recursos, como (árvores, rochas, arbustos, etc). Valores mais baixos fazem reaparecerem com mais freqüência.",V
-True,True,ServerAdminPassword,"Os jogadores devem fornecer esta senha (por meio do console do jogo) para obter acesso aos comandos do administrador no servidor. Nota: não são usadas aspas.",V
-None,True,ServerAutoForceRespawnWildDinosInterval,"Se habilitado, irá forçar o respawn de dinos selvagens após o intervalo especificado.",V
-True,True,ServerCrosshair,"Se ativado, mostra a cada jogador uma cruz.",V
-True,True,ServerForceNoHUD,"Se ativado, permite que o jogador veja o HUD.",V
-True,True,ServerHardcore,"Ativa o modo hardcore (os jogadores não podem renascer, um novo personagem deve ser criado).",V
-True,True,ServerPassword,"A senha que os usuários devem inserir para acessar o servidor. Se isso estiver definido, apenas as pessoas que conhecem a senha poderão acessar seu servidor.",V
-True,True,serverPVE,"Ativa o modo Jogador contra Jogador (jogadores são capazes de causar dano ou matar uns aos outros. Em jogadores PvP também podem danificar ou destruir os edifícios de outra tribo ou matar seus dinossauros).",V
-True,True,ShowFloatingDamageText,"Se ativado, ativa o modo de status de texto pop-up no estilo RPG.",V
-True,True,ShowMapPlayerLocation,"Se ativado, mostra a cada jogador sua posição no mapa.",V
-None,True,SpectatorPassword,"A senha que os usuários devem inserir para usar o modo Spectador no servidor.",V
-None,True,StructureDamageMultiplier,"Especifica o fator de escala para as estruturas de dano com seus ataques (por exemplo, paredes de espinhos). Valores mais altos aumentam o dano. Valores mais baixos diminuem.",V
-True,True,StructurePickupHoldDuration,"Especifica a quantidade de tempo da duração da espera de coleta rápida, use 0 para desativar e fazer a coleta instantânea.",V
-True,True,StructurePickupTimeAfterPlacement,"Especifica a quantidade de tempo em segundos após o veiculação da estrutura em que a coleta rápida está disponível.",V
-True,True,StructurePreventResourceRadiusMultiplier,"O mesmo que ResourceNoReplenishRadiusStructures em Game.ini. Se ambas as configurações estiverem definidas, ambos os multiplicadores serão aplicados. Pode ser útil quando não é possível alterar o arquivo Game.ini, pois também funciona como uma opção de linha de comando.",V
-True,True,StructureResistanceMultiplier,"Especifica o fator de escala para a resistência de estruturas quando recebe atacaques. Valores mais altos diminuem a resistência, aumentando o dano por ataque. Valores menores aumentam, reduzindo o dano por ataque.",V
-None,True,TamedDinoDamageMultiplier,"Especifica o fator de escala para o dano causado pelos ataques. Valores mais altos aumentam o dano. Valores mais baixos diminuem.",V
-None,True,TamedDinoResistanceMultiplier,"Especifica o fator de escala para a resistência ao dano recebido quando atacado. Valores mais altos diminuem a resistência, aumentando o dano por ataque. Valores menores aumentam, reduzindo o dano por ataque.",V
-True,True,TamingSpeedMultiplier,"Especifica o fator de escala para a velocidade de domesticação de dinossauros. Valores mais altos tornam a domesticação mais rápida.",V
-True,True,TheMaxStructuresInRange,"Especifica o número máximo de estruturas que podem ser construídas dentro de um determinado intervalo.",V
-None,True,TribeLogDestroyedEnemyStructures,"Se ativado, o log de destruição da estrutura inimiga para a tribo vítima e exibirá a tribo do atacante nos Registros da Tribo, em vez de uma mensagem de destruição da estrutura genérica.",V
-True,True,TribeNameChangeCooldown,"Cooldown adicionado à tribo, para não está mudando seu nome.",V
-None,True,UseFjordurTraversalBuff,"Se ativado, permitirá o teleporte para bioma do mapa Fjordur.",X
-None,True,UseOptimizedHarvestingHealth,"Se ativado, você obterá um servidor mais otimizado no farme de recursos, útil para quem tem problema de lag em farme.",V
-True,True,XPMultiplier,"Especifica o fator de escala para a experiência recebida pelos jogadores. Valores mais altos aumentam os valores de XP para diversas ações; valores mais baixos diminuem.",V
-None,True,CrossARKAllowForeignDinoDownloads,"Se habilitado, permitirá que você baixe Dinos para o mapa Aberration.",V
-None,True,MinimumDinoReuploadInterval,"Se ativado, permitirá que você substitua o intervalo de novo upload.",V
-True,True,noTributeDownloads,"Se habilitado, isso permitirá o download de sobreviventes / itens / dinos externos em seu servidor.",V
-True,True,PreventDownloadDinos,"Se ativado, os downloads do dino estão desativados.",V
-True,True,PreventDownloadItems,"Se ativado, os downloads de itens estão desativados.",V
-True,True,PreventDownloadSurvivors,"Se ativado, os downloads do sobrevivente estão desativados.",V
-None,True,PreventUploadDinos,"Se ativado, os uploads do dino estão desativados.",V
-None,True,PreventUploadItems,"Se ativado, os uploads de itens estão desativados.",V
-None,True,PreventUploadSurvivors,"Se ativado, os uploads do sobrevivente são desativados.",V
-None,True,TributeCharacterExpirationSeconds,"Se habilitado, permitirá que você substitua o cronômetro de expiração.",V
-None,True,TributeDinoExpirationSeconds,"Define em segundos o cronômetro de expiração para dinos carregados no ARK Data.",V
-None,True,TributeItemExpirationSeconds,"Define em segundos o cronômetro de expiração para itens carregados no ARK Data.",V
-None,True,CryopodNerfDamageMult,"Especifica o multiplicador de dano causado pelos dinos, depois que elas são liberadas de um criopod. Valores mais baixos significam que o dano realizado será menor (por exemplo, 0,01 significa que 99% do dano é removido).",V
-None,True,CryopodNerfDuration,"A quantidade de tempo em segundos em que o ajuste de dano entrará em vigor para o dino após se liberado de um criopod.",V
-None,True,CryopodNerfIncomingDamageMultPercent,"Especifica o aumento percentual no multiplicador de dano recebido de um dino, depois que ele é liberado de um criopod. Valores mais altos significam mais dano recebido ao dino (por exemplo, 0.25 = 25% a mais de dano).",X
-True,False,AllowCryoFridgeOnSaddle,"Permite que criofridges sejam construídas em selas e jangadas de plataforma.",V
-True,False,DisableCryopodEnemyCheck,"Permite que criopods sejam usados enquanto os inimigos estão próximos.",V
-True,False,DisableCryopodFridgeRequirement,"Permite que os criopods sejam usadas sem a necessidade de estar ao alcance de um refrigerador criogênico alimentado.",V
-None,True,EnableCryopodNerf,"Se ativado, ajustará a quantidade de dano que um dino causa por um período de tempo, após ter sido liberado de um criopod.",V
-None,True,EnableCryoSicknessPVE,"Se ativado, se você liberar um dino domesticada de um criopod, você terá um cronômetro de doença quando o modo PvE estiver ativado.",X
-None,True,BadWordListURL,"Adicione o URL para hospedar sua própria lista de palavrões.",X
-None,True,BadWordWhiteListURL,"Adicione o URL para hospedar sua própria lista de boas palavras.",X
-True,False,AdminListURL,"ASA não usa mais identificadores SteamID64 em vez disso, usa credenciais EOS. Agora você pode obter esse ID digitando whoami no single player no console. Nota: também leva URLs http/https, mas também um arquivo local como por exemplo: file://C:\TestASA\server\ShooterGame\Saved\Config\WindowsServer\AdminListURL.txt.",X
-None,True,bFilterCharacterNames,"Filtra os nomes dos personagens com base na lista de palavrões / boas palavras.",X
-None,True,bFilterChat,"Filtra mensagens de bate-papo com base na lista de palavrões/boas palavras.",X
-None,True,bFilterTribeNames,"Filtra os nomes das tribos com base na lista de palavrões/boas palavras.",X
-None,True,AllowDeprecatedStructures,"Permite que os servidores mantenham as Estruturas de Halloween por um tempo após o término do evento (deve ser usado antes de reiniciar o servidor com a atualização 222.3). Como não há mais eventos planejados para serem ativados ou removidos, esse recurso pode ser considerado obsoleto.",V
-None,True,bAllowFlyerCarryPVE,"Descontinuado.",X
-None,True,bDisableStructureDecayPvE,"Descontinuado.",X
-None,True,ForceFlyerExplosives,"Permite que voadores (exceto Quetzal e Wyvern) voem com C4 anexado a ele. Obsoleto desde 253,95.",X
-None,True,MaxStructuresInRange,"Especifica o número máximo de estruturas que podem ser construídas dentro de um determinado intervalo (atualmente codificado) Introduzido no patch 173.0 e descontinuado com o patch 188.0 por NewMaxStructuresInRange.",X
-None,True,NewMaxStructuresInRange,"Especifica o número máximo de estruturas que podem ser construídas dentro de um determinado intervalo (atualmente codificado). Obsoleto com patch 252.1 por TheMaxStructuresInRange.",X
-None,True,PvEStructureDecayDestructionPeriod,"Especifica o tempo necessário para as estruturas do jogador decaírem no modo PvE. Obsoleto e não está mais presente em bits executáveis com o patch 180.0 onde cada tipo de estrutura tem seu próprio tempo de decaimento.",X
-False,True,AllowedCheatersURL,"URL Alternativa ao uso de AllowedCheaterSteamIDs.txt (consulte Lista de permissão do administrador) usando um recurso da web (por exemplo: uso oficial http://arkdedicated.com/globaladmins.txt). O intervalo em que o servidor consulta o recurso para verificar a atualização da lista de administradores é definido por UpdateAllowedCheatersInterval Nota: ele suporta apenas o protocolo HTTP (HTTPS não é suportado). Não documentado por Wildcard.",V
-None,True,ChatLogFileSplitIntervalSeconds,"Controla como dividir o arquivo de log do chat relacionado ao tempo em segundos. Não pode ser definido com um valor inferior a 45 (o padrão será 45 se o valor for inferior). Defina como 0 apenas em oficial. Não documentado por Wildcard.",X
-None,True,ChatLogFlushIntervalSeconds,"Controla em quantos segundos o log do chat é liberado para o arquivo de log. Não pode ser definido com um valor inferior a 15 (o padrão será 15 se o valor for inferior). Defina como 0 apenas em oficial. Não documentado por Wildcard.",X
-None,True,ChatLogMaxAgeInDays,"Controla quantos dias o log de bate-papo dura. Defini-lo com um valor negativo resultará em -1 (virtualmente infinito). Defina como 0 apenas em oficial. Não documentado por Wildcard.",X
-None,True,DontRestoreBackup,"-DisableDupeLogDeletes estiverem presentes, evita que o servidor restaure automaticamente um backup em caso de salvamento corrompido. Não documentado por Wildcard.",V
-None,True,EnableAFKKickPlayerCountPercent,"Permite que o tempo limite de inatividade seja aplicado somente se a quantidade de jogadores online atingir o valor percentual relacionado ao argumento MaxPlayers. A porcentagem é expressa como valor normalizado entre 0 e 1,0, onde 1,0 significa 100%. Oficial definiu para 0,89999998. Não documentado por Wildcard.",X
-None,True,EnableMeshBitingProtection,"Desativa a proteção contra mesh bite. Não documentado por Wildcard.",V
-None,True,FreezeReaperPregnancy,"Congela o cronômetro de gravidez do Reaper King e o ganho de experiência. Não documentado por Wildcard.",X
-None,True,LogChatMessages,"Habilita o registro avançado de bate-papo. Os registros de bate-papo serão salvos em ShooterGame/Saved/Logs/ChatLogs/<SessionName>/ no formato json. O log conterá informações como Desativado no oficial. O arquivo será dividido de acordo com o valor de ChatLogFileSplitIntervalSeconds e liberado a cada valor de segundos de ChatLogFlushIntervalSeconds. Nota: <SessionName> será escrito sem espaços. Não documentado por Wildcard.",X
-None,True,MaxStructuresInSmallRadius,"Define a quantidade máxima de estruturas que podem ser colocadas em um RadiusStructuresInSmallRadius a partir da posição do jogador. Oficial definiu para 40. Não documentado por Wildcard.",V
-None,True,MaxStructuresToProcess,"Controla o tamanho máximo do lote de estruturas a serem processadas (por exemplo: seleção, construção de modificações em gráficos, etc) a cada tick do servidor. Deixar em 0 (comportamento padrão) forçará o servidor a processar todas as estruturas na fila. É uma compensação entre quanto pode custar um tick do servidor (pior cenário) e a precisão da simulação. Oficial definiu para 5.000. Não documentado por Wildcard.",V
-None,True,PreventOutOfTribePinCodeUse,"Evita que jogadores de fora da tribo usem senha em estruturas (portas, elevadores, caixas de armazenamento, etc). Não documentado por Wildcard.",V
-None,True,RadiusStructuresInSmallRadius,"Define a dimensão do raio pequeno (em unidades Unreal) usada por MaxStructuresInSmallRadius. Oficial definiu para 225,0. Não documentado por Wildcard.",V
-None,True,ServerEnableMeshChecking,"Não tem efeito se -forcedisablemeshchecking estiver definido. Habilitado oficialmente. Não documentado.",V
-None,True,TribeMergeAllowed,"Evita a Mergi tribo. Não documentado por Wildcard.",X
-None,True,TribeMergeCooldown,"Cool-down para Mergi tribo em segundos. Oficial usa 86400.0. Não documentado por Wildcard.",X
-None,True,UpdateAllowedCheatersInterval,"Tempo em segundos em que a lista de administradores remotos vinculada por AllowedCheatersURL é consultada em busca de atualizações. Qualquer valor menor que 3,0 será revertido para 3,0. Não documentado por Wildcard.",V
-None,True,UseExclusiveList,"Permite o mesmo comportamento que -exclusivejoin. Não documentado por Wildcard.",V
-True,True,[SessionSettings],"As opções a seguir devem estar na seção [SessionSettings] de GameUserSettings.ini.",V
+ASA,ASE,Variable,Description
+True,True,[ServerSettings],"As seguintes opções devem estar na seção [ServerSettings] do GameUserSettings.ini:"
+True,True,ActiveMods,"Lista de IDs de mod, separados por vírgula e sem espaços, em uma única linha (por exemplo: ModID1,ModID2,ModID3) Especifica a ordem e quais mods são carregados."
+True,None,ActiveMapMod,"ID do mod para mapa de mod atualmente ativo Especifica qual mapa de mod está carregado.?"
+False,True,ActiveTotalConversion,"Usado para especificar um mod de conversão total (ex.: Primitive Plus). Alternativamente, a opção de linha de comando -TotalConversionMod=<ModID> também pode ser definida."
+True,True,AdminLogging,"Se habilitado, os comandos do administrador serão ecoados para o bate-papo para todos verem."
+True,True,AllowAnyoneBabyImprintCuddle,"Se habilitado, QUALQUER PESSOA será capaz de cuidar de um Baby Dino (carinho etc), não apenas quem imprimiu nele."
+True,True,AllowCaveBuildingPvE,"Se habilitado, permite a construção em cavernas quando o modo PVE estiver habilitado."
+True,True,AllowCaveBuildingPvP,"Se habilitado, permite construir em cavernas quando o modo PvP estiver habilitado."
+None,True,AllowCrateSpawnsOnTopOfStructures,"Se habilitado, permitirá que os Supply Crates do ar apareçam no topo das Estruturas, em vez de serem impedidas pelas Estruturas."
+True,True,AllowFlyerCarryPvE,"Se habilitado, permita que os dinossauros voadores capturem outros dinossauros e jogadores quando forem montados por um jogador em PvE."
+None,True,AllowFlyingStaminaRecovery,"Se ativado, recupera a stamina voando."
+True,True,AllowHideDamageSourceFromLogs,"Se ativado, faz com que esconda o nome do jogador que o matou da mensagem de morte e do registro da tribo."
+True,True,AllowHitMarkers,"Se ativado, mostra marcadores de hit para ataques à distância."
+None,True,AllowIntegratedSPlusStructures,"Se ativado, adicionará todas as novas estruturas S + caso contrário, desabilita todas as novas estruturas S + (destinadas principalmente a permitir que funcionários não oficiais que desejam continuar usando a versão mod S + continuem usando isso sem uma tonelada de estruturas duplicadas extras)."
+True,True,AllowMultipleAttachedC4,"Se habilitado, permitirá mais de um C4 anexado por dino."
+True,True,AllowRaidDinoFeeding,"Se habilitado, permite que os Titanossauros do seu servidor sejam permanentemente domados (ou seja, permite que sejam alimentado)."
+None,True,AllowSharedConnections,"Se desativado, desativará o compartilhamento de contas familiar."
+None,True,AllowTekSuitPowersInGenesis,"se ativado, permitirá que o jogador use TekSuit Powers no mapa Genesis."
+True,True,AllowThirdPersonPlayer,"Se ativado, permite que os jogadores se vejam em terceira pessoa."
+True,True,AlwaysAllowStructurePickup,"Se ativado, desativará o cronômetro no sistema de coleta rápida."
+None,True,AlwaysNotifyPlayerLeft,"Se ativado, os jogadores sempre serão notificados se alguém deixar o servidor."
+None,True,AutoDestroyDecayedDinos,"Se habilitado, todos os dinossauros reivindicados com decaimento irão auto-destruir no carregamento, ao invés de tê-los permanecer como reivindicado."
+None,True,AutoDestroyOldStructuresMultiplier,"Permite as Estruturas se Destruirem Automático, depois de um tempo suficiente que nenhuma Tribo Entrou. Útil para servidores que deseja limpar estruturas abandonadas automaticamente ao longo do tempo. Defina como 0 para desativá-lo."
+True,True,AutoSavePeriodMinutes,"O tempo entre o servidor salva automaticamente."
+None,True,BanListURL,"Se ativado, usa o URL banimentos global do Ark. - http://arkdedicated.com/banlist.txt"
+None,True,bForceCanRideFliers,"Se ativado, os jogadores podem montar em flyer; caso contrário, os jogadores não poderão pilotar flyers."
+True,True,ClampItemSpoilingTimes,"Se habilitado, mantém todos os tempos de estragar no mesmo tempo máximo de estragar os consumivéis. Útil se algum exploit infinito for usado no servidor e você quiser limpá-lo. Poderia causar problemas com Mods que alteram o tempo de spoiling."
+None,True,ClampItemStats,"Habilita estatísticas para itens. Consulte ItemStatClamps para obter mais informações."
+True,True,ClampResourceHarvestDamage,"Limita o dano causado por um dino domesticado na saúde restante do recurso. Observação: ativar esta configuração pode resultar em uma redução sensata na coleta de recursos usando ferramentas ou dinos com alto dano."
+None,True,CustomDynamicConfigUrl,"Se ativado, o URL de configuração dinâmica especificado será usado. - http://arkdedicated.com/dynamicconfig.ini"
+None,True,CustomLiveTuningUrl,"Se ativado, o URL de configuração do ajuste ao vivo personalizado especificado será usado. - http://arkdedicated.com/DefaultOverloads.json"
+True,True,DayCycleSpeedScale,"Especifica o fator de escala para a passagem do tempo no Ark, controlando com que frequência o dia muda para noite e noite muda para o dia. Valores menores que 1 retardam o ciclo; valores mais altos aceleram."
+True,True,DayTimeSpeedScale,"Especifica o fator de escala para a passagem do tempo no Ark durante o dia. Este valor determina a duração de cada dia, em relação à duração de cada noite. Diminuir esse valor aumenta o comprimento de cada dia."
+False,True,DestroyUnconnectedWaterPipes,"Se ativado, após dois dias em tempo real os canos serão destruídos automaticamente se não estiverem conectados e se não houver nenhum jogador aliado por perto."
+True,False,DestroyTamesOverTheSoftTameLimit,"Permite destruir domesticações acima do limite."
+True,True,DifficultyOffset,"Determina os níveis máximos de dinos no ark. Quanto maior o valor, maior o nível máximo do dino."
+True,True,DinoCharacterFoodDrainMultiplier,"Especifica o fator de escala para o consumo de alimentos dos dinossauros selvagens. Valores mais altos aumentam o consumo de alimentos."
+True,True,DinoCharacterHealthRecoveryMultiplier,"Especifica o fator de escala para recuperação da saúde. Valores mais altos aumentam a taxa de recuperação (curam mais rápido)."
+True,True,DinoCharacterStaminaDrainMultiplier,"Especifica o fator de escala para o consumo de stamina. Valores mais altos aumentam o consumo de stamina (cansado mais rápido)."
+None,True,DinoCountMultiplier,"Especifica o fator de escala para spanw de dinossauros. Valores mais altos aumentam o número de dinos gerados em toda a Ark."
+True,True,DinoDamageMultiplier,"Especifica o fator de escala para o dano causado pelos ataques. Valores mais altos aumentam o dano. Valores mais baixos diminuem."
+True,True,DinoResistanceMultiplier,"Especifica o fator de escala para a resistência ao dano recebido quando atacado. Valores mais altos diminuem a resistência, aumentando o dano por ataque. Valores menores aumentam, reduzindo o dano por ataque."
+True,True,DisableDinoDecayPvE,"Se habilitado, desativa o decaimento gradual da propriedade do dino no PvE; caso contrário, cada dinossauro pode ser reivindicado por qualquer jogador."
+True,True,DisableImprintDinoBuff,"Se habilitado, desabilitará o bônus estatístico de dino imprintado por player, onde normalmente quem imprintou especificamente no dino e o elevou para ter uma qualidade de imprint, recebe um bônus extra de dano / resistência."
+True,True,DisablePvEGamma,"Se ativado, permite alterações de gama no modo PvE."
+True,True,DisableStructureDecayPvE,"Se habilitado, habilita o decaimento das estruturas do jogador em PvE."
+True,True,DisableWeatherFog,"Se ativado, desativará o nevoeiro."
+True,True,DontAlwaysNotifyPlayerJoined,"Se habilitado, os jogadores sempre serão notificados se alguém entrar no servidor."
+True,True,EnableExtraStructurePreventionVolumes,"Se habilitado, desabilita completamente a construção em áreas específicas e ricas em recursos, em particular construções do próprio jogo."
+True,True,EnablePvPGamma,"Se ativado, permite alterações de gama no modo PvP."
+None,True,ExtinctionEventTimeInterval,"Define o número de dias para contagem regressiva antes que o evento de extinção ocorra."
+None,True,FastDecayUnsnappedCoreStructures,"Se habilitado, irá decair as fundações / pilares não fixados a uma velocidade 5x maior."
+None,True,ForceAllStructureLocking,"Se ativado, permite Bloquear todas as estruturas."
+True,True,globalVoiceChat,"Se ativado, o bate-papo de voz se torna global e todos no servidor podem ouvir; de outro modo, apenas pessoas próximas umas das outras podem ouvir."
+True,True,HarvestAmountMultiplier,"Especifica o fator de escala para atividades de colheita (derrubar árvores, colher bagas, minerar rochas, etc.). Valores mais altos aumentam a quantidade de materiais colhidos."
+True,True,HarvestHealthMultiplier,"Especifica o fator de escala da resistência de itens que podem ser colhidos (árvores, pedras, carcaças, etc). Valores mais altos aumentam a quantidade de dano (por exemplo, número de golpes) que tais objetos podem suportar antes de serem destruídos, o que resulta em rendimentos de colheita globais mais altos."
+None,True,IgnoreLimitMaxStructuresInRangeTypeFlag,"Remove o limite de 150 estruturas decorativas (bandeiras, letreiros, derme etc.)."
+True,True,ItemStackSizeMultiplier,"Este é o modificador global para permitir aumentar ou diminuir o tamanho da stack de itens. NOTA: Isso funciona apenas para itens que se destinam a empilhar."
+True,True,KickIdlePlayersPeriod,"Se ativado, Usará um tempo limite para o jogador inativo ser Kikado."
+None,True,MaxGateFrameOnSaddles,"Limita o número de gateways que podem ser colocados nas selas plataforma. Esta opção exigirá algum trabalho de administração manual para limpar todas as plataformas pré-existentes que excedam o limite."
+None,True,MaxHexagonsPerCharacter,"Especifica o número máximo de hexagons que cada jogador pode ter."
+True,True,MaxPersonalTamedDinos,"Defina o número máximo de dinos domesticados por tribo."
+None,True,MaxPlatformSaddleStructureLimit,"Altera o número máximo de selas plataforma e jangadas permitidas em todo o servidor."
+True,True,MaxTamedDinos,"Defina o número máximo de dinos domados do servidor."
+True,False,MaxTamedDinos_SoftTameLimit,"Define o limite de soft tame para todo o servidor."
+True,False,MaxTamedDinos_SoftTameLimit_CountdownForDeletionDuration "Defina o cronômetro para destruição em segundos."
+None,True,MaxTributeCharacters,"Slots para players carregados, qualquer valor menor que o padrão será revertido. Nota: aumentá-lo pode corromper os dados do jogador/cluster e levar à perda de todos os personagens armazenados."
+True,True,MaxTributeDinos,"Se ativado, limitará o número de dinos que um jogador pode armazenar nos obeliscos. NOTA: Definir como alto pode causar corrupção do cluster."
+True,True,MaxTributeItems,"Se ativado, limitará o número de itens que um jogador pode armazenar nos obeliscos. NOTA: Definir como alto pode causar corrupção do cluster."
+True,True,NightTimeSpeedScale,"Especifica o fator de escala para a passagem do tempo no Ark durante a noite. Esse valor determina a duração de cada noite, em relação ao tamanho de cada dia. Diminuir esse valor aumenta a duração de cada noite."
+True,True,NonPermanentDiseases,"Se habilitado, fará com que as doenças não sejam permanentes (você irá perdê-las se você respawna)."
+None,True,NPCNetworkStasisRangeScalePlayerCountStart,"O número mínimo de jogadores online quando a escala de estatísticas é ativada."
+None,True,NPCNetworkStasisRangeScalePlayerCountEnd,"O número máximo de jogadores online quando a escala máxima é atingida."
+None,True,NPCNetworkStasisRangeScalePercentEnd,"A porcentagem de escala máxima usada pelo servidor, quando o valor final da contagem de jogadores online é atingido."
+None,True,OnlyAutoDestroyCoreStructures,"Se ativada, impedirá que estruturas não essenciais / não básicas sejam destruídas automaticamente (no entanto, elas ainda serão destruídas automaticamente se o chão em que estiverem for destruído automaticamente)."
+None,True,OnlyDecayUnsnappedCoreStructures,"Se habilitado, somente as estruturas não encaixadas irão decair. Útil para eliminar spam de pilar / fundação solitário em servidores."
+True,True,OverrideOfficialDifficulty,"Determina os níveis máximos de dinos do ark. Quanto maior o valor, maior o nível máximo dos dinos."
+True,True,OverrideStructurePlatformPrevention,"Se habilitado, permite que as torretas automáticas e espinhos sejam colocadas nas selas plataforma de dinos."
+True,True,OxygenSwimSpeedStatMultiplier,"Especifica o multiplicador de como a velocidade de natação é multiplicada pelo nível gasto em oxigênio."
+True,True,PerPlatformMaxStructuresMultiplier,"Especifica o fator de escala para o número máximo de estruturas permitidas em uma única plataforma / sela / jangada."
+None,True,PersonalTamedDinosSaddleStructureCost,"O número de estruturas que cada dino domado na tribo terá, para cada plataforma de sela (com estruturas) vai custar. Exemplo: Setando para 5, uma estrutura valera 5 dinos domesticados na tribo."
+True,True,PlatformSaddleBuildAreaBoundsMultiplier,"Aumenta o multiplicador e permite que as estruturas sejam colocadas mais afastadas da plataforma."
+True,True,PlayerCharacterFoodDrainMultiplier,"Especifica o fator de escala para o consumo de alimentos. Valores mais altos aumentam o consumo de alimentos (com mais fome)."
+True,True,PlayerCharacterHealthRecoveryMultiplier,"Especifica o fator de escala para recuperação da saúde. Valores mais altos aumentam a taxa de recuperação (curam mais rápido)."
+True,True,PlayerCharacterStaminaDrainMultiplier,"Especifica o fator de escala para o consumo de stamina. Valores mais altos aumentam o consumo de stamina (cansado mais rápido)."
+True,True,PlayerCharacterWaterDrainMultiplier,"Especifica o fator de escala para o consumo de água. Valores mais altos aumentam o consumo de água (com sede mais rápida)."
+True,True,PlayerDamageMultiplier,"Especifica o fator de escala para o dano causado pelos ataques. Valores mais altos aumentam o dano. Valores mais baixos diminuem."
+True,True,PlayerResistanceMultiplier,"Especifica o fator de escala para a resistência ao dano recebido quando atacado. Valores mais altos diminuem a resistência, aumentando o dano por ataque. Valores menores aumentam, reduzindo o dano por ataque."
+True,True,PreventDiseases,"Se ativado, as doenças serão ativadas."
+True,True,PreventMateBoost,"Se ativado, Os dinos não receberão o bônus do companheiro, o mesmo não receberá o bônus de 33% de dano de resistência"
+True,True,PreventOfflinePvP,"Se ativado, ativa a opção de prevenção de ataque offline."
+True,True,PreventOfflinePvPInterval,"O período de tempo antes dos dinos / estruturas de uma tribo / jogadores se tornarem invulneráveis ​​/ inativos depois que eles se desconectarem (se a tribo exigir que TODOS os membros da tribo sejam desconectados)."
+True,True,PreventSpawnAnimations,"Se habilitado, desativa a animação de respawn."
+True,True,PreventTribeAlliances,"Se habilitado, os jogadores podem criar alianças com outras tribos."
+True,True,ProximityChat,"Se habilitado, apenas os jogadores próximos um do outro podem ver suas mensagens de chat caso contrário, seu bate-papo de texto será global e todos poderão ver suas mensagens de bate-papo."
+True,True,PvEAllowStructuresAtSupplyDrops,"Se ativado, permitirá a colocação de estruturas nos locais de queda de SupplyDrops, Modo PVE."
+True,True,PvEDinoDecayPeriodMultiplier,"Multiplicador na decadência da base do tempo de propriedade do dino. Funciona somente quando Desativar Dino Decay PvE estiver desmarcado."
+None,True,PvEStructureDecayPeriodMultiplier,"Especifica o fator de escala para a taxa de decaimento das estruturas do player no modo PvE."
+True,True,PvPDinoDecay,"Se habilitado, desativa o decaimento gradual da propriedade do dino no PvP caso contrário, cada dinossauro pode ser reivindicado por qualquer jogador."
+None,True,PvPStructureDecay,"Se ativado, as estruturas no PvP serão automaticamente decaídas se não forem usadas após um período de tempo."
+True,True,RaidDinoCharacterFoodDrainMultiplier,"Especifica o multiplicador para drenagem de comida dos dinossauros. Valores mais altos aumentam o drenagem de alimentos; valores mais baixos diminuem o drenagem de alimentos."
+True,True,RandomSupplyCratePoints,"Se habilitado, fará os Supply Crates aleatórios."
+None,True,RCONEnabled,"Se ativado, o recurso RCON será ativado."
+True,True,RCONPort,"A porta que o RCON usará no seu servidor."
+True,True,RCONServerGameLogBuffer,"Define o tamanho máximo do buffer de log do jogo RCON (padrão 600)."
+True,True,ResourcesRespawnPeriodMultiplier,"Especifica o fator de escala para a taxa de reaparecimento de recursos, como (árvores, rochas, arbustos, etc). Valores mais baixos fazem reaparecerem com mais freqüência."
+True,True,ServerAdminPassword,"Os jogadores devem fornecer esta senha (por meio do console do jogo) para obter acesso aos comandos do administrador no servidor. Nota: não são usadas aspas."
+None,True,ServerAutoForceRespawnWildDinosInterval,"Se habilitado, irá forçar o respawn de dinos selvagens após o intervalo especificado."
+True,True,ServerCrosshair,"Se ativado, mostra a cada jogador uma cruz."
+True,True,ServerForceNoHUD,"Se ativado, permite que o jogador veja o HUD."
+True,True,ServerHardcore,"Ativa o modo hardcore (os jogadores não podem renascer, um novo personagem deve ser criado)."
+True,True,ServerPassword,"A senha que os usuários devem inserir para acessar o servidor. Se isso estiver definido, apenas as pessoas que conhecem a senha poderão acessar seu servidor."
+True,True,serverPVE,"Ativa o modo Jogador contra Jogador (jogadores são capazes de causar dano ou matar uns aos outros. Em jogadores PvP também podem danificar ou destruir os edifícios de outra tribo ou matar seus dinossauros)."
+True,True,ShowFloatingDamageText,"Se ativado, ativa o modo de status de texto pop-up no estilo RPG."
+True,True,ShowMapPlayerLocation,"Se ativado, mostra a cada jogador sua posição no mapa."
+None,True,SpectatorPassword,"A senha que os usuários devem inserir para usar o modo Spectador no servidor."
+None,True,StructureDamageMultiplier,"Especifica o fator de escala para as estruturas de dano com seus ataques (por exemplo, paredes de espinhos). Valores mais altos aumentam o dano. Valores mais baixos diminuem."
+True,True,StructurePickupHoldDuration,"Especifica a quantidade de tempo da duração da espera de coleta rápida, use 0 para desativar e fazer a coleta instantânea."
+True,True,StructurePickupTimeAfterPlacement,"Especifica a quantidade de tempo em segundos após o veiculação da estrutura em que a coleta rápida está disponível."
+True,True,StructurePreventResourceRadiusMultiplier,"O mesmo que ResourceNoReplenishRadiusStructures em Game.ini. Se ambas as configurações estiverem definidas, ambos os multiplicadores serão aplicados. Pode ser útil quando não é possível alterar o arquivo Game.ini, pois também funciona como uma opção de linha de comando."
+True,True,StructureResistanceMultiplier,"Especifica o fator de escala para a resistência de estruturas quando recebe atacaques. Valores mais altos diminuem a resistência, aumentando o dano por ataque. Valores menores aumentam, reduzindo o dano por ataque."
+None,True,TamedDinoDamageMultiplier,"Especifica o fator de escala para o dano causado pelos ataques. Valores mais altos aumentam o dano. Valores mais baixos diminuem."
+None,True,TamedDinoResistanceMultiplier,"Especifica o fator de escala para a resistência ao dano recebido quando atacado. Valores mais altos diminuem a resistência, aumentando o dano por ataque. Valores menores aumentam, reduzindo o dano por ataque."
+True,True,TamingSpeedMultiplier,"Especifica o fator de escala para a velocidade de domesticação de dinossauros. Valores mais altos tornam a domesticação mais rápida."
+True,True,TheMaxStructuresInRange,"Especifica o número máximo de estruturas que podem ser construídas dentro de um determinado intervalo."
+None,True,TribeLogDestroyedEnemyStructures,"Se ativado, o log de destruição da estrutura inimiga para a tribo vítima e exibirá a tribo do atacante nos Registros da Tribo, em vez de uma mensagem de destruição da estrutura genérica."
+True,True,TribeNameChangeCooldown,"Cooldown adicionado à tribo, para não está mudando seu nome."
+None,True,UseFjordurTraversalBuff,"Se ativado, permitirá o teleporte para bioma do mapa Fjordur."
+None,True,UseOptimizedHarvestingHealth,"Se ativado, você obterá um servidor mais otimizado no farme de recursos, útil para quem tem problema de lag em farme."
+True,True,XPMultiplier,"Especifica o fator de escala para a experiência recebida pelos jogadores. Valores mais altos aumentam os valores de XP para diversas ações; valores mais baixos diminuem."
+None,True,CrossARKAllowForeignDinoDownloads,"Se habilitado, permitirá que você baixe Dinos para o mapa Aberration."
+None,True,MinimumDinoReuploadInterval,"Se ativado, permitirá que você substitua o intervalo de novo upload."
+True,True,noTributeDownloads,"Se habilitado, isso permitirá o download de sobreviventes / itens / dinos externos em seu servidor."
+True,True,PreventDownloadDinos,"Se ativado, os downloads do dino estão desativados."
+True,True,PreventDownloadItems,"Se ativado, os downloads de itens estão desativados."
+True,True,PreventDownloadSurvivors,"Se ativado, os downloads do sobrevivente estão desativados."
+None,True,PreventUploadDinos,"Se ativado, os uploads do dino estão desativados."
+None,True,PreventUploadItems,"Se ativado, os uploads de itens estão desativados."
+None,True,PreventUploadSurvivors,"Se ativado, os uploads do sobrevivente são desativados."
+None,True,TributeCharacterExpirationSeconds,"Se habilitado, permitirá que você substitua o cronômetro de expiração."
+None,True,TributeDinoExpirationSeconds,"Define em segundos o cronômetro de expiração para dinos carregados no ARK Data."
+None,True,TributeItemExpirationSeconds,"Define em segundos o cronômetro de expiração para itens carregados no ARK Data."
+None,True,CryopodNerfDamageMult,"Especifica o multiplicador de dano causado pelos dinos, depois que elas são liberadas de um criopod. Valores mais baixos significam que o dano realizado será menor (por exemplo, 0,01 significa que 99% do dano é removido)."
+None,True,CryopodNerfDuration,"A quantidade de tempo em segundos em que o ajuste de dano entrará em vigor para o dino após se liberado de um criopod."
+None,True,CryopodNerfIncomingDamageMultPercent,"Especifica o aumento percentual no multiplicador de dano recebido de um dino, depois que ele é liberado de um criopod. Valores mais altos significam mais dano recebido ao dino (por exemplo, 0.25 = 25% a mais de dano)."
+True,False,AllowCryoFridgeOnSaddle,"Permite que criofridges sejam construídas em selas e jangadas de plataforma."
+True,False,DisableCryopodEnemyCheck,"Permite que criopods sejam usados enquanto os inimigos estão próximos."
+True,False,DisableCryopodFridgeRequirement,"Permite que os criopods sejam usadas sem a necessidade de estar ao alcance de um refrigerador criogênico alimentado."
+None,True,EnableCryopodNerf,"Se ativado, ajustará a quantidade de dano que um dino causa por um período de tempo, após ter sido liberado de um criopod."
+None,True,EnableCryoSicknessPVE,"Se ativado, se você liberar um dino domesticada de um criopod, você terá um cronômetro de doença quando o modo PvE estiver ativado."
+None,True,BadWordListURL,"Adicione o URL para hospedar sua própria lista de palavrões."
+None,True,BadWordWhiteListURL,"Adicione o URL para hospedar sua própria lista de boas palavras."
+True,False,AdminListURL,"ASA não usa mais identificadores SteamID64 em vez disso, usa credenciais EOS. Agora você pode obter esse ID digitando whoami no single player no console. Nota: também leva URLs http/https, mas também um arquivo local como por exemplo: file://C:\TestASA\server\ShooterGame\Saved\Config\WindowsServer\AdminListURL.txt."
+None,True,bFilterCharacterNames,"Filtra os nomes dos personagens com base na lista de palavrões / boas palavras."
+None,True,bFilterChat,"Filtra mensagens de bate-papo com base na lista de palavrões/boas palavras."
+None,True,bFilterTribeNames,"Filtra os nomes das tribos com base na lista de palavrões/boas palavras."
+None,True,AllowDeprecatedStructures,"Permite que os servidores mantenham as Estruturas de Halloween por um tempo após o término do evento (deve ser usado antes de reiniciar o servidor com a atualização 222.3). Como não há mais eventos planejados para serem ativados ou removidos, esse recurso pode ser considerado obsoleto."
+None,True,bAllowFlyerCarryPVE,"Descontinuado."
+None,True,bDisableStructureDecayPvE,"Descontinuado."
+None,True,ForceFlyerExplosives,"Permite que voadores (exceto Quetzal e Wyvern) voem com C4 anexado a ele. Obsoleto desde 253,95."
+None,True,MaxStructuresInRange,"Especifica o número máximo de estruturas que podem ser construídas dentro de um determinado intervalo (atualmente codificado) Introduzido no patch 173.0 e descontinuado com o patch 188.0 por NewMaxStructuresInRange."
+None,True,NewMaxStructuresInRange,"Especifica o número máximo de estruturas que podem ser construídas dentro de um determinado intervalo (atualmente codificado). Obsoleto com patch 252.1 por TheMaxStructuresInRange."
+None,True,PvEStructureDecayDestructionPeriod,"Especifica o tempo necessário para as estruturas do jogador decaírem no modo PvE. Obsoleto e não está mais presente em bits executáveis com o patch 180.0 onde cada tipo de estrutura tem seu próprio tempo de decaimento."
+False,True,AllowedCheatersURL,"URL Alternativa ao uso de AllowedCheaterSteamIDs.txt (consulte Lista de permissão do administrador) usando um recurso da web (por exemplo: uso oficial http://arkdedicated.com/globaladmins.txt). O intervalo em que o servidor consulta o recurso para verificar a atualização da lista de administradores é definido por UpdateAllowedCheatersInterval Nota: ele suporta apenas o protocolo HTTP (HTTPS não é suportado). Não documentado por Wildcard."
+None,True,ChatLogFileSplitIntervalSeconds,"Controla como dividir o arquivo de log do chat relacionado ao tempo em segundos. Não pode ser definido com um valor inferior a 45 (o padrão será 45 se o valor for inferior). Defina como 0 apenas em oficial. Não documentado por Wildcard."
+None,True,ChatLogFlushIntervalSeconds,"Controla em quantos segundos o log do chat é liberado para o arquivo de log. Não pode ser definido com um valor inferior a 15 (o padrão será 15 se o valor for inferior). Defina como 0 apenas em oficial. Não documentado por Wildcard."
+None,True,ChatLogMaxAgeInDays,"Controla quantos dias o log de bate-papo dura. Defini-lo com um valor negativo resultará em -1 (virtualmente infinito). Defina como 0 apenas em oficial. Não documentado por Wildcard."
+None,True,DontRestoreBackup,"-DisableDupeLogDeletes estiverem presentes, evita que o servidor restaure automaticamente um backup em caso de salvamento corrompido. Não documentado por Wildcard."
+None,True,EnableAFKKickPlayerCountPercent,"Permite que o tempo limite de inatividade seja aplicado somente se a quantidade de jogadores online atingir o valor percentual relacionado ao argumento MaxPlayers. A porcentagem é expressa como valor normalizado entre 0 e 1,0, onde 1,0 significa 100%. Oficial definiu para 0,89999998. Não documentado por Wildcard."
+None,True,EnableMeshBitingProtection,"Desativa a proteção contra mesh bite. Não documentado por Wildcard."
+None,True,FreezeReaperPregnancy,"Congela o cronômetro de gravidez do Reaper King e o ganho de experiência. Não documentado por Wildcard."
+None,True,LogChatMessages,"Habilita o registro avançado de bate-papo. Os registros de bate-papo serão salvos em ShooterGame/Saved/Logs/ChatLogs/<SessionName>/ no formato json. O log conterá informações como Desativado no oficial. O arquivo será dividido de acordo com o valor de ChatLogFileSplitIntervalSeconds e liberado a cada valor de segundos de ChatLogFlushIntervalSeconds. Nota: <SessionName> será escrito sem espaços. Não documentado por Wildcard."
+None,True,MaxStructuresInSmallRadius,"Define a quantidade máxima de estruturas que podem ser colocadas em um RadiusStructuresInSmallRadius a partir da posição do jogador. Oficial definiu para 40. Não documentado por Wildcard."
+None,True,MaxStructuresToProcess,"Controla o tamanho máximo do lote de estruturas a serem processadas (por exemplo: seleção, construção de modificações em gráficos, etc) a cada tick do servidor. Deixar em 0 (comportamento padrão) forçará o servidor a processar todas as estruturas na fila. É uma compensação entre quanto pode custar um tick do servidor (pior cenário) e a precisão da simulação. Oficial definiu para 5.000. Não documentado por Wildcard."
+None,True,PreventOutOfTribePinCodeUse,"Evita que jogadores de fora da tribo usem senha em estruturas (portas, elevadores, caixas de armazenamento, etc). Não documentado por Wildcard."
+None,True,RadiusStructuresInSmallRadius,"Define a dimensão do raio pequeno (em unidades Unreal) usada por MaxStructuresInSmallRadius. Oficial definiu para 225,0. Não documentado por Wildcard."
+None,True,ServerEnableMeshChecking,"Não tem efeito se -forcedisablemeshchecking estiver definido. Habilitado oficialmente. Não documentado."
+None,True,TribeMergeAllowed,"Evita a Mergi tribo. Não documentado por Wildcard."
+None,True,TribeMergeCooldown,"Cool-down para Mergi tribo em segundos. Oficial usa 86400.0. Não documentado por Wildcard."
+None,True,UpdateAllowedCheatersInterval,"Tempo em segundos em que a lista de administradores remotos vinculada por AllowedCheatersURL é consultada em busca de atualizações. Qualquer valor menor que 3,0 será revertido para 3,0. Não documentado por Wildcard."
+None,True,UseExclusiveList,"Permite o mesmo comportamento que -exclusivejoin. Não documentado por Wildcard."
+True,True,[SessionSettings],"As opções a seguir devem estar na seção [SessionSettings] de GameUserSettings.ini."
 As opções a seguir devem estar na seção [SessionSettings] de GameUserSettings.ini.
-True,True,Port,"Os usuários da porta usarão para se conectar ao seu servidor. O padrão é 7777. Altere isto e Query Port se você deseja hospedar vários servidores em uma máquina.",V
-None,True,QueryPort,"A porta Steam usa para se comunicar com seu servidor. O padrão é 27015. Altere this e Server Port se você deseja hospedar vários servidores em uma máquina.",V
-True,True,SessionName,"O nome público do servidor Ark, como visto no Steam e no Ark.",V
-None,True,[/Script/Engine.GameSession],"Não usado no ASA, mas o ASADedicatedManager adicionará automaticamente esta configuração na linha de comando de inicialização do servidor: -WinLiveMaxPlayers As opções a seguir devem estar na seção [/Script/Engine.GameSession] de GameUserSettings.ini",X
-False,True,MaxPlayers,"Define o número máximo de jogadores que podem entrar neste servidor.No ASA: foi mudado para -WinLiveMaxPlayers na linha de comando",V
-None,True,[Ragnarok],"Ativar configurações Ragnarok",X
-None,True,AllowMultipleTamedUnicorns,"Se ativado, permitirá um vários Unicórnios domesticados no mapa. Caso contrário, apenas um unicórnio de cada vez no mapa.",X
-None,True,EnableVolcano,"Se ativado, permitirá que o vulcão se torne ativo.",X
-None,True,UnicornSpawnInterval,"Quanto tempo deve esperar antes de novo spawn de Unicórnio se o selvagem for morto (ou domesticado, se AllowMultipleTamedUnicorns estiver habilitado). Este valor define o tempo mínimo (em horas), e o máximo é igual a 2x este valor.",X
-None,True,VolcanoIntensity,"Quanto mais baixo for o valor, mais intensa será a erupção do vulcânica. Recomendado deixar 1,0, o valor mínimo é 0,25, e para jogos multiplayer, não deve ir abaixo de 0,5. Números muito altos irão basicamente desativar as rochas em chamas atiradas para fora do vulcão.",X
-None,True,VolcanoInterval,"0 = 5000 (min) - 15000 (max) segundos para intensa erupção vulcânica se tornar ativo. Qualquer número acima de 0 atua como um multiplicador.",X
-None,True,Duration,"Duração da mensagem do Dia será mostrada quando o usuário se conectar ao servidor.",X
-True,True,Message,"A mensagem do dia exibida para os usuários quando eles se conectam ao servidor.",X
+True,True,Port,"Os usuários da porta usarão para se conectar ao seu servidor. O padrão é 7777. Altere isto e Query Port se você deseja hospedar vários servidores em uma máquina."
+None,True,QueryPort,"A porta Steam usa para se comunicar com seu servidor. O padrão é 27015. Altere this e Server Port se você deseja hospedar vários servidores em uma máquina."
+True,True,SessionName,"O nome público do servidor Ark, como visto no Steam e no Ark."
+None,True,[/Script/Engine.GameSession],"Não usado no ASA, mas o ASADedicatedManager adicionará automaticamente esta configuração na linha de comando de inicialização do servidor: -WinLiveMaxPlayers As opções a seguir devem estar na seção [/Script/Engine.GameSession] de GameUserSettings.ini"
+False,True,MaxPlayers,"Define o número máximo de jogadores que podem entrar neste servidor.No ASA: foi mudado para -WinLiveMaxPlayers na linha de comando"
+None,True,[Ragnarok],"Ativar configurações Ragnarok"
+None,True,AllowMultipleTamedUnicorns,"Se ativado, permitirá um vários Unicórnios domesticados no mapa. Caso contrário, apenas um unicórnio de cada vez no mapa."
+None,True,EnableVolcano,"Se ativado, permitirá que o vulcão se torne ativo."
+None,True,UnicornSpawnInterval,"Quanto tempo deve esperar antes de novo spawn de Unicórnio se o selvagem for morto (ou domesticado, se AllowMultipleTamedUnicorns estiver habilitado). Este valor define o tempo mínimo (em horas), e o máximo é igual a 2x este valor."
+None,True,VolcanoIntensity,"Quanto mais baixo for o valor, mais intensa será a erupção do vulcânica. Recomendado deixar 1,0, o valor mínimo é 0,25, e para jogos multiplayer, não deve ir abaixo de 0,5. Números muito altos irão basicamente desativar as rochas em chamas atiradas para fora do vulcão."
+None,True,VolcanoInterval,"0 = 5000 (min) - 15000 (max) segundos para intensa erupção vulcânica se tornar ativo. Qualquer número acima de 0 atua como um multiplicador."
+None,True,Duration,"Duração da mensagem do Dia será mostrada quando o usuário se conectar ao servidor."
+True,True,Message,"A mensagem do dia exibida para os usuários quando eles se conectam ao servidor."
