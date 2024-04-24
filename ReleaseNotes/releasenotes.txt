@@ -1,3 +1,6 @@
+1.7.6.4
+- Improved autoupdate
+
 1.7.6.3
 - Emergency fix for auto update broken
 
