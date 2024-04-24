@@ -1,3 +1,7 @@
+1.7.6.1
+- Exclusion of files ARK_Creature_IDs.csv ArkPrimalItem.csv Items.csv (game data files) during updates this allows users to add their own data without it being overwritten with each update a future update allows them to be updated directly in the manager
+- Addition of a log system for updating the manager. The file is located in the application directory appupdate.log to be checked in the event of an update failure.
+
 1.7.6.0
 - Added NPCRemplacement allows you to replace dino spawns for example to remove alphas... your existing configurations will be loaded
 - Simplifying and improving translation files for all languages ArkWIKI_Game_ALL.csv ArkWIKI_GameUserSettings_ALL.csv
