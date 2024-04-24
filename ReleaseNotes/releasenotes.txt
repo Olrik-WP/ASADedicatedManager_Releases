@@ -1,3 +1,7 @@
+1.7.6.2
+- The manager update button is now disabled during the update (it may take time depending on your bandwidth)
+- Redesign of manager loading for better management and display of message boxes
+
 1.7.6.1
 - Exclusion of files ARK_Creature_IDs.csv ArkPrimalItem.csv Items.csv (game data files) during updates this allows users to add their own data without it being overwritten with each update a future update allows them to be updated directly in the manager
 - Addition of a log system for updating the manager. The file is located in the application directory appupdate.log to be checked in the event of an update failure.
