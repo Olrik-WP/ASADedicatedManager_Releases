@@ -1,3 +1,6 @@
+1.7.6.3
+- Emergency fix for auto update broken
+
 1.7.6.2
 - The manager update button is now disabled during the update (it may take time depending on your bandwidth)
 - Redesign of manager loading for better management and display of message boxes
