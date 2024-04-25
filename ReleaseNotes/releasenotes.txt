@@ -1,3 +1,10 @@
+1.7.7.0
+- Bug fix: Loading the map file name was no longer loaded
+- Added profile renaming functionality
+- Added profile move functionality
+- ArkAPi exclude ArkApi\Plugins\Permissions\config.json if exist when updating
+- Save NPCReplacement button is now disabled when server is running
+
 1.7.6.4
 - Improved autoupdate
 
