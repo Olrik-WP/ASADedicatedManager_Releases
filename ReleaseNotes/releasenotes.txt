@@ -1,3 +1,6 @@
+1.7.7.1
+- If you move a profile or rename the application will be restarted to avoid bug
+
 1.7.7.0
 - Bug fix: Loading the map file name was no longer loaded
 - Added profile renaming functionality
