@@ -1,3 +1,6 @@
+1.7.7.2
+- Rollback 1.7.6.2 Redesign of manager loading for better management and display of message boxes, To review later causes too many bugs
+
 1.7.7.1
 - If you move a profile or rename the application will be restarted to avoid bug
 
