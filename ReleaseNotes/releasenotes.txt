@@ -1,3 +1,10 @@
+1.7.7.3
+- Backup files is now sorting by creation time, most recent first
+- Updating CustomMapPath and AltSaveDirectoryName is now correctly handled when:
+	1 of renaming the profile (CustomMapPath modified)
+	2 copying an existing profile (CustomMapPath disabled)
+	3 moving an existing profile (CustomMapPath modified)
+
 1.7.7.2
 - Rollback 1.7.6.2 Redesign of manager loading for better management and display of message boxes, To review later causes too many bugs
 
