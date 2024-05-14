@@ -1,3 +1,9 @@
+1.7.7.4
+- Improved autoupdate and fixed unrecognized spaces in manager installation path for future updates
+- Fixed a bug when copying or moving profile or serverProfile.json did not exist because it was incorrectly named in the code
+- When copying, moving or renaming a profile. The API uninstall or update file is now correctly handled
+- Credits: Added new contributor
+
 1.7.7.3
 - Backup files is now sorting by creation time, most recent first
 - Updating CustomMapPath and AltSaveDirectoryName is now correctly handled when:
