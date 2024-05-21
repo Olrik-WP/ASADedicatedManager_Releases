@@ -1,3 +1,9 @@
+1.7.7.5
+- Removal of forced administrator rights when launching the application it is now your responsibility to launch the application as administrator to avoid potential problems
+- Added an option in the Option menu of the main window to be able to launch the Manager when Windows starts
+- Fixed a bug at launch which in certain cases could cause the manager to crash following a bad identified icon path (System.IO.FileNotFoundException)
+- Added a button to open the API plugins configuration folder
+
 1.7.7.4
 - Improved autoupdate and fixed unrecognized spaces in manager installation path for future updates
 - Fixed a bug when copying or moving profile or serverProfile.json did not exist because it was incorrectly named in the code
