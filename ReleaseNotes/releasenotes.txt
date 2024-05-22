@@ -1,3 +1,6 @@
+1.7.7.7
+- Updated some translations
+
 1.7.7.6
 - Autopudate: Updated the autopudate function for certain users who have accents in their folder paths
 - Autopudate: Use of robocopy for better support
