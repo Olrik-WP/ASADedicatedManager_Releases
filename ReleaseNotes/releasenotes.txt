@@ -1,3 +1,9 @@
+1.7.7.6
+- Autopudate: Updated the autopudate function for certain users who have accents in their folder paths
+- Autopudate: Use of robocopy for better support
+- Autopudate: batch encoding in UTF8 without BOM for correct management of accents
+- Autopudate: Added a help message in case of failure
+
 1.7.7.5
 - Removal of forced administrator rights when launching the application it is now your responsibility to launch the application as administrator to avoid potential problems
 - Added an option in the Option menu of the main window to be able to launch the Manager when Windows starts
