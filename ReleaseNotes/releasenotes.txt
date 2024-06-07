@@ -1,3 +1,8 @@
+1.7.8.4
+- Added the possibility of configuring backups every 5 minutes within an hour range in the backup task in order to avoid disk io and CPU overload on a server hosting several dedicated servers, this allows you to stagger your backups by 5 minutes per profile
+- Before checking for duplicates in the GameUserSettings.ini the section [/Script/ShooterGame.ShooterGameUserSettings] is checked if several lines contain LastJoinedSessionPerCategory= it is deleted to keep only one line
+- Credits: Added new contributor
+
 1.7.8.3
 - Stop server button: if for an unknown reason the server console does not close after a DoExit the process is killed (wait 30 seconds to avoid corruption of backups)
 - Disable double savegame in DoExit command when stopping server
