@@ -1,3 +1,7 @@
+1.7.8.7
+- Better handling of the readonly attribute on GameUserSettings.ini and Game.ini files when loading the manager and when applying a manager update to avoid denied access problems when attempting to delete LastJoinedSessionPerCategory lines
+- The remove read-only button is now active all the time
+
 1.7.8.6
 Urgent fix for cleaning the GameUserSettings.ini file bug brought in 1.7.8.4 and 1.7.8.5 when trying to clean LastJoinedSessionPerCategory the file was read in a loop when starting the server while it is in readonly... cleaning is now carried out when the manager is launched
 
