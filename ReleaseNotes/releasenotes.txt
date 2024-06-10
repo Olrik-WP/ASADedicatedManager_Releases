@@ -1,3 +1,10 @@
+1.7.8.9
+- Added two new options in the launch arguments:
+	* NoAntiSpeedHack Anti speedhack detection is now enabled by default you now use this option to disable it. With translation for all languages
+	* PrideColors Unleash a spectrum of vibrant creature colors by adding the arg -PrideColors to the server commandline. With translation for all languages
+- Updated multihome information in all languages
+- Updated Port description in GameUserSettings to handle 7778 With translation for all languages
+
 1.7.8.8
 - Better handling of the readonly attribute of game.ini
 

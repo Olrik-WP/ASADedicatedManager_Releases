@@ -182,7 +182,7 @@ None,True,UpdateAllowedCheatersInterval,"Tempo em segundos em que a lista de adm
 None,True,UseExclusiveList,"Permite o mesmo comportamento que -exclusivejoin. Não documentado por Wildcard."
 True,True,[SessionSettings],"As opções a seguir devem estar na seção [SessionSettings] de GameUserSettings.ini."
 As opções a seguir devem estar na seção [SessionSettings] de GameUserSettings.ini.
-True,True,Port,"Os usuários da porta usarão para se conectar ao seu servidor. O padrão é 7777. Altere isto e Query Port se você deseja hospedar vários servidores em uma máquina."
+True,True,Port,"7777 Tipo de valor: int Especifica a porta de jogo UDP. Observe que a porta 7778 também deve estar aberta durante o encaminhamento de porta, bem como nas regras de firewall"
 None,True,QueryPort,"A porta Steam usa para se comunicar com seu servidor. O padrão é 27015. Altere this e Server Port se você deseja hospedar vários servidores em uma máquina."
 True,True,SessionName,"O nome público do servidor Ark, como visto no Steam e no Ark."
 None,True,[/Script/Engine.GameSession],"Não usado no ASA, mas o ASADedicatedManager adicionará automaticamente esta configuração na linha de comando de inicialização do servidor: -WinLiveMaxPlayers As opções a seguir devem estar na seção [/Script/Engine.GameSession] de GameUserSettings.ini"
