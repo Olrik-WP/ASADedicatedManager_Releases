@@ -182,7 +182,7 @@ None,True,UpdateAllowedCheatersInterval,"Default value: 600.0 Value type: float 
 None,True,UseExclusiveList,"Default value: False Value type: boolean If True, allows same behaviour as -exclusivejoin. Undocumented by Wildcard."
 True,True,[SessionSettings],"The following options must come under the [SessionSettings] section of GameUserSettings.ini."
 The following options must come under the [SessionSettings] section of GameUserSettings.ini.
-True,True,Port,"Default value: 7777 Value type: integer Specifies the UDP Game Port. See Dedicated server setup."
+True,True,Port,"Default value: 7777 Value type: int Specifies the UDP game port. Please note port 7778 must also be open during port forwarding as well as in the firewall rules"
 None,True,QueryPort,"Default value: 27015 Value type: integer Specifies the UDP Steam Query Port. See Dedicated server setup"
 True,True,SessionName,"Default value: ARK #123456 Value type: string Specifies the Server name advertised in the Game Server Browser as well in Steam Server browser. If no name is provide, the default name will be ARK # followed by a random 6 digit number. Note: Name must not be typed between quotes unless it is launched from command line."
 None,True,[/Script/Engine.GameSession],"Not used on ASA, but ASADedicatedManager will automatically add this setting in the server launch command line: -WinLiveMaxPlayers The following options must be in the [/Script/Engine.GameSession] section of GameUserSettings.ini"
