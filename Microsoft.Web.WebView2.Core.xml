@@ -497,6 +497,12 @@
             <returns>A JSON string that represents the method's return object.</returns>
             <remarks>
             For more information about available methods, navigate to [DevTools Protocol Viewer](https://aka.ms/DevToolsProtocolDocs). The returned task is completed when the method asynchronously completes and will return the method's return object as a JSON string. Note even though WebView2 dispatches the CDP messages in the order called, CDP method calls may be processed out of order. If you require CDP methods to run in a particular order, you should await for the previous method call.
+            
+            If the method is to run in <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NewWindowRequested"/> handler it should be called
+            before the new window is set if the cdp messages should affect the initial navigation. If
+            called after setting the NewWindow property, the cdp messages
+            may or may not apply to the initial navigation and may only apply to the subsequent navigation.
+            For more details <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2NewWindowRequestedEventArgs.NewWindow"/>.
             </remarks>
         </member>
         <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2.GoBack">
@@ -2999,6 +3005,8 @@
             
             
             
+            
+            
         </member>
         <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2EnvironmentOptions.#ctor(System.String,System.String,System.String,System.Boolean,System.Collections.Generic.List{Microsoft.Web.WebView2.Core.CoreWebView2CustomSchemeRegistration})">
             <summary>
@@ -3022,6 +3030,39 @@
             <param name="customSchemeRegistrations">
             List of custom scheme registrations to be applied to the <see
             cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Environment"/>.
+            </param>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2EnvironmentOptions.#ctor(System.String,System.String,System.String,System.Boolean,System.Collections.Generic.List{Microsoft.Web.WebView2.Core.CoreWebView2CustomSchemeRegistration},Microsoft.Web.WebView2.Core.CoreWebView2ReleaseChannels,Microsoft.Web.WebView2.Core.CoreWebView2ChannelSearchKind)">
+            <summary>
+            Initializes a new instance of the CoreWebView2EnvironmentOptions class.
+            </summary>
+            <param name="additionalBrowserArguments">
+            AdditionalBrowserArguments can be specified to change the behavior of
+            the WebView.
+            </param>
+            <param name="language">
+            The default language that WebView will run with.
+            </param>
+            <param name="targetCompatibleBrowserVersion">
+            The version of the Edge WebView2 Runtime binaries required to be
+            compatible with the calling application.
+            </param>
+            <param name="allowSingleSignOnUsingOSPrimaryAccount">
+            Set to true if single sign on be enabled using the end user's OS primary
+            account. Defaults to false.
+            </param>
+            <param name="customSchemeRegistrations">
+            List of custom scheme registrations to be applied to the <see
+            cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Environment"/>.
+            </param>
+            <param name="channelSearchKind">
+            Set to CoreWebView2ChannelSearchKind.LeastStable so that environment
+            creation searches for binaries from least to most stable:
+            Canary -> Dev -> Beta -> WebView2 Runtime.
+            Defaults to CoreWebView2RuntimeChannel.MostStable.
+            </param>
+            <param name="releaseChannels">
+            The release channels that are searched for during environment creation.
             </param>
         </member>
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2EnvironmentOptions.CustomSchemeRegistrations">
@@ -3118,6 +3159,58 @@
             </summary>
             <remarks>
             When <c>AreBrowserExtensionsEnabled</c> is set to <c>true</c>, new extensions can be added to user profile and used. <c>AreBrowserExtensionsEnabled</c> is default to be <c>false</c>, in this case, new extensions can't be installed, and already installed extension won't be available to use in user profile. If connecting to an already running environment with a different value for <c>AreBrowserExtensionsEnabled</c> property, it will fail with <c>HRESULT_FROM_WIN32(ERROR_INVALID_STATE)</c>. See <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2BrowserExtension"/> for Extensions API details.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2EnvironmentOptions.ChannelSearchKind">
+            <summary>
+            Set <c>ChannelSearchKind</c> to <c>CoreWebView2ChannelSearchKind.LeastStable</c> so that the WebView2 loader searches for binaries from least to most stable: Canary -> Dev -> Beta -> WebView2 Runtime.
+            </summary>
+            <remarks>
+            The <c>ChannelSearchKind</c> property is <c>CoreWebView2ChannelSearchKind.MostStable</c> by default and environment creation searches for a release channel on the machine from most to least stable using the first channel found. The default search order is: WebView2 Release -> Beta -> Dev -> Canary. Set <c>ChannelSearchKind</c> to <c>CoreWebView2ChannelSearchKind.LeastStable</c> to reverse the search order so that environment creation searches for a channel from least to most stable. If a <c>ReleaseChannels</c> has been provided, environment creation will only search for channels in the set. See <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2ReleaseChannels"/> for more details on channels. This property can be overridden by the corresponding registry key <c>ChannelSearchKind</c> or the environment variable <c>WEBVIEW2_CHANNEL_SEARCH_KIND</c>. Set the value to <c>1</c> to reverse the search order. See <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Environment.CreateAsync(System.String,System.String,Microsoft.Web.WebView2.Core.CoreWebView2EnvironmentOptions)"/> for more details on overrides.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2EnvironmentOptions.ReleaseChannels">
+            <summary>
+            Sets the <c>ReleaseChannels</c>, which is a mask of one or more <c>CoreWebView2ReleaseChannels</c> indicating which channels environment creation should search for.
+            </summary>
+            <remarks>
+            OR operation(s) can be applied to multiple <c>CoreWebView2ReleaseChannels</c> to create a mask. The default value is a mask of all the channels. By default, environment creation searches for channels from most to least stable, using the first channel found on the device. When <c>ReleaseChannels</c> is provided, environment creation will only search for the channels specified in the set. Set <c>ChannelSearchKind</c> to <c>CoreWebView2ChannelSearchKind.MostStable</c> to reverse the search order so that the loader searches for the least stable build first. See <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2ReleaseChannels"/> for descriptions of each channel. Environment creation fails if it is unable to find any channel from the <c>ReleaseChannels</c> installed on the device. Use <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Environment.GetAvailableBrowserVersionString(System.String,Microsoft.Web.WebView2.Core.CoreWebView2EnvironmentOptions)"/> to verify which channel is used. If both a <c>BrowserExecutableFolder</c> and <c>ReleaseChannels</c> are provided, the <c>BrowserExecutableFolder</c> takes precedence. The <c>ReleaseChannels</c> can be overridden by the corresponding registry override <c>ReleaseChannels</c> or the environment variable <c>WEBVIEW2_RELEASE_CHANNELS</c>. Set the value to a comma-separated string of integers, which map to the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2ReleaseChannels"/> values: Stable (0), Beta (1), Dev (2), and Canary (3). For example, the values "0,2" and "2,0" indicate that the loader should only search for Dev channel and the WebView2 Runtime, using the order indicated by <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2EnvironmentOptions.ChannelSearchKind"/>. Environment creation attempts to interpret each integer and treats any invalid entry as Stable channel.
+            
+            <list type="table">
+              <listheader>
+                <description>ReleaseChannels</description>
+                <description>Channel Search Kind: Most Stable (default)</description>
+                <description>Channel Search Kind: Least Stable</description>
+              </listheader>
+              <item>
+                <description>CoreWebView2ReleaseChannels.Beta | CoreWebView2ReleaseChannels.Stable</description>
+                <description>WebView2 Runtime -&gt; Beta</description>
+                <description>Beta -&gt; WebView2 Runtime</description>
+              </item>
+              <item>
+                <description>CoreWebView2ReleaseChannels.Canary | CoreWebView2ReleaseChannels.Dev | CoreWebView2ReleaseChannels.Beta | CoreWebView2ReleaseChannels.Stable</description>
+                <description>WebView2 Runtime -&gt; Beta -&gt; Dev -&gt; Canary</description>
+                <description>Canary -&gt; Dev -&gt; Beta -&gt; WebView2 Runtime</description>
+              </item>
+              <item>
+                <description>CoreWebView2ReleaseChannels.Canary</description>
+                <description>Canary</description>
+                <description>Canary</description>
+              </item>
+              <item>
+                <description>CoreWebView2ReleaseChannels.Beta | CoreWebView2ReleaseChannels.Canary | CoreWebView2ReleaseChannels.Stable</description>
+                <description>WebView2 Runtime -&gt; Beta -&gt; Canary</description>
+                <description>Canary -&gt; Beta -&gt; WebView2 Runtime</description>
+              </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2EnvironmentOptions.ScrollBarStyle">
+            <summary>
+            Set ScrollBar style to be used.
+            </summary>
+            <remarks>
+            The default is <c>CoreWebView2ScrollbarStyle.Default</c> which specifies the default browser ScrollBar style. CSS styles that modify the ScrollBar applied on top of native ScrollBar styling that is selected with <c>CoreWebView2ScrollbarStyle</c>.
             </remarks>
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2Frame">
@@ -3700,7 +3793,7 @@
             
             See <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2BrowserExtension"/> for descriptions of browser extensions.
             <remarks>
-            Adds the [browser extension](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions) using the extension path for unpacked extensions from the local device. Extension is running right after installation.
+            Adds the [browser extension](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions) using the extension path for unpacked extensions from the local device. Extension is running right after installation.
             The extension folder path is the topmost folder of an unpacked browser extension and contains the browser extension manifest file.
             If the <c>extensionFolderPath</c> is an invalid path or doesn't contain the extension manifest.json file, this function will return <c>ERROR_FILE_NOT_FOUND</c> to callers.
             Installed extension will default <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2BrowserExtension.IsEnabled"/> to true. When <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2EnvironmentOptions.AreBrowserExtensionsEnabled"/>  is <c>false</c>, <c>AddBrowserExtension</c> will fail and return HRESULT <c>ERROR_NOT_SUPPORTED</c>.
@@ -4354,6 +4447,21 @@
             Indicates to display the default TLS interstitial error page to user for page navigations. For others TLS certificate is rejected and the request is cancelled.
             </summary>
         </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2ScrollbarStyle">
+            <summary>
+            The ScrollBar style being set during environment creation.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2ScrollbarStyle.Default">
+            <summary>
+            Browser default ScrollBar style
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2ScrollbarStyle.FluentOverlay">
+            <summary>
+            Window style fluent overlay scroll bar. Please see [Fluent UI](https://developer.microsoft.com/en-us/fluentui#/) for more details on fluent UI.
+            </summary>
+        </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2ScriptDialogKind">
             <summary>
             Specifies the JavaScript dialog kind used in <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2ScriptDialogOpeningEventArgs"/>.
@@ -4379,6 +4487,67 @@
             Indicates that the dialog uses <c>window.beforeunload</c> JavaScript event.
             </summary>
             
+        </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2ReleaseChannels">
+            <summary>
+            Specifies the WebView2 release channel.
+            </summary>
+            <remarks>
+            Use <c>ReleaseChannels</c> and <c>ChannelSearchKind</c> on <c>CoreWebView2EnvironmentOptions</c> to control which channel the WebView2 loader searches for.
+            
+            <list type="table">
+              <listheader>
+                <description>Channel</description>
+                <description>Primary purpose</description>
+                <description>How often updated with new features</description>
+              </listheader>
+              <item>
+                <description>Stable (WebView2 Runtime)</description>
+                <description>Broad Deployment</description>
+                <description>Monthly</description>
+              </item>
+              <item>
+                <description>Beta</description>
+                <description>Flighting with inner rings, automated testing</description>
+                <description>Monthly</description>
+              </item>
+              <item>
+                <description>Dev</description>
+                <description>Automated testing, selfhosting to test new APIs and features</description>
+                <description>Weekly</description>
+              </item>
+              <item>
+                <description>Canary</description>
+                <description>Automated testing, selfhosting to test new APIs and features</description>
+                <description>Daily</description>
+              </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2ReleaseChannels.None">
+            <summary>
+            No release channel. <c>ReleaseChannels</c> will be ignored if only this value is passed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2ReleaseChannels.Stable">
+            <summary>
+            The stable WebView2 Runtime that is released every 4 weeks.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2ReleaseChannels.Beta">
+            <summary>
+            The Beta release channel that is released every 4 weeks, a week before the stable release.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2ReleaseChannels.Dev">
+            <summary>
+            The Dev release channel that is released weekly.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2ReleaseChannels.Canary">
+            <summary>
+            The Canary release channel that is released daily.
+            </summary>
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2ProcessKind">
             <summary>
@@ -4498,7 +4667,6 @@
             </list>
             </remarks>
             The <c>ProcessFailed</c> event will continue to be raised every few seconds until the renderer procees has become responsive again. The application can consider taking action if the event keeps being raised. For example, the application might show UI for the user to decide to keep waiting or reload the page, or navigate away.
-            
         </member>
         <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2ProcessFailedKind.FrameRenderProcessExited">
             <summary>
@@ -5192,12 +5360,12 @@
         </member>
         <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2FrameKind.Embed">
             <summary>
-            Indicates that the frame is an [embed](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed) element.
+            Indicates that the frame is an [embed](https://developer.mozilla.org/docs/Web/HTML/Element/embed) element.
             </summary>
         </member>
         <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2FrameKind.Object">
             <summary>
-            Indicates that the frame is an [object](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object) element.
+            Indicates that the frame is an [object](https://developer.mozilla.org/docs/Web/HTML/Element/object) element.
             </summary>
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2FaviconImageFormat">
@@ -5517,6 +5685,24 @@
         <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateKind.Other">
             <summary>
             Specifies other certificate.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2ChannelSearchKind">
+            <summary>
+            The order that release channels are searched for during environment creation.
+            </summary>
+            <remarks>
+            The default behavior is to search for and use the most stable channel found on the device. The order from most to least stable is: WebView2 Runtime -> Beta -> Dev -> Canary. Switch the order to prefer the least stable channel in order to perform pre-release testing. See <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2ReleaseChannels"/> for descriptions of channels.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2ChannelSearchKind.MostStable">
+            <summary>
+            Search for a release channel from most to least stable: WebView2 Runtime -> Beta -> Dev -> Canary. This is the default behavior.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2ChannelSearchKind.LeastStable">
+            <summary>
+            Search for a release channel from least to most stable: Canary -> Dev -> Beta -> WebView2 Runtime.
             </summary>
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2CapturePreviewImageFormat">
@@ -5840,7 +6026,7 @@
             </summary>
             <remarks>
             Stream must have all the content data available by the time the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebResourceRequested"/> event deferral of this response is completed. Stream should be agile or be created from a background thread to prevent performance impact to the UI thread. <c>null</c> means no content data.
-            When providing the response data, you should consider relevant HTTP request headers just like an HTTP server would do. For example, if the request was for a video resource in a HTML video element, the request may contain the [Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range) header to request only a part of the video that is streaming. In this case, your response stream should be only the portion of the video specified by the range HTTP request headers and you should set the appropriate [Content-Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Range) header in the response.
+            When providing the response data, you should consider relevant HTTP request headers just like an HTTP server would do. For example, if the request was for a video resource in a HTML video element, the request may contain the [Range](https://developer.mozilla.org/docs/Web/HTTP/Headers/Range) header to request only a part of the video that is streaming. In this case, your response stream should be only the portion of the video specified by the range HTTP request headers and you should set the appropriate [Content-Range](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Range) header in the response.
             </remarks>
             <seealso cref="T:System.IO.Stream"/>
         </member>
@@ -6078,7 +6264,7 @@
             Determines WebView2's User Agent.
             </summary>
             <remarks>
-            The default value is the default User Agent of the Edge browser. This property may be overridden if the User-Agent header is set in a request. If the parameter is empty the User Agent will not be updated and the current User Agent will remain. Setting this property will cause the other user agent client hints Sec-CH-UA-* headers to be overridden and dropped.
+            The default value is the default User Agent of the Edge browser. This property may be overridden if the User-Agent header is set in a request. If the parameter is empty the User Agent will not be updated and the current User Agent will remain. Setting this property may clear User Agent Client Hints headers Sec-CH-UA-* and script values from navigator.userAgentData. Current implementation behavior is subject to change.
             </remarks>
             <example>
             :::code language="csharp" source="../code/sample/SampleApps/WebView2WpfBrowser/MainWindow.xaml.cs" id="SetUserAgent":::
@@ -6780,7 +6966,7 @@
             
             If provided printer name doesn't match with the name of any installed printers on the user OS, the method returns with <see cref="F:Microsoft.Web.WebView2.Core.CoreWebView2PrintStatus.PrinterUnavailable"/>.
             
-            Use [PrintCapabilities](/dotnet/api/system.printing.printcapabilities?view=windowsdesktop-6.0) class to enumerate available printers.
+            Use [PrintCapabilities](/dotnet/api/system.printing.printcapabilities) class to enumerate available printers.
             
             This value is ignored in <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.PrintToPdfStreamAsync(Microsoft.Web.WebView2.Core.CoreWebView2PrintSettings)"/> method.
             </remarks>
@@ -7095,7 +7281,7 @@
         </member>
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2NonClientRegionChangedEventArgs.RegionKind">
             <summary>
-            Gets the region kind <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2NonClientRegionKind" /> corresponding to the event.
+            Gets the region kind <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2NonClientRegionKind"/> corresponding to the event.
             </summary>
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2NewWindowRequestedEventArgs">
@@ -7341,7 +7527,7 @@
         </member>
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2LaunchingExternalUriSchemeEventArgs.InitiatingOrigin">
             <summary>
-            Gets the origin initiating the external URI scheme launch.
+            Gets the origin initiating the external URI scheme launch. If the `InitiatingOrigin` is [opaque](https://html.spec.whatwg.org/multipage/origin.html#concept-origin-opaque), the `InitiatingOrigin` reported in the event args will be its precursor origin. The precursor origin is the origin that created the opaque origin. For example, if a frame on example.com opens a subframe with a different opaque origin, the subframe's precursor origin is example.com.
             </summary>
             <remarks>
             The origin will be an empty string if the request is initiated by calling <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.Navigate(System.String)"/> on the external URI scheme. If a script initiates the navigation, the `InitiatingOrigin` will be the top-level document's `Source`, i.e. if `window.location` is set to `"calculator://", the `InitiatingOrigin` will be set to `calculator://`. If the request is initiated from a child frame, the `InitiatingOrigin` will be the source of that child frame.
@@ -7399,7 +7585,7 @@
             The unique identifier of the frame associated with the current <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2FrameInfo"/>. It's the same kind of ID as with the <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2.FrameId"/> and <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2Frame.FrameId"/>. FrameId will only be populated when obtained calling <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2ProcessExtendedInfo.AssociatedFrameInfos"/>. <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2FrameInfo"/> objects obtained via <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.ProcessFailed"/> will always have an invalid frame Id <c>0</c>.
             </summary>
             <remarks>
-            FrameId could be out of date as it's a snapshot. If there's <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> created or destroyed or <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.FrameCreated"/> event or <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2Frame.Destroyed" /> event after the asynchronous call <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Environment.GetProcessExtendedInfosAsync"/> starts, you may want to call the asynchronous method again to get the updated `<see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2FrameInfo"/>s.
+            FrameId could be out of date as it's a snapshot. If there's <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> created or destroyed or <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.FrameCreated"/> event or <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2Frame.Destroyed"/> event after the asynchronous call <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Environment.GetProcessExtendedInfosAsync"/> starts, you may want to call the asynchronous method again to get the updated <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2FrameInfo"/> s.
             </remarks>
         </member>
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2FrameInfo.FrameKind">
@@ -7847,7 +8033,7 @@
         </member>
         <member name="E:Microsoft.Web.WebView2.Core.CoreWebView2CompositionController.NonClientRegionChanged">
             <summary>
-            This event is raised when elements on the page with "app-region" CSS property values corresponding to non-client regions change. Use the <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2NonClientRegionChangedEventArgs.RegionKind" /> to see the kind of non-client region that changed.
+            This event is raised when elements on the page with "app-region" CSS property values corresponding to non-client regions change. Use the <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2NonClientRegionChangedEventArgs.RegionKind"/> to see the kind of non-client region that changed.
             </summary>
         </member>
         <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2CompositionController.GetNonClientRegionAtPoint(System.Drawing.Point)">
@@ -7859,7 +8045,7 @@
         </member>
         <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2CompositionController.QueryNonClientRegion(Microsoft.Web.WebView2.Core.CoreWebView2NonClientRegionKind)">
             <summary>
-            This method retrieves the non-client regions on the page which corresponds to a given kind <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2NonClientRegionKind" />.
+            This method retrieves the non-client regions on the page which corresponds to a given kind <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2NonClientRegionKind"/>.
             </summary>
             <param name="Kind">The kind of non-client region.</param>
             <returns>This method returns a vector of rectangles.</returns>
@@ -7963,12 +8149,12 @@
         </member>
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2BrowserExtension.Id">
             <summary>
-            This is the browser extension's ID. This is the same browser extension ID returned by the browser extension API [chrome.runtime.id](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/id). Please see that documentation for more details on how the ID is generated. After an extension is removed, calling <c>Id</c> will return the id of the extension that is removed.
+            This is the browser extension's ID. This is the same browser extension ID returned by the browser extension API [chrome.runtime.id](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/runtime/id). Please see that documentation for more details on how the ID is generated. After an extension is removed, calling <c>Id</c> will return the id of the extension that is removed.
             </summary>
         </member>
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2BrowserExtension.Name">
             <summary>
-            This is the browser extension's name. This value is defined in this browser extension's manifest.json file. If manifest.json define extension's localized name, this value will be the localized version of the name. Please see [Manifest.json name](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name) for more details.
+            This is the browser extension's name. This value is defined in this browser extension's manifest.json file. If manifest.json define extension's localized name, this value will be the localized version of the name. Please see [Manifest.json name](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name) for more details.
             </summary>
         </member>
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2BrowserExtension.IsEnabled">

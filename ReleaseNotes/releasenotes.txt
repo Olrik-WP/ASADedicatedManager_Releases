@@ -1,3 +1,8 @@
+1.8.0.0
+- Added the first iteration of the Discord bot to start or stop servers by profile
+- Copying profiles no longer copies backup .zip files
+- Credits: Added new contributor
+
 1.7.9.0
 - !!! Moving the steamcmd folder to profiles !!!
 	YOU NEED TO CLICK ON THE REINSTALL STEAM CMD BUTTON !!! So that the updates of your dedicated servers work again (manually and automatically)
