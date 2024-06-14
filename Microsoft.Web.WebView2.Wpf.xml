@@ -207,6 +207,410 @@
             Examine our overall open/closed state and run any pending action if appropriate.
             </summary>
         </member>
+        <member name="T:Microsoft.Web.WebView2.Wpf.IWebView2">
+            <summary>
+            The public interfaces of WebView2 WPF control.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.IWebView2.CreationProperties">
+            <summary>
+            Gets or sets a bag of options which are used during initialization of the control's <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2"/>.
+            Setting this property will not work after initialization of the control's <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2"/> has started (the old value will be retained).
+            See the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> class documentation for an initialization overview.
+            </summary>
+            <seealso cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2">
+            <summary>
+            Accesses the complete functionality of the underlying <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> COM API.
+            Returns <c>null</c> until initialization has completed.
+            See the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> class documentation for an initialization overview.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the calling thread isn't the thread which created this object (usually the UI thread). See <see cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/> for more info.
+            May also be thrown if the browser process has crashed unexpectedly and left the control in an invalid state. We are considering throwing a different type of exception for this case in the future.
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">Thrown if <see cref="M:System.IDisposable.Dispose"/> has already been called on the control.</exception>
+            <seealso cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/>
+            <seealso cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Wpf.IWebView2.SourceChanged">
+            <summary>
+            A wrapper around the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.SourceChanged"/>.
+            The only difference between this event and <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.SourceChanged"/> is the first parameter that's passed to handlers.
+            Handlers of this event will receive the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> control, whereas handlers of <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.SourceChanged"/> will receive the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> instance.
+            </summary>
+            <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.SourceChanged"/>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Wpf.IWebView2.NavigationStarting">
+            <summary>
+            A wrapper around the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NavigationStarting"/>.
+            The only difference between this event and <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NavigationStarting"/> is the first parameter that's passed to handlers.
+            Handlers of this event will receive the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> control, whereas handlers of <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NavigationStarting"/> will receive the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> instance.
+            </summary>
+            <seealso cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NavigationStarting"/>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Wpf.IWebView2.NavigationCompleted">
+            <summary>
+            A wrapper around the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NavigationCompleted"/>.
+            The only difference between this event and <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NavigationCompleted"/> is the first parameter that's passed to handlers.
+            Handlers of this event will receive the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> control, whereas handlers of <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NavigationCompleted"/> will receive the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> instance.
+            </summary>
+            <seealso cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NavigationCompleted"/>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Wpf.IWebView2.ZoomFactorChanged">
+            <summary>
+            The event is raised when the <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.ZoomFactor"/> property changes.
+            This event directly exposes <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2Controller.ZoomFactorChanged"/>.
+            </summary>
+            <seealso cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.ZoomFactor"/>
+            <seealso cref="E:Microsoft.Web.WebView2.Core.CoreWebView2Controller.ZoomFactorChanged"/>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Wpf.IWebView2.ContentLoading">
+            <summary>
+            A wrapper around the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.ContentLoading"/>.
+            The only difference between this event and <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.ContentLoading"/> is the first parameter that's passed to handlers.
+            Handlers of this event will receive the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> control, whereas handlers of <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.ContentLoading"/> will receive the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> instance.
+            </summary>
+            <seealso cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.ContentLoading"/>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Wpf.IWebView2.WebMessageReceived">
+            <summary>
+            A wrapper around the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebMessageReceived"/>.
+            The only difference between this event and <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebMessageReceived"/> is the first parameter that's passed to handlers.
+            Handlers of this event will receive the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> control, whereas handlers of <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebMessageReceived"/> will receive the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> instance.
+            </summary>
+            <seealso cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebMessageReceived"/>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2InitializationCompleted">
+            <summary>
+            This event is triggered either
+            1) when the control's <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2"/> has finished being initialized (regardless of how initialization was triggered) but before it is used for anything, or
+            2) if the initialization failed.
+            You should handle this event if you need to perform one time setup operations on the <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2"/> which you want to affect all of its usages.
+            (e.g. adding event handlers, configuring settings, installing document creation scripts, adding host objects).
+            See the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> class documentation for an initialization overview.
+            </summary>
+            <remarks>
+            This sender will be the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> control, whose <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/> property will now be valid (i.e. non-null) for the first time
+            if <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs.IsSuccess"/> is <c>true</c>.
+            Unlikely this event can fire second time (after reporting initialization success first)
+            if the initialization is followed by navigation which fails.
+            </remarks>
+            <seealso cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.IWebView2.EnsureCoreWebView2Async(Microsoft.Web.WebView2.Core.CoreWebView2Environment,Microsoft.Web.WebView2.Core.CoreWebView2ControllerOptions)">
+            <summary>
+            Explicitly triggers initialization of the control's <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2"/>.
+            See the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> class documentation for an initialization overview.
+            </summary>
+            <param name="environment">
+            A pre-created <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Environment"/> that should be used to create the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/>.
+            Creating your own environment gives you control over several options that affect how the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> is initialized.
+            If you pass an environment to this method then it will override any settings specified on the <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CreationProperties"/> property.
+            If you pass <c>null</c> (the default value) and no value has been set to <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CreationProperties"/> then a default environment will be created and used automatically.
+            </param>
+            <param name="controllerOptions">
+            A pre-created <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2ControllerOptions"/> that should be used to create the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/>.
+            Creating your own controller options gives you control over several options that affect how the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> is initialized.
+            If you pass a controllerOptions to this method then it will override any settings specified on the <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CreationProperties"/> property.
+            If you pass <c>null</c> (the default value) and no value has been set to <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CreationProperties"/> then a default controllerOptions will be created and used automatically.
+            </param>
+            <returns>
+            A Task that represents the background initialization process.
+            When the task completes then the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/> property will be available for use (i.e. non-null).
+            Note that the control's <see cref="E:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2InitializationCompleted"/> event will be invoked before the task completes.
+            </returns>
+            <remarks>
+            Unless previous initialization has already failed, calling this method additional times with the same parameter will have no effect (any specified environment is ignored) and return the same Task as the first call.
+            Unless previous initialization has already failed, calling this method after initialization has been implicitly triggered by setting the <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.Source"/> property will have no effect if no environment is given
+            and simply return a Task representing that initialization already in progress, unless previous initialization has already failed.
+            Unless previous initialization has already failed, calling this method with a different environment after initialization has begun will result in an <see cref="T:System.ArgumentException"/>. For example, this can happen if you begin initialization
+            by setting the <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.Source"/> property and then call this method with a new environment, if you begin initialization with <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CreationProperties"/> and then call this method with a new
+            environment, or if you begin initialization with one environment and then call this method with no environment specified.
+            When this method is called after previous initialization has failed, it will trigger initialization of the control's <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2"/> again.
+            Note that even though this method is asynchronous and returns a Task, it still must be called on the UI thread like most public functionality of most UI controls.
+            <para>
+            The following summarizes the possible error values and a description of why these errors occur.
+            <list type="table">
+            <listheader>
+            <description>Error Value</description>
+            <description>Description</description>
+            </listheader>
+            <item>
+            <description><c>HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)</c></description>
+            <description>*\\Edge\\Application* path used in browserExecutableFolder.</description>
+            </item>
+            <item>
+            <description><c>HRESULT_FROM_WIN32(ERROR_INVALID_STATE)</c></description>
+            <description>Specified options do not match the options of the WebViews that are currently running in the shared browser process.</description>
+            </item>
+            <item>
+            <description><c>HRESULT_FROM_WIN32(ERROR_INVALID_WINDOW_HANDLE)</c></description>
+            <description>WebView2 Initialization failed due to an invalid host HWND parentWindow.</description>
+            </item>
+            <item>
+            <description><c>HRESULT_FROM_WIN32(ERROR_DISK_FULL)</c></description>
+            <description>WebView2 Initialization failed due to reaching the maximum number of installed runtime versions.</description>
+            </item>
+            <item>
+            <description><c>HRESULT_FROM_WIN32(ERROR_PRODUCT_UNINSTALLED</c></description>
+            <description>If the Webview depends upon an installed WebView2 Runtime version and it is uninstalled.</description>
+            </item>
+            <item>
+            <description><c>HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)</c></description>
+            <description>Could not find Edge installation.</description>
+            </item>
+            <item>
+            <description><c>HRESULT_FROM_WIN32(ERROR_FILE_EXISTS)</c></description>
+            <description>User data folder cannot be created because a file with the same name already exists.</description>
+            </item>
+            <item>
+            <description><c>E_ACCESSDENIED</c></description>
+            <description>Unable to create user data folder, Access Denied.</description>
+            </item>
+            <item>
+            <description><c>E_FAIL</c></description>
+            <description>Edge runtime unable to start.</description>
+            </item>
+            </list>
+            </para>
+            </remarks>
+            <exception cref="T:System.ArgumentException">
+            Thrown if this method is called with a different environment than when it was initialized. See Remarks for more info.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the calling thread isn't the thread which created this object (usually the UI thread). See <see cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/> for more info.
+            May also be thrown if <see cref="P:System.Threading.SynchronizationContext.Current"/> is null, which probably indicates that the application's event loop hasn't started yet.
+            May also be thrown if the browser process has crashed unexpectedly and left the control in an invalid state. We are considering throwing a different type of exception for this case in the future.
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">Thrown if <see cref="M:System.IDisposable.Dispose"/> has already been called on the control.</exception>
+            <seealso cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/>
+            <seealso cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.IWebView2.EnsureCoreWebView2Async(Microsoft.Web.WebView2.Core.CoreWebView2Environment)">
+            <summary>
+            Explicitly triggers initialization of the control's <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2"/>.
+            See the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> class documentation for an initialization overview.
+            </summary>
+            <param name="environment">
+            A pre-created <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Environment"/> that should be used to create the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/>.
+            Creating your own environment gives you control over several options that affect how the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> is initialized.
+            If you pass an environment to this method then it will override any settings specified on the <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CreationProperties"/> property.
+            If you pass <c>null</c> and no value has been set to <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CreationProperties"/> then a default environment will be created and used automatically.
+            </param>
+            <returns>
+            A Task that represents the background initialization process.
+            When the task completes then the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/> property will be available for use (i.e. non-null).
+            Note that the control's <see cref="E:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2InitializationCompleted"/> event will be invoked before the task completes.
+            </returns>
+            <remarks>
+            Unless previous initialization has already failed, calling this method additional times with the same parameter will have no effect (any specified environment is ignored) and return the same Task as the first call.
+            Unless previous initialization has already failed, calling this method after initialization has been implicitly triggered by setting the <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.Source"/> property will have no effect if no environment is given
+            and simply return a Task representing that initialization already in progress, unless previous initialization has already failed.
+            Unless previous initialization has already failed, calling this method with a different environment after initialization has begun will result in an <see cref="T:System.ArgumentException"/>. For example, this can happen if you begin initialization
+            by setting the <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.Source"/> property and then call this method with a new environment, if you begin initialization with <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CreationProperties"/> and then call this method with a new
+            environment, or if you begin initialization with one environment and then call this method with no environment specified.
+            When this method is called after previous initialization has failed, it will trigger initialization of the control's <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2"/> again.
+            Note that even though this method is asynchronous and returns a Task, it still must be called on the UI thread like most public functionality of most UI controls.
+            </remarks>
+            <exception cref="T:System.ArgumentException">
+            Thrown if this method is called with a different environment than when it was initialized. See Remarks for more info.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the calling thread isn't the thread which created this object (usually the UI thread). See <see cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/> for more info.
+            May also be thrown if <see cref="P:System.Threading.SynchronizationContext.Current"/> is null, which probably indicates that the application's event loop hasn't started yet.
+            May also be thrown if the browser process has crashed unexpectedly and left the control in an invalid state. We are considering throwing a different type of exception for this case in the future.
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">Thrown if <see cref="M:System.IDisposable.Dispose"/> has already been called on the control.</exception>
+            <seealso cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/>
+            <seealso cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.IWebView2.BeginInit">
+            <summary>
+            Implementation of the ISupportInitialize pattern.
+            Prevents the control from implicitly initializing its <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2"/> until <see cref="M:Microsoft.Web.WebView2.Wpf.IWebView2.EndInit"/> is called.
+            Does *not* prevent explicit initialization of the CoreWebView2 (i.e. <see cref="M:Microsoft.Web.WebView2.Wpf.IWebView2.EnsureCoreWebView2Async(Microsoft.Web.WebView2.Core.CoreWebView2Environment,Microsoft.Web.WebView2.Core.CoreWebView2ControllerOptions)"/>).
+            Mainly intended for use by interactive UI designers.
+            </summary>
+            <remarks>
+            Note that the "Initialize" in ISupportInitialize and the "Init" in BeginInit/EndInit mean
+            something different and more general than this control's specific concept of initializing
+            its CoreWebView2 (explicitly or implicitly).  This ISupportInitialize pattern is a general
+            way to set batches of properties on the control to their initial values without triggering
+            any dependent side effects until all of the values are set (i.e. until EndInit is called).
+            In the case of this control, a specific side effect to be avoided is triggering implicit
+            initialization of the CoreWebView2 when setting the Source property.
+            For example, normally if you set <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CreationProperties"/> after you've already set Source,
+            the data set to CreationProperties is ignored because implicit initialization has already started.
+            However, if you set the two properties (in the same order) in between calls to BeginInit and
+            EndInit then the implicit initialization of the CoreWebView2 is delayed until EndInit, so the data
+            set to CreationProperties is still used even though it was set after Source.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.IWebView2.EndInit">
+            <summary>
+            Implementation of the ISupportInitialize pattern.
+            Invokes any functionality that has been delayed since the corresponding call to <see cref="M:Microsoft.Web.WebView2.Wpf.IWebView2.BeginInit"/>.
+            Mainly intended for use by interactive UI designers.
+            </summary>
+            <remarks>
+            See the documentation of <see cref="M:Microsoft.Web.WebView2.Wpf.IWebView2.BeginInit"/> for more information.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.IWebView2.Source">
+            <summary>
+            The top-level <see cref="T:System.Uri"/> which the WebView is currently displaying (or will display once initialization of its <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2"/> is finished).
+            Generally speaking, getting this property is equivalent to getting the <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2.Source"/> property and setting this property (to a different value) is equivalent to calling the <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.Navigate(System.String)"/> method.
+            </summary>
+            <remarks>
+            Getting this property before the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> has been initialized will retrieve the last Uri which was set to it, or null (the default) if none has been.
+            Setting this property before the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> has been initialized will cause initialization to start in the background (if not already in progress), after which the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> will navigate to the specified <see cref="T:System.Uri"/>.
+            This property can never be set back to null or to a relative <see cref="T:System.Uri"/>.
+            See the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> class documentation for an initialization overview.
+            </remarks>
+            <exception cref="T:System.ObjectDisposedException">Thrown if <see cref="M:System.IDisposable.Dispose"/> has already been called on the control.</exception>
+            <exception cref="T:System.NotImplementedException">Thrown if the property is set to <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if the property is set to a relative <see cref="T:System.Uri"/> (i.e. a <see cref="T:System.Uri"/> whose <see cref="P:System.Uri.IsAbsoluteUri"/> property is <c>false</c>).</exception>
+            <seealso cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.IWebView2.CanGoBack">
+            <summary>
+            Returns <c>true</c> if the WebView can navigate to a previous page in the navigation history.
+            Wrapper around the <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2.CanGoBack"/> property of <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2"/>.
+            If <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2"/> isn't initialized yet then returns <c>false</c>.
+            </summary>
+            <seealso cref="P:Microsoft.Web.WebView2.Core.CoreWebView2.CanGoBack"/>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.IWebView2.CanGoForward">
+            <summary>
+            Returns <c>true</c> if the WebView can navigate to a next page in the navigation history.
+            Wrapper around the <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2.CanGoForward"/> property of <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2"/>.
+            If <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2"/> isn't initialized yet then returns <c>false</c>.
+            </summary>
+            <seealso cref="P:Microsoft.Web.WebView2.Core.CoreWebView2.CanGoForward"/>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.IWebView2.ZoomFactor">
+            <summary>
+            The zoom factor for the WebView.
+            This property directly exposes <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2Controller.ZoomFactor"/>, see its documentation for more info.
+            Getting this property before the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> has been initialized will retrieve the last value which was set to it, or <c>1.0</c> (the default) if none has been.
+            The most recent value set to this property before the CoreWebView2 has been initialized will be set on it after initialization.
+            </summary>
+            <seealso cref="P:Microsoft.Web.WebView2.Core.CoreWebView2Controller.ZoomFactor"/>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.IWebView2.DefaultBackgroundColor">
+            <summary>
+            The default background color for the WebView.
+            This property directly exposes <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2Controller.DefaultBackgroundColor"/>, see its documentation for more info.
+            Getting this property before the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Controller"/> has been initialized will retrieve the last value which was
+            set to it, or <c>Color.White</c> (the default) if none has been.
+            The most recent value set to this property before CoreWebView2Controller has been initialized will be set on it after initialization.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.IWebView2.DesignModeForegroundColor">
+            <summary>
+            The foreground color to be used in design mode.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.IWebView2.AllowExternalDrop">
+            <summary>
+            The AllowExternalDrop property for the WebView.
+            This property directly exposes <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2Controller.AllowExternalDrop"/>, see its documentation for more info.
+            Getting this property before the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Controller"/> has been initialized will retrieve the last value which was
+            set to it, or <c>true</c> (the default) if none has been.
+            The most recent value set to this property before CoreWebView2Controller has been initialized will be set on it after initialization.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.IWebView2.GoBack">
+            <summary>
+            Navigates the WebView to the previous page in the navigation history.
+            Equivalent to calling <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.GoBack"/>
+            If <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> hasn't been initialized yet then does nothing.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the calling thread isn't the thread which created this object (usually the UI thread). See <see cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/> for more info.
+            May also be thrown if the browser process has crashed unexpectedly and left the control in an invalid state. We are considering throwing a different type of exception for this case in the future.
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">Thrown if <see cref="M:System.IDisposable.Dispose"/> has already been called on the control.</exception>
+            <seealso cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/>
+            <seealso cref="P:Microsoft.Web.WebView2.Core.CoreWebView2.CanGoBack"/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.IWebView2.GoForward">
+            <summary>
+            Navigates the WebView to the next page in the navigation history.
+            Equivalent to calling <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.GoForward"/>.
+            If <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> hasn't been initialized yet then does nothing.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the calling thread isn't the thread which created this object (usually the UI thread). See <see cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/> for more info.
+            May also be thrown if the browser process has crashed unexpectedly and left the control in an invalid state. We are considering throwing a different type of exception for this case in the future.
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">Thrown if <see cref="M:System.IDisposable.Dispose"/> has already been called on the control.</exception>
+            <seealso cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/>
+            <seealso cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.GoForward"/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.IWebView2.Reload">
+            <summary>
+            Reloads the current page.
+            Equivalent to calling <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.Reload"/>.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2"/> hasn't been initialized yet, or if the calling thread isn't the thread which created this object (usually the UI thread). See <see cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/> for more info.
+            May also be thrown if the browser process has crashed unexpectedly and left the control in an invalid state. We are considering throwing a different type of exception for this case in the future.
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">Thrown if <see cref="M:System.IDisposable.Dispose"/> has already been called on the control.</exception>
+            <seealso cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/>
+            <seealso cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.Reload"/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.IWebView2.Stop">
+            <summary>
+            Stops all navigations and pending resource fetches.
+            Equivalent to calling <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.Stop"/>.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2"/> hasn't been initialized yet, or if the calling thread isn't the thread which created this object (usually the UI thread). See <see cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/> for more info.
+            May also be thrown if the browser process has crashed unexpectedly and left the control in an invalid state. We are considering throwing a different type of exception for this case in the future.
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">Thrown if <see cref="M:System.IDisposable.Dispose"/> has already been called on the control.</exception>
+            <seealso cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/>
+            <seealso cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.Stop"/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.IWebView2.NavigateToString(System.String)">
+            <summary>
+            Initiates a navigation to htmlContent as source HTML of a new document.
+            Equivalent to calling <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.NavigateToString(System.String)"/>.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2"/> hasn't been initialized yet, or if the calling thread isn't the thread which created this object (usually the UI thread). See <see cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/> for more info.
+            May also be thrown if the browser process has crashed unexpectedly and left the control in an invalid state. We are considering throwing a different type of exception for this case in the future.
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">Thrown if <see cref="M:System.IDisposable.Dispose"/> has already been called on the control.</exception>
+            <remarks>The <c>htmlContent</c> parameter may not be larger than 2 MB (2 * 1024 * 1024 bytes) in total size. The origin of the new page is <c>about:blank</c>.</remarks>
+            <seealso cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/>
+            <seealso cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.NavigateToString(System.String)"/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.IWebView2.ExecuteScriptAsync(System.String)">
+            <summary>
+            Executes JavaScript code from the javaScript parameter in the current top level document rendered in the WebView.
+            Equivalent to calling <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.ExecuteScriptAsync(System.String)"/>.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if <see cref="P:Microsoft.Web.WebView2.Wpf.IWebView2.CoreWebView2"/> hasn't been initialized yet, or if the calling thread isn't the thread which created this object (usually the UI thread). See <see cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/> for more info.
+            May also be thrown if the browser process has crashed unexpectedly and left the control in an invalid state. We are considering throwing a different type of exception for this case in the future.
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">Thrown if <see cref="M:System.IDisposable.Dispose"/> has already been called on the control.</exception>
+            <seealso cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/>
+            <seealso cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.ExecuteScriptAsync(System.String)"/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.IWebView2.Focus">
+            <summary>
+            Attempts to set focus to the WebView2 Control.
+            Equivalent to calling <see cref="M:System.Windows.UIElement.Focus"/>.
+            Returns <c>true</c> if keyboard focus and logical focus were set to this element;
+            <c>false</c> if only logical focus was set to this element, or if the call to this method did not force the focus to change.
+            </summary>
+        </member>
         <member name="T:Microsoft.Web.WebView2.Wpf.WebView2">
              <summary>
              A control to embed web content in a WPF application.
@@ -321,12 +725,7 @@
             <seealso cref="T:System.Windows.DependencyProperty"/>
         </member>
         <member name="P:Microsoft.Web.WebView2.Wpf.WebView2.CreationProperties">
-            <summary>
-            Gets or sets a bag of options which are used during initialization of the control's <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/>.
-            Setting this property will not work after initialization of the control's <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/> has started (the old value will be retained).
-            See the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> class documentation for an initialization overview.
-            </summary>
-            <seealso cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/>
+            <inheritdoc/>
         </member>
         <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.BuildWindowCore(System.Runtime.InteropServices.HandleRef)">
             <summary>
@@ -362,162 +761,16 @@
             <param name="dc">The tools to handle the drawing via <see cref="T:System.Windows.Media.DrawingContext"/>.</param>
         </member>
         <member name="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2">
-            <summary>
-            Accesses the complete functionality of the underlying <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> COM API.
-            Returns <c>null</c> until initialization has completed.
-            See the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> class documentation for an initialization overview.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">
-            Thrown if the calling thread isn't the thread which created this object (usually the UI thread). See <see cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/> for more info.
-            May also be thrown if the browser process has crashed unexpectedly and left the control in an invalid state. We are considering throwing a different type of exception for this case in the future.
-            </exception>
-            <exception cref="T:System.ObjectDisposedException">Thrown if <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2.Dispose(System.Boolean)"/> has already been called on the control.</exception>
-            <seealso cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/>
-            <seealso cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/>
+            <inheritdoc/>
         </member>
         <member name="E:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2InitializationCompleted">
-            <summary>
-            This event is triggered either
-            1) when the control's <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/> has finished being initialized (regardless of how initialization was triggered) but before it is used for anything, or
-            2) if the initialization failed.
-            You should handle this event if you need to perform one time setup operations on the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/> which you want to affect all of its usages.
-            (e.g. adding event handlers, configuring settings, installing document creation scripts, adding host objects).
-            See the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> class documentation for an initialization overview.
-            </summary>
-            <remarks>
-            This sender will be the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> control, whose <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/> property will now be valid (i.e. non-null) for the first time
-            if <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs.IsSuccess"/> is <c>true</c>.
-            Unlikely this event can fire second time (after reporting initialization success first)
-            if the initialization is followed by navigation which fails.
-            </remarks>
-            <seealso cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/>
+            <inheritdoc/>
         </member>
         <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.EnsureCoreWebView2Async(Microsoft.Web.WebView2.Core.CoreWebView2Environment,Microsoft.Web.WebView2.Core.CoreWebView2ControllerOptions)">
-            <summary>
-            Explicitly triggers initialization of the control's <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/>.
-            See the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> class documentation for an initialization overview.
-            </summary>
-            <param name="environment">
-            A pre-created <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Environment"/> that should be used to create the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/>.
-            Creating your own environment gives you control over several options that affect how the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> is initialized.
-            If you pass an environment to this method then it will override any settings specified on the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CreationProperties"/> property.
-            If you pass <c>null</c> (the default value) and no value has been set to <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CreationProperties"/> then a default environment will be created and used automatically.
-            </param>
-            <param name="controllerOptions">
-            A pre-created <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2ControllerOptions"/> that should be used to create the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/>.
-            Creating your own controller options gives you control over several options that affect how the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> is initialized.
-            If you pass a controllerOptions to this method then it will override any settings specified on the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CreationProperties"/> property.
-            If you pass <c>null</c> (the default value) and no value has been set to <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CreationProperties"/> then a default controllerOptions will be created and used automatically.
-            </param>
-            <returns>
-            A Task that represents the background initialization process.
-            When the task completes then the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/> property will be available for use (i.e. non-null).
-            Note that the control's <see cref="E:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2InitializationCompleted"/> event will be invoked before the task completes.
-            </returns>
-            <remarks>
-            Unless previous initialization has already failed, calling this method additional times with the same parameter will have no effect (any specified environment is ignored) and return the same Task as the first call.
-            Unless previous initialization has already failed, calling this method after initialization has been implicitly triggered by setting the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.Source"/> property will have no effect if no environment is given
-            and simply return a Task representing that initialization already in progress, unless previous initialization has already failed.
-            Unless previous initialization has already failed, calling this method with a different environment after initialization has begun will result in an <see cref="T:System.ArgumentException"/>. For example, this can happen if you begin initialization
-            by setting the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.Source"/> property and then call this method with a new environment, if you begin initialization with <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CreationProperties"/> and then call this method with a new
-            environment, or if you begin initialization with one environment and then call this method with no environment specified.
-            When this method is called after previous initialization has failed, it will trigger initialization of the control's <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/> again.
-            Note that even though this method is asynchronous and returns a Task, it still must be called on the UI thread like most public functionality of most UI controls.
-            <para>
-            The following summarizes the possible error values and a description of why these errors occur.
-            <list type="table">
-            <listheader>
-            <description>Error Value</description>
-            <description>Description</description>
-            </listheader>
-            <item>
-            <description><c>HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)</c></description>
-            <description>*\\Edge\\Application* path used in browserExecutableFolder.</description>
-            </item>
-            <item>
-            <description><c>HRESULT_FROM_WIN32(ERROR_INVALID_STATE)</c></description>
-            <description>Specified options do not match the options of the WebViews that are currently running in the shared browser process.</description>
-            </item>
-            <item>
-            <description><c>HRESULT_FROM_WIN32(ERROR_INVALID_WINDOW_HANDLE)</c></description>
-            <description>WebView2 Initialization failed due to an invalid host HWND parentWindow.</description>
-            </item>
-            <item>
-            <description><c>HRESULT_FROM_WIN32(ERROR_DISK_FULL)</c></description>
-            <description>WebView2 Initialization failed due to reaching the maximum number of installed runtime versions.</description>
-            </item>
-            <item>
-            <description><c>HRESULT_FROM_WIN32(ERROR_PRODUCT_UNINSTALLED</c></description>
-            <description>If the Webview depends upon an installed WebView2 Runtime version and it is uninstalled.</description>
-            </item>
-            <item>
-            <description><c>HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)</c></description>
-            <description>Could not find Edge installation.</description>
-            </item>
-            <item>
-            <description><c>HRESULT_FROM_WIN32(ERROR_FILE_EXISTS)</c></description>
-            <description>User data folder cannot be created because a file with the same name already exists.</description>
-            </item>
-            <item>
-            <description><c>E_ACCESSDENIED</c></description>
-            <description>Unable to create user data folder, Access Denied.</description>
-            </item>
-            <item>
-            <description><c>E_FAIL</c></description>
-            <description>Edge runtime unable to start.</description>
-            </item>
-            </list>
-            </para>
-            </remarks>
-            <exception cref="T:System.ArgumentException">
-            Thrown if this method is called with a different environment than when it was initialized. See Remarks for more info.
-            </exception>
-            <exception cref="T:System.InvalidOperationException">
-            Thrown if the calling thread isn't the thread which created this object (usually the UI thread). See <see cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/> for more info.
-            May also be thrown if <see cref="P:System.Threading.SynchronizationContext.Current"/> is null, which probably indicates that the application's event loop hasn't started yet.
-            May also be thrown if the browser process has crashed unexpectedly and left the control in an invalid state. We are considering throwing a different type of exception for this case in the future.
-            </exception>
-            <exception cref="T:System.ObjectDisposedException">Thrown if <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2.Dispose(System.Boolean)"/> has already been called on the control.</exception>
-            <seealso cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/>
-            <seealso cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/>
+            <inheritdoc/>
         </member>
         <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.EnsureCoreWebView2Async(Microsoft.Web.WebView2.Core.CoreWebView2Environment)">
-            <summary>
-            Explicitly triggers initialization of the control's <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/>.
-            See the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> class documentation for an initialization overview.
-            </summary>
-            <param name="environment">
-            A pre-created <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Environment"/> that should be used to create the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/>.
-            Creating your own environment gives you control over several options that affect how the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> is initialized.
-            If you pass an environment to this method then it will override any settings specified on the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CreationProperties"/> property.
-            If you pass <c>null</c> and no value has been set to <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CreationProperties"/> then a default environment will be created and used automatically.
-            </param>
-            <returns>
-            A Task that represents the background initialization process.
-            When the task completes then the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/> property will be available for use (i.e. non-null).
-            Note that the control's <see cref="E:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2InitializationCompleted"/> event will be invoked before the task completes.
-            </returns>
-            <remarks>
-            Unless previous initialization has already failed, calling this method additional times with the same parameter will have no effect (any specified environment is ignored) and return the same Task as the first call.
-            Unless previous initialization has already failed, calling this method after initialization has been implicitly triggered by setting the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.Source"/> property will have no effect if no environment is given
-            and simply return a Task representing that initialization already in progress, unless previous initialization has already failed.
-            Unless previous initialization has already failed, calling this method with a different environment after initialization has begun will result in an <see cref="T:System.ArgumentException"/>. For example, this can happen if you begin initialization
-            by setting the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.Source"/> property and then call this method with a new environment, if you begin initialization with <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CreationProperties"/> and then call this method with a new
-            environment, or if you begin initialization with one environment and then call this method with no environment specified.
-            When this method is called after previous initialization has failed, it will trigger initialization of the control's <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/> again.
-            Note that even though this method is asynchronous and returns a Task, it still must be called on the UI thread like most public functionality of most UI controls.
-            </remarks>
-            <exception cref="T:System.ArgumentException">
-            Thrown if this method is called with a different environment than when it was initialized. See Remarks for more info.
-            </exception>
-            <exception cref="T:System.InvalidOperationException">
-            Thrown if the calling thread isn't the thread which created this object (usually the UI thread). See <see cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/> for more info.
-            May also be thrown if <see cref="P:System.Threading.SynchronizationContext.Current"/> is null, which probably indicates that the application's event loop hasn't started yet.
-            May also be thrown if the browser process has crashed unexpectedly and left the control in an invalid state. We are considering throwing a different type of exception for this case in the future.
-            </exception>
-            <exception cref="T:System.ObjectDisposedException">Thrown if <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2.Dispose(System.Boolean)"/> has already been called on the control.</exception>
-            <seealso cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/>
-            <seealso cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/>
+            <inheritdoc/>
         </member>
         <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.Dispose(System.Boolean)">
             <summary>
@@ -525,21 +778,6 @@
             We implement it by releasing all of our underlying COM resources, including our <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/>.
             </summary>
             <param name="disposing">True if a caller is explicitly calling Dispose, false if we're being finalized.</param>
-        </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2_ProcessFailed(System.Object,Microsoft.Web.WebView2.Core.CoreWebView2ProcessFailedEventArgs)">
-            <summary>
-            This is an event handler for our CoreWebView2's ProcessFailedEvent
-            </summary>
-        </member>
-        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2._implicitInitGate">
-            <summary>
-            This is a "gate" which controls whether or not implicit initialization can occur.
-            If implicit initialization is triggered while the gate is closed,
-            then the initialization should be delayed until the gate opens.
-            When we want to trigger implicit initialization we route the call through this gate.
-            If the gate is open then the initialization will proceed.
-            If the gate is closed then it will remember to trigger the initialization when it opens.
-            </summary>
         </member>
         <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.BeginInit">
             <summary>
@@ -573,32 +811,6 @@
             See the documentation of <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2.BeginInit"/> for more information.
             </remarks>
         </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.SetCurrentValueFromCore(System.Windows.DependencyProperty,System.Object)">
-            <summary>
-            Updates one of our dependency properties to match a new value from the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/>.
-            It both sets the value and remembers (in _propertyChangingFromCore) that it came from the CoreWebView2 rather than the caller,
-            allowing the property's "on changed" handler to alter its behavior based on where the new value came from.
-            It's only intended to be called in a CoreWebView2 event handler that's informing us of a new property value.
-            It's basically just a wrapper around the inherited SetCurrentValue which also maintains _propertyChangingFromCore.
-            See the comments on <see cref="F:Microsoft.Web.WebView2.Wpf.WebView2._propertyChangingFromCore"/> for additional background info.
-            One more thing worth explicitly stating is that it wraps SetCurrentValue rather than SetValue,
-            in order to avoid overwriting any OneWay bindings that are set on the specified properties.
-            Check the link https://stackoverflow.com/q/4230698 for more information about the difference between SetValue and SetCurrentValue.
-            </summary>
-            <param name="property">The property to change due to an equivalent change in the CoreWebView2.</param>
-            <param name="value">The new value from the CoreWebView2.</param>
-        </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.IsPropertyChangingFromCore(System.Windows.DependencyProperty)">
-            <summary>
-            Checks if a given property is currently being updated to match an equivalent change in the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/>.
-            This method should only be called from a property's "on changed" handler; it has no meaning at any other time.
-            It is used to determine if the property is changing to match the CoreWebView2 or because the caller set it.
-            Usually this is used in order to decide if the new value needs to be propagated down to the CoreWebView2.
-            See the comments on <see cref="F:Microsoft.Web.WebView2.Wpf.WebView2._propertyChangingFromCore"/> for additional background info.
-            </summary>
-            <param name="property">The property to check.</param>
-            <returns>True if the property is changing to match the CoreWebView2, or false if the property was changed by the caller.</returns>
-        </member>
         <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.ReparentController(System.IntPtr,System.Boolean)">
             <summary>
             Changes our controller's ParentWindow to the given HWND, along with any other necessary associated work.
@@ -619,13 +831,6 @@
             including when the controller is first created.
             </summary>
         </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.UIElement_IsVisibleChanged(System.Object,System.Windows.DependencyPropertyChangedEventArgs)">
-            <summary>
-            This is a handler for our base UIElement's IsVisibleChanged event.
-            It's predictably fired whenever IsVisible changes, and IsVisible reflects the actual current visibility status of the control.
-            We just need to pass this info through to our CoreWebView2Controller so it can save some effort when the control isn't visible.
-            </summary>
-        </member>
         <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.OnWindowPositionChanged(System.Windows.Rect)">
             <summary>
             This is overridden from <see cref="T:System.Windows.Interop.HwndHost"/> and called when our control's location has changed.
@@ -639,94 +844,16 @@
             </summary>
         </member>
         <member name="P:Microsoft.Web.WebView2.Wpf.WebView2.Source">
-            <summary>
-            The top-level <see cref="T:System.Uri"/> which the WebView is currently displaying (or will display once initialization of its <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/> is finished).
-            Generally speaking, getting this property is equivalent to getting the <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2.Source"/> property and setting this property (to a different value) is equivalent to calling the <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.Navigate(System.String)"/> method.
-            </summary>
-            <remarks>
-            Getting this property before the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> has been initialized will retrieve the last Uri which was set to it, or null (the default) if none has been.
-            Setting this property before the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> has been initialized will cause initialization to start in the background (if not already in progress), after which the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> will navigate to the specified <see cref="T:System.Uri"/>.
-            This property can never be set back to null or to a relative <see cref="T:System.Uri"/>.
-            See the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> class documentation for an initialization overview.
-            </remarks>
-            <exception cref="T:System.ObjectDisposedException">Thrown if <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2.Dispose(System.Boolean)"/> has already been called on the control.</exception>
-            <exception cref="T:System.NotImplementedException">Thrown if the property is set to <c>null</c>.</exception>
-            <exception cref="T:System.ArgumentException">Thrown if the property is set to a relative <see cref="T:System.Uri"/> (i.e. a <see cref="T:System.Uri"/> whose <see cref="P:System.Uri.IsAbsoluteUri"/> property is <c>false</c>).</exception>
-            <seealso cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/>
-        </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.SourcePropertyValid(System.Object)">
-            <summary>
-            This is a callback that WPF calls to validate a potential new Source value.
-            </summary>
-            <returns>
-            True if the value is valid, false if it is not.
-            If we return false then WPF should respond by throwing an <see cref="T:System.ArgumentException"/>.
-            </returns>
-            <remarks>
-            Note that we unfortunately can't treat null as invalid here because null is valid prior to initialization.
-            </remarks>
-        </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.SourcePropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
-            <summary>
-            This is a callback that WPF calls when the WPF Source property's value changes.
-            This might have been triggered by either:
-            1) The caller set Source to programmatically trigger a navigation.
-            2) The CoreWebView changed its own source and we're just updating the dependency property to match.
-            We use <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2.IsPropertyChangingFromCore(System.Windows.DependencyProperty)"/> to distinguish the two cases.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="E:Microsoft.Web.WebView2.Wpf.WebView2.SourceChanged">
-            <summary>
-            A wrapper around the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.SourceChanged"/>.
-            The only difference between this event and <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.SourceChanged"/> is the first parameter that's passed to handlers.
-            Handlers of this event will receive the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> control, whereas handlers of <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.SourceChanged"/> will receive the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> instance.
-            </summary>
-            <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.SourceChanged"/>
-        </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2_SourceChanged(System.Object,Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs)">
-            <summary>
-            This is an event handler for our CoreWebView2's SourceChanged event.
-            Unsurprisingly, it fires when the CoreWebView2's source URI has been changed.
-            Note that there are two distinct triggers for this:
-            1) The CoreWebView2 was told to navigate programmatically (potentially by us, see SourcePropertyChanged).
-            2) The user interacted with the CoreWebView2, e.g. clicked a link.
-            In either of the above cases, this event might trigger several times due to e.g. redirection.
-            Aside from propagating to our own event, we just need to update our WPF Source property to match the CoreWebView2's.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="E:Microsoft.Web.WebView2.Wpf.WebView2.NavigationStarting">
-            <summary>
-            A wrapper around the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NavigationStarting"/>.
-            The only difference between this event and <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NavigationStarting"/> is the first parameter that's passed to handlers.
-            Handlers of this event will receive the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> control, whereas handlers of <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NavigationStarting"/> will receive the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> instance.
-            </summary>
-            <seealso cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NavigationStarting"/>
-        </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2_NavigationStarting(System.Object,Microsoft.Web.WebView2.Core.CoreWebView2NavigationStartingEventArgs)">
-            <summary>
-            This is an event handler for our CoreWebView2's NavigationStarting event.
-            We just need to propagate the event to WPF.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="E:Microsoft.Web.WebView2.Wpf.WebView2.NavigationCompleted">
-            <summary>
-            A wrapper around the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NavigationCompleted"/>.
-            The only difference between this event and <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NavigationCompleted"/> is the first parameter that's passed to handlers.
-            Handlers of this event will receive the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> control, whereas handlers of <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NavigationCompleted"/> will receive the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> instance.
-            </summary>
-            <seealso cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NavigationCompleted"/>
-        </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2_NavigationCompleted(System.Object,Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs)">
-            <summary>
-            This is an event handler for our CoreWebView2's NavigationCompleted event.
-            We just need to propagate the event to WPF.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2_HistoryChanged(System.Object,System.Object)">
-            <summary>
-            This is an event handler for our CoreWebView2's HistoryChanged event.
-            We're handling it in order to update our WPF CanGoBack and CanGoForward properties.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="F:Microsoft.Web.WebView2.Wpf.WebView2.CanGoBackProperty">
             <summary>
@@ -734,12 +861,7 @@
             </summary>
         </member>
         <member name="P:Microsoft.Web.WebView2.Wpf.WebView2.CanGoBack">
-            <summary>
-            Returns <c>true</c> if the WebView can navigate to a previous page in the navigation history.
-            Wrapper around the <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2.CanGoBack"/> property of <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/>.
-            If <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/> isn't initialized yet then returns <c>false</c>.
-            </summary>
-            <seealso cref="P:Microsoft.Web.WebView2.Core.CoreWebView2.CanGoBack"/>
+            <inheritdoc/>
         </member>
         <member name="F:Microsoft.Web.WebView2.Wpf.WebView2.CanGoForwardProperty">
             <summary>
@@ -747,12 +869,7 @@
             </summary>
         </member>
         <member name="P:Microsoft.Web.WebView2.Wpf.WebView2.CanGoForward">
-            <summary>
-            Returns <c>true</c> if the WebView can navigate to a next page in the navigation history.
-            Wrapper around the <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2.CanGoForward"/> property of <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/>.
-            If <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/> isn't initialized yet then returns <c>false</c>.
-            </summary>
-            <seealso cref="P:Microsoft.Web.WebView2.Core.CoreWebView2.CanGoForward"/>
+            <inheritdoc/>
         </member>
         <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.TabIntoCore(System.Windows.Input.TraversalRequest)">
             <summary>
@@ -776,38 +893,6 @@
             We handle that case in <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2.WndProc(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr,System.Boolean@)"/>.
             </remarks>
             <seealso cref="M:Microsoft.Web.WebView2.Wpf.WebView2.WndProc(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr,System.Boolean@)"/>
-        </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2Controller_MoveFocusRequested(System.Object,Microsoft.Web.WebView2.Core.CoreWebView2MoveFocusRequestedEventArgs)">
-            <summary>
-            This is an event handler for our CoreWebView2Controller's MoveFocusRequested event.
-            It fires when the CoreWebView2Controller has focus but wants to move it elsewhere in the app.
-            E.g. this happens when the user tabs past the last item in the CoreWebView2 and focus needs to return to some other app control.
-            So our job is just to tell WPF to move the focus on to the next control.
-            Note that we don't propagate this event outward as a standard WPF routed event because we've implemented its purpose here.
-            If users of the control want to track focus shifting in/out of the control, they should use standard WPF events.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2Controller_GotFocus(System.Object,System.Object)">
-            <summary>
-            This is an event handler for our CoreWebView2Controller's GotFocus event.
-            We just need to propagate the event to WPF.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2Controller_LostFocus(System.Object,System.Object)">
-            <summary>
-            This is an event handler for our CoreWebView2Controller's LostFocus event.
-            We just need to propagate the event to WPF.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2Controller_AcceleratorKeyPressed(System.Object,Microsoft.Web.WebView2.Core.CoreWebView2AcceleratorKeyPressedEventArgs)">
-            <summary>
-            This is an event handler for our CoreWebView2Controller's AcceleratorKeyPressed event.
-            This is called to inform us about key presses that are likely to have special behavior (e.g. esc, return, Function keys, letters with modifier keys).
-            WPF can't detect this input because Windows sends it directly to the Win32 CoreWebView2Controller control.
-            We implement this by generating standard WPF key input events, allowing callers to handle the input in the usual WPF way if they want.
-            If nobody handles the WPF key events then we'll allow the default CoreWebView2Controller logic (if any) to handle it.
-            Of the possible options, this implementation should provide the most flexibility to callers.
-            </summary>
         </member>
         <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.OnKeyDown(System.Windows.Input.KeyEventArgs)">
             <summary>
@@ -851,32 +936,284 @@
             </summary>
         </member>
         <member name="P:Microsoft.Web.WebView2.Wpf.WebView2.ZoomFactor">
-            <summary>
-            The zoom factor for the WebView.
-            This property directly exposes <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2Controller.ZoomFactor"/>, see its documentation for more info.
-            Getting this property before the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> has been initialized will retrieve the last value which was set to it, or <c>1.0</c> (the default) if none has been.
-            The most recent value set to this property before the CoreWebView2 has been initialized will be set on it after initialization.
-            </summary>
-            <seealso cref="P:Microsoft.Web.WebView2.Core.CoreWebView2Controller.ZoomFactor"/>
+            <inheritdoc/>
         </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.CoerceZoomFactorPropertyChanged(System.Windows.DependencyObject,System.Object)">
+        <member name="E:Microsoft.Web.WebView2.Wpf.WebView2.ZoomFactorChanged">
+            <inheritdoc/>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2.DefaultBackgroundColorProperty">
+            <summary>
+            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.DefaultBackgroundColor"/> property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2.DefaultBackgroundColor">
+            <inheritdoc/>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2.AllowExternalDropProperty">
+            <summary>
+            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="F:Microsoft.Web.WebView2.Wpf.WebView2.AllowExternalDropProperty"/> property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2.AllowExternalDrop">
+            <inheritdoc/>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2.DesignModeForegroundColorProperty">
+            <summary>
+            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.DesignModeForegroundColor"/> property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2.DesignModeForegroundColor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.GoBack">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.GoForward">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.Reload">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.Stop">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.NavigateToString(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Wpf.WebView2.ContentLoading">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.ExecuteScriptAsync(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Wpf.WebView2.WebMessageReceived">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2.IsInDesignMode">
+            <summary>
+            True when we're in design mode and shouldn't create an underlying CoreWebView2.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2Base.CreationPropertiesProperty">
+            <summary>
+            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2Base.CreationProperties"/> property.
+            </summary>
+            <seealso cref="T:System.Windows.DependencyProperty"/>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2Base.CreationProperties">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.OnRender(System.Windows.Media.DrawingContext)">
+            <summary>
+            Design mode drawing content.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2Base.CoreWebView2">
+            <inheritdoc/>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Wpf.WebView2Base.CoreWebView2InitializationCompleted">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.EnsureCoreWebView2Async(Microsoft.Web.WebView2.Core.CoreWebView2Environment,Microsoft.Web.WebView2.Core.CoreWebView2ControllerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.EnsureCoreWebView2Async(Microsoft.Web.WebView2.Core.CoreWebView2Environment)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.CoreWebView2_ProcessFailed(System.Object,Microsoft.Web.WebView2.Core.CoreWebView2ProcessFailedEventArgs)">
+            <summary>
+            This is an event handler for our CoreWebView2's ProcessFailedEvent
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2Base._implicitInitGate">
+            <summary>
+            This is a "gate" which controls whether or not implicit initialization can occur.
+            If implicit initialization is triggered while the gate is closed,
+            then the initialization should be delayed until the gate opens.
+            When we want to trigger implicit initialization we route the call through this gate.
+            If the gate is open then the initialization will proceed.
+            If the gate is closed then it will remember to trigger the initialization when it opens.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.BeginInit">
+            <summary>
+            Implementation of the ISupportInitialize pattern.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.EndInit">
+            <summary>
+            Implementation of the ISupportInitialize pattern.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.SetCurrentValueFromCore(System.Windows.DependencyProperty,System.Object)">
+            <summary>
+            Updates one of our dependency properties to match a new value from the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2Base.CoreWebView2"/>.
+            It both sets the value and remembers (in _propertyChangingFromCore) that it came from the CoreWebView2 rather than the caller,
+            allowing the property's "on changed" handler to alter its behavior based on where the new value came from.
+            It's only intended to be called in a CoreWebView2 event handler that's informing us of a new property value.
+            It's basically just a wrapper around the inherited SetCurrentValue which also maintains _propertyChangingFromCore.
+            See the comments on <see cref="F:Microsoft.Web.WebView2.Wpf.WebView2Base._propertyChangingFromCore"/> for additional background info.
+            One more thing worth explicitly stating is that it wraps SetCurrentValue rather than SetValue,
+            in order to avoid overwriting any OneWay bindings that are set on the specified properties.
+            Check the link https://stackoverflow.com/q/4230698 for more information about the difference between SetValue and SetCurrentValue.
+            </summary>
+            <param name="property">The property to change due to an equivalent change in the CoreWebView2.</param>
+            <param name="value">The new value from the CoreWebView2.</param>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.IsPropertyChangingFromCore(System.Windows.DependencyProperty)">
+            <summary>
+            Checks if a given property is currently being updated to match an equivalent change in the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2Base.CoreWebView2"/>.
+            This method should only be called from a property's "on changed" handler; it has no meaning at any other time.
+            It is used to determine if the property is changing to match the CoreWebView2 or because the caller set it.
+            Usually this is used in order to decide if the new value needs to be propagated down to the CoreWebView2.
+            See the comments on <see cref="F:Microsoft.Web.WebView2.Wpf.WebView2Base._propertyChangingFromCore"/> for additional background info.
+            </summary>
+            <param name="property">The property to check.</param>
+            <returns>True if the property is changing to match the CoreWebView2, or false if the property was changed by the caller.</returns>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.UIElement_IsVisibleChanged(System.Object,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            This is a handler for our base UIElement's IsVisibleChanged event.
+            It's predictably fired whenever IsVisible changes, and IsVisible reflects the actual current visibility status of the control.
+            We just need to pass this info through to our CoreWebView2Controller so it can save some effort when the control isn't visible.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2Base.SourceProperty">
+            <summary>
+            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2Base.Source"/> property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2Base.Source">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.SourcePropertyValid(System.Object)">
+            <summary>
+            This is a callback that WPF calls to validate a potential new Source value.
+            </summary>
+            <returns>
+            True if the value is valid, false if it is not.
+            If we return false then WPF should respond by throwing an <see cref="T:System.ArgumentException"/>.
+            </returns>
+            <remarks>
+            Note that we unfortunately can't treat null as invalid here because null is valid prior to initialization.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.SourcePropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            This is a callback that WPF calls when the WPF Source property's value changes.
+            This might have been triggered by either:
+            1) The caller set Source to programmatically trigger a navigation.
+            2) The CoreWebView changed its own source and we're just updating the dependency property to match.
+            We use <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2Base.IsPropertyChangingFromCore(System.Windows.DependencyProperty)"/> to distinguish the two cases.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Wpf.WebView2Base.SourceChanged">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.CoreWebView2_SourceChanged(System.Object,Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs)">
+            <summary>
+            This is an event handler for our CoreWebView2's SourceChanged event.
+            Unsurprisingly, it fires when the CoreWebView2's source URI has been changed.
+            Note that there are two distinct triggers for this:
+            1) The CoreWebView2 was told to navigate programmatically (potentially by us, see SourcePropertyChanged).
+            2) The user interacted with the CoreWebView2, e.g. clicked a link.
+            In either of the above cases, this event might trigger several times due to e.g. redirection.
+            Aside from propagating to our own event, we just need to update our WPF Source property to match the CoreWebView2's.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Wpf.WebView2Base.NavigationStarting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.CoreWebView2_NavigationStarting(System.Object,Microsoft.Web.WebView2.Core.CoreWebView2NavigationStartingEventArgs)">
+            <summary>
+            This is an event handler for our CoreWebView2's NavigationStarting event.
+            We just need to propagate the event to WPF.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Wpf.WebView2Base.NavigationCompleted">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.CoreWebView2_NavigationCompleted(System.Object,Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs)">
+            <summary>
+            This is an event handler for our CoreWebView2's NavigationCompleted event.
+            We just need to propagate the event to WPF.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.CoreWebView2_HistoryChanged(System.Object,System.Object)">
+            <summary>
+            This is an event handler for our CoreWebView2's HistoryChanged event.
+            We're handling it in order to update our WPF CanGoBack and CanGoForward properties.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2Base.CanGoBackProperty">
+            <summary>
+            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2Base.CanGoBack"/> property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2Base.CanGoBack">
+            <inheritdoc/>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2Base.CanGoForwardProperty">
+            <summary>
+            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2Base.CanGoForward"/> property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2Base.CanGoForward">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.CoreWebView2Controller_MoveFocusRequested(System.Object,Microsoft.Web.WebView2.Core.CoreWebView2MoveFocusRequestedEventArgs)">
+            <summary>
+            This is an event handler for our CoreWebView2Controller's MoveFocusRequested event.
+            It fires when the CoreWebView2Controller has focus but wants to move it elsewhere in the app.
+            E.g. this happens when the user tabs past the last item in the CoreWebView2 and focus needs to return to some other app control.
+            So our job is just to tell WPF to move the focus on to the next control.
+            Note that we don't propagate this event outward as a standard WPF routed event because we've implemented its purpose here.
+            If users of the control want to track focus shifting in/out of the control, they should use standard WPF events.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.CoreWebView2Controller_GotFocus(System.Object,System.Object)">
+            <summary>
+            This is an event handler for our CoreWebView2Controller's GotFocus event.
+            We just need to propagate the event to WPF.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.CoreWebView2Controller_LostFocus(System.Object,System.Object)">
+            <summary>
+            This is an event handler for our CoreWebView2Controller's LostFocus event.
+            We just need to propagate the event to WPF.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.CoreWebView2Controller_AcceleratorKeyPressed(System.Object,Microsoft.Web.WebView2.Core.CoreWebView2AcceleratorKeyPressedEventArgs)">
+            <summary>
+            This is an event handler for our CoreWebView2Controller's AcceleratorKeyPressed event.
+            This is called to inform us about key presses that are likely to have special behavior (e.g. esc, return, Function keys, letters with modifier keys).
+            WPF can't detect this input because Windows sends it directly to the Win32 CoreWebView2Controller control.
+            We implement this by generating standard WPF key input events, allowing callers to handle the input in the usual WPF way if they want.
+            If nobody handles the WPF key events then we'll allow the default CoreWebView2Controller logic (if any) to handle it.
+            Of the possible options, this implementation should provide the most flexibility to callers.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2Base.ZoomFactorProperty">
+            <summary>
+            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2Base.ZoomFactor"/> property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2Base.ZoomFactor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.CoerceZoomFactorPropertyChanged(System.Windows.DependencyObject,System.Object)">
             <summary>
             This is a callback that WPF calls when our WPF ZoomFactor property's value changes.
             This might have been triggered by either:
             1) The caller set ZoomFactor to change the zoom of the CoreWebView2.
             2) The CoreWebView2 changed its own ZoomFactor and we're just updating the dependency property to match.
-            We use <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2.IsPropertyChangingFromCore(System.Windows.DependencyProperty)"/> to distinguish the two cases.
+            We use <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2Base.IsPropertyChangingFromCore(System.Windows.DependencyProperty)"/> to distinguish the two cases.
             </summary>
         </member>
-        <member name="E:Microsoft.Web.WebView2.Wpf.WebView2.ZoomFactorChanged">
-            <summary>
-            The event is raised when the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.ZoomFactor"/> property changes.
-            This event directly exposes <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2Controller.ZoomFactorChanged"/>.
-            </summary>
-            <seealso cref="P:Microsoft.Web.WebView2.Wpf.WebView2.ZoomFactor"/>
-            <seealso cref="E:Microsoft.Web.WebView2.Core.CoreWebView2Controller.ZoomFactorChanged"/>
+        <member name="E:Microsoft.Web.WebView2.Wpf.WebView2Base.ZoomFactorChanged">
+            <inheritdoc/>
         </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2Controller_ZoomFactorChanged(System.Object,System.Object)">
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.CoreWebView2Controller_ZoomFactorChanged(System.Object,System.Object)">
             <summary>
             This is an event handler for our CoreWebView2Controller's ZoomFactorChanged event.
             Unsurprisingly, it fires when the CoreWebView2Controller's ZoomFactor has been changed.
@@ -886,170 +1223,91 @@
             Aside from propagating to our own event, we just need to update our WPF ZoomFactor property to match the CoreWebView2Controller's.
             </summary>
         </member>
-        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2.DefaultBackgroundColorProperty">
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2Base.DefaultBackgroundColorProperty">
             <summary>
-            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.DefaultBackgroundColor"/> property.
+            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2Base.DefaultBackgroundColor"/> property.
             </summary>
         </member>
-        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2.DefaultBackgroundColor">
-            <summary>
-            The default background color for the WebView.
-            This property directly exposes <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2Controller.DefaultBackgroundColor"/>, see its documentation for more info.
-            Getting this property before the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Controller"/> has been initialized will retrieve the last value which was
-            set to it, or <c>Color.White</c> (the default) if none has been.
-            The most recent value set to this property before CoreWebView2Controller has been initialized will be set on it after initialization.
-            </summary>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2Base.DefaultBackgroundColor">
+            <inheritdoc/>
         </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.DefaultBackgroundColorPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.DefaultBackgroundColorPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
             <summary>
             This is a callback that WPF calls when our WPF DefaultBackgroundColor property's value changes.
             Since CoreWebView2Controller does not update this property itself, this is only triggered by the
             caller setting DefaultBackgroundColor.
             </summary>
         </member>
-        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2.AllowExternalDropProperty">
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2Base.AllowExternalDropProperty">
             <summary>
-            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="F:Microsoft.Web.WebView2.Wpf.WebView2.AllowExternalDropProperty"/> property.
+            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="F:Microsoft.Web.WebView2.Wpf.WebView2Base.AllowExternalDropProperty"/> property.
             </summary>
         </member>
-        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2.AllowExternalDrop">
-            <summary>
-            The AllowExternalDrop property for the WebView.
-            This property directly exposes <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2Controller.AllowExternalDrop"/>, see its documentation for more info.
-            Getting this property before the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Controller"/> has been initialized will retrieve the last value which was
-            set to it, or <c>true</c> (the default) if none has been.
-            The most recent value set to this property before CoreWebView2Controller has been initialized will be set on it after initialization.
-            </summary>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2Base.AllowExternalDrop">
+            <inheritdoc/>
         </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.AllowExternalDropPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.AllowExternalDropPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
             <summary>
             This is a callback that WPF calls when our WPF AllowExternalDrop property's value changes.
             Since CoreWebView2Controller does not update this property itself, this is only triggered by the
             caller setting AllowExternalDrop.
             </summary>
         </member>
-        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2.DesignModeForegroundColorProperty">
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2Base.DesignModeForegroundColorProperty">
             <summary>
-            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.DesignModeForegroundColor"/> property.
+            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2Base.DesignModeForegroundColor"/> property.
             </summary>
         </member>
-        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2.DesignModeForegroundColor">
-            <summary>
-            The foreground color to be used in design mode.
-            </summary>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2Base.DesignModeForegroundColor">
+            <inheritdoc/>
         </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.GoBack">
-            <summary>
-            Navigates the WebView to the previous page in the navigation history.
-            Equivalent to calling <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.GoBack"/>
-            If <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> hasn't been initialized yet then does nothing.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">
-            Thrown if the calling thread isn't the thread which created this object (usually the UI thread). See <see cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/> for more info.
-            May also be thrown if the browser process has crashed unexpectedly and left the control in an invalid state. We are considering throwing a different type of exception for this case in the future.
-            </exception>
-            <exception cref="T:System.ObjectDisposedException">Thrown if <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2.Dispose(System.Boolean)"/> has already been called on the control.</exception>
-            <seealso cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/>
-            <seealso cref="P:Microsoft.Web.WebView2.Core.CoreWebView2.CanGoBack"/>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.GoBack">
+            <inheritdoc/>
         </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.GoForward">
-            <summary>
-            Navigates the WebView to the next page in the navigation history.
-            Equivalent to calling <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.GoForward"/>.
-            If <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> hasn't been initialized yet then does nothing.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">
-            Thrown if the calling thread isn't the thread which created this object (usually the UI thread). See <see cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/> for more info.
-            May also be thrown if the browser process has crashed unexpectedly and left the control in an invalid state. We are considering throwing a different type of exception for this case in the future.
-            </exception>
-            <exception cref="T:System.ObjectDisposedException">Thrown if <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2.Dispose(System.Boolean)"/> has already been called on the control.</exception>
-            <seealso cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/>
-            <seealso cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.GoForward"/>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.GoForward">
+            <inheritdoc/>
         </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.Reload">
-            <summary>
-            Reloads the current page.
-            Equivalent to calling <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.Reload"/>.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">
-            Thrown if <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/> hasn't been initialized yet, or if the calling thread isn't the thread which created this object (usually the UI thread). See <see cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/> for more info.
-            May also be thrown if the browser process has crashed unexpectedly and left the control in an invalid state. We are considering throwing a different type of exception for this case in the future.
-            </exception>
-            <exception cref="T:System.ObjectDisposedException">Thrown if <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2.Dispose(System.Boolean)"/> has already been called on the control.</exception>
-            <seealso cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/>
-            <seealso cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.Reload"/>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.Reload">
+            <inheritdoc/>
         </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.Stop">
-            <summary>
-            Stops all navigations and pending resource fetches.
-            Equivalent to calling <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.Stop"/>.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">
-            Thrown if <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/> hasn't been initialized yet, or if the calling thread isn't the thread which created this object (usually the UI thread). See <see cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/> for more info.
-            May also be thrown if the browser process has crashed unexpectedly and left the control in an invalid state. We are considering throwing a different type of exception for this case in the future.
-            </exception>
-            <exception cref="T:System.ObjectDisposedException">Thrown if <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2.Dispose(System.Boolean)"/> has already been called on the control.</exception>
-            <seealso cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/>
-            <seealso cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.Stop"/>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.Stop">
+            <inheritdoc/>
         </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.NavigateToString(System.String)">
-            <summary>
-            Initiates a navigation to htmlContent as source HTML of a new document.
-            Equivalent to calling <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.NavigateToString(System.String)"/>.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">
-            Thrown if <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/> hasn't been initialized yet, or if the calling thread isn't the thread which created this object (usually the UI thread). See <see cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/> for more info.
-            May also be thrown if the browser process has crashed unexpectedly and left the control in an invalid state. We are considering throwing a different type of exception for this case in the future.
-            </exception>
-            <exception cref="T:System.ObjectDisposedException">Thrown if <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2.Dispose(System.Boolean)"/> has already been called on the control.</exception>
-            <remarks>The <c>htmlContent</c> parameter may not be larger than 2 MB (2 * 1024 * 1024 bytes) in total size. The origin of the new page is <c>about:blank</c>.</remarks>
-            <seealso cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/>
-            <seealso cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.NavigateToString(System.String)"/>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.NavigateToString(System.String)">
+            <inheritdoc/>
         </member>
-        <member name="E:Microsoft.Web.WebView2.Wpf.WebView2.ContentLoading">
-            <summary>
-            A wrapper around the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.ContentLoading"/>.
-            The only difference between this event and <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.ContentLoading"/> is the first parameter that's passed to handlers.
-            Handlers of this event will receive the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> control, whereas handlers of <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.ContentLoading"/> will receive the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> instance.
-            </summary>
-            <seealso cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.ContentLoading"/>
+        <member name="E:Microsoft.Web.WebView2.Wpf.WebView2Base.ContentLoading">
+            <inheritdoc/>
         </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2_ContentLoading(System.Object,Microsoft.Web.WebView2.Core.CoreWebView2ContentLoadingEventArgs)">
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.CoreWebView2_ContentLoading(System.Object,Microsoft.Web.WebView2.Core.CoreWebView2ContentLoadingEventArgs)">
             <summary>
             This is an event handler for our CoreWebView2's ContentLoading event.
             We just need to propagate the event to WPF.
             </summary>
         </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.ExecuteScriptAsync(System.String)">
-            <summary>
-            Executes JavaScript code from the javaScript parameter in the current top level document rendered in the WebView.
-            Equivalent to calling <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.ExecuteScriptAsync(System.String)"/>.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">
-            Thrown if <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/> hasn't been initialized yet, or if the calling thread isn't the thread which created this object (usually the UI thread). See <see cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/> for more info.
-            May also be thrown if the browser process has crashed unexpectedly and left the control in an invalid state. We are considering throwing a different type of exception for this case in the future.
-            </exception>
-            <exception cref="T:System.ObjectDisposedException">Thrown if <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2.Dispose(System.Boolean)"/> has already been called on the control.</exception>
-            <seealso cref="M:System.Windows.Threading.DispatcherObject.VerifyAccess"/>
-            <seealso cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.ExecuteScriptAsync(System.String)"/>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.ExecuteScriptAsync(System.String)">
+            <inheritdoc/>
         </member>
-        <member name="E:Microsoft.Web.WebView2.Wpf.WebView2.WebMessageReceived">
-            <summary>
-            A wrapper around the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebMessageReceived"/>.
-            The only difference between this event and <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebMessageReceived"/> is the first parameter that's passed to handlers.
-            Handlers of this event will receive the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2"/> control, whereas handlers of <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebMessageReceived"/> will receive the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/> instance.
-            </summary>
-            <seealso cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebMessageReceived"/>
+        <member name="E:Microsoft.Web.WebView2.Wpf.WebView2Base.WebMessageReceived">
+            <inheritdoc/>
         </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2_WebMessageReceived(System.Object,Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs)">
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.CoreWebView2_WebMessageReceived(System.Object,Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs)">
             <summary>
             This is an event handler for our CoreWebView2's WebMessageReceived event.
             We just need to propagate the event to WPF.
             </summary>
         </member>
-        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2.IsInDesignMode">
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.Focus">
             <summary>
-            True when we're in design mode and shouldn't create an underlying CoreWebView2.
+            Implementation of <see cref="M:System.Windows.UIElement.Focus"/> pattern.
+            Developers should never reach the WebView2Base class here.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.Dispose">
+            <summary>
+            Implementation of the <see cref="T:System.IDisposable"/> pattern.
+            Should on be called during m_element's Dispose().
+            When this is called, it means all resources releted to the control are disposed and we can safely remove the control from the dictionary.
             </summary>
         </member>
     </members>
