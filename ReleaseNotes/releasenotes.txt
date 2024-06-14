@@ -1,3 +1,7 @@
+1.8.0.1
+- Adding a simple update to the discord bot !update <ProfileName>: Stopping the server immediately without warning updates it and restarts it
+- Discord window can no longer be opened multiple times
+
 1.8.0.0
 - Added the first iteration of the Discord bot to start or stop servers by profile
 - Copying profiles no longer copies backup .zip files
