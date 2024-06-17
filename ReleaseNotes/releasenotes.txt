@@ -1,3 +1,19 @@
+1.8.0.2
+- Discord bot new feature:
+	- Complete overhaul of the Discord window code to allow the bot to continue working even if the window is closed
+	- Added new command: !status Show the status of all servers. This also shows you the version of the dedicated server
+- Discord bot bug fix:
+	- The case of profiles is now correctly managed in the Discord bot commands you will no longer be able to start TheIsland with the theisland command
+	- The Discord bot can now handle multiple user ids speared by commas to allow you to give permission to multiple users to use the bot on your discord server
+	- The Discord bot now manages spaces in profile like The Island
+	- The Discord bot can no longer start a server that is already running.
+	- The Discord bot can no longer stop a server that is already stopped.
+	- The Discord bot can no longer stop a server while it is starting.
+	- The Discord bot can no longer update a server while it is starting.
+- Bug fix:
+	- when starting a server the event is now passed to all profiles and the condition of only being able to start one server at the same time now applies correctly until the server is completely started
+	- the know bug which released the start button of other profiles when a server of the other profiles was already started is corrected
+
 1.8.0.1
 - Adding a simple update to the discord bot !update <ProfileName>: Stopping the server immediately without warning updates it and restarts it
 - Discord window can no longer be opened multiple times
