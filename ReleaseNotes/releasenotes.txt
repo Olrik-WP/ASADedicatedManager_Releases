@@ -1,7 +1,12 @@
+1.8.0.3
+- Discord bot new feature:
+	- Added new command: !destroy <ProfileName> This command removes all untamed creatures on the map
+	- Added new command: !rcon <ProfileName> <Message> - This command sends an in-game chat message: !rcon MyServerProfile Hello players
+
 1.8.0.2
 - Discord bot new feature:
 	- Complete overhaul of the Discord window code to allow the bot to continue working even if the window is closed
-	- Added new command: !status Show the status of all servers. This also shows you the version of the dedicated server
+	- Added new command: !status Show the status of all servers. This also shows you the version of the dedicated server and official
 - Discord bot bug fix:
 	- The case of profiles is now correctly managed in the Discord bot commands you will no longer be able to start TheIsland with the theisland command
 	- The Discord bot can now handle multiple user ids speared by commas to allow you to give permission to multiple users to use the bot on your discord server
