@@ -1,6 +1,10 @@
+1.8.0.6
+- New Featue:
+	- Profile tab now displays server status with colored dots
+
 1.8.0.5
 - Bug fix:
-- Corrected folder map name BobsMissions_WP to BobsMissions and delete the old folder Please restart the manager to handle this if oy update from 1.8.0.4
+- Corrected folder map name BobsMissions_WP to BobsMissions and delete the old folder Please restart the manager to handle this if you update from 1.8.0.4
 - Add correct destruction of objects in closed profiles
 - The discord bot logs no longer show user messages but only commands starting with !
 
