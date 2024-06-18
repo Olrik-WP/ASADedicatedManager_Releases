@@ -1,3 +1,7 @@
+1.8.0.8
+- Bug fix:
+ - The colored points of started profiles are now more visible
+
 1.8.0.7
 - Bug fix:
  - The colored points of profiles are now correctly loaded when restarting the manager if a server is already running
