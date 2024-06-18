@@ -1,3 +1,12 @@
+1.8.0.4
+- New Featue:
+	- Added new map BobsMissions_WP (you need Club ARK mod on curseforge)
+	- Added new CommandLine -DoCustomCosmeticValidation for fervers that want to enable validation on custom cosmetics
+	- Added new CommandLine -log -PrintCosmeticCRC Show every cosmetic mod version installed. Copy the 4th data piece to the whitelists in place of the old one. The command also show 1 for cosmetic allowed to be used on the client
+- Bug fix:
+	- The creation of The Island map was not carried out on all profiles
+	- The creation of new maps is now carried out at the right time, there is no longer any need to restart the manager to see them appear
+
 1.8.0.3
 - Discord bot new feature:
 	- Added new command: !destroy <ProfileName> This command removes all untamed creatures on the map
