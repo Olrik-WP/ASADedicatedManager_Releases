@@ -1,3 +1,8 @@
+1.8.1.1
+- Bug fix:
+	- Added confirmation in the new start and stop buttons of all servers
+	- Reduction of time between actions from 5 to 1 second for stop update all servers. Remains at 10 seconds for starting all servers
+
 1.8.1.0
 - New Featue:
 	- Allow you to start stop update all server profiles from 1 button in main windows
