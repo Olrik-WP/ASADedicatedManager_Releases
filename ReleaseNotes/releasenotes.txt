@@ -1,3 +1,7 @@
+1.8.1.0
+- New Featue:
+	- Allow you to start stop update all server profiles from 1 button in main windows
+
 1.8.0.8
 - Bug fix:
  - The colored points of started profiles are now more visible
