@@ -1,3 +1,8 @@
+1.8.1.2
+- Bug fix:
+	- Added an Emergency button to Discrod bot window for Manual Unlock Lock the settings
+	- Completely refactored backup method: Potential correction during a file error used by another process during the execution of a backup task
+
 1.8.1.1
 - Bug fix:
 	- Added confirmation in the new start and stop buttons of all servers
