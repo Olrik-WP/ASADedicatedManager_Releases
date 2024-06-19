@@ -1,3 +1,7 @@
+1.8.2.1
+- Quality of life
+	- Changed the placement of the button and the textbox for choosing the backup path
+
 1.8.2.0
 - New Feature:
 	- The backup path can now be modified. for current users the old path is preserved. It remains up to you to move your backups if you modify the folder
@@ -17,7 +21,6 @@
 - Bug fix:
 	- Improved tab management methods to capture exceptions and avoid crashes
 	- Start Stop Update All servers buttons are now disabled during operation
-
 
 1.8.1.2
 - Bug fix:
