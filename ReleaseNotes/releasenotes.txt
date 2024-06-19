@@ -1,3 +1,6 @@
+1.8.2.2
+- Credits: Added, updated contributors
+
 1.8.2.1
 - Quality of life
 	- Changed the placement of the button and the textbox for choosing the backup path
