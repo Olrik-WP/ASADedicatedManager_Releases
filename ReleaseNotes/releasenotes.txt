@@ -1,10 +1,23 @@
+1.8.2.0
+- New Feature:
+	- The backup path can now be modified. for current users the old path is preserved. It remains up to you to move your backups if you modify the folder
+- Bug fix:
+	- Fixed a CRITICAL BUG for new users or the creation of new profiles which prevented the installation of the server because the install server button is disabled
+	- Fixed some buttons that were not disabled before server installation
+	- Fixed an error message that displayed Error Reading Game.ini when the server was not installed
+- Quality of life
+	- Changing the placement of buttons in the manager profile
+	- The contributors and release notes windows now open wide
+- Credits: Added new contributor
+
 1.8.1.3
-- New Featue:
+- New Feature:
 	- Added the possibility of moving the profile tabs you can now organize them in the order you want
 	- Added a button to check manager updates (available every minute) in addition to the check carried out every hour
 - Bug fix:
 	- Improved tab management methods to capture exceptions and avoid crashes
 	- Start Stop Update All servers buttons are now disabled during operation
+
 
 1.8.1.2
 - Bug fix:
@@ -17,7 +30,7 @@
 	- Reduction of time between actions from 5 to 1 second for stop update all servers. Remains at 10 seconds for starting all servers
 
 1.8.1.0
-- New Featue:
+- New Feature:
 	- Allow you to start stop update all server profiles from 1 button in main windows
 
 1.8.0.8
@@ -29,7 +42,7 @@
  - The colored points of profiles are now correctly loaded when restarting the manager if a server is already running
 
 1.8.0.6
-- New Featue:
+- New Feature:
 	- Profile tab now displays server status with colored dots
 
 1.8.0.5
@@ -39,7 +52,7 @@
 - The discord bot logs no longer show user messages but only commands starting with !
 
 1.8.0.4
-- New Featue:
+- New Feature:
 	- Added new map BobsMissions_WP (you need Club ARK mod on curseforge)
 	- Added new CommandLine -DoCustomCosmeticValidation for fervers that want to enable validation on custom cosmetics
 	- Added new CommandLine -log -PrintCosmeticCRC Show every cosmetic mod version installed. Copy the 4th data piece to the whitelists in place of the old one. The command also show 1 for cosmetic allowed to be used on the client
