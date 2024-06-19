@@ -1,3 +1,11 @@
+1.8.1.3
+- New Featue:
+	- Added the possibility of moving the profile tabs you can now organize them in the order you want
+	- Added a button to check manager updates (available every minute) in addition to the check carried out every hour
+- Bug fix:
+	- Improved tab management methods to capture exceptions and avoid crashes
+	- Start Stop Update All servers buttons are now disabled during operation
+
 1.8.1.2
 - Bug fix:
 	- Added an Emergency button to Discrod bot window for Manual Unlock Lock the settings
