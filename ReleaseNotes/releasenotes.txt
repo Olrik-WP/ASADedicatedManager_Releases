@@ -1,3 +1,7 @@
+1.8.3.1
+- Discord bot new feature:
+	- Added new command: !players <ProfileName> This command list all players connected to the server
+
 1.8.3.0
 - App Performance Update:
 	- Improvement of the discord bot and complete review of its methods, potential correction of a memory leak
