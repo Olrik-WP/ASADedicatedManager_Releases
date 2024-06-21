@@ -1,3 +1,12 @@
+1.8.3.0
+- App Performance Update:
+	- Improvement of the discord bot and complete review of its methods, potential correction of a memory leak
+	- Improvement in checking the memory used by the dedicated server, destruction of objects on each call, potential correction of a memory leak
+	- Redesign of the PID check potential correction of a memory leak
+	- Deactivation of combobox elevators which caused freezing
+- Quality of life:
+	- Crash detection is now activated all the time after launching the server you can no longer activate or deactivate it but it protects your server from crashes
+
 1.8.2.4
 - Bug fix:
 	- When you change tab server up time is now not reset
