@@ -1,3 +1,11 @@
+1.8.3.2
+- Bug fix:
+	- Fix a memory leak in Google Analytics and unmanaged memory
+	- Fix for new backup functionality where the backup path is reset after closing profile or the manager
+	- Update all server now wait 5 secondes before update another profile
+- Quality of life:
+	- Changed many messageboxes so that they always appear ontop (like stop server...)
+
 1.8.3.1
 - Discord bot new feature:
 	- Added new command: !players <ProfileName> This command list all players connected to the server
