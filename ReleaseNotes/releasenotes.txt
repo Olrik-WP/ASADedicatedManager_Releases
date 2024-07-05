@@ -1,3 +1,6 @@
+1.8.3.4
+- Added option to disable CPU affinity setting which is disabled by default now
+
 1.8.3.3
 - Bug fix: Copying data from a mod no longer crashes the program; duplicate data from [Beacon] tags is now managed
 - Fixed a huge bug with the mouse in the tabs introduced with the possibility of moving the tabs the left click no longer prevents moving the mouse in the tabs 
