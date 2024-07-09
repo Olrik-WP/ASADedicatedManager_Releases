@@ -1,3 +1,7 @@
+1.8.3.5
+- Crash detection now check the pid saved
+- Various Optimizations
+
 1.8.3.4
 - Added option to disable CPU affinity setting which is disabled by default now
 
