@@ -1,3 +1,12 @@
+1.8.4.0
+- Bug fix: Server Kill button now works correctly
+- Fixed major bug in crash detection
+- Improved API launch
+- Fixed a major bug when launching the server via the API with a mix of PIDs and a bad interpretation of the server PID
+- Fixed bug in launching the API and setting the CPU affinity which was set to the API and not the dedicated server
+- Fixed bug in launching the API and setting the CPU priority which was set to the API and not the dedicated server
+- Killing the server now has a dialog box always at the top
+
 1.8.3.5
 - Crash detection now check the pid saved
 - Various Optimizations
