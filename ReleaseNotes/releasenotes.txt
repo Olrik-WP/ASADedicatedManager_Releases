@@ -1,275 +1,292 @@
-1.8.4.0
-- Bug fix: Server Kill button now works correctly
-- Fixed major bug in crash detection
-- Improved API launch
-- Fixed a major bug when launching the server via the API with a mix of PIDs and a bad interpretation of the server PID
-- Fixed bug in launching the API and setting the CPU affinity which was set to the API and not the dedicated server
-- Fixed bug in launching the API and setting the CPU priority which was set to the API and not the dedicated server
-- Killing the server now has a dialog box always at the top
+## Version 1.8.4.1
+- **Bug Fixes:**
+  - Server Kill button now works correctly.
+  - The Start Server button now returns to a correct state during a launch error.
+  - Improved server launch code.
+  - The display of the maximum number of players, which was no longer displayed, has been corrected.
+  - The ellipse of the server status now returns to the correct color in the event of a failure to launch the server.
+  - Reduced reading of ini files in various methods to improve performance.
+  - Fixed a bug in the DestroyWildDino option where the timer did not restart at the end of execution
+  - Better management of the backup and restoration of the DestroyWildDino timer when the application is closed and restarted
+  - Fixed a bug in the DestroyWildDino option where the timer did not restart at the end of execution (but requires more work to correct correctly for a future update)
+  - Better management of backup and restoration of the DestroyWildDino timer when closing and restarting the application
+- **Quality of life:**
+  - Improved release notes display
 
-1.8.3.5
-- Crash detection now check the pid saved
-- Various Optimizations
+## Version 1.8.4.0
+- **Bug fix:**
+  - Server Kill button now works correctly
+  - Fixed major bug in crash detection
+  - Improved API launch
+  - Fixed a major bug when launching the server via the API with a mix of PIDs and a bad interpretation of the server PID
+  - Fixed bug in launching the API and setting the CPU affinity which was set to the API and not the dedicated server
+  - Fixed bug in launching the API and setting the CPU priority which was set to the API and not the dedicated server
+  - Killing the server now has a dialog box always at the top
 
-1.8.3.4
+## Version 1.8.3.5
+- **Bug fix:**
+  - Crash detection now check the pid saved
+  - Various Optimizations
+
+## Version 1.8.3.4
 - Added option to disable CPU affinity setting which is disabled by default now
 
-1.8.3.3
-- Bug fix: Copying data from a mod no longer crashes the program; duplicate data from [Beacon] tags is now managed
-- Fixed a huge bug with the mouse in the tabs introduced with the possibility of moving the tabs the left click no longer prevents moving the mouse in the tabs 
-- Quality of life:
-	- A backup of the gus.ini file is now carried out before copying data from a mod
+## Version 1.8.3.3
+- **Bug fix:**
+  - Copying data from a mod no longer crashes the program; duplicate data from [Beacon] tags is now managed
+  - Fixed a huge bug with the mouse in the tabs introduced with the possibility of moving the tabs the left click no longer prevents moving the mouse in the tabs 
+- **Quality of life:**
+  - A backup of the gus.ini file is now carried out before copying data from a mod
 
-1.8.3.2
-- Bug fix:
-	- Fix a memory leak in Google Analytics and unmanaged memory
-	- Fix for new backup functionality where the backup path is reset after closing profile or the manager
-	- Update all server now wait 5 secondes before update another profile
-- Quality of life:
-	- Changed many messageboxes so that they always appear ontop (like stop server...)
+## Version 1.8.3.2
+- **Bug fix:**
+  - Fix a memory leak in Google Analytics and unmanaged memory
+  - Fix for new backup functionality where the backup path is reset after closing profile or the manager
+  - Update all server now wait 5 secondes before update another profile
+- **Quality of life:**
+  - Changed many messageboxes so that they always appear ontop (like stop server...)
 
-1.8.3.1
-- Discord bot new feature:
-	- Added new command: !players <ProfileName> This command list all players connected to the server
+## Version 1.8.3.1
+- **Discord bot new feature:**
+  - Added new command: !players <ProfileName> This command list all players connected to the server
 
-1.8.3.0
-- App Performance Update:
-	- Improvement of the discord bot and complete review of its methods, potential correction of a memory leak
-	- Improvement in checking the memory used by the dedicated server, destruction of objects on each call, potential correction of a memory leak
-	- Redesign of the PID check potential correction of a memory leak
-	- Deactivation of combobox elevators which caused freezing
-- Quality of life:
-	- Crash detection is now activated all the time after launching the server you can no longer activate or deactivate it but it protects your server from crashes
+## Version 1.8.3.0
+- **App Performance Update:**
+  - Improvement of the discord bot and complete review of its methods, potential correction of a memory leak
+  - Improvement in checking the memory used by the dedicated server, destruction of objects on each call, potential correction of a memory leak
+  - Redesign of the PID check potential correction of a memory leak
+  - Deactivation of combobox elevators which caused freezing
+- **Quality of life:**
+  - Crash detection is now activated all the time after launching the server you can no longer activate or deactivate it but it protects your server from crashes
 
-1.8.2.4
-- Bug fix:
-	- When you change tab server up time is now not reset
-	- When you change tab when server is starting yellow dot is now not changed to green
+## Version 1.8.2.4
+- **Bug fix:**
+  - When you change tab server up time is now not reset
+  - When you change tab when server is starting yellow dot is now not changed to green
 
-1.8.2.3
-- Credits: Updated contributor
+## Version 1.8.2.3
+- **Credits:** Updated contributor
 
-1.8.2.2
-- Credits: Added, updated contributors
+## Version 1.8.2.2
+- **Credits:** Added, updated contributors
 
-1.8.2.1
-- Quality of life
-	- Changed the placement of the button and the textbox for choosing the backup path
+## Version 1.8.2.1
+- **Quality of life:**
+  - Changed the placement of the button and the textbox for choosing the backup path
 
-1.8.2.0
-- New Feature:
-	- The backup path can now be modified. for current users the old path is preserved. It remains up to you to move your backups if you modify the folder
-- Bug fix:
-	- Fixed a CRITICAL BUG for new users or the creation of new profiles which prevented the installation of the server because the install server button is disabled
-	- Fixed some buttons that were not disabled before server installation
-	- Fixed an error message that displayed Error Reading Game.ini when the server was not installed
-- Quality of life
-	- Changing the placement of buttons in the manager profile
-	- The contributors and release notes windows now open wide
-- Credits: Added new contributor
+## Version 1.8.2.0
+- **New Feature:**
+  - The backup path can now be modified. for current users the old path is preserved. It remains up to you to move your backups if you modify the folder
+- **Bug fix:**
+  - Fixed a CRITICAL BUG for new users or the creation of new profiles which prevented the installation of the server because the install server button is disabled
+  - Fixed some buttons that were not disabled before server installation
+  - Fixed an error message that displayed Error Reading Game.ini when the server was not installed
+- **Quality of life:**
+  - Changing the placement of buttons in the manager profile
+  - The contributors and release notes windows now open wide
+- **Credits:** Added new contributor
 
-1.8.1.3
-- New Feature:
-	- Added the possibility of moving the profile tabs you can now organize them in the order you want
-	- Added a button to check manager updates (available every minute) in addition to the check carried out every hour
-- Bug fix:
-	- Improved tab management methods to capture exceptions and avoid crashes
-	- Start Stop Update All servers buttons are now disabled during operation
+## Version 1.8.1.3
+- **New Feature:**
+  - Added the possibility of moving the profile tabs you can now organize them in the order you want
+  - Added a button to check manager updates (available every minute) in addition to the check carried out every hour
+- **Bug fix:**
+  - Improved tab management methods to capture exceptions and avoid crashes
+  - Start Stop Update All servers buttons are now disabled during operation
 
-1.8.1.2
-- Bug fix:
-	- Added an Emergency button to Discrod bot window for Manual Unlock Lock the settings
-	- Completely refactored backup method: Potential correction during a file error used by another process during the execution of a backup task
+## Version 1.8.1.2
+- **Bug fix:**
+  - Added an Emergency button to Discrod bot window for Manual Unlock Lock the settings
+  - Completely refactored backup method: Potential correction during a file error used by another process during the execution of a backup task
 
-1.8.1.1
-- Bug fix:
-	- Added confirmation in the new start and stop buttons of all servers
-	- Reduction of time between actions from 5 to 1 second for stop update all servers. Remains at 10 seconds for starting all servers
+## Version 1.8.1.1
+- **Bug fix:**
+  - Added confirmation in the new start and stop buttons of all servers
+  - Reduction of time between actions from 5 to 1 second for stop update all servers. Remains at 10 seconds for starting all servers
 
-1.8.1.0
-- New Feature:
-	- Allow you to start stop update all server profiles from 1 button in main windows
+## Version 1.8.1.0
+- **New Feature:**
+  - Allow you to start stop update all server profiles from 1 button in main windows
 
-1.8.0.8
-- Bug fix:
- - The colored points of started profiles are now more visible
+## Version 1.8.0.8
+- **Bug fix:**
+  - The colored points of started profiles are now more visible
 
-1.8.0.7
-- Bug fix:
- - The colored points of profiles are now correctly loaded when restarting the manager if a server is already running
+## Version 1.8.0.7
+- **Bug fix:**
+  - The colored points of profiles are now correctly loaded when restarting the manager if a server is already running
 
-1.8.0.6
-- New Feature:
-	- Profile tab now displays server status with colored dots
+## Version 1.8.0.6
+- **New Feature:**
+  - Profile tab now displays server status with colored dots
 
-1.8.0.5
-- Bug fix:
-- Corrected folder map name BobsMissions_WP to BobsMissions and delete the old folder Please restart the manager to handle this if you update from 1.8.0.4
-- Add correct destruction of objects in closed profiles
-- The discord bot logs no longer show user messages but only commands starting with !
+## Version 1.8.0.5
+- **Bug fix:**
+  - Corrected folder map name BobsMissions_WP to BobsMissions and delete the old folder Please restart the manager to handle this if you update from 1.8.0.4
+  - Add correct destruction of objects in closed profiles
+  - The discord bot logs no longer show user messages but only commands starting with !
 
-1.8.0.4
-- New Feature:
-	- Added new map BobsMissions_WP (you need Club ARK mod on curseforge)
-	- Added new CommandLine -DoCustomCosmeticValidation for fervers that want to enable validation on custom cosmetics
-	- Added new CommandLine -log -PrintCosmeticCRC Show every cosmetic mod version installed. Copy the 4th data piece to the whitelists in place of the old one. The command also show 1 for cosmetic allowed to be used on the client
-- Bug fix:
-	- The creation of The Island map was not carried out on all profiles
-	- The creation of new maps is now carried out at the right time, there is no longer any need to restart the manager to see them appear
+## Version 1.8.0.4
+- **New Feature:**
+  - Added new map BobsMissions_WP (you need Club ARK mod on curseforge)
+  - Added new CommandLine -DoCustomCosmeticValidation for fervers that want to enable validation on custom cosmetics
+  - Added new CommandLine -log -PrintCosmeticCRC Show every cosmetic mod version installed. Copy the 4th data piece to the whitelists in place of the old one. The command also show 1 for cosmetic allowed to be used on the client
+- **Bug fix:**
+  - The creation of The Island map was not carried out on all profiles
+  - The creation of new maps is now carried out at the right time, there is no longer any need to restart the manager to see them appear
 
-1.8.0.3
-- Discord bot new feature:
-	- Added new command: !destroy <ProfileName> This command removes all untamed creatures on the map
-	- Added new command: !rcon <ProfileName> <Message> - This command sends an in-game chat message: !rcon MyServerProfile Hello players
+## Version 1.8.0.3
+- **Discord bot new feature:**
+  - Added new command: !destroy <ProfileName> This command removes all untamed creatures on the map
+  - Added new command: !rcon <ProfileName> <Message> - This command sends an in-game chat message: !rcon MyServerProfile Hello players
 
-1.8.0.2
-- Discord bot new feature:
-	- Complete overhaul of the Discord window code to allow the bot to continue working even if the window is closed
-	- Added new command: !status Show the status of all servers. This also shows you the version of the dedicated server and official
-- Discord bot bug fix:
-	- The case of profiles is now correctly managed in the Discord bot commands you will no longer be able to start TheIsland with the theisland command
-	- The Discord bot can now handle multiple user ids speared by commas to allow you to give permission to multiple users to use the bot on your discord server
-	- The Discord bot now manages spaces in profile like The Island
-	- The Discord bot can no longer start a server that is already running.
-	- The Discord bot can no longer stop a server that is already stopped.
-	- The Discord bot can no longer stop a server while it is starting.
-	- The Discord bot can no longer update a server while it is starting.
-- Bug fix:
-	- when starting a server the event is now passed to all profiles and the condition of only being able to start one server at the same time now applies correctly until the server is completely started
-	- the know bug which released the start button of other profiles when a server of the other profiles was already started is corrected
+## Version 1.8.0.2
+- **Discord bot new feature:**
+  - Complete overhaul of the Discord window code to allow the bot to continue working even if the window is closed
+  - Added new command: !status Show the status of all servers. This also shows you the version of the dedicated server and official
+- **Discord bot bug fix:**
+  - The case of profiles is now correctly managed in the Discord bot commands you will no longer be able to start TheIsland with the theisland command
+  - The Discord bot can now handle multiple user ids speared by commas to allow you to give permission to multiple users to use the bot on your discord server
+  - The Discord bot now manages spaces in profile like The Island
+  - The Discord bot can no longer start a server that is already running.
+  - The Discord bot can no longer stop a server that is already stopped.
+  - The Discord bot can no longer stop a server while it is starting.
+  - The Discord bot can no longer update a server while it is starting.
+- **Bug fix:**
+  - when starting a server the event is now passed to all profiles and the condition of only being able to start one server at the same time now applies correctly until the server is completely started
+  - the know bug which released the start button of other profiles when a server of the other profiles was already started is corrected
 
-1.8.0.1
+## Version 1.8.0.1
 - Adding a simple update to the discord bot !update <ProfileName>: Stopping the server immediately without warning updates it and restarts it
 - Discord window can no longer be opened multiple times
 
-1.8.0.0
+## Version 1.8.0.0
 - Added the first iteration of the Discord bot to start or stop servers by profile
 - Copying profiles no longer copies backup .zip files
 - Credits: Added new contributor
 
-1.7.9.0
-- !!! Moving the steamcmd folder to profiles !!!
-	YOU NEED TO CLICK ON THE REINSTALL STEAM CMD BUTTON !!! So that the updates of your dedicated servers work again (manually and automatically)
+## Version 1.7.9.0
+- !!! Moving the steamcmd folder to profiles !!! YOU NEED TO CLICK ON THE REINSTALL STEAM CMD BUTTON !!! So that the updates of your dedicated servers work again (manually and automatically)
 - You can now configure the automatic update verification time
 - Changed many messageboxes so that they always appear ontop
 
-1.7.8.9
+## Version 1.7.8.9
 - Added two new options in the launch arguments:
-	* NoAntiSpeedHack Anti speedhack detection is now enabled by default you now use this option to disable it. With translation for all languages
-	* PrideColors Unleash a spectrum of vibrant creature colors by adding the arg -PrideColors to the server commandline. With translation for all languages
+  - NoAntiSpeedHack Anti speedhack detection is now enabled by default you now use this option to disable it. With translation for all languages
+  - PrideColors Unleash a spectrum of vibrant creature colors by adding the arg -PrideColors to the server commandline. With translation for all languages
 - Updated multihome information in all languages
 - Updated Port description in GameUserSettings to handle 7778 With translation for all languages
 
-1.7.8.8
+## Version 1.7.8.8
 - Better handling of the readonly attribute of game.ini
 
-1.7.8.7
+## Version 1.7.8.7
 - Better handling of the readonly attribute on GameUserSettings.ini and Game.ini files when loading the manager and when applying a manager update to avoid denied access problems when attempting to delete LastJoinedSessionPerCategory lines
 - The remove read-only button is now active all the time
 
-1.7.8.6
-Urgent fix for cleaning the GameUserSettings.ini file bug brought in 1.7.8.4 and 1.7.8.5 when trying to clean LastJoinedSessionPerCategory the file was read in a loop when starting the server while it is in readonly... cleaning is now carried out when the manager is launched
+## Version 1.7.8.6
+- Urgent fix for cleaning the GameUserSettings.ini file bug brought in 1.7.8.4 and 1.7.8.5 when trying to clean LastJoinedSessionPerCategory the file was read in a loop when starting the server while it is in readonly... cleaning is now carried out when the manager is launched
 
-1.7.8.5
-Urgent fix on a problem accessing the GameUserSettings.ini file brought in update 1.7.8.4 linked to the cleaning of the LastJoinedSessionPerCategory lines it seems that the file was not correctly released
+## Version 1.7.8.5
+- Urgent fix on a problem accessing the GameUserSettings.ini file brought in update 1.7.8.4 linked to the cleaning of the LastJoinedSessionPerCategory lines it seems that the file was not correctly released
 
-1.7.8.4
+## Version 1.7.8.4
 - Added the possibility of configuring backups every 5 minutes within an hour range in the backup task in order to avoid disk io and CPU overload on a server hosting several dedicated servers, this allows you to stagger your backups by 5 minutes per profile
 - Before checking for duplicates in the GameUserSettings.ini the section [/Script/ShooterGame.ShooterGameUserSettings] is checked if several lines contain LastJoinedSessionPerCategory= it is deleted to keep only one line
 - Credits: Added new contributor
 
-1.7.8.3
+## Version 1.7.8.3
 - Stop server button: if for an unknown reason the server console does not close after a DoExit the process is killed (wait 30 seconds to avoid corruption of backups)
 - Disable double savegame in DoExit command when stopping server
 
-1.7.8.2
+## Version 1.7.8.2
 - Non-detection of duplicate keys in the Beacon tag
 - Manage the lines generated by Beacon so as not to alter them
 - DestroyWildDinos timer is now saved when server is stopped and restored when the server restarts
 - Autopudate: No longer delete files and folders present in the manager directory in case users have stored their server inside
 
-1.7.8.1
+## Version 1.7.8.1
 - Addition of The Center map for the future release. Note: you will have to restart the manager to see the map after its first launch
 
-1.7.8.0
+## Version 1.7.8.0
 - Minor correction in English translation
 
-1.7.7.9
+## Version 1.7.7.9
 - Credits: Added new contributor
 
-1.7.7.8
+## Version 1.7.7.8
 - Sanitized ApplicationPath removing an extra \ which causes auto-update to fail
 
-1.7.7.7
+## Version 1.7.7.7
 - Updated some translations
 
-1.7.7.6
+## Version 1.7.7.6
 - Autopudate: Updated the autopudate function for certain users who have accents in their folder paths
 - Autopudate: Use of robocopy for better support
 - Autopudate: batch encoding in UTF8 without BOM for correct management of accents
 - Autopudate: Added a help message in case of failure
 
-1.7.7.5
+## Version 1.7.7.5
 - Removal of forced administrator rights when launching the application it is now your responsibility to launch the application as administrator to avoid potential problems
 - Added an option in the Option menu of the main window to be able to launch the Manager when Windows starts
 - Fixed a bug at launch which in certain cases could cause the manager to crash following a bad identified icon path (System.IO.FileNotFoundException)
 - Added a button to open the API plugins configuration folder
 
-1.7.7.4
+## Version 1.7.7.4
 - Improved autoupdate and fixed unrecognized spaces in manager installation path for future updates
 - Fixed a bug when copying or moving profile or serverProfile.json did not exist because it was incorrectly named in the code
 - When copying, moving or renaming a profile. The API uninstall or update file is now correctly handled
 - Credits: Added new contributor
 
-1.7.7.3
+## Version 1.7.7.3
 - Backup files is now sorting by creation time, most recent first
 - Updating CustomMapPath and AltSaveDirectoryName is now correctly handled when:
-	1 of renaming the profile (CustomMapPath modified)
-	2 copying an existing profile (CustomMapPath disabled)
-	3 moving an existing profile (CustomMapPath modified)
+  1. of renaming the profile (CustomMapPath modified)
+  2. copying an existing profile (CustomMapPath disabled)
+  3. moving an existing profile (CustomMapPath modified)
 
-1.7.7.2
+## Version 1.7.7.2
 - Rollback 1.7.6.2 Redesign of manager loading for better management and display of message boxes, To review later causes too many bugs
 
-1.7.7.1
+## Version 1.7.7.1
 - If you move a profile or rename the application will be restarted to avoid bug
 
-1.7.7.0
+## Version 1.7.7.0
 - Bug fix: Loading the map file name was no longer loaded
 - Added profile renaming functionality
 - Added profile move functionality
 - ArkAPi exclude ArkApi\Plugins\Permissions\config.json if exist when updating
 - Save NPCReplacement button is now disabled when server is running
 
-1.7.6.4
+## Version 1.7.6.4
 - Improved autoupdate
 
-1.7.6.3
+## Version 1.7.6.3
 - Emergency fix for auto update broken
 
-1.7.6.2
+## Version 1.7.6.2
 - The manager update button is now disabled during the update (it may take time depending on your bandwidth)
 - Redesign of manager loading for better management and display of message boxes
 
-1.7.6.1
+## Version 1.7.6.1
 - Exclusion of files ARK_Creature_IDs.csv ArkPrimalItem.csv Items.csv (game data files) during updates this allows users to add their own data without it being overwritten with each update a future update allows them to be updated directly in the manager
 - Addition of a log system for updating the manager. The file is located in the application directory appupdate.log to be checked in the event of an update failure.
 
-1.7.6.0
+## Version 1.7.6.0
 - Added NPCRemplacement allows you to replace dino spawns for example to remove alphas... your existing configurations will be loaded
 - Simplifying and improving translation files for all languages ArkWIKI_Game_ALL.csv ArkWIKI_GameUserSettings_ALL.csv
 - Translation: Added German for main interface thanking @patrick/mezo for the contribution !
 - Translation: Added German for game.ini and gameusersettings.ini thanking @patrick/mezo for the contribution !
 - Credits: Added new contributor for translation
 
-1.7.5.3
+## Version 1.7.5.3
 - For any modification of the game.ini or gus.ini files performs a backup of the files in .bak before saving
 - Credits: Added new contributors
 
-1.7.5.2
-- Translation: Added  Romanian thanking @McG0496 for the contribution !
+## Version 1.7.5.2
+- Translation: Added Romanian thanking @McG0496 for the contribution !
 
-1.7.5.1
+## Version 1.7.5.1
 - Fixed loading of Game.ini for ConfigOverrideItemMaxQuantity and ConfigOverrideItemCraftingCosts spaces or lowercase letters are automatically corrected to allow correct loading of bad user data
 - Fixed a bug in saving the game.ini which deleted the custom settings for:
   * OverridePlayerLevelEngramPoints
@@ -279,69 +296,67 @@ Urgent fix on a problem accessing the GameUserSettings.ini file brought in updat
   * TamedDinoClassDamageMultipliers
   * MutagenLevelBoost_Bred
 
-1.7.5.0
+## Version 1.7.5.0
 - Added dedicated server auto-update check functionality every hour on Steam. Informs in-game players every minute for 5 minutes before the update is applied.
 - Modification of the method for modifying CPU affinity for a 60-minute loop if the process is not identified (in the event of a long update) temporary will be improved later
 - The server update button is now disabled if the server is running
 - Mods can no longer be added twice
 
-1.7.4.2
+## Version 1.7.4.2
 - Added validation to prevent adding duplicate mods based on Project ID.
 
-1.7.4.1
+## Version 1.7.4.1
 - Added the ability to not display ingame save messages
 
-1.7.4.0
+## Version 1.7.4.0
 - Updated application manifest to require administrator privileges on startup, ensuring elevated permissions for all operations.
 
-1.7.3.1
+## Version 1.7.3.1
 - Enhanced CPU Affinity Setting: Improved error handling and added validation checks for CPU core index and selection in SetProcessAffinity method to prevent incorrect parameter errors and ensure robust configuration.
 - Enhanced 64-bit Compatibility: Updated CPU affinity mask calculation to use ulong for full 64-bit support, ensuring compatibility with systems having a large number of processors.
 
-1.7.3.0
+## Version 1.7.3.0
 - Added dark style to the manager's multiple instance verification window
 - The manager now launches in the center of the screen
 - Implemented an asynchronous ConfigureProcessAffinityAsync method to set CPU affinity after two minutes ensuring server process stability.
-- Bug Fix: Enhanced the Timer DestroyDinos to include days in the time remaining display. Previously, the timer only showed hours, minutes, and seconds. 
+- Bug Fix: Enhanced the Timer DestroyDinos to include days in the time remaining display. Previously, the timer only showed hours, minutes, and seconds.
 
-1.7.2.1
-- Single Instance Enforcement: Introduced a custom modal dialog to ensure that only one instance of the application can run at a time. 
-If a second instance is attempted, a user-friendly dialog window now appears, informing the user that the application is already running.
-This window remains visible until the user acknowledges it by clicking "OK", ensuring clear communication and preventing unintentional multiple instances.
+## Version 1.7.2.1
+- Single Instance Enforcement: Introduced a custom modal dialog to ensure that only one instance of the application can run at a time. If a second instance is attempted, a user-friendly dialog window now appears, informing the user that the application is already running. This window remains visible until the user acknowledges it by clicking "OK", ensuring clear communication and preventing unintentional multiple instances.
 
-1.7.2.0
+## Version 1.7.2.0
 - GameUserSettings.ini:
-	* Changed the duplicate checking method to allow duplicates in different sections
-	* Implementing a flexible method for determining setting categories, which accounts for the section names to handle cases where the same key might exist under different sections.
-	* Designing a method to cleanly display uncategorized or mod settings, ensuring any additions by users are accommodated.
-	* Establishing a reliable save function to update the INI file with new user inputs, preserving section-key uniqueness.
+  * Changed the duplicate checking method to allow duplicates in different sections
+  * Implementing a flexible method for determining setting categories, which accounts for the section names to handle cases where the same key might exist under different sections.
+  * Designing a method to cleanly display uncategorized or mod settings, ensuring any additions by users are accommodated.
+  * Establishing a reliable save function to update the INI file with new user inputs, preserving section-key uniqueness.
 
-1.7.1.3
-Fixed a bug in the language change to Russian for the Game.ini and Gus.ini tabs
+## Version 1.7.1.3
+- Fixed a bug in the language change to Russian for the Game.ini and Gus.ini tabs
 
-1.7.1.2
+## Version 1.7.1.2
 - One minute withdrawal used for testing the DestroyWildDinos combobox
 
-1.7.1.1
+## Version 1.7.1.1
 - Fixed a critical bug in the server kill method introduced in 1.7.1.0 where the interface was no longer updated as well as all related statuses
 - Display of remaining time for the DestroyWildDinos timer
 - Added days to the DestroyWildDinos timer
 - Fixed the language in the DestroyWildDinos combobox
 - Fixed an old known bug that did not correctly load the radio button status of basic and advanced schedules
 
-1.7.1.0
+## Version 1.7.1.0
 - Added the DestroyWildDinos functionality with possible planning and correct management: For the implementation we save the world with a full backup (zip), we make sure that no automated planned backup is in progress. And we are performing a DestroyWildDinos
 - It is no longer possible to stop or kill the server when a backup is in progress to avoid corruption of a save, a wait is carried out, the shutdown order is recorded and carried out at the end of the backup. This also applies to automatic scheduling.
 - Added the sending of an RCON message to players each time they save or launch DestroyWildDinos
 - Updated the display format of the "Last Check" time indicator to enhance UI compactness. The text now utilizes a concise prefix and shows only the time of the last check for manager update.
-- Translation: Added  Russian thanking @Mr.1 for the contribution !
-- Translation: Added  Chinese (China) fro main inerface thanking @EmptyDream for the contribution !
+- Translation: Added Russian thanking @Mr.1 for the contribution !
+- Translation: Added Chinese (China) fro main inerface thanking @EmptyDream for the contribution !
 - Credits: Added new contributors
 
-1.7.0.1
-Implementation of periodic checking of the availability of a manager update every hour
+## Version 1.7.0.1
+- Implementation of periodic checking of the availability of a manager update every hour
 
-1.7.0.0
+## Version 1.7.0.0
 - Critical bug fix: Fixed a critical bug which caused the user interface to hang at each automatic backup if several servers were launched, this caused an interminable blocking of the application (note: manual backup was not affected)
 - Bug fix: Fixed a bug that deleted API plugins when updating the API
 - Added the ability to shrink the window horizontally for small screens
@@ -351,60 +366,60 @@ Implementation of periodic checking of the availability of a manager update ever
 - Added more RCON messages when stopping the server previously 15, 10, 5, 4, 3, 2, 1 minute now 30, 15, 10, 5, 4, 3, 2, 1
 - Credits: Added new contributors
 
-1.6.9.1
+## Version 1.6.9.1
 - Correction of a critical bug which could take over the pid of a program other than ArkAscendedServer when restarting the manager if it existed
 - Get Memory usage of dedicated server: Try Optimizing memory usage and resource cleanup, improved UI update efficiency, and enhanced process monitoring for reduced memory leaks and smoother performance.
 
-1.6.9.0
+## Version 1.6.9.0
 - Complete review of the recovery of the server's pid in the launch of the server when the apiloader is used we will now recover the pid of the dedicated server rather than the apiloader
 - Complete review of the automatic server launch when starting the application to launch them sequentially from the mainwindow rather than from the usercontrol (tabs) this allows the servers to be launched sequentially and avoid pid mixtures
 - Implementation of a method in the mainwindow to manage the state of the Start Server buttons of each usercontrol (tab) and lock them as long as the pid of the launched server is not retrieved, this implies a delay for users before being able to launch a second server in the tabs
 
-1.6.8.7
+## Version 1.6.8.7
 - Player list extended to the entire space
 
-1.6.8.6
+## Version 1.6.8.6
 - Critical BUG fix: API Loader, process is not correctly identified if multiple servers are launched
 - Review and update the interface for the GameUserSettings.ini and Game.ini tabs
 - Improved Search fonction to new interface in Game.ini and GameUserSettings.ini
 - Update PVP PVE filter to New Interface in GUS.ini and GameUserSettings.ini
 - Fix: Server Update, Updated message box to ask to reinstall Steam cmd if file is missing
-- Translation: Added  Spanish, Castellano thanking @Stevie senpai for the contribution !
+- Translation: Added Spanish, Castellano thanking @Stevie senpai for the contribution !
 - Credits: Added new contributors
 - Credits: Added new contributor for translation
 
-1.6.8.5
+## Version 1.6.8.5
 - MAP Added ScorchedEarth_WP, Everyone in 1.6.8.4 can delete the ScorchedEarth_P folder and file which was not the correct name anticipated. Normally this is automatically done for you
 - *PLEASE READ:
-- !! You must launch the manager as Administrator for the card folder to be created
-- !! You will have to restart the manager after the first launch to see ScorchedEarth_WP appear
+  - !! You must launch the manager as Administrator for the card folder to be created
+  - !! You will have to restart the manager after the first launch to see ScorchedEarth_WP appear
 
-1.6.8.4
+## Version 1.6.8.4
 - MAP: Try add Scorched Earth before release ScorchedEarth_P Please note the name of the map is currently unknown, it may not work upon release, an update will be published to correct it if this is the case.
 
-1.6.8.3
+## Version 1.6.8.3
 - Profil Manager: Fixed a major bug deletion of the file storing the server pid when copying the profile this could interfere with your running server and the copied server !
 - Profil Manager: When deleting the profile fixed a bug that prevented the deletion of a profile copied from a running server
 - Profil Manager: Removed log copy when a full server is copied
 - Systray: Update the message box if you close the manager while the servers are still running
 - Remove debug from previous version for false Multihome ip is not used in RCON for stop server, it was not a bug but a configuration problem reported by a user
 
-1.6.8.2
+## Version 1.6.8.2
 - V2 Try fix Multihome ip is not used in RCON for stop server and show ip used at start en stop
 
-1.6.8.1
+## Version 1.6.8.1
 - Try fix Multihome ip is not used in RCON for stop server and show ip used at start en stop
 
-1.6.8.0
+## Version 1.6.8.0
 - Profil Manager: Added option to copy either the entire server or just the Profile directory.
 - Profil Manager: Implemented non-blocking UI with progress indication for server copy operations.
 - Profil Manager: Standardized ProfilesComboBox behavior post-folder selection, ensuring consistency.
 - Profil Manager: General code improvements for better readability and maintainability.
 
-1.6.7.1
+## Version 1.6.7.1
 - Fixed a graphical bug in cluster path textbox text hidden if to long
 
-1.6.7.0
+## Version 1.6.7.0
 - Regain control of the servers when the manager is closed and reopened while the servers are still running. This update enables seamless manager updates without impacting server operations.
 - Added automatic start server when launching the Manager, this automatically activates the Crash detection for you
 - Fixed a bug that prevented crash detection from being disabled when stopping or killing the server under certain conditions
@@ -417,90 +432,90 @@ Implementation of periodic checking of the availability of a manager update ever
 - Credits: Added new contributor for Discord Server
 - Credits: Added new contributor for translation
 
-1.6.6.1
+## Version 1.6.6.1
 - Crash Detection: Fixed a bug that restarted the server during scheduled maintenance if the server is only shut down without a scheduled restart. This update prevents the crash detection setting from being re-enabled if the server is just shut down.
 
-1.6.6.0
+## Version 1.6.6.0
 - Crash Detection and Restart: Added the server monitoring to detect server crashes effectively. Upon identifying a crash, the system attempts an automatic restart, ensuring minimal downtime and improved reliability.
 - Automated Maintenance Handling: We've implemented a mechanism that automatically disables and re-enables automatic server restart during scheduled maintenance activities. This ensures that server maintenance, including updates and shutdowns, can be performed without triggering unintended restarts.
 - Don't forget the state of the check box is not saved this is intentional and forces you to check it each time you start or after each intentional shutdown
 
-1.6.5.7
+## Version 1.6.5.7
 - The verify button also updates the version and status of official servers
 
-1.6.5.6
+## Version 1.6.5.6
 - Updated API to https://github.com/ArkServerApi/AsaApi vs old https://github.com/ServersHub/AsaApiLoader
 - Added Official server status on main tab
 
-1.6.5.5
+## Version 1.6.5.5
 - Fixed an issue where personalized RCON messages were not properly sent based on the Personal message CheckBox state during scheduled events. Now, custom messages are correctly handled for both manual sends and scheduled notifications, adhering to user preferences.
 
-1.6.5.4
+## Version 1.6.5.4
 - Fix 1 Memory leak identified on GetProcessInfos is not disposed correctly
 
-1.6.5.3
+## Version 1.6.5.3
 - Finalization of tab translation into French at 100%
 - Fixed a bug in saving server version
 
-1.6.5.2
+## Version 1.6.5.2
 - End of tab translation into French 
 - Removed ActiveMods ActiveMapMod in template for Gus.ini (not used old config for Evolved) only new users are affected.
 
-1.6.5.1
+## Version 1.6.5.1
 - Quick fix for the English translation of Reload Gus.ini where the text did not appear
 
-1.6.5.0
+## Version 1.6.5.0
 - Small change in the size of the window to adapt to the content
 - Big advance in translation: All tab translated into French at 99%
 - Fixed bug that did not display if Custom Map is active after restarting the application
 - Fixed bug where Always on Top is enabled by default
 
-1.6.4.9
+## Version 1.6.4.9
 - Added PVP PVE filter in the gus.ini and game.ini tabs
 - Added Toggle Expanders button in the gus.ini and game.ini tabs
 - Reviewed the placement of buttons in the gus.ini and game.ini tabs
 
-1.6.4.8
+## Version 1.6.4.8
 - Quick graphic fix for Personal RCON Message for Server Startup and Shutdown
 
-1.6.4.7
+## Version 1.6.4.7
 - Added Personal RCON Message for Server Startup and Shutdown notes that the number of minutes remaining will be displayed at the end of the message
 
-1.6.4.6
+## Version 1.6.4.6
 - Complete review of the backup method so as not to block the user window during a manual backup
 - Wait 30 seconds before creating the zip after saveworld instead of 10 seconds for more security
 - Small advance in translation: Server management tab translated into French
 - Small advance in translation: Backup tab translated into French
 
-1.6.4.5
+## Version 1.6.4.5
 - Moved the list of connected players to the right place
 - Added a right-click menu on the list of connected players to copy the data
 
-1.6.4.4
+## Version 1.6.4.4
 - Small translation advancement: Tab translation
 
-1.6.4.3
+## Version 1.6.4.3
 - Added more RCON messages when stopping the server previously 15, 10, 5, 1 minute now 15, 10, 5, 4, 3, 2, 1
 - Improved the restart calculation method to display RCON messages correctly in advanced mode
 - Translation of the restart message into French if the language is selected from the language menu
 
-1.6.4.2
+## Version 1.6.4.2
 - Improved the method for retrieving server version
 - Improvement the method which allows to know if the server is started
 
-1.6.4.1
+## Version 1.6.4.1
 - Added a language menu
 - Added a start of translation of the UI into French (main interface)
 - Added information on each Option in the command lines tab in English and French
 - Updated text color for necessary update
 
-1.6.4.0
+## Version 1.6.4.0
 - Added a language menu
 - Added a start of translation of the UI into French (main interface)
 - Added information on each Option in the command lines tab in English and French
 - Updated text color for necessary update
 
-1.6.3.0
+## Version 1.6.3.0
 - Graphical redesign of the Command line tab
 - Added new command line: ServerIP,NoAI,NoDinos,NoDinosExceptForcedSpawn,NoDinosExceptStreamingSpawn,NoDinosExceptManualSpawn,NoDinosExceptWaterSpawn,forceuseperfthreads,noperfthreads,nosound,onethread,disabledinonetrangescaling,UnstasisDinoObstructionCheck,AlwaysTickDedicatedSkeletalMeshes,AutoDestroyStructures,StasisKeepControllers,disableCharacterTracker,UseServerNetSpeedCheck,exclusivejoin,ignoredupeditems
 - Added public IP display
@@ -511,65 +526,65 @@ Implementation of periodic checking of the availability of a manager update ever
 - Added unique activation behavior of certain checkboxes depending on the need
 - Better message for application rollback
 
-1.6.2.9
+## Version 1.6.2.9
 - Added new command line: servergamelog, servergamelogincludetribelogs, ServerRCONOutputTribeLogs
 - Updated cluster checkbox deactivation behavior
 - Deleting unnecessary ASADedicatedManager.exe.WebView2 folder
 
-1.6.2.8
+## Version 1.6.2.8
 - Added new command line: DisableCustomCosmeticsCheckBox, noundermeshchecking, noundermeshkilling
 - Updated donator list
 
-1.6.2.7
+## Version 1.6.2.7
 - Quick fix for GBUsageToForceRestart not working
 
-1.6.2.6
+## Version 1.6.2.6
 - Added new command line: GBUsageToForceRestart, culture, NoTransferFromFiltering
 
-1.6.2.5
+## Version 1.6.2.5
 - Small correction of text and buttons from the last update
 
-1.6.2.4
+## Version 1.6.2.4
 - Added a button that will allow you to automatically add your mod configurations in GameUserSettings.ini
 - Better error handling in case of missing port, warn the user and try to report and find the error
 - Improvement of the server startup code
 - Display of duplicate RCON port dialog box corrected because displayed too early
 
-1.6.2.3
+## Version 1.6.2.3
 - Added the integration of the management of personalized mods in the GUS.ini they will be displayed in the Mod Settings Or Unclassified Settings section this will allow you to manage the configuration of your mods more easily
 
-1.6.2.1
+## Version 1.6.2.1
 - Add a launch check and error message if GameUserSettings.ini contains duplicate key. Thanks to @pollyetta for the report
 
-1.6.2.0
+## Version 1.6.2.0
 - First integration of the gameservershub.com loader API, there is still a lot to do to integrate it correctly but here is the basis which will allow you to at least launch the server with the API
-* Shortly:
-** Plugin management
-** Managing the JSON file
+  * Shortly:
+    ** Plugin management
+    ** Managing the JSON file
 
-1.6.1.9
+## Version 1.6.1.9
 - Emergency fix for update server and verify not working after 1.6.1.8
 
-1.6.1.8
+## Version 1.6.1.8
 - Finalizing the profile creation process
 - Update the profile manager interface for greater clarity
 - If the profile.json does not exist display the profile creation window (in addition to checking if no profile exists) 
 
-1.6.1.7
+## Version 1.6.1.7
 - Updated release notes for 1.6.1.6 add missing:
- * Deleting the profile now deletes the folder from the server be careful
+  * Deleting the profile now deletes the folder from the server be careful
 
-1.6.1.6
+## Version 1.6.1.6
 - Deleting the profile now deletes the folder from the server be careful
 - Add a time counter after server startup
 - Bug fix report for profile creation issue
   * Added an Initialize a new profile button
   * locking buttons that could impact the creation of the profile folder due to misunderstanding of the mechanism
 
-1.6.1.5
+## Version 1.6.1.5
 - Added configuration of backup times over several days and more time range
 
-1.6.1.4
+## Version 1.6.1.4
 - Moved server memory and player count display to the correct location
 - Changing the release notes display
 - Moved all buttons not linked to the server in the main window interface
@@ -577,17 +592,17 @@ Implementation of periodic checking of the availability of a manager update ever
 - Small graphical changes in the manager profile window
 - Migrate the theme into a single resource file
 
-1.6.1.3
+## Version 1.6.1.3
 - Confirmed fix for webview2 problem in multiple tab (introducted with multiple profile open)
 - Clean the webview2 directory which can quickly grow given that now the webview2 is autonomous by profiles
 
-1.6.1.2
+## Version 1.6.1.2
 - Prerelease try fix webview2 problem in multiple tab
 
-1.6.1.1
+## Version 1.6.1.1
 - Fix for Full Screen Mode Bug Causing Windows Taskbar Disappearance
 
-1.6.1.0
+## Version 1.6.1.0
 - Enhanced error handling in WebView2: Now includes better exception management.
 - Profile manager now supports persistence: it saves and restores the last open tab.
 - Deleting a profile also removes its saved tab entry.
@@ -595,13 +610,13 @@ Implementation of periodic checking of the availability of a manager update ever
 - Dark theme for the main window has been updated.
 - Dark theme for the profile window has been updated.
 
-1.6.0.2
+## Version 1.6.0.2
 - Fix contributors date
 
-1.6.0.1
+## Version 1.6.0.1
 - Added contributors and acknowledgments window
 
-1.6.0.0
+## Version 1.6.0.0
 - You can now load all your servers into the interface, it is no longer necessary to launch 2 managers
 - Full implementation of the ProfileManager
 - Added drop-down menu for profile management
@@ -616,85 +631,80 @@ Implementation of periodic checking of the availability of a manager update ever
 - Moving the IP address save to the server profile rather than the general save
 - Added dark theme to MainWindow
 
-1.5.8.1
+## Version 1.5.8.1
 - Added the list of connected players with their ID in the Server Management tab
 - Added the number of players connected to the main window
 
-1.5.7.1
+## Version 1.5.7.1
 - Correction of RCON messages authorization of spaces and \
 
-1.5.7.0
+## Version 1.5.7.0
 - Added the ability to rollback to a previous version of the application
 
-1.5.6.0
-- To prevent parameter deletion from Game.ini and GameUserSettings.ini by the dedicated server, a solution involves setting these files to read-only upon server start and reversing this when the server stops, with additional measures for emergency unlocking, amidst a lack of alternative lasting solutions and hope for a fix from wildcard studio.
-- See the forum Latest Updates 1.5.6.0 for more info
+## Version 1.5.6.0
+- To prevent parameter deletion from Game.ini and GameUserSettings.ini by the dedicated server, a solution involves setting these files to read-only upon server start and reversing this when the server stops, with additional measures for emergency unlocking, amidst a lack of alternative lasting solutions and hope for a fix from wildcard studio. See the forum Latest Updates 1.5.6.0 for more info
 
-1.5.5.0
+## Version 1.5.5.0
 - Added RCON Automatic message before shutdown every 15,10,5,1 minutes
 - Added RCON Manual message button for send any personal messages. Leave your mouse on the textbox for more info
 - Added the Verify button to check if the server is up to date without having to restart the program
 - ServerManagement tab UI reworked
 
-1.5.4.4
+## Version 1.5.4.4
 - Fix of the Update ARK server button which sends lots of unwanted messageboxes. Correct redirection to the logs in automatic and manual mode
 - Fix Auto schedule logs Scrollviewer
 - Fix the update remains blocked because two manager instances are launched
 
-1.5.4.2
+## Version 1.5.4.2
 - Emergency fix for dinos not appearing. Go to the forum for details topic: (latest-updates) to resolve temporarily click on the Reset server config file button be careful this will reset all your settings otherwise you can make the changes manually read the forum
 
-1.5.4.1
+## Version 1.5.4.1
 - Quick Fix for Shutdown Server CheckBox unchecked don't stop the timer
 
-1.5.4.0
-- New advanced method for Server Management tab.
-	* A lot of code was modified in the launch, shutdown and update of the server I'll let you report any new bugs. Unfortunately I haven't had internet for 2 days it's complicated for me to test correctly. So I couldn't provide you the RCON schedule message for this update... stay tuned :)
+## Version 1.5.4.0
+- New advanced method for Server Management tab. A lot of code was modified in the launch, shutdown and update of the server I'll let you report any new bugs. Unfortunately I haven't had internet for 2 days it's complicated for me to test correctly. So I couldn't provide you the RCON schedule message for this update... stay tuned :)
 - Added a log panel for the autoschedule and this includes the removal of messageboxes that occur in manual mode (with buttons: start, stop, update)
 - All checkbox saving methods have been redone to simplify the code
 
-1.5.3.2
+## Version 1.5.3.2
 - Fixed a bug that ForceAllowCaveFlyers checkbox Notworking. thanks to @leyshonusmc for the reporting
 
-1.5.3.1
+## Version 1.5.3.1
 - Fixed a bug that deletes the rest of the text after spaces in the SessionName. thanks to @ArkDex @bomber for the reporting
 
-1.5.3.0
+## Version 1.5.3.0
 - Added system tray minimize option, special thanks to @leyshonusmc for the idea
 - First implementation of the new tab for the Server Management tab. Currently allows you to plan a basic server restart If the server is started. More to follow but the skeleton is implemented, special thanks to @arkdex for the idea
 - Review of the server shutdown function to wait for the server to complete successfully
 
-
-1.5.2.0
+## Version 1.5.2.0
 - Lots of style modifications
 - Review of the main window and all tabs and placement of objects to adapt the window to small screens
 
-
-1.5.1.1
+## Version 1.5.1.1
 - Updated the Wipe Server function for custom maps
 - Added a visual in the main window to know if Custom map folder is active
 
-
-1.5.1.0
+## Version 1.5.1.0
 - New functionality AltSaveDirectoryName in the map management tab will be used for MAP and BACKUP automatically adds the correct parameter when launching the server?AltSaveDirectoryName=SelectedFolder. If the checkbox "Use Custom map folder and Add in command line: ?AltSaveDirectoryName=" is checked you can create as many maps as you want in this new alternative directory
 
-1.5.0.0
+## Version 1.5.0.0
 - Add Profile Management at start
-	* This allows you to launch multiple instances of ASADedicatedManager to manage multiple servers
+  * This allows you to launch multiple instances of ASADedicatedManager to manage multiple servers
 - Less strict command line checking
 - Select server install path button
 - Removed Open app settings button
 
-1.4.4.8
+## Version 1.4.4.8
 - The dedicated server deletes certain parameters from the GameUserSettings.ini if they are at 1.0 this update modifies the GameUserSettings.ini template provided by ASADedicatedManager to put the parameters at = instead of 1.0 Existing user you must update manually in the GameUserSettings.ini file see forum update note
 
-1.4.4.7
+## Version 1.4.4.7
 - Quick fix On loading ASADedicatedManager adds spaces around the = signs in the GameUserSettings.ini
 
-1.4.4.6
+## Version 1.4.4.6
 - Quick graphical interface fix for multihome consistency
 
-1.4.4.5
+## Version 1.4.4.5
 - Add multi-home capability
   * Be careful to use the appropriate RCON IP or some features will not work!
 - Fix the tab selection color issue.
@@ -702,23 +712,23 @@ Implementation of periodic checking of the availability of a manager update ever
 - Close Manager Windows don’t kill all process of the dedicated server but the correct PID
 - Redesign of button activation deactivation logic
 
-1.4.4.4
+## Version 1.4.4.4
 - Removed unwanted msgbox with pid
 - The used memory display feature now uses the PID rather than the process name
 
-1.4.4.3
+## Version 1.4.4.3
 - Reworked start server and kill server to use PID instead of process name Feature request to launch multiple server with multiple ASADedicatedManager instances (NOT TESTED)
   * Be careful if you have enough RAM to launch several dedicated servers via several instances of the manager configure different RCON ports in GUS.ini for each instance. stop server and backup world use rcon if you do not modify the rcon ports it could interfere
 
-1.4.4.2
+## Version 1.4.4.2
 - Added New WebSite and Forum https://asadedicatedmanager.eu/ https://asadedicatedmanager.eu/forum/
 - Added Guide on Forum for Existing Server Integration and Installation Guide
 - Bug Fix messagebox popup at start if server is not installed
 
-1.4.4.1
+## Version 1.4.4.1
 - Added Always on top checkbox If you don't want to keep the window in the foreground
 
-1.4.4.0
+## Version 1.4.4.0
 - Complete graphic redesign and addition of the dark theme
 - Added Item Stack Tab ConfigOverrideItemMaxQuantity Feature Allows manually overriding item stack size on a per-item basis.
 - Excluded in game.ini and correctly handled if existing when writing to the file
@@ -748,38 +758,38 @@ Implementation of periodic checking of the availability of a manager update ever
   * PlayerBaseStatMultipliers
   * ItemStatClamps
 
-1.4.3.2
+## Version 1.4.3.2
 - Fixed ConfigOverrideItemCraftingCosts Profile server path change
 
-1.4.3.1
+## Version 1.4.3.1
 - Emergency Rollback 1.4.3.0 "Creation of json files when installing a new server in a correct format" because this causes a deserialization error. last modification of the code to handle this problem
 - Fixed profile mixing bug when installing a new server while another server is already installed
 - Fixed profile mixing bug when when changing server path
 
-1.4.3.0
+## Version 1.4.3.0
 - Creation of json files when installing a new server in a correct format
 
-1.4.2.9
+## Version 1.4.2.9
 - Emergency fix if the modInfos.json file is empty the application crashes
 
-1.4.2.8
+## Version 1.4.2.8
 - fixed a bug when installing a new server indicating that serverProfil.json does not exist
 
-1.4.2.7
+## Version 1.4.2.7
 - Icon and Splashscreen update
 - Ensure 64-bit build
 
-1.4.2.6
+## Version 1.4.2.6
 - Added real-time monitoring of memory used by the dedicated server
 - The ASADedicatedManager window remains in front even when the dedicated server is launched
 - The Stop server button is only available after 50 seconds
 - Launch Server is now Start server
 - Application compiled in 64-bit vs 32-bit mode This means that if you still use a 32-bit system, you will not be able to run the application.
 
-1.4.2.5
+## Version 1.4.2.5
 - Removed ExtinctionEventTimeInterval=2592000 in GameUserSettings.ini Template file. Old Users nedd to delete this line manualy in GameUserSettings.ini For stop this event (ARKpocalypse). thx for Dimensional Star for report!
 
-1.4.2.4
+## Version 1.4.2.4
 - Reorganization of the main window
 - Redesign of the icon
 - Added loading screen
@@ -787,10 +797,9 @@ Implementation of periodic checking of the availability of a manager update ever
 - Added the paypal donate button if you want to support us
 - Added New info in ConfigOverrideItemCraftingCosts
 - Added classification for AdminListURL in GameUserSettings.ini 
-- Added classification for bAllowSpeedLeveling in Game.ini  
-- Note for AdminListURL and bAllowSpeedLeveling: You must add this parameter if necessary in your ini files, ASADedicatedManager will classify them as required. If you are installing ASADedicated manager for the first time no need to add them manually.
+- Added classification for bAllowSpeedLeveling in Game.ini Note for AdminListURL and bAllowSpeedLeveling: You must add this parameter if necessary in your ini files, ASADedicatedManager will classify them as required. If you are installing ASADedicated manager for the first time no need to add them manually.
 
-1.4.2.3
+## Version 1.4.2.3
 - Releasing the ConfigOverrideItemCraftingCosts feature
 - Added the ability to delete multiple backup files
 - Added a Refresh backup file list button
@@ -798,14 +807,14 @@ Implementation of periodic checking of the availability of a manager update ever
 - Improved graphics space
 - Messagebox improvement
 
-1.4.2.2
+## Version 1.4.2.2
 - Added google analytics stats this allows me to see how many users are using the application anonymously
 - ConfigOverrideItemCraftingCosts ready and functional but still some adjustments before release stay tuned!
 
-1.4.2.1
+## Version 1.4.2.1
 - Emergency fix if no mod crash the server
 
-1.4.2.0
+## Version 1.4.2.0
 - Added the ability to know if the server needs an update
 - reworked profile management in server\Profile folder for options:
   * MapFile
@@ -823,7 +832,7 @@ Implementation of periodic checking of the availability of a manager update ever
 - Release notes stored in a file
 - Lots of code refactoring
 
-1.4.1.0
+## Version 1.4.1.0
 - Fix Wip Server button remove map in map file combobox. 
 - Moved the mod storage file to use the server folder rather than the application. You will need to add the mods again if you are coming from version 1.4.0.1 
 - Added release notes. 
