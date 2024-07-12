@@ -1,3 +1,8 @@
+## Version 1.8.4.2
+- **Bug Fixes:**
+  - Various Optimization of memory and events
+  - Discord bot optimization
+
 ## Version 1.8.4.1
 - **Bug Fixes:**
   - Server Kill button now works correctly.
