@@ -1,3 +1,14 @@
+## Version 1.9.0.0
+- *Major update*
+- **App Performance Update:**
+  - Completely overhauled the RCON code for all methods that were entering multiple unnecessary and poorly handled connections. Now only one connection remains open when the server is running, compared to thousands of connections before.
+- **Bug Fixes:**
+  - Fixed a BIG MemomryLeak in RCON code (check Discord announcement for more informations)
+  - Fixed a timer bug in the DestroyWildDinos functionality and improved logs
+  - Disabling features that use RCON if RCON is disabled
+- **New Feature:**
+  - Added a new Stop Update All Servers button which allows you not to restart the servers after the update
+
 ## Version 1.8.4.3
 - **Bug Fixes:**
   - Various Optimization
