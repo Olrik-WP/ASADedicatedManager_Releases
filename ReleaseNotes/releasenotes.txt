@@ -1,3 +1,7 @@
+## Version 1.9.0.1
+- **Bug Fixes:**
+  - Fixed An unexpected server shutdown window appears during automatic restarts where kill process is call.
+
 ## Version 1.9.0.0
 - *Major update*
 - **App Performance Update:**
