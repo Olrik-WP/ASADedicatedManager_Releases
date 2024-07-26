@@ -1,3 +1,7 @@
+ ## Version 2.0.0.1
+ - **Bug Fixes:**
+    - Added missing files to full backup ".arktribe", ".tribebak", ".arktributetribe"
+
 ## Version 2.0.0.0
 - **New Feature:**
   - The Backup tab has been completely revamped.
@@ -8,8 +12,8 @@
   - Added Backup tab translations in all available languages
 - **Bug Fixes:**
     - The colors of selections in datagrids have been improved.
-  - **Suggest implemented:**
-  - @wulfmanger The manager now "ignores" ARK's own backup like TheIsland_WP_17.07.2024_03.51.41.ark and tke only TheIsland_WP.ark the size of the backup directory will be greatly reduced
+- **Suggest implemented:**
+  - @wulfmanger The manager now "ignores" ARK's own backup like TheIsland_WP_17.07.2024_03.51.41.ark and take only TheIsland_WP.ark the size of the backup directory will be greatly reduced
   - **Update:**
   - Updating external library packages.
 
