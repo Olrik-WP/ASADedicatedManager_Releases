@@ -519,6 +519,14 @@
                 <b>This will still require a stable clock on your system.</b>
             </remarks>
         </member>
+        <member name="P:Discord.DiscordConfig.ResponseInternalTimeCheck">
+            <summary>
+                Gets or sets whether or not any responses to Discord will make an internal expiration check.
+            </summary>
+            <remarks>
+                This should generally be set to <see langword="false"/> in a development environment due to potential latency issues.
+            </remarks>
+        </member>
         <member name="P:Discord.DiscordConfig.FormatUsersInBidirectionalUnicode">
             <summary>
                 Gets or sets if the Rest/Socket user <see cref="M:System.Object.ToString"/> override formats the string in respect to bidirectional unicode.
@@ -4592,6 +4600,16 @@
             </remarks>
             <inheritdoc cref="P:Discord.TextChannelProperties.Topic"/>
         </member>
+        <member name="T:Discord.ApplicationEmoteProperties">
+            <summary>
+                Represents the properties for an application emote.
+            </summary>
+        </member>
+        <member name="P:Discord.ApplicationEmoteProperties.Name">
+            <summary>
+                Gets or sets the name of the emote.
+            </summary>
+        </member>
         <member name="T:Discord.Emoji">
             <summary>
                 A Unicode emoji.
@@ -4662,6 +4680,16 @@
             <returns>
                 A string that points to the URL of this emote.
             </returns>
+        </member>
+        <member name="P:Discord.Emote.User">
+            <summary>
+                Gets the user who created this emote. <see langword="null" /> if not available.
+            </summary>
+        </member>
+        <member name="M:Discord.Emote.#ctor(System.UInt64,System.String,System.Boolean)">
+            <summary>
+               Creates a new instance of <see cref="T:Discord.Emote" />.
+            </summary>
         </member>
         <member name="M:Discord.Emote.Equals(System.Object)">
             <summary>
@@ -4744,6 +4772,11 @@
                 An <see cref="T:System.UInt64"/> snowflake identifier representing the user who created this emoji; 
                 <see langword="null" /> if unknown.
             </returns>
+        </member>
+        <member name="P:Discord.GuildEmote.IsAvailable">
+            <summary>
+                Gets whether this emoji is available. <see langword="null" /> if unknown.
+            </summary>
         </member>
         <member name="M:Discord.GuildEmote.ToString">
             <summary>
@@ -7266,6 +7299,11 @@
                 users that the name or nickname starts with the provided <see cref="T:System.String"/> at <paramref name="query"/>.
             </returns>
         </member>
+        <member name="M:Discord.IGuild.SearchUsersAsyncV2(System.Int32,Discord.MemberSearchPropertiesV2,Discord.RequestOptions)">
+            <summary>
+                Gets a collection of users in this guild that match the provided search criteria.
+            </summary>
+        </member>
         <member name="M:Discord.IGuild.GetAuditLogsAsync(System.Int32,Discord.CacheMode,Discord.RequestOptions,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{Discord.ActionType},System.Nullable{System.UInt64})">
             <summary>
                 Gets the specified number of audit log entries for this guild.
@@ -7880,6 +7918,216 @@
             <returns> 
                 <see langword="true" /> if this is a custom voice region (used for events/etc); otherwise <see langword="false" />/
             </returns>
+        </member>
+        <member name="T:Discord.JoinSourceType">
+            <summary>
+                Represents the source of a user joining a guild.
+            </summary>
+        </member>
+        <member name="F:Discord.JoinSourceType.Unknown">
+            <summary>
+                Unknown source.
+            </summary>
+        </member>
+        <member name="F:Discord.JoinSourceType.BotInvite">
+            <summary>
+                The user was invited by a bot.
+            </summary>
+        </member>
+        <member name="F:Discord.JoinSourceType.Integration">
+            <summary>
+                The user was invited by an integration.
+            </summary>
+        </member>
+        <member name="F:Discord.JoinSourceType.ServerDiscovery">
+            <summary>
+                The user joined via server discovery.
+            </summary>
+        </member>
+        <member name="F:Discord.JoinSourceType.StudentHub">
+            <summary>
+                The user joined via the student hub.
+            </summary>
+        </member>
+        <member name="F:Discord.JoinSourceType.InviteCode">
+            <summary>
+                The user joined via an invite code.
+            </summary>
+        </member>
+        <member name="F:Discord.JoinSourceType.VanityUrl">
+            <summary>
+                The user joined via a vanity URL.
+            </summary>
+        </member>
+        <member name="F:Discord.JoinSourceType.ManualVerification">
+            <summary>
+                The user was manually verified
+            </summary>
+        </member>
+        <member name="T:Discord.MemberSearchPropertiesV2">
+            <summary>
+                Represents the properties for searching members in a guild.
+            </summary>
+        </member>
+        <member name="P:Discord.MemberSearchPropertiesV2.After">
+            <summary>
+                Gets or sets the after property for the search.
+            </summary>
+        </member>
+        <member name="P:Discord.MemberSearchPropertiesV2.Sort">
+            <summary>
+                Gets or sets the sort type for the search.
+            </summary>
+        </member>
+        <member name="P:Discord.MemberSearchPropertiesV2.AndQuery">
+            <summary>
+                Gets or sets the and query for the search.
+            </summary>
+        </member>
+        <member name="P:Discord.MemberSearchPropertiesV2.OrQuery">
+            <summary>
+                Gets or sets the or query for the search.
+            </summary>
+        </member>
+        <member name="T:Discord.MemberSearchPropertiesV2After">
+            <summary>
+                Represents the after property for searching members in a guild.
+            </summary>
+        </member>
+        <member name="P:Discord.MemberSearchPropertiesV2After.UserId">
+            <summary>
+                Gets or sets the user ID to search after.
+            </summary>
+        </member>
+        <member name="P:Discord.MemberSearchPropertiesV2After.GuildJoinedAt">
+            <summary>
+                Gets or sets the guild joined at timestamp to search after.
+            </summary>
+        </member>
+        <member name="T:Discord.MemberSearchV2QueryParams">
+            <summary>
+                Represents the query parameters for searching members in a guild.
+            </summary>
+        </member>
+        <member name="P:Discord.MemberSearchV2QueryParams.SafetySignals">
+            <summary>
+                Gets or sets the safety signal search properties.
+            </summary>
+        </member>
+        <member name="P:Discord.MemberSearchV2QueryParams.RoleIds">
+            <summary>
+                Gets or sets the role IDs to search for.
+            </summary>
+        </member>
+        <member name="P:Discord.MemberSearchV2QueryParams.UserId">
+            <summary>
+                Gets or sets the range to search for the user ID.
+            </summary>
+        </member>
+        <member name="P:Discord.MemberSearchV2QueryParams.GuildJoinedAt">
+            <summary>
+                Gets or sets the range to search for the user's guild joined at timestamp.
+            </summary>
+        </member>
+        <member name="P:Discord.MemberSearchV2QueryParams.SourceInviteCode">
+            <summary>
+                Gets or sets the source invite code to search for.
+            </summary>
+        </member>
+        <member name="P:Discord.MemberSearchV2QueryParams.JoinSourceType">
+            <summary>
+                Gets or sets the join source type to search for.
+            </summary>
+        </member>
+        <member name="T:Discord.MemberSearchV2SafetySignalsProperties">
+            <summary>
+                Represents the safety signal properties for searching members in a guild.
+            </summary>
+        </member>
+        <member name="P:Discord.MemberSearchV2SafetySignalsProperties.UnusualDmActivityUntil">
+            <summary>
+                Gets or sets the unusual DM activity until property for the search.
+            </summary>
+        </member>
+        <member name="P:Discord.MemberSearchV2SafetySignalsProperties.CommunicationDisabledUntil">
+            <summary>
+                Gets or sets the communication disabled until property for the search.
+            </summary>
+        </member>
+        <member name="P:Discord.MemberSearchV2SafetySignalsProperties.UnusualAccountActivity">
+            <summary>
+                Gets or sets the unusual account activity property for the search.
+            </summary>
+        </member>
+        <member name="P:Discord.MemberSearchV2SafetySignalsProperties.AutomodQuarantinedUsername">
+            <summary>
+                Gets or sets the automod quarantined username property for the search.
+            </summary>
+        </member>
+        <member name="T:Discord.MemberSearchV2QueryProperties">
+            <summary>
+                Represents the query properties for searching members in a guild.
+            </summary>
+        </member>
+        <member name="P:Discord.MemberSearchV2QueryProperties.AndQuery">
+            <summary>
+                Gets the and query for the search.
+            </summary>
+        </member>
+        <member name="P:Discord.MemberSearchV2QueryProperties.OrQuery">
+            <summary>
+                Gets the or query for the search.
+            </summary>
+        </member>
+        <member name="T:Discord.MemberSearchV2SafetySignalProperties">
+            <summary>
+                Represents the safety signal properties for searching members in a guild.
+            </summary>
+        </member>
+        <member name="P:Discord.MemberSearchV2SafetySignalProperties.Range">
+            <summary>
+                Gets or sets the range for the search.
+            </summary>
+        </member>
+        <member name="T:Discord.MemberSearchV2RangeProperties">
+            <summary>
+                Represents the range properties for searching members in a guild.
+            </summary>
+        </member>
+        <member name="P:Discord.MemberSearchV2RangeProperties.LessThanOrEqual">
+            <summary>
+                Gets or sets the less than property for the search.
+            </summary>
+        </member>
+        <member name="P:Discord.MemberSearchV2RangeProperties.GreaterThanOrEqual">
+            <summary>
+                Gets or sets the greater than property for the search.
+            </summary>
+        </member>
+        <member name="T:Discord.MemberSearchV2SortType">
+            <summary>
+                Represents the sort type for searching members in a guild.
+            </summary>
+        </member>
+        <member name="F:Discord.MemberSearchV2SortType.MemberSinceNewestFirst">
+            <summary>
+               Sort by member since newest first.
+            </summary>
+        </member>
+        <member name="F:Discord.MemberSearchV2SortType.MemberSinceOldestFirst">
+            <summary>
+                Sort by member since oldest first.
+            </summary>
+        </member>
+        <member name="F:Discord.MemberSearchV2SortType.JoinedDiscordNewestFirst">
+            <summary>
+                Sort by joined discord since newest first.
+            </summary>
+        </member>
+        <member name="F:Discord.MemberSearchV2SortType.JoinedDiscordOldestFirst">
+            <summary>
+                Sort by joined discord since oldest first.
+            </summary>
         </member>
         <member name="T:Discord.MfaLevel">
             <summary>
@@ -10117,214 +10365,6 @@
                 Gets the child components in this row.
             </summary>
         </member>
-        <member name="T:Discord.ButtonComponent">
-            <summary>
-                Represents a <see cref="T:Discord.IMessageComponent"/> Button.
-            </summary>
-        </member>
-        <member name="P:Discord.ButtonComponent.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Discord.ButtonComponent.Style">
-            <summary>
-                Gets the <see cref="T:Discord.ButtonStyle"/> of this button, example buttons with each style can be found <see href="https://discord.com/assets/7bb017ce52cfd6575e21c058feb3883b.png">Here</see>.
-            </summary>
-        </member>
-        <member name="P:Discord.ButtonComponent.Label">
-            <summary>
-                Gets the label of the button, this is the text that is shown.
-            </summary>
-        </member>
-        <member name="P:Discord.ButtonComponent.Emote">
-            <summary>
-                Gets the <see cref="T:Discord.IEmote"/> displayed with this button.
-            </summary>
-        </member>
-        <member name="P:Discord.ButtonComponent.CustomId">
-            <inheritdoc/>
-        </member>
-        <member name="P:Discord.ButtonComponent.Url">
-            <summary>
-                Gets the URL for a <see cref="F:Discord.ButtonStyle.Link"/> button.
-            </summary>
-            <remarks>
-                You cannot have a button with a <b>URL</b> and a <b>CustomId</b>.
-            </remarks>
-        </member>
-        <member name="P:Discord.ButtonComponent.IsDisabled">
-            <summary>
-                Gets whether this button is disabled or not.
-            </summary>
-        </member>
-        <member name="M:Discord.ButtonComponent.ToBuilder">
-            <summary>
-                Turns this button into a button builder.
-            </summary>
-            <returns>
-                A newly created button builder with the same properties as this button.
-            </returns>
-        </member>
-        <member name="T:Discord.ButtonStyle">
-            <summary>
-                Represents different styles to use with buttons. You can see an example of the different styles at <see href="https://discord.com/developers/docs/interactions/message-components#buttons-button-styles"/>
-            </summary>
-        </member>
-        <member name="F:Discord.ButtonStyle.Primary">
-            <summary>
-                A Blurple button
-            </summary>
-        </member>
-        <member name="F:Discord.ButtonStyle.Secondary">
-            <summary>
-                A Grey (or gray) button
-            </summary>
-        </member>
-        <member name="F:Discord.ButtonStyle.Success">
-            <summary>
-                A Green button
-            </summary>
-        </member>
-        <member name="F:Discord.ButtonStyle.Danger">
-            <summary>
-                A Red button
-            </summary>
-        </member>
-        <member name="F:Discord.ButtonStyle.Link">
-            <summary>
-                A <see cref="F:Discord.ButtonStyle.Secondary"/> button with a little popup box indicating that this button is a link.
-            </summary>
-        </member>
-        <member name="T:Discord.ComponentBuilder">
-            <summary>
-                Represents a builder for creating a <see cref="T:Discord.MessageComponent"/>.
-            </summary>
-        </member>
-        <member name="F:Discord.ComponentBuilder.MaxCustomIdLength">
-            <summary>
-                The max length of a <see cref="P:Discord.ButtonComponent.CustomId"/>.
-            </summary>
-        </member>
-        <member name="F:Discord.ComponentBuilder.MaxActionRowCount">
-            <summary>
-                The max amount of rows a message can have.
-            </summary>
-        </member>
-        <member name="P:Discord.ComponentBuilder.ActionRows">
-            <summary>
-                Gets or sets the Action Rows for this Component Builder.
-            </summary>
-            <exception cref="T:System.ArgumentNullException" accessor="set"><see cref="P:Discord.ComponentBuilder.ActionRows"/> cannot be null.</exception>
-            <exception cref="T:System.ArgumentException" accessor="set"><see cref="P:Discord.ComponentBuilder.ActionRows"/> count exceeds <see cref="F:Discord.ComponentBuilder.MaxActionRowCount"/>.</exception>
-        </member>
-        <member name="M:Discord.ComponentBuilder.FromMessage(Discord.IMessage)">
-            <summary>
-                Creates a new builder from a message.
-            </summary>
-            <param name="message">The message to create the builder from.</param>
-            <returns>The newly created builder.</returns>
-        </member>
-        <member name="M:Discord.ComponentBuilder.FromComponents(System.Collections.Generic.IReadOnlyCollection{Discord.IMessageComponent})">
-            <summary>
-                Creates a new builder from the provided list of components.
-            </summary>
-            <param name="components">The components to create the builder from.</param>
-            <returns>The newly created builder.</returns>
-        </member>
-        <member name="M:Discord.ComponentBuilder.RemoveComponentsOfType(Discord.ComponentType)">
-            <summary>
-                Removes all components of the given type from the <see cref="T:Discord.ComponentBuilder"/>.
-            </summary>
-            <param name="t">The <see cref="T:Discord.ComponentType"/> to remove.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:Discord.ComponentBuilder.RemoveComponent(System.String)">
-            <summary>
-                Removes a component from the <see cref="T:Discord.ComponentBuilder"/>.
-            </summary>
-            <param name="customId">The custom id of the component.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:Discord.ComponentBuilder.RemoveButtonByURL(System.String)">
-            <summary>
-                Removes a Link Button from the <see cref="T:Discord.ComponentBuilder"/> based on its URL.
-            </summary>
-            <param name="url">The URL of the Link Button.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:Discord.ComponentBuilder.WithSelectMenu(System.String,System.Collections.Generic.List{Discord.SelectMenuOptionBuilder},System.String,System.Int32,System.Int32,System.Boolean,System.Int32,Discord.ComponentType,Discord.ChannelType[],Discord.SelectMenuDefaultValue[])">
-            <summary>
-                Adds a <see cref="T:Discord.SelectMenuBuilder"/> to the <see cref="T:Discord.ComponentBuilder"/> at the specific row.
-                If the row cannot accept the component then it will add it to a row that can.
-            </summary>
-            <param name="customId">The custom id of the menu.</param>
-            <param name="options">The options of the menu.</param>
-            <param name="placeholder">The placeholder of the menu.</param>
-            <param name="minValues">The min values of the placeholder.</param>
-            <param name="maxValues">The max values of the placeholder.</param>
-            <param name="disabled">Whether or not the menu is disabled.</param>
-            <param name="row">The row to add the menu to.</param>
-            <param name="type">The type of the select menu.</param>
-            <param name="channelTypes">Menus valid channel types (only for <see cref="F:Discord.ComponentType.ChannelSelect"/>)</param>
-            <returns></returns>
-        </member>
-        <member name="M:Discord.ComponentBuilder.WithSelectMenu(Discord.SelectMenuBuilder,System.Int32)">
-            <summary>
-                Adds a <see cref="T:Discord.SelectMenuBuilder"/> to the <see cref="T:Discord.ComponentBuilder"/> at the specific row.
-                If the row cannot accept the component then it will add it to a row that can.
-            </summary>
-            <param name="menu">The menu to add.</param>
-            <param name="row">The row to attempt to add this component on.</param>
-            <exception cref="T:System.InvalidOperationException">There is no more row to add a menu.</exception>
-            <exception cref="T:System.ArgumentException"><paramref name="row"/> must be less than <see cref="F:Discord.ComponentBuilder.MaxActionRowCount"/>.</exception>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:Discord.ComponentBuilder.WithButton(System.String,System.String,Discord.ButtonStyle,Discord.IEmote,System.String,System.Boolean,System.Int32)">
-            <summary>
-                Adds a <see cref="T:Discord.ButtonBuilder"/> with specified parameters to the <see cref="T:Discord.ComponentBuilder"/> at the specific row.
-                If the row cannot accept the component then it will add it to a row that can.
-            </summary>
-            <param name="label">The label text for the newly added button.</param>
-            <param name="style">The style of this newly added button.</param>
-            <param name="emote">A <see cref="T:Discord.IEmote"/> to be used with this button.</param>
-            <param name="customId">The custom id of the newly added button.</param>
-            <param name="url">A URL to be used only if the <see cref="T:Discord.ButtonStyle"/> is a Link.</param>
-            <param name="disabled">Whether or not the newly created button is disabled.</param>
-            <param name="row">The row the button should be placed on.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:Discord.ComponentBuilder.WithButton(Discord.ButtonBuilder,System.Int32)">
-            <summary>
-                Adds a <see cref="T:Discord.ButtonBuilder"/> to the <see cref="T:Discord.ComponentBuilder"/> at the specific row.
-                If the row cannot accept the component then it will add it to a row that can.
-            </summary>
-            <param name="button">The button to add.</param>
-            <param name="row">The row to add the button.</param>
-            <exception cref="T:System.InvalidOperationException">There is no more row to add a button.</exception>
-            <exception cref="T:System.ArgumentException"><paramref name="row"/> must be less than <see cref="F:Discord.ComponentBuilder.MaxActionRowCount"/>.</exception>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:Discord.ComponentBuilder.AddRow(Discord.ActionRowBuilder)">
-            <summary>
-                Adds a row to this component builder.
-            </summary>
-            <param name="row">The row to add.</param>
-            <exception cref="T:System.IndexOutOfRangeException">The component builder contains the max amount of rows defined as <see cref="F:Discord.ComponentBuilder.MaxActionRowCount"/>.</exception>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:Discord.ComponentBuilder.WithRows(System.Collections.Generic.IEnumerable{Discord.ActionRowBuilder})">
-            <summary>
-                Sets the rows of this component builder to a specified collection.
-            </summary>
-            <param name="rows">The rows to set.</param>
-            <exception cref="T:System.IndexOutOfRangeException">The collection contains more rows then is allowed by discord.</exception>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:Discord.ComponentBuilder.Build">
-            <summary>
-                Builds this builder into a <see cref="T:Discord.MessageComponent"/> used to send your components.
-            </summary>
-            <returns>A <see cref="T:Discord.MessageComponent"/> that can be sent with <see cref="M:Discord.IMessageChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,Discord.AllowedMentions,Discord.MessageReference,Discord.MessageComponent,Discord.ISticker[],Discord.Embed[],Discord.MessageFlags,Discord.PollProperties)"/>.</returns>
-        </member>
         <member name="T:Discord.ActionRowBuilder">
             <summary>
                 Represents a class used to build Action rows.
@@ -10451,12 +10491,20 @@
                 Gets or sets whether the current button is disabled.
             </summary>
         </member>
+        <member name="P:Discord.ButtonBuilder.SkuId">
+            <summary>
+                Gets or sets the id of the sku associated with the current button.
+            </summary>
+            <remarks>
+                <see langword="null"/> if the button is not of type <see cref="F:Discord.ButtonStyle.Premium"/>.
+            </remarks>
+        </member>
         <member name="M:Discord.ButtonBuilder.#ctor">
             <summary>
                 Creates a new instance of a <see cref="T:Discord.ButtonBuilder"/>.
             </summary>
         </member>
-        <member name="M:Discord.ButtonBuilder.#ctor(System.String,System.String,Discord.ButtonStyle,System.String,Discord.IEmote,System.Boolean)">
+        <member name="M:Discord.ButtonBuilder.#ctor(System.String,System.String,Discord.ButtonStyle,System.String,Discord.IEmote,System.Boolean,System.Nullable{System.UInt64})">
             <summary>
                 Creates a new instance of a <see cref="T:Discord.ButtonBuilder"/>.
             </summary>
@@ -10466,6 +10514,7 @@
             <param name="style">The custom ID of this button.</param>
             <param name="emote">The emote of this button.</param>
             <param name="isDisabled">Disabled this button or not.</param>
+            <param name="skuId">The sku id of this button.</param>
         </member>
         <member name="M:Discord.ButtonBuilder.#ctor(Discord.ButtonComponent)">
             <summary>
@@ -10517,6 +10566,15 @@
             <param name="emote">The emote for this success button.</param>
             <returns>A builder with the newly created button.</returns>
         </member>
+        <member name="M:Discord.ButtonBuilder.CreatePremiumButton(System.String,System.UInt64,Discord.IEmote)">
+            <summary>
+                Creates a button with the <see cref="F:Discord.ButtonStyle.Premium"/> style.
+            </summary>
+            <param name="label">The label for this premium button.</param>
+            <param name="skuId">The sku id for this premium button.</param>
+            <param name="emote">The emote for this premium button.</param>
+            <returns>A builder with the newly created button.</returns>
+        </member>
         <member name="M:Discord.ButtonBuilder.WithLabel(System.String)">
             <summary>
                 Sets the current buttons label to the specified text.
@@ -10561,6 +10619,13 @@
             <param name="isDisabled">Whether the current button is disabled or not.</param>
             <returns>The current builder.</returns>
         </member>
+        <member name="M:Discord.ButtonBuilder.WithSkuId(System.Nullable{System.UInt64})">
+            <summary>
+                Sets the sku id of the current button.
+            </summary>
+            <param name="skuId">The id of the sku</param>
+            <returns>The current builder.</returns>
+        </member>
         <member name="M:Discord.ButtonBuilder.Build">
             <summary>
                 Builds this builder into a <see cref="T:Discord.ButtonComponent"/> to be used in a <see cref="T:Discord.ComponentBuilder"/>.
@@ -10571,6 +10636,138 @@
             <exception cref="T:System.InvalidOperationException">A link button must contain a URL.</exception>
             <exception cref="T:System.InvalidOperationException">A URL must include a protocol (http or https).</exception>
             <exception cref="T:System.InvalidOperationException">A non-link button must contain a custom id</exception>
+        </member>
+        <member name="T:Discord.ComponentBuilder">
+            <summary>
+                Represents a builder for creating a <see cref="T:Discord.MessageComponent"/>.
+            </summary>
+        </member>
+        <member name="F:Discord.ComponentBuilder.MaxCustomIdLength">
+            <summary>
+                The max length of a <see cref="P:Discord.ButtonComponent.CustomId"/>.
+            </summary>
+        </member>
+        <member name="F:Discord.ComponentBuilder.MaxActionRowCount">
+            <summary>
+                The max amount of rows a message can have.
+            </summary>
+        </member>
+        <member name="P:Discord.ComponentBuilder.ActionRows">
+            <summary>
+                Gets or sets the Action Rows for this Component Builder.
+            </summary>
+            <exception cref="T:System.ArgumentNullException" accessor="set"><see cref="P:Discord.ComponentBuilder.ActionRows"/> cannot be null.</exception>
+            <exception cref="T:System.ArgumentException" accessor="set"><see cref="P:Discord.ComponentBuilder.ActionRows"/> count exceeds <see cref="F:Discord.ComponentBuilder.MaxActionRowCount"/>.</exception>
+        </member>
+        <member name="M:Discord.ComponentBuilder.FromMessage(Discord.IMessage)">
+            <summary>
+                Creates a new builder from a message.
+            </summary>
+            <param name="message">The message to create the builder from.</param>
+            <returns>The newly created builder.</returns>
+        </member>
+        <member name="M:Discord.ComponentBuilder.FromComponents(System.Collections.Generic.IReadOnlyCollection{Discord.IMessageComponent})">
+            <summary>
+                Creates a new builder from the provided list of components.
+            </summary>
+            <param name="components">The components to create the builder from.</param>
+            <returns>The newly created builder.</returns>
+        </member>
+        <member name="M:Discord.ComponentBuilder.RemoveComponentsOfType(Discord.ComponentType)">
+            <summary>
+                Removes all components of the given type from the <see cref="T:Discord.ComponentBuilder"/>.
+            </summary>
+            <param name="t">The <see cref="T:Discord.ComponentType"/> to remove.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:Discord.ComponentBuilder.RemoveComponent(System.String)">
+            <summary>
+                Removes a component from the <see cref="T:Discord.ComponentBuilder"/>.
+            </summary>
+            <param name="customId">The custom id of the component.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:Discord.ComponentBuilder.RemoveButtonByURL(System.String)">
+            <summary>
+                Removes a Link Button from the <see cref="T:Discord.ComponentBuilder"/> based on its URL.
+            </summary>
+            <param name="url">The URL of the Link Button.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:Discord.ComponentBuilder.WithSelectMenu(System.String,System.Collections.Generic.List{Discord.SelectMenuOptionBuilder},System.String,System.Int32,System.Int32,System.Boolean,System.Int32,Discord.ComponentType,Discord.ChannelType[],Discord.SelectMenuDefaultValue[])">
+            <summary>
+                Adds a <see cref="T:Discord.SelectMenuBuilder"/> to the <see cref="T:Discord.ComponentBuilder"/> at the specific row.
+                If the row cannot accept the component then it will add it to a row that can.
+            </summary>
+            <param name="customId">The custom id of the menu.</param>
+            <param name="options">The options of the menu.</param>
+            <param name="placeholder">The placeholder of the menu.</param>
+            <param name="minValues">The min values of the placeholder.</param>
+            <param name="maxValues">The max values of the placeholder.</param>
+            <param name="disabled">Whether or not the menu is disabled.</param>
+            <param name="row">The row to add the menu to.</param>
+            <param name="type">The type of the select menu.</param>
+            <param name="channelTypes">Menus valid channel types (only for <see cref="F:Discord.ComponentType.ChannelSelect"/>)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Discord.ComponentBuilder.WithSelectMenu(Discord.SelectMenuBuilder,System.Int32)">
+            <summary>
+                Adds a <see cref="T:Discord.SelectMenuBuilder"/> to the <see cref="T:Discord.ComponentBuilder"/> at the specific row.
+                If the row cannot accept the component then it will add it to a row that can.
+            </summary>
+            <param name="menu">The menu to add.</param>
+            <param name="row">The row to attempt to add this component on.</param>
+            <exception cref="T:System.InvalidOperationException">There is no more row to add a menu.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="row"/> must be less than <see cref="F:Discord.ComponentBuilder.MaxActionRowCount"/>.</exception>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:Discord.ComponentBuilder.WithButton(System.String,System.String,Discord.ButtonStyle,Discord.IEmote,System.String,System.Boolean,System.Int32,System.Nullable{System.UInt64})">
+            <summary>
+                Adds a <see cref="T:Discord.ButtonBuilder"/> with specified parameters to the <see cref="T:Discord.ComponentBuilder"/> at the specific row.
+                If the row cannot accept the component then it will add it to a row that can.
+            </summary>
+            <param name="label">The label text for the newly added button.</param>
+            <param name="style">The style of this newly added button.</param>
+            <param name="emote">A <see cref="T:Discord.IEmote"/> to be used with this button.</param>
+            <param name="customId">The custom id of the newly added button.</param>
+            <param name="url">A URL to be used only if the <see cref="T:Discord.ButtonStyle"/> is a Link.</param>
+            <param name="disabled">Whether or not the newly created button is disabled.</param>
+            <param name="row">The row the button should be placed on.</param>
+            <param name="skuId">The id of the sku associated with the current button.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:Discord.ComponentBuilder.WithButton(Discord.ButtonBuilder,System.Int32)">
+            <summary>
+                Adds a <see cref="T:Discord.ButtonBuilder"/> to the <see cref="T:Discord.ComponentBuilder"/> at the specific row.
+                If the row cannot accept the component then it will add it to a row that can.
+            </summary>
+            <param name="button">The button to add.</param>
+            <param name="row">The row to add the button.</param>
+            <exception cref="T:System.InvalidOperationException">There is no more row to add a button.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="row"/> must be less than <see cref="F:Discord.ComponentBuilder.MaxActionRowCount"/>.</exception>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:Discord.ComponentBuilder.AddRow(Discord.ActionRowBuilder)">
+            <summary>
+                Adds a row to this component builder.
+            </summary>
+            <param name="row">The row to add.</param>
+            <exception cref="T:System.IndexOutOfRangeException">The component builder contains the max amount of rows defined as <see cref="F:Discord.ComponentBuilder.MaxActionRowCount"/>.</exception>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:Discord.ComponentBuilder.WithRows(System.Collections.Generic.IEnumerable{Discord.ActionRowBuilder})">
+            <summary>
+                Sets the rows of this component builder to a specified collection.
+            </summary>
+            <param name="rows">The rows to set.</param>
+            <exception cref="T:System.IndexOutOfRangeException">The collection contains more rows then is allowed by discord.</exception>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:Discord.ComponentBuilder.Build">
+            <summary>
+                Builds this builder into a <see cref="T:Discord.MessageComponent"/> used to send your components.
+            </summary>
+            <returns>A <see cref="T:Discord.MessageComponent"/> that can be sent with <see cref="M:Discord.IMessageChannel.SendMessageAsync(System.String,System.Boolean,Discord.Embed,Discord.RequestOptions,Discord.AllowedMentions,Discord.MessageReference,Discord.MessageComponent,Discord.ISticker[],Discord.Embed[],Discord.MessageFlags,Discord.PollProperties)"/>.</returns>
         </member>
         <member name="T:Discord.SelectMenuBuilder">
             <summary>
@@ -10935,6 +11132,11 @@
             </summary>
             <returns>The newly built <see cref="T:Discord.SelectMenuOption"/>.</returns>
         </member>
+        <member name="T:Discord.TextInputBuilder">
+            <summary>
+                Represents a builder for creating a <see cref="T:Discord.TextInputComponent"/>.
+            </summary>
+        </member>
         <member name="F:Discord.TextInputBuilder.MaxPlaceholderLength">
             <summary>
                 The max length of a <see cref="P:Discord.TextInputComponent.Placeholder"/>.
@@ -11068,6 +11270,96 @@
             </summary>
             <param name="required">The value to set.</param>
             <returns>The current builder. </returns>
+        </member>
+        <member name="T:Discord.ButtonComponent">
+            <summary>
+                Represents a <see cref="T:Discord.IMessageComponent"/> Button.
+            </summary>
+        </member>
+        <member name="P:Discord.ButtonComponent.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Discord.ButtonComponent.Style">
+            <summary>
+                Gets the <see cref="T:Discord.ButtonStyle"/> of this button, example buttons with each style can be found <see href="https://discord.com/assets/7bb017ce52cfd6575e21c058feb3883b.png">Here</see>.
+            </summary>
+        </member>
+        <member name="P:Discord.ButtonComponent.Label">
+            <summary>
+                Gets the label of the button, this is the text that is shown.
+            </summary>
+        </member>
+        <member name="P:Discord.ButtonComponent.Emote">
+            <summary>
+                Gets the <see cref="T:Discord.IEmote"/> displayed with this button.
+            </summary>
+        </member>
+        <member name="P:Discord.ButtonComponent.CustomId">
+            <inheritdoc/>
+        </member>
+        <member name="P:Discord.ButtonComponent.Url">
+            <summary>
+                Gets the URL for a <see cref="F:Discord.ButtonStyle.Link"/> button.
+            </summary>
+            <remarks>
+                You cannot have a button with a <b>URL</b> and a <b>CustomId</b>.
+            </remarks>
+        </member>
+        <member name="P:Discord.ButtonComponent.IsDisabled">
+            <summary>
+                Gets whether this button is disabled or not.
+            </summary>
+        </member>
+        <member name="P:Discord.ButtonComponent.SkuId">
+            <summary>
+                Gets the id of the sku associated with the current button.
+            </summary>
+            <remarks>
+                <see langword="null"/> if the button is not of type <see cref="F:Discord.ButtonStyle.Premium"/>.
+            </remarks>
+        </member>
+        <member name="M:Discord.ButtonComponent.ToBuilder">
+            <summary>
+                Turns this button into a button builder.
+            </summary>
+            <returns>
+                A newly created button builder with the same properties as this button.
+            </returns>
+        </member>
+        <member name="T:Discord.ButtonStyle">
+            <summary>
+                Represents different styles to use with buttons. You can see an example of the different styles at <see href="https://discord.com/developers/docs/interactions/message-components#buttons-button-styles"/>
+            </summary>
+        </member>
+        <member name="F:Discord.ButtonStyle.Primary">
+            <summary>
+                A Blurple button.
+            </summary>
+        </member>
+        <member name="F:Discord.ButtonStyle.Secondary">
+            <summary>
+                A Grey (or gray) button.
+            </summary>
+        </member>
+        <member name="F:Discord.ButtonStyle.Success">
+            <summary>
+                A Green button.
+            </summary>
+        </member>
+        <member name="F:Discord.ButtonStyle.Danger">
+            <summary>
+                A Red button.
+            </summary>
+        </member>
+        <member name="F:Discord.ButtonStyle.Link">
+            <summary>
+                A <see cref="F:Discord.ButtonStyle.Secondary"/> button with a little popup box indicating that this button is a link.
+            </summary>
+        </member>
+        <member name="F:Discord.ButtonStyle.Premium">
+            <summary>
+                A gradient button, opens a product's details modal.
+            </summary>
         </member>
         <member name="T:Discord.ComponentType">
             <summary>
@@ -11434,6 +11726,9 @@
         <member name="P:Discord.ApplicationCommandInteractionMetadata.UserId">
             <inheritdoc />
         </member>
+        <member name="P:Discord.ApplicationCommandInteractionMetadata.User">
+            <inheritdoc />
+        </member>
         <member name="P:Discord.ApplicationCommandInteractionMetadata.IntegrationOwners">
             <inheritdoc />
         </member>
@@ -11458,6 +11753,11 @@
         <member name="P:Discord.IMessageInteractionMetadata.UserId">
             <summary>
                 Gets the ID of the user who triggered the interaction.
+            </summary>
+        </member>
+        <member name="P:Discord.IMessageInteractionMetadata.User">
+            <summary>
+                Gets the user who triggered the interaction.
             </summary>
         </member>
         <member name="P:Discord.IMessageInteractionMetadata.IntegrationOwners">
@@ -11488,6 +11788,9 @@
         <member name="P:Discord.MessageComponentInteractionMetadata.UserId">
             <inheritdoc />
         </member>
+        <member name="P:Discord.MessageComponentInteractionMetadata.User">
+            <inheritdoc />
+        </member>
         <member name="P:Discord.MessageComponentInteractionMetadata.IntegrationOwners">
             <inheritdoc />
         </member>
@@ -11514,6 +11817,9 @@
             <inheritdoc />
         </member>
         <member name="P:Discord.ModalSubmitInteractionMetadata.UserId">
+            <inheritdoc />
+        </member>
+        <member name="P:Discord.ModalSubmitInteractionMetadata.User">
             <inheritdoc />
         </member>
         <member name="P:Discord.ModalSubmitInteractionMetadata.IntegrationOwners">
@@ -13864,6 +14170,21 @@
             </exception>
             <exception cref="T:System.IO.IOException">An I/O error occurred while opening the file. </exception>
         </member>
+        <member name="T:Discord.GuildProductPurchase">
+            <summary>
+                Represents a guild product purchase.
+            </summary>
+        </member>
+        <member name="F:Discord.GuildProductPurchase.ListingId">
+            <summary>
+                Gets the ID of the listing.
+            </summary>
+        </member>
+        <member name="F:Discord.GuildProductPurchase.ProductName">
+            <summary>
+               Gets the name of the product.
+            </summary>
+        </member>
         <member name="T:Discord.IAttachment">
             <summary>
                 Represents a message attachment found in a <see cref="T:Discord.IUserMessage"/>.
@@ -14313,6 +14634,16 @@
                 A <see cref="T:Discord.MessageRoleSubscriptionData"/> if the message is a role subscription purchase message; otherwise <see langword="null"/>.
             </returns>
         </member>
+        <member name="P:Discord.IMessage.PurchaseNotification">
+            <summary>
+                Gets the purchase notification for this message.
+            </summary>
+        </member>
+        <member name="P:Discord.IMessage.CallData">
+            <summary>
+                Gets the call data of the message.
+            </summary>
+        </member>
         <member name="M:Discord.IMessage.AddReactionAsync(Discord.IEmote,Discord.RequestOptions)">
             <summary>
                 Adds a reaction to this message.
@@ -14634,6 +14965,21 @@
         <member name="P:Discord.MessageApplication.Name">
             <summary>
                 Gets the name of the application.
+            </summary>
+        </member>
+        <member name="T:Discord.MessageCallData">
+            <summary>
+                Represents the call data of a message.
+            </summary>
+        </member>
+        <member name="F:Discord.MessageCallData.Participants">
+            <summary>
+                Gets the participants of the call.
+            </summary>
+        </member>
+        <member name="F:Discord.MessageCallData.EndedTimestamp">
+            <summary>
+                Gets the timestamp when the call ended. This is <see langword="null"/> if the call is still ongoing.
             </summary>
         </member>
         <member name="F:Discord.MessageFlags.None">
@@ -15240,6 +15586,31 @@
                 Gets the answer counts for the poll.
             </summary>
         </member>
+        <member name="T:Discord.PurchaseNotification">
+            <summary>
+                Represents a purchase notification.
+            </summary>
+        </member>
+        <member name="F:Discord.PurchaseNotification.Type">
+            <summary>
+                Gets the type of the purchase.
+            </summary>
+        </member>
+        <member name="F:Discord.PurchaseNotification.ProductPurchase">
+            <summary>
+                Gets the purchased product.
+            </summary>
+        </member>
+        <member name="T:Discord.PurchaseType">
+            <summary>
+                Represents the type of purchase notification.
+            </summary>
+        </member>
+        <member name="F:Discord.PurchaseType.GuildProduct">
+            <summary>
+                A guild product purchase.
+            </summary>
+        </member>
         <member name="T:Discord.ReactionMetadata">
             <summary>
                 A metadata containing reaction information.
@@ -15788,6 +16159,11 @@
                 Allows sending polls.
             </summary>
         </member>
+        <member name="F:Discord.ChannelPermission.UseExternalApps">
+            <summary>
+                Allows user-installed apps to send public responses.
+            </summary>
+        </member>
         <member name="F:Discord.ChannelPermissions.None">
             <summary>
                 Gets a blank <see cref="T:Discord.ChannelPermissions"/> that grants no permissions.
@@ -15953,13 +16329,16 @@
         <member name="P:Discord.ChannelPermissions.SendPolls">
             <summary> If <see langword="true"/>, a user can send polls.</summary>
         </member>
+        <member name="P:Discord.ChannelPermissions.UserExternalApps">
+            <summary> If <see langword="true"/>, a user-installed application can send public responses.</summary>
+        </member>
         <member name="M:Discord.ChannelPermissions.#ctor(System.UInt64)">
             <summary> Creates a new <see cref="T:Discord.ChannelPermissions"/> with the provided packed value.</summary>
         </member>
-        <member name="M:Discord.ChannelPermissions.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:Discord.ChannelPermissions.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
             <summary> Creates a new <see cref="T:Discord.ChannelPermissions"/> with the provided permissions.</summary>
         </member>
-        <member name="M:Discord.ChannelPermissions.Modify(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+        <member name="M:Discord.ChannelPermissions.Modify(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
             <summary> Creates a new <see cref="T:Discord.ChannelPermissions"/> from this one, changing the provided non-null permissions.</summary>
         </member>
         <member name="T:Discord.GuildApplicationCommandPermission">
@@ -16271,6 +16650,11 @@
                 Allows sending polls.
             </summary>
         </member>
+        <member name="F:Discord.GuildPermission.UseExternalApps">
+            <summary>
+                Allows user-installed apps to send public responses.
+            </summary>
+        </member>
         <member name="F:Discord.GuildPermissions.None">
             <summary> Gets a blank <see cref="T:Discord.GuildPermissions"/> that grants no permissions. </summary>
         </member>
@@ -16427,16 +16811,19 @@
         <member name="P:Discord.GuildPermissions.SendPolls">
             <summary> If <see langword="true"/>, a user can send polls.</summary>
         </member>
+        <member name="P:Discord.GuildPermissions.UserExternalApps">
+            <summary> If <see langword="true"/>, a user-installed application can send public responses.</summary>
+        </member>
         <member name="M:Discord.GuildPermissions.#ctor(System.UInt64)">
             <summary> Creates a new <see cref="T:Discord.GuildPermissions"/> with the provided packed value. </summary>
         </member>
         <member name="M:Discord.GuildPermissions.#ctor(System.String)">
             <summary> Creates a new <see cref="T:Discord.GuildPermissions"/> with the provided packed value after converting to ulong. </summary>
         </member>
-        <member name="M:Discord.GuildPermissions.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:Discord.GuildPermissions.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
             <summary> Creates a new <see cref="T:Discord.GuildPermissions"/> structure with the provided permissions. </summary>
         </member>
-        <member name="M:Discord.GuildPermissions.Modify(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+        <member name="M:Discord.GuildPermissions.Modify(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
             <summary> Creates a new <see cref="T:Discord.GuildPermissions"/> from this one, changing the provided non-null permissions. </summary>
         </member>
         <member name="M:Discord.GuildPermissions.Has(Discord.GuildPermission)">
@@ -17092,6 +17479,21 @@
                 otherwise <see langword="false"/>.
             </returns>
         </member>
+        <member name="P:Discord.RoleTags.SubscriptionListingId">
+            <summary>
+                Gets the identifier of the subscription listing that this role belongs to, if it does.
+            </summary>
+        </member>
+        <member name="P:Discord.RoleTags.IsAvailableForPurchase">
+            <summary>
+                Gets whether this role is available for purchase.
+            </summary>
+        </member>
+        <member name="P:Discord.RoleTags.IsGuildConnection">
+            <summary>
+                Gets whether this role is a guild's linked role.
+            </summary>
+        </member>
         <member name="T:Discord.ICustomSticker">
             <summary>
                 Represents a custom sticker within a guild.
@@ -17369,9 +17771,39 @@
                 Gets the Discord user of this team member.
             </summary>
         </member>
+        <member name="P:Discord.ITeamMember.Role">
+            <summary>
+                Gets the role of this team member.
+            </summary>
+        </member>
         <member name="T:Discord.MembershipState">
             <summary>
                 Represents the membership state of a team member.
+            </summary>
+        </member>
+        <member name="T:Discord.TeamRole">
+            <summary>
+                Represents a Discord Team member role.
+            </summary>
+        </member>
+        <member name="F:Discord.TeamRole.Owner">
+            <summary>
+                The user is the owner of the team.
+            </summary>
+        </member>
+        <member name="F:Discord.TeamRole.Admin">
+            <summary>
+                The user is an admin in the team.
+            </summary>
+        </member>
+        <member name="F:Discord.TeamRole.Developer">
+            <summary>
+                The user is a developer in the team.
+            </summary>
+        </member>
+        <member name="F:Discord.TeamRole.ReadOnly">
+            <summary>
+                The user is a read-only member of the team.
             </summary>
         </member>
         <member name="T:Discord.AddGuildUserProperties">
@@ -19509,6 +19941,31 @@
             </summary>
             <param name="entitlementId">The id of the entitlement.</param>
             <param name="options">The options to be used when sending the request.</param>
+        </member>
+        <member name="M:Discord.IDiscordClient.GetApplicationEmoteAsync(System.UInt64,Discord.RequestOptions)">
+            <summary>
+                Gets an emote for the current application.
+            </summary>
+        </member>
+        <member name="M:Discord.IDiscordClient.GetApplicationEmotesAsync(Discord.RequestOptions)">
+            <summary>
+                Gets all emotes for the current application.
+            </summary>
+        </member>
+        <member name="M:Discord.IDiscordClient.ModifyApplicationEmoteAsync(System.UInt64,System.Action{Discord.ApplicationEmoteProperties},Discord.RequestOptions)">
+            <summary>
+                Modifies an emote for the current application.
+            </summary>
+        </member>
+        <member name="M:Discord.IDiscordClient.CreateApplicationEmoteAsync(System.String,Discord.Image,Discord.RequestOptions)">
+            <summary>
+               Creates an emote for the current application.
+            </summary>
+        </member>
+        <member name="M:Discord.IDiscordClient.DeleteApplicationEmoteAsync(System.UInt64,Discord.RequestOptions)">
+            <summary>
+                Deletes an emote for the current application.
+            </summary>
         </member>
         <member name="T:Discord.IInteractionContext">
             <summary>

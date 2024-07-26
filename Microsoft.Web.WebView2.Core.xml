@@ -358,6 +358,7 @@
             </summary>
             <remarks>
             The app should close the WebView and related app window if that makes sense to the app.
+            After the first window.close() call, this event may not fire for any immediate back to back window.close() calls.
             </remarks>
         </member>
         <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2.Navigate(System.String)">
@@ -598,6 +599,12 @@
             <term><c>ignoreMemberNotFoundError</c></term>
             <description>
             By default, an exception is thrown when attempting to get the value of a proxy property that doesn't exist on the corresponding native class. Setting this property to <c>true</c> switches the behavior to match Chakra WinRT projection (and general JavaScript) behavior of returning <c>undefined</c> with no error.
+            </description>
+            </item>
+            <item>
+            <term><c>shouldPassTypedArraysAsArrays</c></term>
+            <description>
+            By default, typed arrays will be passed to host as IDispatch. Otherwise, set to true to pass typed arrays to host as array.
             </description>
             </item>
             </list>
@@ -3174,7 +3181,7 @@
             Sets the <c>ReleaseChannels</c>, which is a mask of one or more <c>CoreWebView2ReleaseChannels</c> indicating which channels environment creation should search for.
             </summary>
             <remarks>
-            OR operation(s) can be applied to multiple <c>CoreWebView2ReleaseChannels</c> to create a mask. The default value is a mask of all the channels. By default, environment creation searches for channels from most to least stable, using the first channel found on the device. When <c>ReleaseChannels</c> is provided, environment creation will only search for the channels specified in the set. Set <c>ChannelSearchKind</c> to <c>CoreWebView2ChannelSearchKind.MostStable</c> to reverse the search order so that the loader searches for the least stable build first. See <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2ReleaseChannels"/> for descriptions of each channel. Environment creation fails if it is unable to find any channel from the <c>ReleaseChannels</c> installed on the device. Use <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Environment.GetAvailableBrowserVersionString(System.String,Microsoft.Web.WebView2.Core.CoreWebView2EnvironmentOptions)"/> to verify which channel is used. If both a <c>BrowserExecutableFolder</c> and <c>ReleaseChannels</c> are provided, the <c>BrowserExecutableFolder</c> takes precedence. The <c>ReleaseChannels</c> can be overridden by the corresponding registry override <c>ReleaseChannels</c> or the environment variable <c>WEBVIEW2_RELEASE_CHANNELS</c>. Set the value to a comma-separated string of integers, which map to the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2ReleaseChannels"/> values: Stable (0), Beta (1), Dev (2), and Canary (3). For example, the values "0,2" and "2,0" indicate that the loader should only search for Dev channel and the WebView2 Runtime, using the order indicated by <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2EnvironmentOptions.ChannelSearchKind"/>. Environment creation attempts to interpret each integer and treats any invalid entry as Stable channel.
+            OR operation(s) can be applied to multiple <c>CoreWebView2ReleaseChannels</c> to create a mask. The default value is a mask of all the channels. By default, environment creation searches for channels from most to least stable, using the first channel found on the device. When <c>ReleaseChannels</c> is provided, environment creation will only search for the channels specified in the set. Set <c>ChannelSearchKind</c> to <c>CoreWebView2ChannelSearchKind.LeastStable</c> to reverse the search order so that environment creation searches for the least stable build first. See <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2ReleaseChannels"/> for descriptions of each channel. Environment creation fails if it is unable to find any channel from the <c>ReleaseChannels</c> installed on the device. Use <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Environment.GetAvailableBrowserVersionString(System.String,Microsoft.Web.WebView2.Core.CoreWebView2EnvironmentOptions)"/> to verify which channel is used. If both a <c>BrowserExecutableFolder</c> and <c>ReleaseChannels</c> are provided, the <c>BrowserExecutableFolder</c> takes precedence. The <c>ReleaseChannels</c> can be overridden by the corresponding registry override <c>ReleaseChannels</c> or the environment variable <c>WEBVIEW2_RELEASE_CHANNELS</c>. Set the value to a comma-separated string of integers, which map to the following release channel values: Stable (0), Beta (1), Dev (2), and Canary (3). For example, the values "0,2" and "2,0" indicate that environment creation should only search for Dev channel and the WebView2 Runtime, using the order indicated by <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2EnvironmentOptions.ChannelSearchKind"/>. Environment creation attempts to interpret each integer and treats any invalid entry as Stable channel.
             
             <list type="table">
               <listheader>
@@ -4459,7 +4466,7 @@
         </member>
         <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2ScrollbarStyle.FluentOverlay">
             <summary>
-            Window style fluent overlay scroll bar. Please see [Fluent UI](https://developer.microsoft.com/en-us/fluentui#/) for more details on fluent UI.
+            Window style fluent overlay scroll bar. Please see [Fluent UI](https://developer.microsoft.com/fluentui#/) for more details on fluent UI.
             </summary>
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2ScriptDialogKind">
@@ -6265,6 +6272,7 @@
             </summary>
             <remarks>
             The default value is the default User Agent of the Edge browser. This property may be overridden if the User-Agent header is set in a request. If the parameter is empty the User Agent will not be updated and the current User Agent will remain. Setting this property may clear User Agent Client Hints headers Sec-CH-UA-* and script values from navigator.userAgentData. Current implementation behavior is subject to change.
+            The User Agent set will also be effective on service workers and shared workers associated with the WebView.  If there are multiple WebViews associated with the same service worker or shared worker, the last User Agent set will be used.
             </remarks>
             <example>
             :::code language="csharp" source="../code/sample/SampleApps/WebView2WpfBrowser/MainWindow.xaml.cs" id="SetUserAgent":::

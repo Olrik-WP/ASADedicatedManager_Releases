@@ -1380,6 +1380,21 @@
         <member name="M:Discord.WebSocket.DiscordSocketClient.ConsumeEntitlementAsync(System.UInt64,Discord.RequestOptions)">
             <inheritdoc />
         </member>
+        <member name="M:Discord.WebSocket.DiscordSocketClient.GetApplicationEmoteAsync(System.UInt64,Discord.RequestOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Discord.WebSocket.DiscordSocketClient.GetApplicationEmotesAsync(Discord.RequestOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Discord.WebSocket.DiscordSocketClient.ModifyApplicationEmoteAsync(System.UInt64,System.Action{Discord.ApplicationEmoteProperties},Discord.RequestOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Discord.WebSocket.DiscordSocketClient.CreateApplicationEmoteAsync(System.String,Discord.Image,Discord.RequestOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Discord.WebSocket.DiscordSocketClient.DeleteApplicationEmoteAsync(System.UInt64,Discord.RequestOptions)">
+            <inheritdoc />
+        </member>
         <member name="P:Discord.WebSocket.DiscordSocketClient.Entitlements">
             <summary>
                 Gets entitlements from cache.
@@ -6866,6 +6881,9 @@
                 users that the name or nickname starts with the provided <see cref="T:System.String"/> at <paramref name="query"/>.
             </returns>
         </member>
+        <member name="M:Discord.WebSocket.SocketGuild.SearchUsersAsyncV2(System.Int32,Discord.MemberSearchPropertiesV2,Discord.RequestOptions)">
+            <inheritdoc />
+        </member>
         <member name="M:Discord.WebSocket.SocketGuild.GetEvent(System.UInt64)">
             <summary>
                 Gets an event in this guild.
@@ -8647,10 +8665,16 @@
         <member name="P:Discord.WebSocket.SocketMessage.RoleSubscriptionData">
             <inheritdoc />
         </member>
+        <member name="P:Discord.WebSocket.SocketMessage.PurchaseNotification">
+            <inheritdoc />
+        </member>
         <member name="P:Discord.WebSocket.SocketMessage.Thread">
             <inheritdoc cref="P:Discord.IMessage.Thread"/>
         </member>
         <member name="P:Discord.WebSocket.SocketMessage.Discord#IMessage#Thread">
+            <inheritdoc />
+        </member>
+        <member name="P:Discord.WebSocket.SocketMessage.CallData">
             <inheritdoc />
         </member>
         <member name="P:Discord.WebSocket.SocketMessage.Attachments">

@@ -28,6 +28,18 @@
                 Set the <see cref="P:Discord.ApplicationCommandOptionProperties.IsAutocomplete"/> to <see langword="true"/> without specifying a <see cref="T:Discord.Interactions.AutocompleteHandler"/>.
             </summary>
         </member>
+        <member name="T:Discord.Interactions.AutocompleteAttribute`1">
+            <summary>
+                Set the <see cref="P:Discord.ApplicationCommandOptionProperties.IsAutocomplete"/> to <see langword="true"/>.
+            </summary>
+            <typeparam name="T">Type of the <see cref="T:Discord.Interactions.AutocompleteHandler"/> that will be used to handle Autocomplete interactions targeting the parameter.</typeparam>
+        </member>
+        <member name="M:Discord.Interactions.AutocompleteAttribute`1.#ctor">
+            <summary>
+                Set the <see cref="P:Discord.ApplicationCommandOptionProperties.IsAutocomplete"/> to <see langword="true"/>.
+            </summary>
+            <typeparam name="T">Type of the <see cref="T:Discord.Interactions.AutocompleteHandler"/> that will be used to handle Autocomplete interactions targeting the parameter.</typeparam>
+        </member>
         <member name="T:Discord.Interactions.ChannelTypesAttribute">
             <summary>
                 Specify the target channel types for a <see cref="F:Discord.ApplicationCommandOptionType.Channel"/> option.
@@ -3842,7 +3854,7 @@
         <member name="M:Discord.Interactions.InteractionModuleBase`1.FollowupAsync(System.String,Discord.Embed[],System.Boolean,System.Boolean,Discord.AllowedMentions,Discord.RequestOptions,Discord.MessageComponent,Discord.Embed,Discord.PollProperties)">
             <inheritdoc cref="M:Discord.IDiscordInteraction.FollowupAsync(System.String,Discord.Embed[],System.Boolean,System.Boolean,Discord.AllowedMentions,Discord.MessageComponent,Discord.Embed,Discord.RequestOptions,Discord.PollProperties)"/>
         </member>
-        <member name="M:Discord.Interactions.InteractionModuleBase`1.FollowupWithFileAsync(System.IO.Stream,System.String,System.String,Discord.Embed[],System.Boolean,System.Boolean,Discord.AllowedMentions,Discord.MessageComponent,Discord.Embed,Discord.RequestOptions)">
+        <member name="M:Discord.Interactions.InteractionModuleBase`1.FollowupWithFileAsync(System.IO.Stream,System.String,System.String,Discord.Embed[],System.Boolean,System.Boolean,Discord.AllowedMentions,Discord.MessageComponent,Discord.Embed,Discord.RequestOptions,Discord.PollProperties)">
             <inheritdoc cref="M:Discord.IDiscordInteraction.FollowupWithFileAsync(System.IO.Stream,System.String,System.String,Discord.Embed[],System.Boolean,System.Boolean,Discord.AllowedMentions,Discord.MessageComponent,Discord.Embed,Discord.RequestOptions,Discord.PollProperties)"/>
         </member>
         <member name="M:Discord.Interactions.InteractionModuleBase`1.FollowupWithFileAsync(System.String,System.String,System.String,Discord.Embed[],System.Boolean,System.Boolean,Discord.AllowedMentions,Discord.MessageComponent,Discord.Embed,Discord.RequestOptions,Discord.PollProperties)">

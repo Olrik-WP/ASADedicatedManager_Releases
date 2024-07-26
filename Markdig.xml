@@ -48,11 +48,6 @@
             </summary>
             <seealso cref="T:Markdig.Syntax.Inlines.LeafInline" />
         </member>
-        <member name="M:Markdig.Extensions.Abbreviations.AbbreviationInline.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Markdig.Extensions.Abbreviations.AbbreviationInline"/> class.
-            </summary>
-        </member>
         <member name="M:Markdig.Extensions.Abbreviations.AbbreviationInline.#ctor(Markdig.Extensions.Abbreviations.Abbreviation)">
             <summary>
             Initializes a new instance of the <see cref="T:Markdig.Extensions.Abbreviations.AbbreviationInline"/> class.
@@ -75,6 +70,80 @@
             A HTML renderer for a <see cref="T:Markdig.Extensions.Abbreviations.AbbreviationInline"/>.
             </summary>
             <seealso cref="T:Markdig.Renderers.Html.HtmlObjectRenderer`1" />
+        </member>
+        <member name="T:Markdig.Extensions.Alerts.AlertBlock">
+            <summary>
+            A block representing an alert quote block.
+            </summary>
+        </member>
+        <member name="M:Markdig.Extensions.Alerts.AlertBlock.#ctor(Markdig.Helpers.StringSlice)">
+            <summary>
+            Creates a new instance of this block.
+            </summary>
+            <param name="kind"></param>
+        </member>
+        <member name="P:Markdig.Extensions.Alerts.AlertBlock.Kind">
+            <summary>
+            Gets or sets the kind of the alert block (e.g `NOTE`, `TIP`, `IMPORTANT`, `WARNING`, `CAUTION`)
+            </summary>
+        </member>
+        <member name="P:Markdig.Extensions.Alerts.AlertBlock.TriviaSpaceAfterKind">
+            <summary>
+            Gets or sets the trivia space after the kind.
+            </summary>
+        </member>
+        <member name="T:Markdig.Extensions.Alerts.AlertBlockRenderer">
+            <summary>
+            A HTML renderer for a <see cref="T:Markdig.Extensions.Alerts.AlertBlock"/>.
+            </summary>
+            <seealso cref="T:Markdig.Renderers.Html.HtmlObjectRenderer`1" />
+        </member>
+        <member name="M:Markdig.Extensions.Alerts.AlertBlockRenderer.#ctor">
+            <summary>
+            Creates a new instance of this renderer.
+            </summary>
+        </member>
+        <member name="P:Markdig.Extensions.Alerts.AlertBlockRenderer.RenderKind">
+            <summary>
+            Gets of sets a delegate to render the kind of the alert.
+            </summary>
+        </member>
+        <member name="M:Markdig.Extensions.Alerts.AlertBlockRenderer.Write(Markdig.Renderers.HtmlRenderer,Markdig.Extensions.Alerts.AlertBlock)">
+            <inheritdoc />
+        </member>
+        <member name="M:Markdig.Extensions.Alerts.AlertBlockRenderer.DefaultRenderKind(Markdig.Renderers.HtmlRenderer,Markdig.Helpers.StringSlice)">
+            <summary>
+            Renders the kind of the alert.
+            </summary>
+            <param name="renderer">The HTML renderer.</param>
+            <param name="kind">The kind of the alert to render</param>
+        </member>
+        <member name="T:Markdig.Extensions.Alerts.AlertExtension">
+            <summary>
+            Extension for adding alerts to a Markdown pipeline.
+            </summary>
+        </member>
+        <member name="P:Markdig.Extensions.Alerts.AlertExtension.RenderKind">
+            <summary>
+            Gets or sets the delegate to render the kind of the alert.
+            </summary>
+        </member>
+        <member name="M:Markdig.Extensions.Alerts.AlertExtension.Setup(Markdig.MarkdownPipelineBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Markdig.Extensions.Alerts.AlertExtension.Setup(Markdig.MarkdownPipeline,Markdig.Renderers.IMarkdownRenderer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Markdig.Extensions.Alerts.AlertInlineParser">
+            <summary>
+            An inline parser for an alert inline (e.g. `[!NOTE]`).
+            </summary>
+            <seealso cref="T:Markdig.Parsers.InlineParser" />
+        </member>
+        <member name="M:Markdig.Extensions.Alerts.AlertInlineParser.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Markdig.Extensions.Alerts.AlertInlineParser"/> class.
+            </summary>
         </member>
         <member name="T:Markdig.Extensions.AutoIdentifiers.AutoIdentifierExtension">
             <summary>
@@ -155,6 +224,12 @@
             </summary>
             <seealso cref="T:Markdig.IMarkdownExtension" />
         </member>
+        <member name="M:Markdig.Extensions.AutoLinks.AutoLinkExtension.#ctor(Markdig.Extensions.AutoLinks.AutoLinkOptions)">
+            <summary>
+            Extension to automatically create <see cref="T:Markdig.Syntax.Inlines.LinkInline"/> when a link url http: or mailto: is found.
+            </summary>
+            <seealso cref="T:Markdig.IMarkdownExtension" />
+        </member>
         <member name="P:Markdig.Extensions.AutoLinks.AutoLinkOptions.OpenInNewWindow">
             <summary>
             Should the link open in a new window when clicked (false by default)
@@ -200,6 +275,42 @@
             Initializes a new instance of the <see cref="T:Markdig.Extensions.CustomContainers.CustomContainer"/> class.
             </summary>
             <param name="parser">The parser used to create this block.</param>
+        </member>
+        <member name="P:Markdig.Extensions.CustomContainers.CustomContainer.FencedChar">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Extensions.CustomContainers.CustomContainer.OpeningFencedCharCount">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Extensions.CustomContainers.CustomContainer.TriviaAfterFencedChar">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Extensions.CustomContainers.CustomContainer.Info">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Extensions.CustomContainers.CustomContainer.UnescapedInfo">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Extensions.CustomContainers.CustomContainer.TriviaAfterInfo">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Extensions.CustomContainers.CustomContainer.Arguments">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Extensions.CustomContainers.CustomContainer.UnescapedArguments">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Extensions.CustomContainers.CustomContainer.TriviaAfterArguments">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Extensions.CustomContainers.CustomContainer.InfoNewLine">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Extensions.CustomContainers.CustomContainer.TriviaBeforeClosingFence">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Extensions.CustomContainers.CustomContainer.ClosingFencedCharCount">
+            <inheritdoc />
         </member>
         <member name="T:Markdig.Extensions.CustomContainers.CustomContainerExtension">
             <summary>
@@ -428,12 +539,12 @@
         </member>
         <member name="F:Markdig.Extensions.EmphasisExtras.EmphasisExtraOptions.Inserted">
             <summary>
-            A text that can be rendered as a inserted using the character ++
+            A text that can be rendered as inserted using the double character ++
             </summary>
         </member>
         <member name="F:Markdig.Extensions.EmphasisExtras.EmphasisExtraOptions.Marked">
             <summary>
-            A text that can be rendered as a inserted using the character ==
+            A text that can be rendered as marked using the double character ==
             </summary>
         </member>
         <member name="T:Markdig.Extensions.Figures.Figure">
@@ -1077,6 +1188,11 @@
             Internal state used by the <see cref="T:Markdig.Extensions.Tables.GridTableParser"/>
             </summary>
         </member>
+        <member name="M:Markdig.Extensions.Tables.GridTableState.#ctor(System.Int32,System.Boolean)">
+            <summary>
+            Internal state used by the <see cref="T:Markdig.Extensions.Tables.GridTableParser"/>
+            </summary>
+        </member>
         <member name="P:Markdig.Extensions.Tables.GridTableState.ColumnSlice.Start">
             <summary>
             Gets or sets the index position of this column (after the |)
@@ -1167,7 +1283,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Markdig.Extensions.Tables.PipeTableParser" /> class.
             </summary>
-            <param name="lineBreakParser">The linebreak parser to use</param>
+            <param name="lineBreakParser">The line break parser to use</param>
             <param name="options">The options.</param>
         </member>
         <member name="P:Markdig.Extensions.Tables.PipeTableParser.Options">
@@ -1299,7 +1415,7 @@
             <param name="delimiterChar">The delimiter character (either `-` or `=`).</param>
             <param name="align">The alignment of the column.</param>
             <returns>
-              <c>true</c> if parsing was successfull
+              <c>true</c> if parsing was successful
             </returns>
         </member>
         <member name="M:Markdig.Extensions.Tables.TableHelper.ParseColumnHeaderAuto(Markdig.Helpers.StringSlice@,System.Char@,System.Nullable{Markdig.Extensions.Tables.TableColumnAlign}@)">
@@ -1310,7 +1426,7 @@
             <param name="delimiterChar">The delimiter character (either `-` or `=`).</param>
             <param name="align">The alignment of the column.</param>
             <returns>
-              <c>true</c> if parsing was successfull
+              <c>true</c> if parsing was successful
             </returns>
         </member>
         <member name="M:Markdig.Extensions.Tables.TableHelper.ParseColumnHeaderDetect(Markdig.Helpers.StringSlice@,System.Char@,System.Nullable{Markdig.Extensions.Tables.TableColumnAlign}@)">
@@ -1321,7 +1437,7 @@
             <param name="delimiterChar">The delimiter character (either `-` or `=`). If `\0`, it will detect the character (either `-` or `=`)</param>
             <param name="align">The alignment of the column.</param>
             <returns>
-              <c>true</c> if parsing was successfull
+              <c>true</c> if parsing was successful
             </returns>
         </member>
         <member name="T:Markdig.Extensions.Tables.TableRow">
@@ -1400,11 +1516,27 @@
             Extension to discard a YAML frontmatter at the beginning of a Markdown document.
             </summary>
         </member>
+        <member name="P:Markdig.Extensions.Yaml.YamlFrontMatterExtension.AllowInMiddleOfDocument">
+            <summary>
+            Allows the <see cref="T:Markdig.Extensions.Yaml.YamlFrontMatterBlock"/> to appear in the middle of the markdown file.
+            </summary>
+        </member>
+        <member name="T:Markdig.Extensions.Yaml.YamlFrontMatterHtmlRenderer">
+            <summary>
+            Empty renderer for a <see cref="T:Markdig.Extensions.Yaml.YamlFrontMatterBlock"/>
+            </summary>
+            <seealso cref="T:Markdig.Renderers.Html.HtmlObjectRenderer`1" />
+        </member>
         <member name="T:Markdig.Extensions.Yaml.YamlFrontMatterParser">
             <summary>
             Block parser for a YAML frontmatter.
             </summary>
             <seealso cref="T:Markdig.Extensions.Yaml.YamlFrontMatterBlock" />
+        </member>
+        <member name="P:Markdig.Extensions.Yaml.YamlFrontMatterParser.AllowInMiddleOfDocument">
+            <summary>
+            Allows the <see cref="T:Markdig.Extensions.Yaml.YamlFrontMatterBlock"/> to appear in the middle of the markdown file.
+            </summary>
         </member>
         <member name="M:Markdig.Extensions.Yaml.YamlFrontMatterParser.#ctor">
             <summary>
@@ -1432,22 +1564,6 @@
             <param name="processor">The parser processor.</param>
             <param name="block">The block already opened.</param>
             <returns>The result of the match. By default, don't expect any newline</returns>
-        </member>
-        <member name="T:Markdig.Extensions.Yaml.YamlFrontMatterRenderer">
-            <summary>
-            Empty renderer for a <see cref="T:Markdig.Extensions.Yaml.YamlFrontMatterBlock"/>
-            </summary>
-            <seealso cref="T:Markdig.Renderers.Html.HtmlObjectRenderer`1" />
-        </member>
-        <member name="T:Markdig.Helpers.ArrayHelper">
-            <summary>
-            Helper class for defining Empty arrays.
-            </summary>
-        </member>
-        <member name="M:Markdig.Helpers.ArrayHelper.Empty``1">
-            <summary>
-            An empty array.
-            </summary>
         </member>
         <member name="T:Markdig.Helpers.CharacterMap`1">
             <summary>
@@ -1802,6 +1918,17 @@
             </summary>
             <returns>The next character. `\0` is end of the iteration.</returns>
         </member>
+        <member name="M:Markdig.Helpers.ICharIterator.SkipChar">
+            <summary>
+            Goes to the next character, incrementing the <see cref="P:Markdig.Helpers.ICharIterator.Start" /> position.
+            </summary>
+        </member>
+        <member name="M:Markdig.Helpers.ICharIterator.PeekChar">
+            <summary>
+            Peeks at the next character, without incrementing the <see cref="P:Markdig.Helpers.ICharIterator.Start"/> position.
+            </summary>
+            <returns>The next character. `\0` is end of the iteration.</returns>
+        </member>
         <member name="M:Markdig.Helpers.ICharIterator.PeekChar(System.Int32)">
             <summary>
             Peeks at the next character, without incrementing the <see cref="P:Markdig.Helpers.ICharIterator.Start"/> position.
@@ -1846,6 +1973,12 @@
         <member name="T:Markdig.Helpers.LinkHelper">
             <summary>
             Helpers to parse Markdown links.
+            </summary>
+        </member>
+        <member name="T:Markdig.Helpers.NewLine">
+            <summary>
+            Represents a character or set of characters that represent a separation
+            between two lines of text
             </summary>
         </member>
         <member name="T:Markdig.Helpers.ObjectCache`1">
@@ -1952,7 +2085,7 @@
             </summary>
             <param name="slice">The slice.</param>
         </member>
-        <member name="M:Markdig.Helpers.StringLine.#ctor(Markdig.Helpers.StringSlice,System.Int32,System.Int32,System.Int32)">
+        <member name="M:Markdig.Helpers.StringLine.#ctor(Markdig.Helpers.StringSlice,System.Int32,System.Int32,System.Int32,Markdig.Helpers.NewLine)">
             <summary>
             Initializes a new instance of the <see cref="T:Markdig.Helpers.StringLine"/> struct.
             </summary>
@@ -1960,8 +2093,9 @@
             <param name="line">The line.</param>
             <param name="column">The column.</param>
             <param name="position">The position.</param>
+            <param name="newLine">The line separation.</param>
         </member>
-        <member name="M:Markdig.Helpers.StringLine.#ctor(Markdig.Helpers.StringSlice@,System.Int32,System.Int32,System.Int32)">
+        <member name="M:Markdig.Helpers.StringLine.#ctor(Markdig.Helpers.StringSlice@,System.Int32,System.Int32,System.Int32,Markdig.Helpers.NewLine)">
             <summary>
             Initializes a new instance of the <see cref="T:Markdig.Helpers.StringLine"/> struct.
             </summary>
@@ -1969,6 +2103,7 @@
             <param name="line">The line.</param>
             <param name="column">The column.</param>
             <param name="position">The position.</param>
+            <param name="newLine">The line separation.</param>
         </member>
         <member name="F:Markdig.Helpers.StringLine.Slice">
             <summary>
@@ -1988,6 +2123,11 @@
         <member name="F:Markdig.Helpers.StringLine.Column">
             <summary>
             The column position.
+            </summary>
+        </member>
+        <member name="F:Markdig.Helpers.StringLine.NewLine">
+            <summary>
+            The newline.
             </summary>
         </member>
         <member name="M:Markdig.Helpers.StringLine.op_Implicit(Markdig.Helpers.StringLine)~Markdig.Helpers.StringSlice">
@@ -2092,6 +2232,13 @@
             </summary>
             <param name="text">The text.</param>
         </member>
+        <member name="M:Markdig.Helpers.StringSlice.#ctor(System.String,Markdig.Helpers.NewLine)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Markdig.Helpers.StringSlice"/> struct.
+            </summary>
+            <param name="text">The text.</param>
+            <param name="newLine">The line separation.</param>
+        </member>
         <member name="M:Markdig.Helpers.StringSlice.#ctor(System.String,System.Int32,System.Int32)">
             <summary>
             Initializes a new instance of the <see cref="T:Markdig.Helpers.StringSlice"/> struct.
@@ -2099,6 +2246,16 @@
             <param name="text">The text.</param>
             <param name="start">The start.</param>
             <param name="end">The end.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Markdig.Helpers.StringSlice.#ctor(System.String,System.Int32,System.Int32,Markdig.Helpers.NewLine)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Markdig.Helpers.StringSlice"/> struct.
+            </summary>
+            <param name="text">The text.</param>
+            <param name="start">The start.</param>
+            <param name="end">The end.</param>
+            <param name="newLine">The line separation.</param>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="F:Markdig.Helpers.StringSlice.Text">
@@ -2145,6 +2302,11 @@
             <returns>
             The next character. `\0` is end of the iteration.
             </returns>
+        </member>
+        <member name="M:Markdig.Helpers.StringSlice.SkipChar">
+            <summary>
+            Goes to the next character, incrementing the <see cref="P:Markdig.Helpers.StringSlice.Start" /> position.
+            </summary>
         </member>
         <member name="M:Markdig.Helpers.StringSlice.PeekChar">
             <summary>
@@ -2274,6 +2436,16 @@
             Inspired by CoreLib, taken from https://github.com/MihaZupan/SharpCollections, cc @MihaZupan
             </summary>
         </member>
+        <member name="M:Markdig.Helpers.ValueStringBuilder.Grow(System.Int32)">
+            <summary>
+            Resize the internal buffer either by doubling current buffer size or
+            by adding <paramref name="additionalCapacityBeyondPos"/> to
+            <see cref="F:Markdig.Helpers.ValueStringBuilder._pos"/> whichever is greater.
+            </summary>
+            <param name="additionalCapacityBeyondPos">
+            Number of chars requested beyond current position.
+            </param>
+        </member>
         <member name="T:Markdig.IMarkdownExtension">
             <summary>
             Base interface for an extension.
@@ -2318,14 +2490,34 @@
             <param name="context">A parser context used for the parsing.</param>
             <returns>A normalized markdown text.</returns>
         </member>
-        <member name="M:Markdig.Markdown.ToHtml(System.String,Markdig.MarkdownPipeline)">
+        <member name="M:Markdig.Markdown.ToHtml(System.String,Markdig.MarkdownPipeline,Markdig.MarkdownParserContext)">
             <summary>
             Converts a Markdown string to HTML.
             </summary>
             <param name="markdown">A Markdown text.</param>
             <param name="pipeline">The pipeline used for the conversion.</param>
+            <param name="context">A parser context used for the parsing.</param>
             <returns>The result of the conversion</returns>
             <exception cref="T:System.ArgumentNullException">if markdown variable is null</exception>
+        </member>
+        <member name="M:Markdig.Markdown.ToHtml(Markdig.Syntax.MarkdownDocument,Markdig.MarkdownPipeline)">
+            <summary>
+            Converts a Markdown document to HTML.
+            </summary>
+            <param name="document">A Markdown document.</param>
+            <param name="pipeline">The pipeline used for the conversion.</param>
+            <returns>The result of the conversion</returns>
+            <exception cref="T:System.ArgumentNullException">if markdown document variable is null</exception>
+        </member>
+        <member name="M:Markdig.Markdown.ToHtml(Markdig.Syntax.MarkdownDocument,System.IO.TextWriter,Markdig.MarkdownPipeline)">
+            <summary>
+            Converts a Markdown document to HTML.
+            </summary>
+            <param name="document">A Markdown document.</param>
+            <param name="writer">The destination <see cref="T:System.IO.TextWriter"/> that will receive the result of the conversion.</param>
+            <param name="pipeline">The pipeline used for the conversion.</param>
+            <returns>The result of the conversion</returns>
+            <exception cref="T:System.ArgumentNullException">if markdown document variable is null</exception>
         </member>
         <member name="M:Markdig.Markdown.ToHtml(System.String,System.IO.TextWriter,Markdig.MarkdownPipeline,Markdig.MarkdownParserContext)">
             <summary>
@@ -2348,11 +2540,12 @@
             <param name="context">A parser context used for the parsing.</param>
             <exception cref="T:System.ArgumentNullException">if markdown or writer variable are null</exception>
         </member>
-        <member name="M:Markdig.Markdown.Parse(System.String)">
+        <member name="M:Markdig.Markdown.Parse(System.String,System.Boolean)">
             <summary>
             Parses the specified markdown into an AST <see cref="T:Markdig.Syntax.MarkdownDocument"/>
             </summary>
             <param name="markdown">The markdown text.</param>
+            <param name="trackTrivia">Whether to parse trivia such as whitespace, extra heading characters and unescaped string values.</param>
             <returns>An AST Markdown document</returns>
             <exception cref="T:System.ArgumentNullException">if markdown variable is null</exception>
         </member>
@@ -2379,7 +2572,7 @@
         </member>
         <member name="M:Markdig.Markdown.ToPlainText(System.String,Markdig.MarkdownPipeline,Markdig.MarkdownParserContext)">
             <summary>
-            Converts a Markdown string to HTML.
+            Converts a Markdown string to Plain text by using a <see cref="T:System.IO.StringWriter"/> .
             </summary>
             <param name="markdown">A Markdown text.</param>
             <param name="pipeline">The pipeline used for the conversion.</param>
@@ -2389,7 +2582,7 @@
         </member>
         <member name="T:Markdig.MarkdownExtensions">
             <summary>
-            Provides extension methods for <see cref="T:Markdig.MarkdownPipeline"/> to enable several Markdown extensions.
+            Provides extension methods for <see cref="T:Markdig.MarkdownPipelineBuilder"/> to enable several Markdown extensions.
             </summary>
         </member>
         <member name="M:Markdig.MarkdownExtensions.Use``1(Markdig.MarkdownPipelineBuilder)">
@@ -2413,6 +2606,14 @@
             Uses all extensions except the BootStrap, Emoji, SmartyPants and soft line as hard line breaks extensions.
             </summary>
             <param name="pipeline">The pipeline.</param>
+            <returns>The modified pipeline</returns>
+        </member>
+        <member name="M:Markdig.MarkdownExtensions.UseAlertBlocks(Markdig.MarkdownPipelineBuilder,System.Action{Markdig.Renderers.HtmlRenderer,Markdig.Helpers.StringSlice})">
+            <summary>
+            Uses this extension to enable alert blocks.
+            </summary>
+            <param name="pipeline">The pipeline.</param>
+            <param name="renderKind">Replace the default renderer for the kind with a custom renderer</param>
             <returns>The modified pipeline</returns>
         </member>
         <member name="M:Markdig.MarkdownExtensions.UseAutoLinks(Markdig.MarkdownPipelineBuilder,Markdig.Extensions.AutoLinks.AutoLinkOptions)">
@@ -2685,6 +2886,13 @@
             <param name="pipeline">The pipeline.</param>
             <returns>The modified pipeline</returns>
         </member>
+        <member name="M:Markdig.MarkdownExtensions.EnableTrackTrivia(Markdig.MarkdownPipelineBuilder)">
+            <summary>
+            Enables parsing and tracking of trivia characters
+            </summary>
+            <param name="pipeline">The pipeline.</param>
+            <returns>he modified pipeline</returns>
+        </member>
         <member name="T:Markdig.MarkdownParserContext">
             <summary>
             Provides a context that can be used as part of parsing Markdown documents.
@@ -2703,6 +2911,7 @@
         <member name="T:Markdig.MarkdownPipeline">
             <summary>
             This class is the Markdown pipeline build from a <see cref="T:Markdig.MarkdownPipelineBuilder"/>.
+            <para>An instance of <see cref="T:Markdig.MarkdownPipeline"/> is immutable, thread-safe, and should be reused when parsing multiple inputs.</para>
             </summary>
         </member>
         <member name="M:Markdig.MarkdownPipeline.#ctor(Markdig.Helpers.OrderedList{Markdig.IMarkdownExtension},Markdig.Parsers.BlockParserList,Markdig.Parsers.InlineParserList,System.IO.TextWriter,Markdig.Parsers.ProcessDocumentDelegate)">
@@ -2713,6 +2922,12 @@
         <member name="P:Markdig.MarkdownPipeline.Extensions">
             <summary>
             The read-only list of extensions used to build this pipeline.
+            </summary>
+        </member>
+        <member name="P:Markdig.MarkdownPipeline.TrackTrivia">
+            <summary>
+            True to parse trivia such as whitespace, extra heading characters and unescaped
+            string values.
             </summary>
         </member>
         <member name="M:Markdig.MarkdownPipeline.Setup(Markdig.Renderers.IMarkdownRenderer)">
@@ -2757,9 +2972,15 @@
             Gets or sets the debug log.
             </summary>
         </member>
+        <member name="P:Markdig.MarkdownPipelineBuilder.TrackTrivia">
+            <summary>
+            True to parse trivia such as whitespace, extra heading characters and unescaped
+            string values.
+            </summary>
+        </member>
         <member name="E:Markdig.MarkdownPipelineBuilder.DocumentProcessed">
             <summary>
-            Occurs when a document has been processed after the <see cref="M:Markdig.Parsers.MarkdownParser.Parse"/> method.
+            Occurs when a document has been processed after the <see cref="M:Markdig.Parsers.MarkdownParser.Parse(System.String,Markdig.MarkdownPipeline,Markdig.MarkdownParserContext)"/> method.
             </summary>
         </member>
         <member name="M:Markdig.MarkdownPipelineBuilder.Build">
@@ -2834,13 +3055,14 @@
             The block processor.
             </summary>
         </member>
-        <member name="M:Markdig.Parsers.BlockProcessor.#ctor(Markdig.Syntax.MarkdownDocument,Markdig.Parsers.BlockParserList,Markdig.MarkdownParserContext)">
+        <member name="M:Markdig.Parsers.BlockProcessor.#ctor(Markdig.Syntax.MarkdownDocument,Markdig.Parsers.BlockParserList,Markdig.MarkdownParserContext,System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:Markdig.Parsers.BlockProcessor" /> class.
             </summary>
             <param name="document">The document to build blocks into.</param>
             <param name="parsers">The list of parsers.</param>
             <param name="context">A parser context used for the parsing.</param>
+            <param name="trackTrivia">Whether to parse trivia such as whitespace, extra heading characters and unescaped string values.</param>
             <exception cref="T:System.ArgumentNullException">
             </exception>
         </member>
@@ -2851,7 +3073,7 @@
         </member>
         <member name="P:Markdig.Parsers.BlockProcessor.Parsers">
             <summary>
-            Gets the list of <see cref="T:Markdig.Parsers.BlockParser"/> configured with this parser state.
+            Gets the list of <see cref="T:Markdig.Parsers.BlockParser"/>s configured with this parser state.
             </summary>
         </member>
         <member name="P:Markdig.Parsers.BlockProcessor.Context">
@@ -2949,9 +3171,39 @@
             Gets the current stack of <see cref="T:Markdig.Syntax.Block"/> being processed.
             </summary>
         </member>
-        <member name="P:Markdig.Parsers.BlockProcessor.ContinueProcessingLine">
+        <member name="P:Markdig.Parsers.BlockProcessor.TriviaStart">
             <summary>
-            Gets or sets a value indicating whether to continue processing the current line.
+            Gets or sets the position of the first character trivia is encountered
+            and not yet assigned to a syntax node.
+            Trivia: only used when <see cref="P:Markdig.Parsers.BlockProcessor.TrackTrivia"/> is enabled, otherwise 0.
+            </summary>
+        </member>
+        <member name="M:Markdig.Parsers.BlockProcessor.UseTrivia(System.Int32)">
+            <summary>
+            Returns trivia that has not yet been assigned to any node and
+            advances the position of trivia to the ending position.
+            </summary>
+            <param name="end">End position of the trivia</param>
+            <returns></returns>
+        </member>
+        <member name="M:Markdig.Parsers.BlockProcessor.UseLinesBefore">
+            <summary>
+            Returns the current stack of <see cref="P:Markdig.Parsers.BlockProcessor.LinesBefore"/> to assign it to a <see cref="T:Markdig.Syntax.Block"/>.
+            Afterwards, the <see cref="P:Markdig.Parsers.BlockProcessor.LinesBefore"/> is set to null.
+            </summary>
+        </member>
+        <member name="P:Markdig.Parsers.BlockProcessor.LinesBefore">
+            <summary>
+            Gets or sets the stack of empty lines not yet assigned to any <see cref="T:Markdig.Syntax.Block"/>.
+            An entry may contain an empty <see cref="T:Markdig.Helpers.StringSlice"/>. In that case the
+            <see cref="F:Markdig.Helpers.StringSlice.NewLine"/> is relevant. Otherwise, the <see cref="T:Markdig.Helpers.StringSlice"/>
+            entry will contain trivia.
+            </summary>
+        </member>
+        <member name="P:Markdig.Parsers.BlockProcessor.TrackTrivia">
+            <summary>
+            True to parse trivia such as whitespace, extra heading characters and unescaped
+            string values.
             </summary>
         </member>
         <member name="M:Markdig.Parsers.BlockProcessor.GetCurrentContainerOpened">
@@ -3183,6 +3435,16 @@
             Gets or sets the language prefix (default is "language-")
             </summary>
         </member>
+        <member name="M:Markdig.Parsers.FencedBlockParserBase`1.RoundtripInfoParser(Markdig.Parsers.BlockProcessor,Markdig.Helpers.StringSlice@,Markdig.Syntax.IFencedBlock,System.Char)">
+            <summary>
+            The roundtrip parser for the information after the fenced code block special characters (usually ` or ~)
+            </summary>
+            <param name="blockProcessor">The parser processor.</param>
+            <param name="line">The line.</param>
+            <param name="fenced">The fenced code block.</param>
+            <param name="openingCharacter">The opening character for this fenced code block.</param>
+            <returns><c>true</c> if parsing of the line is successfull; <c>false</c> otherwise</returns>
+        </member>
         <member name="M:Markdig.Parsers.FencedBlockParserBase`1.DefaultInfoParser(Markdig.Parsers.BlockProcessor,Markdig.Helpers.StringSlice@,Markdig.Syntax.IFencedBlock,System.Char)">
             <summary>
             The default parser for the information after the fenced code block special characters (usually ` or ~)
@@ -3372,7 +3634,7 @@
             The inline parser state used by all <see cref="T:Markdig.Parsers.InlineParser"/>.
             </summary>
         </member>
-        <member name="M:Markdig.Parsers.InlineProcessor.#ctor(Markdig.Syntax.MarkdownDocument,Markdig.Parsers.InlineParserList,System.Boolean,Markdig.MarkdownParserContext)">
+        <member name="M:Markdig.Parsers.InlineProcessor.#ctor(Markdig.Syntax.MarkdownDocument,Markdig.Parsers.InlineParserList,System.Boolean,Markdig.MarkdownParserContext,System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:Markdig.Parsers.InlineProcessor" /> class.
             </summary>
@@ -3380,6 +3642,7 @@
             <param name="parsers">The parsers.</param>
             <param name="preciseSourcelocation">A value indicating whether to provide precise source location.</param>
             <param name="context">A parser context used for the parsing.</param>
+            <param name="trackTrivia">Whether to parse trivia such as whitespace, extra heading characters and unescaped string values.</param>
             <exception cref="T:System.ArgumentNullException">
             </exception>
         </member>
@@ -3438,6 +3701,12 @@
             Gets or sets the debug log writer. No log if null.
             </summary>
         </member>
+        <member name="P:Markdig.Parsers.InlineProcessor.TrackTrivia">
+            <summary>
+            True to parse trivia such as whitespace, extra heading characters and unescaped
+            string values.
+            </summary>
+        </member>
         <member name="P:Markdig.Parsers.InlineProcessor.LiteralInlineParser">
             <summary>
             Gets the literal inline parser.
@@ -3452,24 +3721,39 @@
             <param name="column">The column.</param>
             <returns>The source position</returns>
         </member>
+        <member name="M:Markdig.Parsers.InlineProcessor.GetSourcePosition(System.Int32)">
+            <summary>
+            Gets the source position for the specified offset within the current slice.
+            </summary>
+            <param name="sliceOffset">The slice offset.</param>
+            <returns>The source position</returns>
+        </member>
+        <member name="M:Markdig.Parsers.InlineProcessor.ReplaceParentContainer(Markdig.Syntax.ContainerBlock,Markdig.Syntax.ContainerBlock)">
+            <summary>
+            Replace a parent container. This method is experimental and should be used with caution.
+            </summary>
+            <param name="previousParentContainer">The previous parent container to replace</param>
+            <param name="newParentContainer">The new parent container</param>
+            <exception cref="T:System.InvalidOperationException">If a new parent container has been already setup.</exception>
+        </member>
         <member name="M:Markdig.Parsers.InlineProcessor.ProcessInlineLeaf(Markdig.Syntax.LeafBlock)">
             <summary>
             Processes the inline of the specified <see cref="T:Markdig.Syntax.LeafBlock"/>.
             </summary>
             <param name="leafBlock">The leaf block.</param>
         </member>
-        <member name="T:Markdig.Parsers.Inlines.AutolineInlineParser">
+        <member name="T:Markdig.Parsers.Inlines.AutolinkInlineParser">
             <summary>
             An inline parser for parsing <see cref="T:Markdig.Syntax.Inlines.AutolinkInline"/>.
             </summary>
             <seealso cref="T:Markdig.Parsers.InlineParser" />
         </member>
-        <member name="M:Markdig.Parsers.Inlines.AutolineInlineParser.#ctor">
+        <member name="M:Markdig.Parsers.Inlines.AutolinkInlineParser.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Markdig.Parsers.Inlines.AutolineInlineParser"/> class.
+            Initializes a new instance of the <see cref="T:Markdig.Parsers.Inlines.AutolinkInlineParser"/> class.
             </summary>
         </member>
-        <member name="P:Markdig.Parsers.Inlines.AutolineInlineParser.EnableHtmlParsing">
+        <member name="P:Markdig.Parsers.Inlines.AutolinkInlineParser.EnableHtmlParsing">
             <summary>
             Gets or sets a value indicating whether to enable HTML parsing. Default is <c>true</c>
             </summary>
@@ -3499,22 +3783,22 @@
             <param name="maximumCount">The maximum number of characters.</param>
             <param name="enableWithinWord">if set to <c>true</c> the emphasis can be used inside a word.</param>
         </member>
-        <member name="F:Markdig.Parsers.Inlines.EmphasisDescriptor.Character">
+        <member name="P:Markdig.Parsers.Inlines.EmphasisDescriptor.Character">
             <summary>
             The character of this emphasis.
             </summary>
         </member>
-        <member name="F:Markdig.Parsers.Inlines.EmphasisDescriptor.MinimumCount">
+        <member name="P:Markdig.Parsers.Inlines.EmphasisDescriptor.MinimumCount">
             <summary>
             The minimum number of character this emphasis is expected to have (must be >=1)
             </summary>
         </member>
-        <member name="F:Markdig.Parsers.Inlines.EmphasisDescriptor.MaximumCount">
+        <member name="P:Markdig.Parsers.Inlines.EmphasisDescriptor.MaximumCount">
             <summary>
             The maximum number of character this emphasis is expected to have (must be >=1 and >= minimumCount)
             </summary>
         </member>
-        <member name="F:Markdig.Parsers.Inlines.EmphasisDescriptor.EnableWithinWord">
+        <member name="P:Markdig.Parsers.Inlines.EmphasisDescriptor.EnableWithinWord">
             <summary>
             This emphasis can be used within a word.
             </summary>
@@ -3612,7 +3896,7 @@
         </member>
         <member name="T:Markdig.Parsers.IPostInlineProcessor">
             <summary>
-            A procesor called at the end of processing all inlines.
+            A processor called at the end of processing all inlines.
             </summary>
         </member>
         <member name="M:Markdig.Parsers.IPostInlineProcessor.PostProcess(Markdig.Parsers.InlineProcessor,Markdig.Syntax.Inlines.Inline,Markdig.Syntax.Inlines.Inline,System.Int32,System.Boolean)">
@@ -3713,16 +3997,6 @@
             The Markdown parser.
             </summary>
         </member>
-        <member name="M:Markdig.Parsers.MarkdownParser.#ctor(System.String,Markdig.MarkdownPipeline,Markdig.MarkdownParserContext)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Markdig.Parsers.MarkdownParser" /> class.
-            </summary>
-            <param name="text">The reader.</param>
-            <param name="pipeline">The pipeline.</param>
-            <param name="context">A parser context used for the parsing.</param>
-            <exception cref="T:System.ArgumentNullException">
-            </exception>
-        </member>
         <member name="M:Markdig.Parsers.MarkdownParser.Parse(System.String,Markdig.MarkdownPipeline,Markdig.MarkdownParserContext)">
             <summary>
             Parses the specified markdown into an AST <see cref="T:Markdig.Syntax.MarkdownDocument"/>
@@ -3732,12 +4006,6 @@
             <param name="context">A parser context used for the parsing.</param>
             <returns>An AST Markdown document</returns>
             <exception cref="T:System.ArgumentNullException">if reader variable is null</exception>
-        </member>
-        <member name="M:Markdig.Parsers.MarkdownParser.Parse">
-            <summary>
-            Parses the current <see cref="F:Markdig.Parsers.MarkdownParser.lineReader"/> into a Markdown <see cref="T:Markdig.Syntax.MarkdownDocument"/>.
-            </summary>
-            <returns>A document instance</returns>
         </member>
         <member name="M:Markdig.Parsers.MarkdownParser.FixupZero(System.String)">
             <summary>
@@ -3879,114 +4147,6 @@
             <summary>
             Initializes a new instance of the <see cref="T:Markdig.Parsers.UnorderedListItemParser"/> class.
             </summary>
-        </member>
-        <member name="T:Markdig.Renderers.HtmlRenderer">
-            <summary>
-            Default HTML renderer for a Markdown <see cref="T:Markdig.Syntax.MarkdownDocument"/> object.
-            </summary>
-            <seealso cref="T:Markdig.Renderers.TextRendererBase`1" />
-        </member>
-        <member name="M:Markdig.Renderers.HtmlRenderer.#ctor(System.IO.TextWriter)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Markdig.Renderers.HtmlRenderer"/> class.
-            </summary>
-            <param name="writer">The writer.</param>
-        </member>
-        <member name="P:Markdig.Renderers.HtmlRenderer.EnableHtmlForInline">
-            <summary>
-            Gets or sets a value indicating whether to output HTML tags when rendering. See remarks.
-            </summary>
-            <remarks>
-            This is used by some renderers to disable HTML tags when rendering some inline elements (for image links).
-            </remarks>
-        </member>
-        <member name="P:Markdig.Renderers.HtmlRenderer.EnableHtmlForBlock">
-            <summary>
-            Gets or sets a value indicating whether to output HTML tags when rendering. See remarks.
-            </summary>
-            <remarks>
-            This is used by some renderers to disable HTML tags when rendering some block elements (for image links).
-            </remarks>
-        </member>
-        <member name="P:Markdig.Renderers.HtmlRenderer.ImplicitParagraph">
-            <summary>
-            Gets or sets a value indicating whether to use implicit paragraph (optional &lt;p&gt;)
-            </summary>
-        </member>
-        <member name="P:Markdig.Renderers.HtmlRenderer.BaseUrl">
-            <summary>
-            Gets a value to use as the base url for all relative links
-            </summary>
-        </member>
-        <member name="P:Markdig.Renderers.HtmlRenderer.LinkRewriter">
-            <summary>
-            Allows links to be rewritten
-            </summary>
-        </member>
-        <member name="M:Markdig.Renderers.HtmlRenderer.WriteEscape(System.String)">
-            <summary>
-            Writes the content escaped for HTML.
-            </summary>
-            <param name="content">The content.</param>
-            <returns>This instance</returns>
-        </member>
-        <member name="M:Markdig.Renderers.HtmlRenderer.WriteEscape(Markdig.Helpers.StringSlice@,System.Boolean)">
-            <summary>
-            Writes the content escaped for HTML.
-            </summary>
-            <param name="slice">The slice.</param>
-            <param name="softEscape">Only escape &lt; and &amp;</param>
-            <returns>This instance</returns>
-        </member>
-        <member name="M:Markdig.Renderers.HtmlRenderer.WriteEscape(Markdig.Helpers.StringSlice,System.Boolean)">
-            <summary>
-            Writes the content escaped for HTML.
-            </summary>
-            <param name="slice">The slice.</param>
-            <param name="softEscape">Only escape &lt; and &amp;</param>
-            <returns>This instance</returns>
-        </member>
-        <member name="M:Markdig.Renderers.HtmlRenderer.WriteEscape(System.String,System.Int32,System.Int32,System.Boolean)">
-            <summary>
-            Writes the content escaped for HTML.
-            </summary>
-            <param name="content">The content.</param>
-            <param name="offset">The offset.</param>
-            <param name="length">The length.</param>
-            <param name="softEscape">Only escape &lt; and &amp;</param>
-            <returns>This instance</returns>
-        </member>
-        <member name="M:Markdig.Renderers.HtmlRenderer.WriteEscapeUrl(System.String)">
-            <summary>
-            Writes the URL escaped for HTML.
-            </summary>
-            <param name="content">The content.</param>
-            <returns>This instance</returns>
-        </member>
-        <member name="M:Markdig.Renderers.HtmlRenderer.WriteAttributes(Markdig.Syntax.MarkdownObject)">
-            <summary>
-            Writes the attached <see cref="T:Markdig.Renderers.Html.HtmlAttributes"/> on the specified <see cref="T:Markdig.Syntax.MarkdownObject"/>.
-            </summary>
-            <param name="markdownObject">The object.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Markdig.Renderers.HtmlRenderer.WriteAttributes(Markdig.Renderers.Html.HtmlAttributes,System.Func{System.String,System.String})">
-            <summary>
-            Writes the specified <see cref="T:Markdig.Renderers.Html.HtmlAttributes"/>.
-            </summary>
-            <param name="attributes">The attributes to render.</param>
-            <param name="classFilter">A class filter used to transform a class into another class at writing time</param>
-            <returns>This instance</returns>
-        </member>
-        <member name="M:Markdig.Renderers.HtmlRenderer.WriteLeafRawLines(Markdig.Syntax.LeafBlock,System.Boolean,System.Boolean,System.Boolean)">
-            <summary>
-            Writes the lines of a <see cref="T:Markdig.Syntax.LeafBlock"/>
-            </summary>
-            <param name="leafBlock">The leaf block.</param>
-            <param name="writeEndOfLines">if set to <c>true</c> write end of lines.</param>
-            <param name="escape">if set to <c>true</c> escape the content for HTML</param>
-            <param name="softEscape">Only escape &lt; and &amp;</param>
-            <returns>This instance</returns>
         </member>
         <member name="T:Markdig.Renderers.Html.CodeBlockRenderer">
             <summary>
@@ -4230,17 +4390,132 @@
             </summary>
             <seealso cref="T:Markdig.Renderers.Html.HtmlObjectRenderer`1" />
         </member>
+        <member name="T:Markdig.Renderers.HtmlRenderer">
+            <summary>
+            Default HTML renderer for a Markdown <see cref="T:Markdig.Syntax.MarkdownDocument"/> object.
+            </summary>
+            <seealso cref="T:Markdig.Renderers.TextRendererBase`1" />
+        </member>
+        <member name="M:Markdig.Renderers.HtmlRenderer.#ctor(System.IO.TextWriter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Markdig.Renderers.HtmlRenderer"/> class.
+            </summary>
+            <param name="writer">The writer.</param>
+        </member>
+        <member name="P:Markdig.Renderers.HtmlRenderer.EnableHtmlForInline">
+            <summary>
+            Gets or sets a value indicating whether to output HTML tags when rendering. See remarks.
+            </summary>
+            <remarks>
+            This is used by some renderers to disable HTML tags when rendering some inline elements (for image links).
+            </remarks>
+        </member>
+        <member name="P:Markdig.Renderers.HtmlRenderer.EnableHtmlForBlock">
+            <summary>
+            Gets or sets a value indicating whether to output HTML tags when rendering. See remarks.
+            </summary>
+            <remarks>
+            This is used by some renderers to disable HTML tags when rendering some block elements (for image links).
+            </remarks>
+        </member>
+        <member name="P:Markdig.Renderers.HtmlRenderer.ImplicitParagraph">
+            <summary>
+            Gets or sets a value indicating whether to use implicit paragraph (optional &lt;p&gt;)
+            </summary>
+        </member>
+        <member name="P:Markdig.Renderers.HtmlRenderer.BaseUrl">
+            <summary>
+            Gets a value to use as the base url for all relative links
+            </summary>
+        </member>
+        <member name="P:Markdig.Renderers.HtmlRenderer.LinkRewriter">
+            <summary>
+            Allows links to be rewritten
+            </summary>
+        </member>
+        <member name="M:Markdig.Renderers.HtmlRenderer.WriteEscape(System.String)">
+            <summary>
+            Writes the content escaped for HTML.
+            </summary>
+            <param name="content">The content.</param>
+            <returns>This instance</returns>
+        </member>
+        <member name="M:Markdig.Renderers.HtmlRenderer.WriteEscape(Markdig.Helpers.StringSlice@,System.Boolean)">
+            <summary>
+            Writes the content escaped for HTML.
+            </summary>
+            <param name="slice">The slice.</param>
+            <param name="softEscape">Only escape &lt; and &amp;</param>
+            <returns>This instance</returns>
+        </member>
+        <member name="M:Markdig.Renderers.HtmlRenderer.WriteEscape(Markdig.Helpers.StringSlice,System.Boolean)">
+            <summary>
+            Writes the content escaped for HTML.
+            </summary>
+            <param name="slice">The slice.</param>
+            <param name="softEscape">Only escape &lt; and &amp;</param>
+            <returns>This instance</returns>
+        </member>
+        <member name="M:Markdig.Renderers.HtmlRenderer.WriteEscape(System.String,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Writes the content escaped for HTML.
+            </summary>
+            <param name="content">The content.</param>
+            <param name="offset">The offset.</param>
+            <param name="length">The length.</param>
+            <param name="softEscape">Only escape &lt; and &amp;</param>
+            <returns>This instance</returns>
+        </member>
+        <member name="M:Markdig.Renderers.HtmlRenderer.WriteEscape(System.ReadOnlySpan{System.Char},System.Boolean)">
+            <summary>
+            Writes the content escaped for HTML.
+            </summary>
+            <param name="content">The content.</param>
+            <param name="softEscape">Only escape &lt; and &amp;</param>
+        </member>
+        <member name="M:Markdig.Renderers.HtmlRenderer.WriteEscapeUrl(System.String)">
+            <summary>
+            Writes the URL escaped for HTML.
+            </summary>
+            <param name="content">The content.</param>
+            <returns>This instance</returns>
+        </member>
+        <member name="M:Markdig.Renderers.HtmlRenderer.WriteAttributes(Markdig.Syntax.MarkdownObject)">
+            <summary>
+            Writes the attached <see cref="T:Markdig.Renderers.Html.HtmlAttributes"/> on the specified <see cref="T:Markdig.Syntax.MarkdownObject"/>.
+            </summary>
+            <param name="markdownObject">The object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Markdig.Renderers.HtmlRenderer.WriteAttributes(Markdig.Renderers.Html.HtmlAttributes,System.Func{System.String,System.String})">
+            <summary>
+            Writes the specified <see cref="T:Markdig.Renderers.Html.HtmlAttributes"/>.
+            </summary>
+            <param name="attributes">The attributes to render.</param>
+            <param name="classFilter">A class filter used to transform a class into another class at writing time</param>
+            <returns>This instance</returns>
+        </member>
+        <member name="M:Markdig.Renderers.HtmlRenderer.WriteLeafRawLines(Markdig.Syntax.LeafBlock,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Writes the lines of a <see cref="T:Markdig.Syntax.LeafBlock"/>
+            </summary>
+            <param name="leafBlock">The leaf block.</param>
+            <param name="writeEndOfLines">if set to <c>true</c> write end of lines.</param>
+            <param name="escape">if set to <c>true</c> escape the content for HTML</param>
+            <param name="softEscape">Only escape &lt; and &amp;</param>
+            <returns>This instance</returns>
+        </member>
         <member name="T:Markdig.Renderers.IMarkdownObjectRenderer">
             <summary>
             Base interface for the renderer of a <see cref="T:Markdig.Syntax.MarkdownObject"/>.
             </summary>
         </member>
-        <member name="M:Markdig.Renderers.IMarkdownObjectRenderer.Accept(Markdig.Renderers.RendererBase,Markdig.Syntax.MarkdownObject)">
+        <member name="M:Markdig.Renderers.IMarkdownObjectRenderer.Accept(Markdig.Renderers.RendererBase,System.Type)">
             <summary>
             Accepts the specified <see cref="T:Markdig.Syntax.MarkdownObject"/>.
             </summary>
             <param name="renderer">The renderer.</param>
-            <param name="obj">The Markdown object.</param>
+            <param name="objectType">The <see cref="T:System.Type"/> of the Markdown object.</param>
             <returns><c>true</c> If this renderer is accepting to render the specified Markdown object</returns>
         </member>
         <member name="M:Markdig.Renderers.IMarkdownObjectRenderer.Write(Markdig.Renderers.RendererBase,Markdig.Syntax.MarkdownObject)">
@@ -4504,6 +4779,120 @@
             </summary>
             <param name="obj">The Markdown object to write to this renderer.</param>
         </member>
+        <member name="T:Markdig.Renderers.Roundtrip.CodeBlockRenderer">
+            <summary>
+            An Roundtrip renderer for a <see cref="T:Markdig.Syntax.CodeBlock"/> and <see cref="T:Markdig.Syntax.FencedCodeBlock"/>.
+            </summary>
+            <seealso cref="T:Markdig.Renderers.Roundtrip.RoundtripObjectRenderer`1" />
+        </member>
+        <member name="T:Markdig.Renderers.Roundtrip.HeadingRenderer">
+            <summary>
+            An Roundtrip renderer for a <see cref="T:Markdig.Syntax.HeadingBlock"/>.
+            </summary>
+            <seealso cref="T:Markdig.Renderers.Roundtrip.RoundtripObjectRenderer`1" />
+        </member>
+        <member name="T:Markdig.Renderers.Roundtrip.Inlines.AutolinkInlineRenderer">
+            <summary>
+            A Normalize renderer for an <see cref="T:Markdig.Syntax.Inlines.AutolinkInline"/>.
+            </summary>
+            <seealso cref="T:Markdig.Renderers.Roundtrip.RoundtripObjectRenderer`1" />
+        </member>
+        <member name="T:Markdig.Renderers.Roundtrip.Inlines.CodeInlineRenderer">
+            <summary>
+            A Normalize renderer for a <see cref="T:Markdig.Syntax.Inlines.CodeInline"/>.
+            </summary>
+            <seealso cref="T:Markdig.Renderers.Roundtrip.RoundtripObjectRenderer`1" />
+        </member>
+        <member name="T:Markdig.Renderers.Roundtrip.Inlines.DelimiterInlineRenderer">
+            <summary>
+            A Normalize renderer for a <see cref="T:Markdig.Syntax.Inlines.DelimiterInline"/>.
+            </summary>
+            <seealso cref="T:Markdig.Renderers.Roundtrip.RoundtripObjectRenderer`1" />
+        </member>
+        <member name="T:Markdig.Renderers.Roundtrip.Inlines.EmphasisInlineRenderer">
+            <summary>
+            A Normalize renderer for an <see cref="T:Markdig.Syntax.Inlines.EmphasisInline"/>.
+            </summary>
+            <seealso cref="T:Markdig.Renderers.Roundtrip.RoundtripObjectRenderer`1" />
+        </member>
+        <member name="T:Markdig.Renderers.Roundtrip.Inlines.LineBreakInlineRenderer">
+            <summary>
+            A Normalize renderer for a <see cref="T:Markdig.Syntax.Inlines.LineBreakInline"/>.
+            </summary>
+            <seealso cref="T:Markdig.Renderers.Roundtrip.RoundtripObjectRenderer`1" />
+        </member>
+        <member name="T:Markdig.Renderers.Roundtrip.Inlines.LinkInlineRenderer">
+            <summary>
+            A Normalize renderer for a <see cref="T:Markdig.Syntax.Inlines.LinkInline"/>.
+            </summary>
+            <seealso cref="T:Markdig.Renderers.Roundtrip.RoundtripObjectRenderer`1" />
+        </member>
+        <member name="T:Markdig.Renderers.Roundtrip.Inlines.LiteralInlineRenderer">
+            <summary>
+            A Normalize renderer for a <see cref="T:Markdig.Syntax.Inlines.LiteralInline"/>.
+            </summary>
+            <seealso cref="T:Markdig.Renderers.Roundtrip.RoundtripObjectRenderer`1" />
+        </member>
+        <member name="T:Markdig.Renderers.Roundtrip.Inlines.RoundtripHtmlEntityInlineRenderer">
+            <summary>
+            A Normalize renderer for a <see cref="T:Markdig.Syntax.Inlines.HtmlEntityInline"/>.
+            </summary>
+        </member>
+        <member name="T:Markdig.Renderers.Roundtrip.Inlines.RoundtripHtmlInlineRenderer">
+            <summary>
+            A Normalize renderer for a <see cref="T:Markdig.Syntax.Inlines.HtmlInline"/>.
+            </summary>
+        </member>
+        <member name="T:Markdig.Renderers.Roundtrip.ListRenderer">
+            <summary>
+            A Roundtrip renderer for a <see cref="T:Markdig.Syntax.ListBlock"/>.
+            </summary>
+            <seealso cref="T:Markdig.Renderers.Roundtrip.RoundtripObjectRenderer`1" />
+        </member>
+        <member name="T:Markdig.Renderers.Roundtrip.ParagraphRenderer">
+            <summary>
+            A Roundtrip renderer for a <see cref="T:Markdig.Syntax.ParagraphBlock"/>.
+            </summary>
+            <seealso cref="T:Markdig.Renderers.Roundtrip.RoundtripObjectRenderer`1" />
+        </member>
+        <member name="T:Markdig.Renderers.Roundtrip.QuoteBlockRenderer">
+            <summary>
+            A Roundtrip renderer for a <see cref="T:Markdig.Syntax.QuoteBlock"/>.
+            </summary>
+        </member>
+        <member name="T:Markdig.Renderers.Roundtrip.RoundtripObjectRenderer`1">
+            <summary>
+            A base class for Normalize rendering <see cref="T:Markdig.Syntax.Block"/> and <see cref="T:Markdig.Syntax.Inlines.Inline"/> Markdown objects.
+            </summary>
+            <typeparam name="TObject">The type of the object.</typeparam>
+            <seealso cref="T:Markdig.Renderers.IMarkdownObjectRenderer" />
+        </member>
+        <member name="T:Markdig.Renderers.Roundtrip.RoundtripRenderer">
+            <summary>
+            Markdown renderer honoring trivia for a  <see cref="T:Markdig.Syntax.MarkdownDocument"/> object.
+            </summary>
+            Ensure to call the <see cref="M:Markdig.MarkdownExtensions.EnableTrackTrivia(Markdig.MarkdownPipelineBuilder)"/> extension method when
+            parsing markdown to have trivia available for rendering.
+        </member>
+        <member name="M:Markdig.Renderers.Roundtrip.RoundtripRenderer.#ctor(System.IO.TextWriter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Markdig.Renderers.Roundtrip.RoundtripRenderer"/> class.
+            </summary>
+            <param name="writer">The writer.</param>
+        </member>
+        <member name="M:Markdig.Renderers.Roundtrip.RoundtripRenderer.WriteLeafRawLines(Markdig.Syntax.LeafBlock)">
+            <summary>
+            Writes the lines of a <see cref="T:Markdig.Syntax.LeafBlock"/>
+            </summary>
+            <param name="leafBlock">The leaf block.</param>
+            <returns>This instance</returns>
+        </member>
+        <member name="T:Markdig.Renderers.Roundtrip.ThematicBreakRenderer">
+            <summary>
+            A Roundtrip renderer for a <see cref="T:Markdig.Syntax.ThematicBreakBlock"/>.
+            </summary>
+            <seealso cref="T:Markdig.Renderers.Roundtrip.RoundtripObjectRenderer`1" />
+        </member>
         <member name="T:Markdig.Renderers.TextRendererBase">
             <summary>
             A text based <see cref="T:Markdig.Renderers.IMarkdownRenderer"/>.
@@ -4556,6 +4945,14 @@
             <param name="content">The content.</param>
             <returns>This instance</returns>
         </member>
+        <member name="M:Markdig.Renderers.TextRendererBase`1.Write(System.Char,System.Int32)">
+            <summary>
+            Writes the specified char repeated a specified number of times.
+            </summary>
+            <param name="c">The char to write.</param>
+            <param name="count">The number of times to write the char.</param>
+            <returns>This instance</returns>
+        </member>
         <member name="M:Markdig.Renderers.TextRendererBase`1.Write(Markdig.Helpers.StringSlice@)">
             <summary>
             Writes the specified slice.
@@ -4586,13 +4983,32 @@
             <param name="length">The length.</param>
             <returns>This instance</returns>
         </member>
+        <member name="M:Markdig.Renderers.TextRendererBase`1.Write(System.ReadOnlySpan{System.Char})">
+            <summary>
+            Writes the specified content.
+            </summary>
+            <param name="content">The content.</param>
+        </member>
         <member name="M:Markdig.Renderers.TextRendererBase`1.WriteLine">
             <summary>
             Writes a newline.
             </summary>
             <returns>This instance</returns>
         </member>
+        <member name="M:Markdig.Renderers.TextRendererBase`1.WriteLine(Markdig.Helpers.NewLine)">
+            <summary>
+            Writes a newline.
+            </summary>
+            <returns>This instance</returns>
+        </member>
         <member name="M:Markdig.Renderers.TextRendererBase`1.WriteLine(System.String)">
+            <summary>
+            Writes a content followed by a newline.
+            </summary>
+            <param name="content">The content.</param>
+            <returns>This instance</returns>
+        </member>
+        <member name="M:Markdig.Renderers.TextRendererBase`1.WriteLine(System.Char)">
             <summary>
             Writes a content followed by a newline.
             </summary>
@@ -4649,9 +5065,41 @@
             Gets or sets a value indicating whether this block is breakable. Default is true.
             </summary>
         </member>
+        <member name="P:Markdig.Syntax.Block.NewLine">
+            <summary>
+            The last newline of this block.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled
+            </summary>
+        </member>
         <member name="P:Markdig.Syntax.Block.RemoveAfterProcessInlines">
             <summary>
             Gets or sets a value indicating whether this block must be removed from its container after inlines have been processed.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.Block.TriviaBefore">
+            <summary>
+            Gets or sets the trivia right before this block.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.Block.TriviaAfter">
+            <summary>
+            Gets or sets trivia occurring after this block.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.Block.LinesBefore">
+            <summary>
+            Gets or sets the empty lines occurring before this block.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise null.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.Block.LinesAfter">
+            <summary>
+            Gets or sets the empty lines occurring after this block.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise null.
             </summary>
         </member>
         <member name="E:Markdig.Syntax.Block.ProcessInlinesBegin">
@@ -4737,33 +5185,47 @@
             </summary>
             <param name="parser">The parser.</param>
         </member>
-        <member name="P:Markdig.Syntax.FencedCodeBlock.Info">
-            <summary>
-            Gets or sets the language parsed after the first line of
-            the fenced code block. May be null.
-            </summary>
-        </member>
-        <member name="P:Markdig.Syntax.FencedCodeBlock.Arguments">
-            <summary>
-            Gets or sets the arguments after the <see cref="P:Markdig.Syntax.FencedCodeBlock.Info"/>.
-            May be null.
-            </summary>
-        </member>
-        <member name="P:Markdig.Syntax.FencedCodeBlock.FencedCharCount">
-            <summary>
-            Gets or sets the fenced character count used to open this fenced code block.
-            </summary>
-        </member>
-        <member name="P:Markdig.Syntax.FencedCodeBlock.FencedChar">
-            <summary>
-            Gets or sets the fenced character used to open and close this fenced code block.
-            </summary>
-        </member>
         <member name="P:Markdig.Syntax.FencedCodeBlock.IndentCount">
             <summary>
             Gets or sets the indent count when the fenced code block was indented
-            and we need to remove up to indent count chars spaces from the begining of a line.
+            and we need to remove up to indent count chars spaces from the beginning of a line.
             </summary>
+        </member>
+        <member name="P:Markdig.Syntax.FencedCodeBlock.FencedChar">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Syntax.FencedCodeBlock.OpeningFencedCharCount">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Syntax.FencedCodeBlock.TriviaAfterFencedChar">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Syntax.FencedCodeBlock.Info">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Syntax.FencedCodeBlock.UnescapedInfo">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Syntax.FencedCodeBlock.TriviaAfterInfo">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Syntax.FencedCodeBlock.Arguments">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Syntax.FencedCodeBlock.UnescapedArguments">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Syntax.FencedCodeBlock.TriviaAfterArguments">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Syntax.FencedCodeBlock.InfoNewLine">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Syntax.FencedCodeBlock.TriviaBeforeClosingFence">
+            <inheritdoc />
+        </member>
+        <member name="P:Markdig.Syntax.FencedCodeBlock.ClosingFencedCharCount">
+            <inheritdoc />
         </member>
         <member name="T:Markdig.Syntax.HeadingBlock">
             <summary>
@@ -4784,6 +5246,29 @@
         <member name="P:Markdig.Syntax.HeadingBlock.Level">
             <summary>
             Gets or sets the level of heading (starting at 1 for the lowest level).
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.HeadingBlock.IsSetext">
+            <summary>
+            True if this heading is a Setext heading.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.HeadingBlock.HeaderCharCount">
+            <summary>
+            Gets or sets the amount of - or = characters when <see cref="P:Markdig.Syntax.HeadingBlock.IsSetext"/> is true.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.HeadingBlock.SetextNewline">
+            <summary>
+            Gets or sets the newline of the first line when <see cref="P:Markdig.Syntax.HeadingBlock.IsSetext"/> is true.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.HeadingBlock.TriviaAfterAtxHeaderChar">
+            <summary>
+            Gets or sets the whitespace after the # character when <see cref="P:Markdig.Syntax.HeadingBlock.IsSetext"/> is false.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
             </summary>
         </member>
         <member name="T:Markdig.Syntax.HtmlBlock">
@@ -4894,9 +5379,38 @@
             Occurs when the process of inlines ends for this instance.
             </summary>
         </member>
+        <member name="P:Markdig.Syntax.IBlock.TriviaBefore">
+            <summary>
+            Trivia occurring before this block
+            </summary>
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
+        </member>
+        <member name="P:Markdig.Syntax.IBlock.TriviaAfter">
+            <summary>
+            Trivia occurring after this block
+            </summary>
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
+        </member>
         <member name="T:Markdig.Syntax.IFencedBlock">
             <summary>
             A common interface for fenced block (e.g: <see cref="T:Markdig.Syntax.FencedCodeBlock"/> or <see cref="T:Markdig.Extensions.CustomContainers.CustomContainer"/>)
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.IFencedBlock.FencedChar">
+            <summary>
+            Gets or sets the fenced character used to open and close this fenced code block.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.IFencedBlock.OpeningFencedCharCount">
+            <summary>
+            Gets or sets the fenced character count used to open this fenced code block.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.IFencedBlock.TriviaAfterFencedChar">
+            <summary>
+            Gets or sets the trivia after the <see cref="P:Markdig.Syntax.IFencedBlock.FencedChar"/>.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
             </summary>
         </member>
         <member name="P:Markdig.Syntax.IFencedBlock.Info">
@@ -4905,20 +5419,65 @@
             the fenced code block. May be null.
             </summary>
         </member>
+        <member name="P:Markdig.Syntax.IFencedBlock.UnescapedInfo">
+            <summary>
+            Non-escaped <see cref="P:Markdig.Syntax.IFencedBlock.Info"/> exactly as in source markdown.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.IFencedBlock.TriviaAfterInfo">
+            <summary>
+            Gets or sets the trivia after the <see cref="P:Markdig.Syntax.IFencedBlock.Info"/>.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
+            </summary>
+        </member>
         <member name="P:Markdig.Syntax.IFencedBlock.Arguments">
             <summary>
             Gets or sets the arguments after the <see cref="P:Markdig.Syntax.IFencedBlock.Info"/>.
             May be null.
             </summary>
         </member>
-        <member name="P:Markdig.Syntax.IFencedBlock.FencedCharCount">
+        <member name="P:Markdig.Syntax.IFencedBlock.UnescapedArguments">
             <summary>
-            Gets or sets the fenced character count used to open this fenced code block.
+            Non-escaped <see cref="P:Markdig.Syntax.IFencedBlock.Arguments"/> exactly as in source markdown.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
             </summary>
         </member>
-        <member name="P:Markdig.Syntax.IFencedBlock.FencedChar">
+        <member name="P:Markdig.Syntax.IFencedBlock.TriviaAfterArguments">
             <summary>
-            Gets or sets the fenced character used to open and close this fenced code block.
+            Gets or sets the trivia after the <see cref="P:Markdig.Syntax.IFencedBlock.Arguments"/>.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.IFencedBlock.InfoNewLine">
+            <summary>
+            Newline of the line with the opening fenced chars.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.NewLine.None"/>.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.IFencedBlock.TriviaBeforeClosingFence">
+            <summary>
+            Trivia before the closing fenced chars
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.IFencedBlock.ClosingFencedCharCount">
+            <summary>
+            Gets or sets the fenced character count used to close this fenced code block.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.IFencedBlock.NewLine">
+            <summary>
+            Newline after the last line, which is always the line containing the closing fence chars.
+            "Inherited" from <see cref="P:Markdig.Syntax.Block.NewLine"/>.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.NewLine.None"/>.
             </summary>
         </member>
         <member name="T:Markdig.Syntax.IMarkdownObject">
@@ -4985,9 +5544,21 @@
             Gets or sets the delimiter character used by this code inline.
             </summary>
         </member>
+        <member name="P:Markdig.Syntax.Inlines.CodeInline.DelimiterCount">
+            <summary>
+            Gets or sets the amount of delimiter characters used
+            </summary>
+        </member>
         <member name="P:Markdig.Syntax.Inlines.CodeInline.Content">
             <summary>
             Gets or sets the content of the span.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.Inlines.CodeInline.ContentWithTrivia">
+            <summary>
+            Gets or sets the content with trivia and whitespace.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
             </summary>
         </member>
         <member name="T:Markdig.Syntax.Inlines.ContainerInline">
@@ -5113,6 +5684,15 @@
             <param name="descriptor">The descriptor.</param>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
+        <member name="M:Markdig.Syntax.Inlines.EmphasisDelimiterInline.#ctor(Markdig.Parsers.InlineParser,Markdig.Parsers.Inlines.EmphasisDescriptor,Markdig.Helpers.StringSlice)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Markdig.Syntax.Inlines.EmphasisDelimiterInline" /> class.
+            </summary>
+            <param name="parser">The parser.</param>
+            <param name="descriptor">The descriptor.</param>
+            <param name="content">The content.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
         <member name="P:Markdig.Syntax.Inlines.EmphasisDelimiterInline.Descriptor">
             <summary>
             Gets the descriptor for this emphasis.
@@ -5126,6 +5706,11 @@
         <member name="P:Markdig.Syntax.Inlines.EmphasisDelimiterInline.DelimiterCount">
             <summary>
             The number of delimiter characters found for this delimiter.
+            </summary>
+        </member>
+        <member name="F:Markdig.Syntax.Inlines.EmphasisDelimiterInline.Content">
+            <summary>
+            The content as a <see cref="T:Markdig.Helpers.StringSlice"/>.
             </summary>
         </member>
         <member name="T:Markdig.Syntax.Inlines.EmphasisInline">
@@ -5321,6 +5906,13 @@
             The label span
             </summary>
         </member>
+        <member name="P:Markdig.Syntax.Inlines.LinkDelimiterInline.LabelWithTrivia">
+            <summary>
+            Gets or sets the <see cref="P:Markdig.Syntax.Inlines.LinkDelimiterInline.Label"/> with trivia.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
+            </summary>
+        </member>
         <member name="T:Markdig.Syntax.Inlines.LinkInline">
             <summary>
             A Link inline (Section 6.5 CommonMark specs)
@@ -5346,9 +5938,89 @@
             <param name="url">The URL.</param>
             <param name="title">The title.</param>
         </member>
+        <member name="P:Markdig.Syntax.Inlines.LinkInline.IsImage">
+            <summary>
+            Gets or sets a value indicating whether this instance is an image link.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.Inlines.LinkInline.Label">
+            <summary>
+            Gets or sets the label.
+            </summary>
+        </member>
+        <member name="F:Markdig.Syntax.Inlines.LinkInline.LabelSpan">
+            <summary>
+            The label span
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.Inlines.LinkInline.LabelWithTrivia">
+            <summary>
+            Gets or sets the <see cref="P:Markdig.Syntax.Inlines.LinkInline.Label"/> with trivia.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.Inlines.LinkInline.LocalLabel">
+            <summary>
+            Gets or sets the type of label parsed
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Syntax.Inlines.LocalLabel.None"/>.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.Inlines.LinkInline.Reference">
+            <summary>
+            Gets or sets the reference this link is attached to. May be null.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.Inlines.LinkInline.LinkRefDefLabel">
+            <summary>
+            Gets or sets the label as matched against the <see cref="T:Markdig.Syntax.LinkReferenceDefinition"/>.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.Inlines.LinkInline.LinkRefDefLabelWithTrivia">
+            <summary>
+            Gets or sets the <see cref="P:Markdig.Syntax.Inlines.LinkInline.LinkRefDefLabel"/> with trivia as matched against
+            the <see cref="T:Markdig.Syntax.LinkReferenceDefinition"/>
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.Inlines.LinkInline.TriviaBeforeUrl">
+            <summary>
+            Gets or sets the trivia before the <see cref="P:Markdig.Syntax.Inlines.LinkInline.Url"/>.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.Inlines.LinkInline.UrlHasPointyBrackets">
+            <summary>
+            True if the <see cref="P:Markdig.Syntax.Inlines.LinkInline.Url"/> in the source document is enclosed
+            in pointy brackets.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            false.
+            </summary>
+        </member>
         <member name="P:Markdig.Syntax.Inlines.LinkInline.Url">
             <summary>
             Gets or sets the URL.
+            </summary>
+        </member>
+        <member name="F:Markdig.Syntax.Inlines.LinkInline.UrlSpan">
+            <summary>
+            The URL source span.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.Inlines.LinkInline.UnescapedUrl">
+            <summary>
+            The <see cref="P:Markdig.Syntax.Inlines.LinkInline.Url"/> but with trivia and unescaped characters
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.Inlines.LinkInline.TriviaAfterUrl">
+            <summary>
+            Any trivia after the <see cref="P:Markdig.Syntax.Inlines.LinkInline.Url"/>.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
             </summary>
         </member>
         <member name="P:Markdig.Syntax.Inlines.LinkInline.GetDynamicUrl">
@@ -5357,19 +6029,35 @@
             it is used instead of <see cref="P:Markdig.Syntax.Inlines.LinkInline.Url"/> to get the Url from this instance.
             </summary>
         </member>
+        <member name="P:Markdig.Syntax.Inlines.LinkInline.TitleEnclosingCharacter">
+            <summary>
+            Gets or sets the character used to enclose the <see cref="P:Markdig.Syntax.Inlines.LinkInline.Title"/>.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled.
+            </summary>
+        </member>
         <member name="P:Markdig.Syntax.Inlines.LinkInline.Title">
             <summary>
             Gets or sets the title.
             </summary>
         </member>
-        <member name="P:Markdig.Syntax.Inlines.LinkInline.Label">
+        <member name="F:Markdig.Syntax.Inlines.LinkInline.TitleSpan">
             <summary>
-            Gets or sets the label.
+            The title source span.
             </summary>
         </member>
-        <member name="P:Markdig.Syntax.Inlines.LinkInline.IsImage">
+        <member name="P:Markdig.Syntax.Inlines.LinkInline.UnescapedTitle">
             <summary>
-            Gets or sets a value indicating whether this instance is an image link.
+            Gets or sets the <see cref="P:Markdig.Syntax.Inlines.LinkInline.Title"/> exactly as parsed from the
+            source document including unescaped characters
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.Inlines.LinkInline.TriviaAfterTitle">
+            <summary>
+            Gets or sets the trivia after the <see cref="P:Markdig.Syntax.Inlines.LinkInline.Title"/>.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
             </summary>
         </member>
         <member name="P:Markdig.Syntax.Inlines.LinkInline.IsShortcut">
@@ -5380,26 +6068,6 @@
         <member name="P:Markdig.Syntax.Inlines.LinkInline.IsAutoLink">
             <summary>
             Gets or sets a boolean indicating whether the inline link was parsed using markdown syntax or was automatic recognized.
-            </summary>
-        </member>
-        <member name="P:Markdig.Syntax.Inlines.LinkInline.Reference">
-            <summary>
-            Gets or sets the reference this link is attached to. May be null.
-            </summary>
-        </member>
-        <member name="F:Markdig.Syntax.Inlines.LinkInline.UrlSpan">
-            <summary>
-            The URL source span.
-            </summary>
-        </member>
-        <member name="F:Markdig.Syntax.Inlines.LinkInline.TitleSpan">
-            <summary>
-            The title source span.
-            </summary>
-        </member>
-        <member name="F:Markdig.Syntax.Inlines.LinkInline.LabelSpan">
-            <summary>
-            The label span
             </summary>
         </member>
         <member name="T:Markdig.Syntax.Inlines.LiteralInline">
@@ -5465,7 +6133,7 @@
             as inline into the <see cref="P:Markdig.Syntax.LeafBlock.Inline"/> property.
             </summary>
         </member>
-        <member name="M:Markdig.Syntax.LeafBlock.AppendLine(Markdig.Helpers.StringSlice@,System.Int32,System.Int32,System.Int32)">
+        <member name="M:Markdig.Syntax.LeafBlock.AppendLine(Markdig.Helpers.StringSlice@,System.Int32,System.Int32,System.Int32,System.Boolean)">
             <summary>
             Appends the specified line to this instance.
             </summary>
@@ -5473,6 +6141,7 @@
             <param name="column">The column.</param>
             <param name="line">The line.</param>
             <param name="sourceLinePosition"></param>
+            <param name="trackTrivia">Whether to keep track of trivia such as whitespace, extra heading characters and unescaped string values.</param>
         </member>
         <member name="T:Markdig.Syntax.LinkReferenceDefinition">
             <summary>
@@ -5504,7 +6173,27 @@
         </member>
         <member name="P:Markdig.Syntax.LinkReferenceDefinition.Label">
             <summary>
-            Gets or sets the label.
+            Gets or sets the label. Text is normalized according to spec.
+            </summary>
+            https://spec.commonmark.org/0.29/#matches
+        </member>
+        <member name="F:Markdig.Syntax.LinkReferenceDefinition.LabelSpan">
+            <summary>
+            The label span
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.LinkReferenceDefinition.LabelWithTrivia">
+            <summary>
+            Non-normalized Label (includes trivia)
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.LinkReferenceDefinition.TriviaBeforeUrl">
+            <summary>
+            Whitespace before the <see cref="P:Markdig.Syntax.LinkReferenceDefinition.Url"/>.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
             </summary>
         </member>
         <member name="P:Markdig.Syntax.LinkReferenceDefinition.Url">
@@ -5512,24 +6201,53 @@
             Gets or sets the URL.
             </summary>
         </member>
-        <member name="P:Markdig.Syntax.LinkReferenceDefinition.Title">
-            <summary>
-            Gets or sets the title.
-            </summary>
-        </member>
-        <member name="F:Markdig.Syntax.LinkReferenceDefinition.LabelSpan">
-            <summary>
-            The label span
-            </summary>
-        </member>
         <member name="F:Markdig.Syntax.LinkReferenceDefinition.UrlSpan">
             <summary>
             The URL span
             </summary>
         </member>
+        <member name="P:Markdig.Syntax.LinkReferenceDefinition.UnescapedUrl">
+            <summary>
+            Non-normalized <see cref="P:Markdig.Syntax.LinkReferenceDefinition.Url"/>.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.LinkReferenceDefinition.UrlHasPointyBrackets">
+            <summary>
+            True when the <see cref="P:Markdig.Syntax.LinkReferenceDefinition.Url"/> is enclosed in point brackets in the source document.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            false.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.LinkReferenceDefinition.TriviaBeforeTitle">
+            <summary>
+            gets or sets the whitespace before a <see cref="P:Markdig.Syntax.LinkReferenceDefinition.Title"/>.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.LinkReferenceDefinition.Title">
+            <summary>
+            Gets or sets the title.
+            </summary>
+        </member>
         <member name="F:Markdig.Syntax.LinkReferenceDefinition.TitleSpan">
             <summary>
             The title span
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.LinkReferenceDefinition.UnescapedTitle">
+            <summary>
+            Non-normalized <see cref="P:Markdig.Syntax.LinkReferenceDefinition.Title"/>.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.LinkReferenceDefinition.TitleEnclosingCharacter">
+            <summary>
+            Gets or sets the character the <see cref="P:Markdig.Syntax.LinkReferenceDefinition.Title"/> is enclosed in.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise \0.
             </summary>
         </member>
         <member name="P:Markdig.Syntax.LinkReferenceDefinition.CreateLinkInline">
@@ -5547,6 +6265,22 @@
             <typeparam name="T">Type of the text</typeparam>
             <param name="text">The text.</param>
             <param name="block">The block.</param>
+            <returns><c>true</c> if parsing is successful; <c>false</c> otherwise</returns>
+        </member>
+        <member name="M:Markdig.Syntax.LinkReferenceDefinition.TryParseTrivia``1(``0@,Markdig.Syntax.LinkReferenceDefinition@,Markdig.Syntax.SourceSpan@,Markdig.Syntax.SourceSpan@,Markdig.Syntax.SourceSpan@,Markdig.Syntax.SourceSpan@,Markdig.Syntax.SourceSpan@,Markdig.Syntax.SourceSpan@,Markdig.Syntax.SourceSpan@)">
+            <summary>
+            Tries to the parse the specified text into a definition.
+            </summary>
+            <typeparam name="T">Type of the text</typeparam>
+            <param name="text">The text.</param>
+            <param name="block">The block.</param>
+            <param name="triviaBeforeLabel"></param>
+            <param name="labelWithTrivia"></param>
+            <param name="triviaBeforeUrl"></param>
+            <param name="unescapedUrl"></param>
+            <param name="triviaBeforeTitle"></param>
+            <param name="unescapedTitle"></param>
+            <param name="triviaAfterTitle"></param>
             <returns><c>true</c> if parsing is successful; <c>false</c> otherwise</returns>
         </member>
         <member name="T:Markdig.Syntax.LinkReferenceDefinitionExtensions">
@@ -5629,6 +6363,13 @@
             The number defined for this <see cref="T:Markdig.Syntax.ListItemBlock"/> in an ordered list
             </summary>
         </member>
+        <member name="P:Markdig.Syntax.ListItemBlock.SourceBullet">
+            <summary>
+            Gets or sets the bullet as parsed in the source document.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise
+            <see cref="F:Markdig.Helpers.StringSlice.Empty"/>.
+            </summary>
+        </member>
         <member name="T:Markdig.Syntax.MarkdownDocument">
             <summary>
             The root Markdown document.
@@ -5645,7 +6386,7 @@
             Gets the number of lines in this <see cref="T:Markdig.Syntax.MarkdownDocument"/>
             </summary>
         </member>
-        <member name="F:Markdig.Syntax.MarkdownDocument.LineStartIndexes">
+        <member name="P:Markdig.Syntax.MarkdownDocument.LineStartIndexes">
             <summary>
             Gets a list of zero-based indexes of line beginnings in the source span
             <para>Available if <see cref="P:Markdig.MarkdownPipelineBuilder.PreciseSourceLocation"/> is used, otherwise null</para>
@@ -5656,7 +6397,7 @@
             Base implementation for a the Markdown syntax tree.
             </summary>
         </member>
-        <member name="F:Markdig.Syntax.MarkdownObject.attachedDatas">
+        <member name="F:Markdig.Syntax.MarkdownObject._attachedDatas">
             <summary>
             The attached datas. Use internally a simple array instead of a Dictionary{Object,Object}
             as we expect less than 5~10 entries, usually typically 1 (HtmlAttributes)
@@ -5716,11 +6457,6 @@
             <returns><c>true</c> if the data was removed; <c>false</c> otherwise</returns>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="T:Markdig.Syntax.MarkdownObject.DataEntry">
-            <summary>
-            Store a Key/Value pair.
-            </summary>
-        </member>
         <member name="T:Markdig.Syntax.MarkdownObjectExtensions">
             <summary>
             Extensions for visiting <see cref="T:Markdig.Syntax.Block"/> or <see cref="T:Markdig.Syntax.Inlines.Inline"/>
@@ -5763,6 +6499,12 @@
             An iteration over the descendant elements
             </returns>
         </member>
+        <member name="T:Markdig.Syntax.EmptyBlock">
+            <summary>
+            Block representing a document with characters but no blocks. This can
+            happen when an input document consists solely of trivia.
+            </summary>
+        </member>
         <member name="T:Markdig.Syntax.ParagraphBlock">
             <summary>
             Represents a paragraph.
@@ -5794,9 +6536,49 @@
             </summary>
             <param name="parser">The parser used to create this block.</param>
         </member>
+        <member name="P:Markdig.Syntax.QuoteBlock.QuoteLines">
+            <summary>
+            Gets or sets the trivia per line of this QuoteBlock.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled, otherwise null.
+            </summary>
+        </member>
         <member name="P:Markdig.Syntax.QuoteBlock.QuoteChar">
             <summary>
             Gets or sets the quote character (usually `&gt;`)
+            </summary>
+        </member>
+        <member name="T:Markdig.Syntax.QuoteBlockLine">
+            <summary>
+            Represents trivia per line part of a QuoteBlock.
+            Trivia: only parsed when <see cref="P:Markdig.MarkdownPipeline.TrackTrivia"/> is enabled.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.QuoteBlockLine.TriviaBefore">
+            <summary>
+            Gets or sets trivia occurring before the first quote character.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.QuoteBlockLine.QuoteChar">
+            <summary>
+            True when this QuoteBlock line has a quote character. False when
+            this line is a "lazy line".
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.QuoteBlockLine.HasSpaceAfterQuoteChar">
+            <summary>
+            True if a space is parsed right after the quote character.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.QuoteBlockLine.TriviaAfter">
+            <summary>
+            Gets or sets the trivia after the the space after the quote character.
+            The first space is assigned to <see cref="P:Markdig.Syntax.QuoteBlockLine.HasSpaceAfterQuoteChar"/>, subsequent
+            trivia is assigned to this property.
+            </summary>
+        </member>
+        <member name="P:Markdig.Syntax.QuoteBlockLine.NewLine">
+            <summary>
+            Gets or sets the newline of this QuoeBlockLine.
             </summary>
         </member>
         <member name="T:Markdig.Syntax.SourceSpan">
