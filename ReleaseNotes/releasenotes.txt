@@ -1,3 +1,18 @@
+## Version 2.0.0.0
+- **New Feature:**
+  - The Backup tab has been completely revamped.
+  - Player profiles will now be automatically saved when they connect to the server after 3 seconds and again 3 seconds after they disconnect.
+  - A semaphore prevents you from stopping or restarting the server when a player connects or disconnects from the server and his profile is being saved
+  - You can now disable full backups
+  - The restore button for full backups is now disabled when the server is active
+  - Added Backup tab translations in all available languages
+- **Bug Fixes:**
+    - The colors of selections in datagrids have been improved.
+  - **Suggest implemented:**
+  - @wulfmanger The manager now "ignores" ARK's own backup like TheIsland_WP_17.07.2024_03.51.41.ark and tke only TheIsland_WP.ark the size of the backup directory will be greatly reduced
+  - **Update:**
+  - Updating external library packages.
+
 ## Version 1.9.0.2
 - **Bug Fixes:**
   - Fixed Custom Override Item Stack Size combobox is empty.

@@ -507,6 +507,21 @@
                 Marks a given one-time purchase entitlement for the user as consumed.
             </summary>
         </member>
+        <member name="M:Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#GetApplicationEmoteAsync(System.UInt64,Discord.RequestOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#GetApplicationEmotesAsync(Discord.RequestOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#ModifyApplicationEmoteAsync(System.UInt64,System.Action{Discord.ApplicationEmoteProperties},Discord.RequestOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#CreateApplicationEmoteAsync(System.String,Discord.Image,Discord.RequestOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Discord.Rest.BaseDiscordClient.Discord#IDiscordClient#DeleteApplicationEmoteAsync(System.UInt64,Discord.RequestOptions)">
+            <inheritdoc />
+        </member>
         <member name="M:Discord.Rest.ClientHelper.GetPrivateChannelsAsync(Discord.Rest.BaseDiscordClient,Discord.RequestOptions)">
             <exception cref="T:System.InvalidOperationException">Unexpected channel type.</exception>
         </member>
@@ -574,6 +589,21 @@
             <inheritdoc />
         </member>
         <member name="M:Discord.Rest.DiscordRestClient.ConsumeEntitlementAsync(System.UInt64,Discord.RequestOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Discord.Rest.DiscordRestClient.GetApplicationEmoteAsync(System.UInt64,Discord.RequestOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Discord.Rest.DiscordRestClient.GetApplicationEmotesAsync(Discord.RequestOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Discord.Rest.DiscordRestClient.ModifyApplicationEmoteAsync(System.UInt64,System.Action{Discord.ApplicationEmoteProperties},Discord.RequestOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Discord.Rest.DiscordRestClient.CreateApplicationEmoteAsync(System.String,Discord.Image,Discord.RequestOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:Discord.Rest.DiscordRestClient.DeleteApplicationEmoteAsync(System.UInt64,Discord.RequestOptions)">
             <inheritdoc />
         </member>
         <member name="M:Discord.Rest.DiscordRestClient.Discord#IDiscordClient#GetApplicationInfoAsync(Discord.RequestOptions)">
@@ -5572,6 +5602,9 @@
                 users that the name or nickname starts with the provided <see cref="T:System.String"/> at <paramref name="query"/>.
             </returns>
         </member>
+        <member name="M:Discord.Rest.RestGuild.SearchUsersAsyncV2(System.Int32,Discord.MemberSearchPropertiesV2,Discord.RequestOptions)">
+            <inheritdoc />
+        </member>
         <member name="M:Discord.Rest.RestGuild.GetAuditLogsAsync(System.Int32,Discord.RequestOptions,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{Discord.ActionType},System.Nullable{System.UInt64})">
             <summary>
                 Gets the specified number of audit log entries for this guild.
@@ -7685,6 +7718,12 @@
         <member name="P:Discord.Rest.RestMessage.RoleSubscriptionData">
             <inheritdoc />
         </member>
+        <member name="P:Discord.Rest.RestMessage.PurchaseNotification">
+            <inheritdoc />
+        </member>
+        <member name="P:Discord.Rest.RestMessage.CallData">
+            <inheritdoc />
+        </member>
         <member name="P:Discord.Rest.RestMessage.Components">
             <inheritdoc cref="P:Discord.IMessage.Components"/>
         </member>
@@ -8123,6 +8162,9 @@
             <inheritdoc />
         </member>
         <member name="P:Discord.Rest.RestTeamMember.User">
+            <inheritdoc />
+        </member>
+        <member name="P:Discord.Rest.RestTeamMember.Role">
             <inheritdoc />
         </member>
         <member name="P:Discord.Rest.RestConnection.Id">
