@@ -1,3 +1,11 @@
+  ## Version 2.0.0.2
+ - **Bug Fixes:**
+    - Fixed Cyrillic text in messages of the day not loading properly
+    - Fixed text placement and buttons in some translations going outside the window due to their length
+    - Added missing translations in the Backup tab
+- **Credits:**
+  - Added new contributors
+ 
  ## Version 2.0.0.1
  - **Bug Fixes:**
     - Added missing files to full backup ".arktribe", ".tribebak", ".arktributetribe"
