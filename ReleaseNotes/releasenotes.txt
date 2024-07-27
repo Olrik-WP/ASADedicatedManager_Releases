@@ -1,3 +1,7 @@
+  ## Version 2.0.0.3
+ - **Quality of life:**
+   - Tooltips now feature automatic text wrapping, ensuring that longer texts are neatly wrapped within the tooltip box. This prevents text from overflowing and makes it easier for users to read and understand the information.
+  
   ## Version 2.0.0.2
  - **Bug Fixes:**
     - Fixed Cyrillic text in messages of the day not loading properly
