@@ -1,3 +1,35 @@
+## Version 2.0.2.0
+- **New Feature:**
+- **Introduced the SyncGameIniSettings window for synchronizing INI settings across multiple server profiles.**
+  1. **Categorized Settings:**
+     - Divided settings into various sections:
+       - Player Settings
+       - World Settings
+       - Crops Settings
+       - Dino Baby Settings
+       - Dino Settings
+       - Tribe Settings
+       - Engrams Settings
+       - Resources Settings
+       - Turrets Settings
+       - Unclassified Settings
+  2. **Checkboxes for Individual Settings:**
+     - Added checkboxes for individual settings within each category.
+     - Included "Select All" options for each category to facilitate bulk selection.
+  3. **Profile Selection Checkboxes:**
+     - Added checkboxes to select destination profiles for synchronization, excluding the source profile.
+  4. **Synchronization Feature with Backup Creation:**
+     - Implemented a feature to synchronize selected settings across chosen profiles.
+     - Created backups of destination files before synchronization to ensure data integrity.
+  5. **Toggle Visibility of Expanders:**
+     - Added a button to toggle the visibility of all expanders, allowing users to expand or collapse all sections simultaneously.
+  6. **Styled Window for Better Visual Separation:**
+     - Styled the window with a dark background and colored headers for different categories to enhance visual separation and user experience.
+  7. **Handled Special Lines Separately:**
+     - Added logic to manage special INI lines (e.g., `OverrideEngramEntries`, `ConfigOverride`, etc.) separately to avoid duplication and ensure correct synchronization.
+  8. **SyncGameIniSettings Translations:**
+     - Added translations for the SyncGameIniSettings window in all available languages, ensuring accessibility for international users.
+
 ## Version 2.0.1.1
 - **New Feature:**
   - Added -OlympicColors command line and translations in all available languages
