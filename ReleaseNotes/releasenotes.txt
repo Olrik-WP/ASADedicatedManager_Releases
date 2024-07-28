@@ -1,18 +1,34 @@
-  ## Version 2.0.0.3
- - **Quality of life:**
-   - Tooltips now feature automatic text wrapping, ensuring that longer texts are neatly wrapped within the tooltip box. This prevents text from overflowing and makes it easier for users to read and understand the information.
+## Version 2.0.1.0
+- **New Feature:**
+  - Introduced the SyncGameUserSettings window for synchronizing INI settings across multiple server profiles.
+   1 Categorized settings into various sections such as Basic Server Settings, Full Server Settings, Rcon Server Settings, Gameplay Settings, etc.
+   2 Added checkboxes for individual settings and "Select All" options for each category.
+   3 Included profile selection checkboxes for choosing destination profiles, excluding the source profile.
+   4 Implemented a synchronization feature with backup creation.
+   5 Added a button to toggle the visibility of all expanders.
+   6 Styled the window with a dark background and colored headers for better visual separation.
+   7 Ensure Cyrillic text is formatted correctly during synchronization
+   9 Added SyncGameUserSettings translations in all available languages
+- **Bug Fixes:**
+  - Fixed illegal character path errors in the save player profiles method by replacing illegal characters in player profile zip filenames with underscores.
+- **Quality of life:**
+  - Added a ScrollViewer in GameUserSettings and Game.ini tabs for top buttons when window shrinks
   
-  ## Version 2.0.0.2
- - **Bug Fixes:**
-    - Fixed Cyrillic text in messages of the day not loading properly
-    - Fixed text placement and buttons in some translations going outside the window due to their length
-    - Added missing translations in the Backup tab
+## Version 2.0.0.3
+- **Quality of life:**
+  - Tooltips now feature automatic text wrapping, ensuring that longer texts are neatly wrapped within the tooltip box. This prevents text from overflowing and makes it easier for users to read and understand the information.
+  
+## Version 2.0.0.2
+- **Bug Fixes:**
+  - Fixed Cyrillic text in messages of the day not loading properly
+  - Fixed text placement and buttons in some translations going outside the window due to their length
+  - Added missing translations in the Backup tab
 - **Credits:**
   - Added new contributors
  
- ## Version 2.0.0.1
- - **Bug Fixes:**
-    - Added missing files to full backup ".arktribe", ".tribebak", ".arktributetribe"
+## Version 2.0.0.1
+- **Bug Fixes:**
+  - Added missing files to full backup ".arktribe", ".tribebak", ".arktributetribe"
 
 ## Version 2.0.0.0
 - **New Feature:**
