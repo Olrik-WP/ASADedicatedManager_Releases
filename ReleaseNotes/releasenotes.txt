@@ -1,14 +1,20 @@
+## Version 2.0.1.1
+- **New Feature:**
+  - Added -OlympicColors command line and translations in all available languages
+- **Bug Fixes:**
+  - Corrected Markdown format for last release note list
+
 ## Version 2.0.1.0
 - **New Feature:**
   - Introduced the SyncGameUserSettings window for synchronizing INI settings across multiple server profiles.
-   1 Categorized settings into various sections such as Basic Server Settings, Full Server Settings, Rcon Server Settings, Gameplay Settings, etc.
-   2 Added checkboxes for individual settings and "Select All" options for each category.
-   3 Included profile selection checkboxes for choosing destination profiles, excluding the source profile.
-   4 Implemented a synchronization feature with backup creation.
-   5 Added a button to toggle the visibility of all expanders.
-   6 Styled the window with a dark background and colored headers for better visual separation.
-   7 Ensure Cyrillic text is formatted correctly during synchronization
-   9 Added SyncGameUserSettings translations in all available languages
+    1. Categorized settings into various sections such as Basic Server Settings, Full Server Settings, Rcon Server Settings, Gameplay Settings, etc.
+    2. Added checkboxes for individual settings and "Select All" options for each category.
+    3. Included profile selection checkboxes for choosing destination profiles, excluding the source profile.
+    4. Implemented a synchronization feature with backup creation.
+    5. Added a button to toggle the visibility of all expanders.
+    6. Styled the window with a dark background and colored headers for better visual separation.
+    7. Ensured Cyrillic text is formatted correctly during synchronization.
+    8. Added SyncGameUserSettings translations in all available languages.
 - **Bug Fixes:**
   - Fixed illegal character path errors in the save player profiles method by replacing illegal characters in player profile zip filenames with underscores.
 - **Quality of life:**
