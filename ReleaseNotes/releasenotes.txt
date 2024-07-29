@@ -1,3 +1,29 @@
+## Version 2.0.3.0
+- **New Feature:**
+- **Introduced the SyncModsWindow for synchronizing mods across multiple server profiles.**
+  1. **Categorized Options for Syncing Mods:**
+     - Divided syncing options into two categories:
+       - Replace All Mods
+       - Merge Selected Mods
+       - Added a button to refresh the mod list
+  2. **Radio Buttons for Sync Options:**
+     - Added radio buttons to choose between replacing all mods or merging selected mods.
+     - Detailed descriptions for each option to guide the user.
+  3. **Checkboxes for Individual Mods:**
+     - Added checkboxes for individual mods when merging selected mods.
+     - Included a "Select All" checkbox to facilitate bulk selection of mods.
+  4. **Profile Selection Checkboxes:**
+     - Added checkboxes to select destination profiles for synchronization, excluding the source profile.
+  5. **Styled Window for Better Visual Separation:**
+     - Styled the window with a dark background and colored headers for different categories to enhance visual separation and user experience.
+  6. **User-Friendly Interface Adjustments:**
+     - Ensured proper alignment and visibility of all elements, including scroll viewers for better navigation.
+     - Adjusted visibility of mod selection controls based on the chosen sync option.
+  7. **Event Handling to Prevent Memory Leaks:**
+     - Implemented proper event detachment and disposal logic to prevent memory leaks and ensure smooth operation.
+  8. **SyncModsWindow Translations:**
+     - Added translations for the SyncModsWindow window in all available languages, ensuring accessibility for international users.
+
 ## Version 2.0.2.0
 - **New Feature:**
 - **Introduced the SyncGameIniSettings window for synchronizing INI settings across multiple server profiles.**
