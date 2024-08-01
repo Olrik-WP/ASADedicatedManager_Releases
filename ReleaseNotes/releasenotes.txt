@@ -1,3 +1,26 @@
+## Version 2.0.4.2
+
+### New Feature: Passive Mods Integration
+
+We have added the `-passivemods` command line option to support scenarios where mods need to be loaded for data retention without activating their functionalities. This feature addresses the risk of data loss when mods like the Winter Wonderland Mod are disabled after events.
+
+### How It Works
+
+The `-passivemods` command disables a mod's functionality while loading its data, serving as a temporary solution until mod elements are integrated into the core game.
+
+### Usage
+- **Command Syntax**: Use `-passivemods` with `-mods`, listing the passive mod ID first in the `-mods` command.
+  **Example:**
+-mods=927090,ModID,ModID -passivemods=927090
+Here, `927090` is the ID of the passive mod.
+
+### Key Changes
+- **UI Update**: Added checkboxes to the `DataGrid` for selecting mods to be included in the passive mods list.
+- **Command Line Integration**: Automatically constructs `-mods` and `-passivemods` commands based on user selections.
+
+### Important Notes
+- Ensure that passive mod IDs are listed first in the `-mods` command line to avoid issues.
+
 ## Version 2.0.4.1 Release Notes
 
 - **User Interface Improvements**
