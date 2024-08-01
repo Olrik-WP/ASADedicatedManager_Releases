@@ -1,3 +1,9 @@
+## Version 2.0.4.4
+- **Bug Fixes:**
+  - Fix: Sync windows are no longer blocked if the main window is set to Allway on top.
+- **Credits:**
+  - Added new contributors
+
 ## Version 2.0.4.3
 - **Bug Fixes:**
   - Fix: Improved closing of Chrome browser instances to prevent leftover processes after mod download and extraction operations.
