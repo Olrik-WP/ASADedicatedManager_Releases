@@ -1,3 +1,16 @@
+## Version 2.0.4.1 Release Notes
+
+- **User Interface Improvements**
+  - **Window Controls Enhancement:**
+    - Updated window controls to ensure that the main application window remains visible when Chrome is launched.
+
+- **Bug Fixes:**
+  - Fixed various issues to enable users to pass CAPTCHA challenges during downloads without violating Cloudflare's systems and while respecting their rules. This change requires the download window to remain visible.
+
+- **Important Instructions**
+  - **Chrome Installation Required:** Ensure that Google Chrome is installed on your system to fully utilize the new mod download features.
+  - A prompt will appear to guide you to install Google Chrome if it is not present on your system. If you choose not to install Chrome, you will not be able to use the new mod download feature. However, rest assured that mod updates are already managed by the dedicated server.
+
 ## Version 2.0.4.0
 
 ### Major Enhancements:
