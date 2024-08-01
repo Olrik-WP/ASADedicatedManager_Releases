@@ -1,3 +1,61 @@
+## Version 2.0.4.0
+
+### Major Enhancements:
+
+1. **Mods Management Overhaul:**
+   - **Checkbox Integration in DataGrid:**
+     - Added a checkbox column to the `modDataGrid` to allow users to select mods for server launch, improving user control over mod selection.
+     - Enhanced functionality to persist the selection state of checkboxes between sessions by saving to and loading from a JSON file.
+
+2. **Improved UI/UX:**
+   - **Dynamic DataGrid Resizing:**
+     - Automatically adjust column widths in the `modDataGrid` to fit content, enhancing readability and user interaction.
+   - **Progress Indication:**
+     - Integrated a progress bar with real-time status updates during mod downloading and extraction, providing clear on operation status.
+     - Status updates include initializing, downloading, and extracting stages, with specific messages for each mod.
+
+3. **Download and Extraction Process:**
+   - **Enhanced Download Logic:**
+     - Modified download handling to dynamically track `.crdownload` files, improving download status accuracy.
+     - Extended download monitoring to retry every second for up to 120 minutes, ensuring large files are downloaded reliably.
+   - **Robust Extraction Process:**
+     - Enhanced extraction logic with error handling and progress updates, ensuring smooth transition from download to deployment.
+
+4. **Synchronization and Profile Management:**
+   - **Comprehensive URL Synchronization:**
+     - Improved synchronization logic to ensure mod URLs are maintained across different server profiles, ensuring integrity and consistency.
+   - **Delete Confirmation and Management:**
+     - Added confirmation dialogs before deleting mods, with options to remove associated mod folders when URLs are available.
+     - Added features to clean the mods directory completely with user confirmation, allowing users to choose whether to retain mods in the list.
+
+5. **New Functional Buttons:**
+   - **Refresh Mods List:** Allows users to refresh the mods list.
+   - **Delete Mods Folder:** Facilitates the complete removal of the mods folder to prevent accumulation, ensuring system cleanliness.
+   - **Clean Mods Folder:** Allows users to fully clean the mods folder with an option to keep or remove mods from the list.
+   - **Open Mods Folder:** Provides users with direct access to the mods directory for easier file management.
+
+6. **Mods Management Translations:**
+   - Added translations for the Mods Management tab in all available languages, ensuring accessibility for international users.
+
+📢 **MODS TAB UPDATE** 📢
+
+@everyone  
+The Mods tab has been completely revamped! 🚀
+
+**IMPORTANT:**  
+Following this update, all users must delete their current mods and re-add them to take advantage of the new Mods Manager features.
+
+### Steps to Follow:
+1. Delete all your current mods. 🗑️
+2. Re-add mods using the updated Mods Manager. 🔄
+3. Check the mods you wish to activate at startup. By default, none will be selected, and the server will start without mods. ⚠️
+
+**Why is this Important?**
+This update enhances user experience. Re-adding mods ensures compatibility with the new system and prevents issues from outdated mod files.
+
+**Need Help?**
+Reach out to the discord for assistance. We're here to help! 🤝
+
 ## Version 2.0.3.0
 - **New Feature:**
 - **Introduced the SyncModsWindow for synchronizing mods across multiple server profiles.**
