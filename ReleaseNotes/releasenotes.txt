@@ -1,3 +1,8 @@
+## Version 2.0.4.6
+- **Bug Fixes:**
+- Update all mods No longer displays a message box per mod when a url is missing, a list of 10 maximum is created and displayed in a single message box
+- Added Dispatcher for all messagebox
+
 ## Version 2.0.4.5
 - **New Feature:**
 - Attempting to improve performance when launching chrome while updating mods by removing: extensions, GPU acceleration, and background processes
