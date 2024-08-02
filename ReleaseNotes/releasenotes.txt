@@ -1,12 +1,16 @@
+## Version 2.0.4.7
+- **Bug Fixes:**
+  - Added a single check for Google Chrome installation to prevent multiple message boxes and browser tabs from opening.
+
 ## Version 2.0.4.6
 - **Bug Fixes:**
-- Update all mods No longer displays a message box per mod when a url is missing, a list of 10 maximum is created and displayed in a single message box
-- Added Dispatcher for all messagebox
+  - Update all mods No longer displays a message box per mod when a url is missing, a list of 10 maximum is created and displayed in a single message box
+  - Added Dispatcher for all messagebox
 
 ## Version 2.0.4.5
 - **New Feature:**
-- Attempting to improve performance when launching chrome while updating mods by removing: extensions, GPU acceleration, and background processes
-- Added the ability to check/uncheck all mods at once
+  - Attempting to improve performance when launching chrome while updating mods by removing: extensions, GPU acceleration, and background processes
+  - Added the ability to check/uncheck all mods at once
 
 ## Version 2.0.4.4
 - **Bug Fixes:**
