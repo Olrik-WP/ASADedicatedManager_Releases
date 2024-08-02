@@ -1,3 +1,13 @@
+## Version 2.0.4.8
+- **Mod Download and Update**: 
+  - Transitioned from Chrome to Chromium for mod downloads, enhancing the reliability and efficiency of the download process.
+  - The application now uses a built-in version of Chromium free opn source browser for handling downloads, eliminating the need for an external Chrome installation.
+  - CPU performance should be improved.
+  - Cancellation Support: Introduced a cancel button during mod updates, allowing users to stop ongoing download processes.
+  - Buttons that interact with mods are now disabled when the server is running.
+  - **Suggest 49 @wulfmanger**: 
+  - Start All Servers now launch the servers sequentially. it checks if the launched server is running before moving on to the next one, even in case of crash the next server will be launched
+
 ## Version 2.0.4.7
 - **Bug Fixes:**
   - Added a single check for Google Chrome installation to prevent multiple message boxes and browser tabs from opening.
