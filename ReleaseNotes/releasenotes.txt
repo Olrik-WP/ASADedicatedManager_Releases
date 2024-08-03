@@ -1,3 +1,12 @@
+## Version 2.0.6.0
+- **New Features:**
+  - **Added PlayerBaseStatMultipliers:**
+  - When adding a new entry to the DataGrid, default multipliers are automatically applied based on each player base stat's typical gameplay impact. This ensures that new entries adhere to expected game mechanics without manual input, streamlining data entry and reducing errors.
+  - Enhanced DataGrid Display with Output Column. This column dynamically displays calculated values such as health, stamina, and other stats in a clear and understandable format based on the attribute index selected. This addition aids users in immediately seeing the effect of their configurations, enhancing clarity and decision-making.
+   - Added translations for the PlayerBaseStatMultipliers tab in all available languages, ensuring accessibility for international users.
+  - **Credits:**
+  - Updated contributors.
+
 ## Version 2.0.5.1
 - **New Feature:**
   - Addition of the Aberration map in the manager Note that it is officially released on September 4, 2024 this addition is preventive and does not allow you to play it now
