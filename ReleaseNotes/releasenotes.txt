@@ -1,3 +1,14 @@
+## Version 2.0.5.1
+- **New Feature:**
+  - Addition of the Aberration map in the manager Note that it is officially released on September 4, 2024 this addition is preventive and does not allow you to play it now
+  - Added buttons to refresh Custom Override tabs after a Game.ini sync
+- **User Interface Improvements**
+  - Moved and renamed the Custom Override tab
+- **Bug Fixes:**
+  - Attempt to prevent crashes like: Cannot set Owner property to a Window that has not been shown previously.
+- **Credits:**
+  - Added new contributors
+
 ## Version 2.0.5.0
 - **Translation**: 
   - Added Italian thanking @vorsering for the contribution !
