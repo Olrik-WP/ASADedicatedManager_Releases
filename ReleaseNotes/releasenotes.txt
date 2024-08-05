@@ -1,10 +1,15 @@
+## Version 2.0.6.1
+### Emergency Fix
+- **Bug Fixes:**
+  - Updated the data handling for player base stat multipliers to ensure all multiplier values are treated as floating-point numbers, thereby maintaining precision. This change applies to all functionalities involving the display, modification, and storage of multipliers, ensuring values like `1.0` and `10.0` are consistently used instead of integers like `1` or `10`.
+
 ## Version 2.0.6.0
 - **New Features:**
   - **Added PlayerBaseStatMultipliers:**
   - When adding a new entry to the DataGrid, default multipliers are automatically applied based on each player base stat's typical gameplay impact. This ensures that new entries adhere to expected game mechanics without manual input, streamlining data entry and reducing errors.
   - Enhanced DataGrid Display with Output Column. This column dynamically displays calculated values such as health, stamina, and other stats in a clear and understandable format based on the attribute index selected. This addition aids users in immediately seeing the effect of their configurations, enhancing clarity and decision-making.
-   - Added translations for the PlayerBaseStatMultipliers tab in all available languages, ensuring accessibility for international users.
-  - **Credits:**
+  - Added translations for the PlayerBaseStatMultipliers tab in all available languages, ensuring accessibility for international users.
+- **Credits:**
   - Updated contributors.
 
 ## Version 2.0.5.1
