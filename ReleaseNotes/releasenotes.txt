@@ -1,3 +1,7 @@
+## Version 2.0.6.9 FINAL-RELEASE NOTE
+ - **New beta member:**
+   - Accreditation of rights to a new member of the beta phase validation team (@Doublee)
+
 ## Version 2.0.6.8 FINAL-RELEASE NOTE
  - **New Features:**
    - **Implementation of beta updates**
