@@ -1,32 +1,36 @@
- 2.0.6.6
+ 2.0.6.7 FINAL-RELEASE NOTE
  - **New Features:**
-  - **Implementation of beta updates**
-  - Accreditation of rights to the validation team
-  - Implemented a confirmation dialog that clearly displays both the current application version and the new version available for download. Users are prompted to review and confirm if they wish to proceed with the update.
-  - Implemented the confirmation message to provide explicit instructions to the user, helping them understand the importance of comparing the installed version with the new beta version before updating.
-  - Added functionality at the end of the beta update process to prompt users with the option to open a ASADedicatedManager-test-validation Trello board. This board is intended for users to validate the update or report any issues encountered.
-  - This step is designed to facilitate immediate feedback and bug reporting, integrating user input directly into the development cycle for potential rapid iteration and fixes.
-  - Implemented the pre-release update process with a security check that verifies if the user is authorized to access the beta program. Unauthorized users receive a clear message indicating how to request access.
-  - These changes are designed to enhance user engagement, streamline the update process, and integrate user feedback more effectively into the development lifecycle.
-  - **This update will reduce the frequency of public updates in our workflow but will ensure more secure public deployments and minimize the occurrence of bugs. A special thanks to our validation team for their dedicated efforts in improving our process and ensuring a smoother user experience.**
+   - **Implementation of beta updates**
+   - Accreditation of rights to the validation team
+   - Implemented a confirmation dialog that clearly displays both the current application version and the new version available for download. Users are prompted to review and confirm if they wish to proceed with the update.
+   - Implemented the confirmation message to provide explicit instructions to the user, helping them understand the importance of comparing the installed version with the new beta version before updating.
+   - Added functionality at the end of the beta update process to prompt users with the option to open a ASADedicatedManager-test-validation Trello board. This board is intended for users to validate the update or report any issues encountered.
+   - This step is designed to facilitate immediate feedback and bug reporting, integrating user input directly into the development cycle for potential rapid iteration and fixes.
+   - Implemented the pre-release update process with a security check that verifies if the user is authorized to access the beta program. Unauthorized users receive a clear message indicating how to request access.
+   - These changes are designed to enhance user engagement, streamline the update process, and integrate user feedback more effectively into the development lifecycle.
+   - **This update will reduce the frequency of public updates in our workflow but will ensure more secure public deployments and minimize the occurrence of bugs. A special thanks to our validation team for their dedicated efforts in improving our process and ensuring a smoother user experience.**
 - **Bug Fixes:**
   - Fixed a bug when loading PlayerBaseStatMultiplier with an incorrect value an message that could occur
+  - Corrected the issue where floating-point numbers were saved with a comma (,) as the decimal separator. Now, all floating-point values in Game.ini are saved with a dot (.) as the decimal separator, ensuring compatibility and consistency across different locales.-
+  - Fixed Release note formating
+
+2.0.6.6 PRE-RELEASE NOTE
 - **Bug Fixes:**
   - Corrected the issue where floating-point numbers were saved with a comma (,) as the decimal separator. Now, all floating-point values in Game.ini are saved with a dot (.) as the decimal separator, ensuring compatibility and consistency across different locales.-
-  
-2.0.6.5
+
+2.0.6.5 PRE-RELEASE NOTE
 - **Bug Fixes:**
   - Try fixe a bug when loading PlayerBaseStatMultiplier with an incorrect value an message that could occur
 
-2.0.6.4
+2.0.6.4 PRE-RELEASE NOTE
 - **Bug Fixes:**
   - Try fixe a bug when loading PlayerBaseStatMultiplier with an incorrect value an message that could occur
 
-## Version 2.0.6.3
+## Version 2.0.6.3 PRE-RELEASE NOTE
 - **Bug Fixes:**
   - Try fixe a bug when loading PlayerBaseStatMultiplier with an incorrect value an message that could occur
 
-## Version 2.0.6.2
+## Version 2.0.6.2 PRE-RELEASE NOTE
 - **Bug Fixes:**
   - Try fixe a bug when loading PlayerBaseStatMultiplier with an incorrect value an message that could occur
 
