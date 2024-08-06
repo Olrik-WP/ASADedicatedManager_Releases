@@ -1,4 +1,4 @@
- 2.0.6.7 FINAL-RELEASE NOTE
+## Version 2.0.6.8 FINAL-RELEASE NOTE
  - **New Features:**
    - **Implementation of beta updates**
    - Accreditation of rights to the validation team
@@ -13,16 +13,21 @@
   - Fixed a bug when loading PlayerBaseStatMultiplier with an incorrect value an message that could occur
   - Corrected the issue where floating-point numbers were saved with a comma (,) as the decimal separator. Now, all floating-point values in Game.ini are saved with a dot (.) as the decimal separator, ensuring compatibility and consistency across different locales.-
   - Fixed Release note formating
+  - Fixed Release note formating for discord post
 
-2.0.6.6 PRE-RELEASE NOTE
+## Version 2.0.6.7 PRE-RELEASE NOTE
+- **Bug Fixes:**
+    - Fixed Release note formating
+
+## Version 2.0.6.6 PRE-RELEASE NOTE
 - **Bug Fixes:**
   - Corrected the issue where floating-point numbers were saved with a comma (,) as the decimal separator. Now, all floating-point values in Game.ini are saved with a dot (.) as the decimal separator, ensuring compatibility and consistency across different locales.-
 
-2.0.6.5 PRE-RELEASE NOTE
+## Version 2.0.6.5 PRE-RELEASE NOTE
 - **Bug Fixes:**
   - Try fixe a bug when loading PlayerBaseStatMultiplier with an incorrect value an message that could occur
 
-2.0.6.4 PRE-RELEASE NOTE
+## Version 2.0.6.4 PRE-RELEASE NOTE
 - **Bug Fixes:**
   - Try fixe a bug when loading PlayerBaseStatMultiplier with an incorrect value an message that could occur
 
