@@ -1,3 +1,7 @@
+## Version 2.0.6.3
+- **Bug Fixes:**
+  - Fixed a bug when loading PlayerBaseStatMultiplier with an incorrect value an message that could occur
+
 ## Version 2.0.6.2
 - **New Features:**
   - **Implementation of beta updates**
@@ -9,6 +13,8 @@
   - Implemented the pre-release update process with a security check that verifies if the user is authorized to access the beta program. Unauthorized users receive a clear message indicating how to request access.
   - These changes are designed to enhance user engagement, streamline the update process, and integrate user feedback more effectively into the development lifecycle.
   - **This update will reduce the frequency of public updates in our workflow but will ensure more secure public deployments and minimize the occurrence of bugs. A special thanks to our validation team for their dedicated efforts in improving our process and ensuring a smoother user experience.**
+- **Bug Fixes:**
+  - Fixed a bug when loading PlayerBaseStatMultiplier with an incorrect value an message that could occur
 
 ## Version 2.0.6.1
 ### Emergency Fix
