@@ -1,4 +1,4 @@
- 2.0.6.5
+ 2.0.6.6
  - **New Features:**
   - **Implementation of beta updates**
   - Accreditation of rights to the validation team
@@ -12,8 +12,12 @@
 - **Bug Fixes:**
   - Fixed a bug when loading PlayerBaseStatMultiplier with an incorrect value an message that could occur
 - **Bug Fixes:**
-  - Final correction when loading PlayerBaseStatMultiplier with an incorrect value an message that could occur with System.Globalization.CultureInfo.InvariantCulture
- 
+  - Corrected the issue where floating-point numbers were saved with a comma (,) as the decimal separator. Now, all floating-point values in Game.ini are saved with a dot (.) as the decimal separator, ensuring compatibility and consistency across different locales.-
+  
+2.0.6.5
+- **Bug Fixes:**
+  - Try fixe a bug when loading PlayerBaseStatMultiplier with an incorrect value an message that could occur
+
 2.0.6.4
 - **Bug Fixes:**
   - Try fixe a bug when loading PlayerBaseStatMultiplier with an incorrect value an message that could occur
