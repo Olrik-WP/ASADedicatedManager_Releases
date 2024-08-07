@@ -1,3 +1,9 @@
+## Version 2.0.7.2 PRE-RELEASE NOTE
+ - **New Features:**
+    - Changing the size of the dedicated server window to prevent it from being hidden or invisible or impossible to resize because it is too small or white
+   - Now resize the main window of the server and API processes.
+   - Managed window resizing for child processes launched by `AsaApiLoader.exe`
+
 ## Version 2.0.7.1 FINAL-RELEASE NOTE
  - **New beta member:**
    - Accreditation of rights to a new member of the beta phase validation team (@Overseer), (LeRaptorSauvage), (darkwhitemonkey)
