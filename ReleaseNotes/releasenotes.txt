@@ -1,3 +1,7 @@
+## Version 2.0.7.4 PRE-RELEASE NOTE
+- **Bug Fixes:**
+  - The window position is now placed where it was.
+
 ## Version 2.0.7.3 PRE-RELEASE NOTE
 - **Bug Fixes:**
   - **Fix following the team validation feedback:**
