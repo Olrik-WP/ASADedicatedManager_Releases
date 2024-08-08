@@ -1,3 +1,12 @@
+## Version 2.0.7.6 PRE-RELEASE NOTE
+- **New features:**
+  - Added the possibility to warn players via a personal message when stopping or restarting manually
+  - The message is customizable
+  - The message is sent every 5 seconds during the selected range, i.e. 10 or 20 or 30 or 40 or 50 or 60 seconds
+- **Bug fixes:**
+  - **Fix following team validation feedback:**
+    - Fixed Russian translation
+
 ## Version 2.0.7.5 PRE-RELEASE NOTE
 - **New features:**
   - Added a button to restart the server
