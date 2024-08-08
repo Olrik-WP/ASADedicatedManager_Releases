@@ -1,20 +1,23 @@
+## Version 2.0.7.5 PRE-RELEASE NOTE
+- **New features:**
+  - Added a button to restart the server
+
 ## Version 2.0.7.4 PRE-RELEASE NOTE
-- **Bug Fixes:**
-  - The window position is now placed where it was.
+- **Bug fixes:**
+  - **Fix following team validation feedback:**
+    - The position of the dedicated server console window and the API console `AsaApiLoader.exe` is now placed on the screen where it was in case of multiple screens.
 
 ## Version 2.0.7.3 PRE-RELEASE NOTE
-- **Bug Fixes:**
-  - **Fix following the team validation feedback:**
-  - All windows are now resized on the dedicated server and the API `AsaApiLoader.exe`
-  - Windows are now centered when resizing
-  - A bug was resizing windows twice
-  - the resizing size has been adapted for better readability
+- **Bug fixes:**
+  - **Fix following team validation feedback:**
+    - Added `AsaApiLoader.exe` API console resizing
+    - Console windows are now centered on screen when resizing
+    - Fixed a bug that resized windows twice
+    - Window resizing size has been adapted for better readability
 
 ## Version 2.0.7.2 PRE-RELEASE NOTE
- - **New Features:**
-   - Changing the size of the dedicated server window to prevent it from being hidden or invisible or impossible to resize because it is too small or white
-   - Now resize the main window of the server and API processes.
-   - Managed window resizing for child processes launched by `AsaApiLoader.exe`
+- **New features:**
+  - Changed the size of the dedicated server console window when launching the server to prevent it from being hidden or invisible or impossible to resize because it is too small or white
 
 ## Version 2.0.7.1 FINAL-RELEASE NOTE
  - **New beta member:**
