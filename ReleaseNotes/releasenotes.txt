@@ -1,3 +1,8 @@
+## Version 2.0.7.7 PRE-RELEASE NOTE
+- **Bug fixes:**
+  - Removal of the possibility to download beta via the rollback to previous version button
+  - Modification of the tag system to include beta management in the tags
+
 ## Version 2.0.7.6 PRE-RELEASE NOTE
 - **New features:**
   - Added the possibility to warn players via a personal message when stopping or restarting manually
