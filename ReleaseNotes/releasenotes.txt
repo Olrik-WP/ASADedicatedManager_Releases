@@ -24,6 +24,8 @@
   - The position of the dedicated server console window and the API console `AsaApiLoader.exe` is now placed on the screen where it was in case of multiple screens.
   - Fixed Russian translation
   - Removed the 10 seconds in the combobox when sending warning messages during a reboot or restart
+- **New beta member:**
+  - Accreditation of rights to a new member of the beta phase validation team (@TheRealUnknownGamer)
 
 ## Version 2.0.7.8 PRE-RELEASE NOTE
 - **User Interface Improvements**
