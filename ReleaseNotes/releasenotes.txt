@@ -1,3 +1,30 @@
+## Version 2.0.8.0 FINAL-RELEASE NOTE
+- **New features:**
+  - Changed the size of the dedicated server console window when launching the server to prevent it from being hidden or invisible or impossible to resize because it is too small or white
+  - Added a button to restart the server
+  - Added the possibility to warn players via a personal message when stopping or restarting manually
+  - The message is customizable
+  - The message is sent every 5 seconds during the selected range, i.e. 20 or 30 or 40 or 50 or 60 seconds
+- **User Interface Improvements**
+  - Changed the background color and text of disabled buttons
+  - Added an informative message box when downloading mods
+  - Redesign of the release notes tab
+  - Added a checkbox to filter on the latest release note 
+  - Added a checkbox to filter on Pre-release notes
+  - Added a combobox to choose the number of version displayed
+  - Improved colors
+- **Bug fixes:**
+  - Removal of the possibility to download beta via the rollback to previous version button
+  - Modification of the tag system to include beta management in the tags
+- **Fix following team validation feedback:**
+  - Added `AsaApiLoader.exe` API console resizing
+  - Console windows are now centered on screen when resizing
+  - Fixed a bug that resized windows twice
+  - Window resizing size has been adapted for better readability
+  - The position of the dedicated server console window and the API console `AsaApiLoader.exe` is now placed on the screen where it was in case of multiple screens.
+  - Fixed Russian translation
+  - Removed the 10 seconds in the combobox when sending warning messages during a reboot or restart
+
 ## Version 2.0.7.8 PRE-RELEASE NOTE
 - **User Interface Improvements**
   - Changed the background color and text of disabled buttons
