@@ -1,3 +1,29 @@
+## Version 2.0.8.2 FINAL-RELEASE NOTE
+- **New features:**
+  - Added more time when sending an information message when stopping or restarting the server from 30 seconds to 30 minutes
+  - Added a cancel button when manually and scheduledly shutting down the server
+  - A message is sent to players when the shutdown or restart is cancelled
+  - Added progress bar during manual and scheduled server shutdown
+- **Improvements**
+  - When sending an information message when stopping or restarting the server the timer sent in game is now correctly formatted  {xx} minutes and {xx} seconds
+  - Complete review of the logic of the stop and restart server buttons
+  - New Splashscreen for the manager
+  - New Icon for the manager
+- **Fix following team validation feedback:**
+  - To avoid spamming the chat, messages are sent every minute if the time is greater than 1 minute, then every 5 seconds if the time is less than 1 minute.
+
+## Version 2.0.8.1 PRE-RELEASE NOTE
+- **New features:**
+  - Added more time when sending an information message when stopping or restarting the server from 30 seconds to 30 minutes
+  - Added a cancel button when manually and scheduledly shutting down the server
+  - A message is sent to players when the shutdown or restart is cancelled
+  - Added progress bar during manual and scheduled server shutdown
+- **Improvements**
+  - When sending an information message when stopping or restarting the server the timer sent in game is now correctly formatted  {xx} minutes and {xx} seconds
+  - Complete review of the logic of the stop and restart server buttons
+  - New Splashscreen for the manager
+  - New Icon for the manager
+
 ## Version 2.0.8.0 FINAL-RELEASE NOTE
 - **New features:**
   - Changed the size of the dedicated server console window when launching the server to prevent it from being hidden or invisible or impossible to resize because it is too small or white
