@@ -1,3 +1,10 @@
+## Version 2.0.8.3 PRE-RELEASE NOTE
+- **New features:**
+  - Added PerLevelStatsMultiplier
+- **Improvements**
+  - Modified PlayerBaseStatMultiplier to add all entries to the array instead of one by one
+  - Fixed a line of English translation
+
 ## Version 2.0.8.2 FINAL-RELEASE NOTE
 - **New features:**
   - Added more time when sending an information message when stopping or restarting the server from 30 seconds to 30 minutes
