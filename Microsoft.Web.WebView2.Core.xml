@@ -74,6 +74,15 @@
             <summary>
             WebView2 enables you to host web content using the latest Microsoft Edge browser and web technology.
             </summary>
+            <summary>
+            WebView2 enables you to host web content using the latest Microsoft Edge browser and web technology.
+            </summary>
+            <summary>
+            WebView2 enables you to host web content using the latest Microsoft Edge browser and web technology.
+            </summary>
+            <summary>
+            WebView2 enables you to host web content using the latest Microsoft Edge browser and web technology.
+            </summary>
         </member>
         <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2.CreateFromComICoreWebView2(System.IntPtr)">
             <summary>
@@ -84,6 +93,14 @@
             <returns>Returns a .NET CoreWebView2 object that wraps the COM object.</returns>
             <exception cref="T:System.ArgumentNullException">Thrown when the provided COM pointer is null.</exception>
             <exception cref="T:System.Runtime.InteropServices.InvalidComObjectException">Thrown when the value is not an ICoreWebView2 COM object and cannot be wrapped.</exception>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2.GetComICoreWebView2">
+            <summary>
+            Returns the existing COM ICoreWebView2 object underlying this .NET CoreWebView2 object.
+            This allows interacting with the WebView2 control using COM APIs,
+            even if the control was originally created using .NET.
+            </summary>
+            <returns>Pointer to a COM object that implements the ICoreWebView2 COM interface.</returns>
         </member>
         <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2.PrintToPdfAsync(System.String,Microsoft.Web.WebView2.Core.CoreWebView2PrintSettings)">
              <summary>
@@ -113,6 +130,59 @@
             <param name="uri">An URI to be added to the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebResourceRequested"/> event.</param>
             <param name="ResourceContext">A resource context filter to be added to the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebResourceRequested"/> event.</param>
             <param name="RequestSourceKinds">A request source filter to be added to the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebResourceRequested"/> event.</param>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2.PostWebMessageAsJson(System.String,System.Collections.Generic.List{System.Object})">
+            <summary>
+            Same as <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.PostWebMessageAsJson(System.String)"/>, but also has support for posting DOM
+            objects to page content.
+            </summary>
+            <param name="webMessageAsJson">The web message to be posted to the top level document in
+            this WebView.</param>
+            <param name="additionalObjects"> Additional DOM objects posted to the content.</param>
+            <remarks>
+            The event args is an instance of <c>MessageEvent</c>. The <see
+            cref="P:Microsoft.Web.WebView2.Core.CoreWebView2Settings.IsWebMessageEnabled"/> setting must be <c>true</c> or the message
+            will not be sent. The event arg's <c>data</c> property of the event arg is the
+            <c>webMessageAsJson</c> string parameter parsed as a JSON string into a JavaScript object.
+            The event arg's <c>source</c> property of the event arg is a reference to the
+            <c>window.chrome.webview</c> object. For information about sending messages from the HTML
+            document in the WebView to the host, navigate to <see
+            cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.WebMessageReceived"/>. The message is sent asynchronously. If a
+            navigation occurs before the message is posted to the page, the message is not be sent.
+            This additionalObjects is retrieved in web content via the DOM MessageEvent <c>additionalObjects</c>
+            property as an array-like list of DOM objects. Currently these type of objects can be
+            posted:
+            <list type="table">
+            <listheader>
+            <description> .NET / WinRT </description>
+            <description> DOM type </description>
+            </listheader>
+            <item>
+            <description> <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2FileSystemHandle"/> </description>
+            <description> [FileSystemHandle](https://developer.mozilla.org/docs/Web/API/FileSystemHandle) </description>
+            </item>
+            <item>
+            <description> <c>null</c> </description>
+            <description> null </description>
+            </item>
+            </list>
+            The objects are posted to web content, following the
+            [structured-clone](https://developer.mozilla.org/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)
+            semantics, meaning only objects that can be cloned can be posted. They will also behave as
+            if they had been created by the web content they are posted to. For example, if a
+            <c>FileSystemFileHandle</c> is posted to a web content it can only be re-transferred via
+            <c>postMessage</c> to other web content [with the same
+            origin](https://fs.spec.whatwg.org/#filesystemhandle).
+            Warning: An app needs to be mindful when using this API to post DOM objects as this API
+            provides the web content with unusual access to sensitive Web Platform features such as
+            filesystem access! Similar to <c>PostWebMessageAsJson</c>, the app should check the <see
+            cref="P:Microsoft.Web.WebView2.Core.CoreWebView2.Source"/> property right before posting the message to ensure the message
+            and objects will only be sent to the target web content that it expects to receive the DOM
+            objects. Additionally, the order of messages that are posted between <c>PostWebMessageAsJson</c>
+            and <c>PostWebMessageAsJsonWithAdditionalObjects</c> may not be preserved.
+            </remarks>
+            <seealso cref="P:Microsoft.Web.WebView2.Core.CoreWebView2Settings.IsWebMessageEnabled"/>
+            <seealso cref="P:Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs.AdditionalObjects"/>
         </member>
         <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2.ShowPrintUI">
             <summary>
@@ -604,7 +674,7 @@
             <item>
             <term><c>shouldPassTypedArraysAsArrays</c></term>
             <description>
-            By default, typed arrays will be passed to host as IDispatch. Otherwise, set to true to pass typed arrays to host as array.
+            By default, typed arrays are passed to the host as <c>IDispatch</c>. To instead pass typed arrays to the host as <c>array</c>, set this to <c>true</c>.
             </description>
             </item>
             </list>
@@ -1519,6 +1589,23 @@
             <example>
             :::code language="csharp" source="../code/sample/SampleApps/WebView2WpfBrowser/MainWindow.xaml.cs" id="ExecuteScriptWithResult":::
             </example>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Core.CoreWebView2.NotificationReceived">
+            
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Core.CoreWebView2.SaveAsUIShowing">
+            <summary>
+            SaveAsUIShowing is raised when browser trys to open a save as dialog. It includes opening dialog manually from context menu or programmatically from <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.ShowSaveAsUIAsync"/>.
+            </summary>
+            
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2.ShowSaveAsUIAsync">
+            <summary>
+            Async method to programmatically trigger a Save As action for the currently loaded document.
+            </summary>
+            <remarks>It opens a system modal dialog by default. If the <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIShowingEventArgs.SuppressDefaultDialog"/> property is `TRUE`, the system dialog is not opened. This method can return <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIResult"/>.
+            </remarks>
+            
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2Certificate">
             <summary>
@@ -2452,6 +2539,7 @@
             
             
             
+            
         </member>
         <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2Environment.CreateAsync(System.String,System.String,Microsoft.Web.WebView2.Core.CoreWebView2EnvironmentOptions)">
              <summary>
@@ -2693,6 +2781,20 @@
             <exception cref="T:Microsoft.Web.WebView2.Core.WebView2RuntimeNotFoundException">
             WebView2 Runtime installation is missing.
             </exception>
+            <remarks>
+            Browser version info includes channel name if it is not the WebView2 Runtime.
+            Channel names are Beta, Dev, and Canary. The format of the return string
+            matches the format of <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2Environment.BrowserVersionString"/>.
+            If an override exists for <c>BrowserExecutableFolder</c>, <c>ReleaseChannels</c>,
+            or <c>ChannelSearchKind</c>, the override is used. The presence of an override
+            can result in a different channel used than the one expected based on the environment
+            options object. <c>BrowserExecutableFolder</c> takes precedence over the
+            other options. See <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Environment.CreateCoreWebView2EnvironmentWithOptions(System.String,System.String,Microsoft.Web.WebView2.Core.Raw.ICoreWebView2EnvironmentOptions,Microsoft.Web.WebView2.Core.Raw.ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler)"/>
+            for more details on overrides. If an override is not specified, then the
+            parameters passed to <c>GetAvailableBrowserVersionString</c> are used.
+            The method fails if the loader is unable to find an installed WebView2
+            Runtime or non-stable Microsoft Edge installation.
+            </remarks>
         </member>
         <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2Environment.CompareBrowserVersions(System.String,System.String)">
             <summary>
@@ -2760,7 +2862,7 @@
             false. The profile will be created on disk or opened when calling
             CreateCoreWebView2ControllerWithOptions no matter InPrivate mode is
             enabled or not, and it will be released in memory when the
-            correspoding <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Controller"/> is closed but
+            corresponding <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Controller"/> is closed but
             still remain on disk. As WebView2 is built on top of Edge browser,
             it follows Edge's behavior pattern. To create an InPrivate WebView,
             we get an off-the-record profile (an InPrivate profile) from a
@@ -2997,6 +3099,43 @@
             <example>
             :::code language="csharp" source="../code/sample/SampleApps/WebView2WpfBrowser/MainWindow.xaml.cs" id="GetProcessExtendedInfos":::
             </example>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2Environment.CreateWebFileSystemFileHandle(System.String,Microsoft.Web.WebView2.Core.CoreWebView2FileSystemHandlePermission)">
+            <summary>
+            Creates a <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2FileSystemHandle"/> object from a path that represents a Web [FileSystemFileHandle](https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle).
+            </summary>
+            <param name="Path">The path pointed by the file.
+            <remarks>This must be a syntactically correct fully qualified path, but it is not checked here whether it currently points to a file. If an invalid path is passed, an `InvalidArgumentException` will be thrown. Any other state validation will be done when this handle is accessed from web content and will cause the DOM exceptions described in [FileSystemFileHandle methods](https://developer.mozilla.org/docs/Web/API/FileSystemDirectoryHandle#instance_methods) if access operations fail
+            </remarks>
+            </param>
+            <param name="Permission"> This is used to specify whether the Handle should be created with a Read-only or Read-and-write web permission.
+            <remarks>For the `permission` value specified here, the DOM [PermissionStatus](https://developer.mozilla.org/docs/Web/API/PermissionStatus) property will be `[granted](https://developer.mozilla.org/docs/Web/API/PermissionStatus/state)` and the unspecified permission will be `[prompt](https://developer.mozilla.org/docs/Web/API/PermissionStatus/state)`. Therefore, the web content then does not need to call [requestPermission](https://developer.mozilla.org/docs/Web/API/FileSystemHandle/requestPermission) for the permission that was specified before attempting the permitted operation, but if it does, the promise will immediately be resolved with 'granted' PermissionStatus without firing the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.PermissionRequested"/> event or prompting the user for permission. Otherwise, `requestPermission` will behave as the status of permission is currently `prompt`, which means the `PermissionRequested` event will fire or the user will be prompted.
+            Note: An exception to this is, if there is a parent directory handle that has broader permissions in the same page context than specified in here, the handle will automatically inherit the most permissive permission of the parent handle when posted to that page context. i.e. If there is already a `FileSystemDirectoryHandle` to `C:\foo` that has write permission on a page, even though a <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2FileSystemHandle"/> to file `C:\example\file.txt` may be created with <see cref="F:Microsoft.Web.WebView2.Core.CoreWebView2FileSystemHandlePermission.ReadOnly"/> permission, when posted to that page, write permission will be automatically granted to the created handle.
+            Additionally, the app must have the same OS permissions that have propagated to the [WebView2 browser process](/microsoft-edge/webview2/concepts/process-model) for the path it wishes to give the web content to read/write the file. Specifically, the WebView2 browser process will run in same user, package identity, and app container of the app, but other means such as security context impersonations do not get propagated, so such permissions that the app has, will not be effective in WebView2.
+            </remarks>
+            </param>
+            <remarks>
+            An app needs to be mindful that this object, when posted to the web content, provides it with unusual access to OS file system via the Web FileSystem API! The app should therefore only post objects for paths that it wants to allow access to the web content and it is not recommended that the web content "asks" for this path. The app should also check the source property of the target to ensure that it is sending to the web content of intended origin. Once the object is passed to web content, if the content is attempting a read, the file must be existing and available to read similar to a file chosen by [open file picker](https://developer.mozilla.org/docs/Web/API/Window/showOpenFilePicker), otherwise the read operation will [throw a DOM exception](https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle/getFile#exceptions). For write operations, the file does not need to exist as `FileSystemFileHandle` will behave as a file path chosen by [save file picker](https://developer.mozilla.org/docs/Web/API/Window/showSaveFilePicker) and will create or overwrite the file, but the parent directory structure pointed by the file must exist and an existing file must be available to write and delete or the write operation will [throw a DOM exception](https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle/createWritable#exceptions).
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2Environment.CreateWebFileSystemDirectoryHandle(System.String,Microsoft.Web.WebView2.Core.CoreWebView2FileSystemHandlePermission)">
+            <summary>
+            Creates a <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2FileSystemHandle"/> object from a path that represents a Web [FileSystemDirectoryHandle](https://developer.mozilla.org/docs/Web/API/FileSystemDirectoryHandle).
+            </summary>
+            <param name="Path">The path pointed by the directory.
+            <remarks>
+            This must be a syntactically correct fully qualified path, but it is not checked here whether it currently points to a directory. Any other state validation will be done when this handle is accessed from web content and will cause DOM exceptions if access operations fail. If an invalid path is passed, an `InvalidArgumentException` will be thrown.
+            </remarks>
+            </param>
+            <param name="Permission">This is used to specify whether the Handle should be created with a Read-only or Read-and-write web permission.
+            <remarks>For the permission value specified here, the Web [PermissionStatus](https://developer.mozilla.org/docs/Web/API/PermissionStatus) will be `[granted](https://developer.mozilla.org/docs/Web/API/PermissionStatus/state)` and the unspecified permission will be `[prompt](https://developer.mozilla.org/docs/Web/API/PermissionStatus/state)`. Therefore, the web content then does not need to call [requestPermission](https://developer.mozilla.org/docs/Web/API/FileSystemHandle/requestPermission) for the permission that was specified before attempting the permitted operation, but if it does, the promise will immediately be resolved with 'granted' PermissionStatus without firing the WebView2 <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.PermissionRequested"/> event or prompting the user for permission. Otherwise, `requestPermission` will behave as the status of permission is currently `Prompt`, which means the `PermissionRequested` event will fire or the user will be prompted.
+            Note: An exception to this is, if there is a parent directory handle that has broader permissions in the same page context than specified in here, the handle will automatically inherit the most permissive permission of the parent handle when posted to that page context. i.e. If there is already a `FileSystemDirectoryHandle` to `C:\foo` that has write permission on a page, even though a <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2FileSystemHandle"/> to directory `C:\example\directory` may be created with <see cref="F:Microsoft.Web.WebView2.Core.CoreWebView2FileSystemHandlePermission.ReadOnly"/> permission, when posted to that page, write permission will be automatically granted to the created handle.
+            Additionally, the app must have the same OS permissions that have propagated to the [WebView2 browser process](/microsoft-edge/webview2/concepts/process-model) for the path it wishes to give the web content to make any operations on the directory. Specifically, the WebView2 browser process will run in same user, package identity, and app container of the app, but other means such as security context impersonations do not get propagated, so such permissions that the app has, will not be effective in WebView2.
+            </remarks>
+            </param>
+            <remarks>
+            An app needs to be mindful that this object, when posted to the web content, provides it with unusual access to OS file system via the Web FileSystem API! The app should therefore only post objects for paths that it wants to allow access to the web content and it is not recommended that the web content "asks" for this path. The app should also check the source property of the target to ensure that it is sending to the web content of intended origin. Once the object is passed to web content, the path must point to a directory as if it was chosen via [directory picker](https://developer.mozilla.org/docs/Web/API/Window/showDirectoryPicker) otherwise any IO operation done on the `FileSystemDirectoryHandle` will throw a DOM exception.
+            </remarks>
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2EnvironmentOptions">
             <summary>
@@ -3630,6 +3769,146 @@
             The exception thrown from the init task. If the task completed successfully, this property is null.
             </summary>
         </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2Notification">
+            <summary>
+            An object that represents a [HTML Notification object](https://developer.mozilla.org/docs/Web/API/Notification).
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Notification.Timestamp">
+            <summary>
+            Specifies the time at which a notification is created or applicable
+            (past, present, or future).
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Notification.VibrationPattern">
+            <summary>
+            Gets the vibration pattern for devices with vibration hardware to emit.
+            </summary>
+            <remarks>
+            The vibration pattern can be represented by an array of 64-bit
+            unsigned integers describing a pattern of vibrations and pauses. See
+            [Vibration API](https://developer.mozilla.org/docs/Web/API/Vibration_API) for
+            more information. This corresponds to
+            [Notification.vibrate](https://developer.mozilla.org/docs/Web/API/Notification/vibrate)
+            DOM API. An empty list is returned if no vibration patterns are
+            specified.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Notification.Body">
+            <summary>
+            A string representing the body text of the notification.
+            </summary>
+            <remarks>
+            The default value is an empty string.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Notification.Direction">
+            <summary>
+            The text direction in which to display the notification.
+            </summary>
+            <remarks>
+            This corresponds to [Notification.dir](https://developer.mozilla.org/docs/Web/API/Notification/dir) DOM API. The default value is <see cref="F:Microsoft.Web.WebView2.Core.CoreWebView2TextDirectionKind.Default"/>.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Notification.Language">
+            <summary>
+            The notification's language, as intended to be specified using a string representing a language tag (such as <c>en-US</c>) according to [BCP47](https://datatracker.ietf.org/doc/html/rfc5646).
+            </summary>
+            <remarks>
+            Note that no validation is performed on this property and it can be any string the notification sender specifies. This corresponds to [Notification.lang](https://developer.mozilla.org/docs/Web/API/Notification/lang) DOM API. The default value is an empty string.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Notification.Tag">
+            <summary>
+            A string representing an identifying tag for the notification.
+            </summary>
+            <remarks>
+            This corresponds to [Notification.tag](https://developer.mozilla.org/docs/Web/API/Notification/tag) DOM API. The default value is an empty string.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Notification.IconUri">
+            <summary>
+            A string containing the URI of an icon to be displayed in the notification.
+            </summary>
+            <remarks>
+            The default value is an empty string.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Notification.Title">
+            <summary>
+            The title of the notification.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Notification.BadgeUri">
+            <summary>
+            A string containing the URI of the image used to represent the notification when there isn't enough space to display the notification itself.
+            </summary>
+            <remarks>
+            The default value is an empty string.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Notification.BodyImageUri">
+            <summary>
+            A string containing the URI of an image to be displayed in the notification.
+            </summary>
+            <remarks>
+            The default value is an empty string.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Notification.ShouldRenotify">
+            <summary>
+            Indicates whether the user should be notified after a new notification replaces an old one.
+            </summary>
+            <remarks>
+            This corresponds to [Notification.renotify](https://developer.mozilla.org/docs/Web/API/Notification/renotify) DOM API. The default value is <c>false</c>.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Notification.RequiresInteraction">
+            <summary>
+            A boolean value indicating that a notification should remain active until the user clicks or dismisses it, rather than closing automatically.
+            </summary>
+            <remarks>
+            This corresponds to [Notification.requireInteraction](https://developer.mozilla.org/docs/Web/API/Notification/requireInteraction) DOM API. Note that you may not be able to necessarily implement this due to native API limitations. The default value is <c>false</c>.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Notification.IsSilent">
+            <summary>
+            Indicates whether the notification should be silent -- i.e., no sounds or vibrations should be issued, regardless of the device settings.
+            </summary>
+            <remarks>
+            This corresponds to [Notification.silent](https://developer.mozilla.org/docs/Web/API/Notification/silent) DOM API. The default value is <c>false</c>.
+            </remarks>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Core.CoreWebView2Notification.CloseRequested">
+            <summary>
+            This event is raised when the notification is closed by the web code, such as through <c>notification.close()</c>.
+            </summary>
+            <remarks>
+            You don't need to call <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Notification.ReportClosed"/> since this is coming from the web code.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2Notification.ReportShown">
+            <summary>
+            The host may run this to report the notification has been displayed and it will cause the [show](https://developer.mozilla.org/docs/Web/API/Notification/show_event) event to be raised for non-persistent notifications.
+            </summary>
+            <remarks>
+            You must not run this unless you are handling the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NotificationReceived"/>. API throws COMException with error code of <c>HRESULT_FROM_WIN32(ERROR_INVALID_STATE)</c> if <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2NotificationReceivedEventArgs.Handled"/> is <c>false</c> when this is called.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2Notification.ReportClicked">
+            <summary>
+            The host may run this to report the notification has been clicked, and it will cause the [click](https://developer.mozilla.org/docs/Web/API/Notification/click_event) event to be raised for non-persistent notifications.
+            </summary>
+            You must not run this unless you are handling the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NotificationReceived"/>. API throws COMException with error code of <c>HRESULT_FROM_WIN32(ERROR_INVALID_STATE)</c> if <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2NotificationReceivedEventArgs.Handled"/> is <c>false</c> or <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Notification.ReportShown"/> has not been run when this is called.
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2Notification.ReportClosed">
+            <summary>
+            The host may run this to report the notification was dismissed, and it will cause the [close](https://developer.mozilla.org/docs/Web/API/Notification/close_event) event to be raised for non-persistent notifications.
+            </summary>
+            <remarks>
+            You must not run this unless you are handling the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NotificationReceived"/>. API throws COMException with error code of <c>HRESULT_FROM_WIN32(ERROR_INVALID_STATE)</c> if <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2NotificationReceivedEventArgs.Handled"/> is <c>false</c> or <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Notification.ReportShown"/> has not been run when this is called.
+            </remarks>
+        </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2Profile">
             <summary>
             Multiple profiles can be created under a single user data directory but with separated cookies, user preference settings, and various data storage etc.. If the CoreWebView2 was created with a <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2ControllerOptions"/>, the CoreWebView2Profile will match those specified options. Otherwise if this CoreWebView2 was created without a <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2ControllerOptions"/>, then this will be the default CoreWebView2Profile for the corresponding CoreWebView2Environment.
@@ -3854,10 +4133,10 @@
         </member>
         <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2Profile.Delete">
             <summary>
-            Delete this profile.
+            Delete this profile and close the corresponding <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/>s.
             </summary>
             <remarks>
-            After the API is called, the profile will be marked for deletion. The local profile's directory will be deleted at browser process exit. If it fails to delete, because something else is holding the files open, WebView2 will try to delete the profile at all future browser process starts until successful. The corresponding CoreWebView2s will be closed and the CoreWebView2Profile.Deleted event will be raised. See `CoreWebView2Profile.Deleted` for more information. If you try to create a new profile with the same name as an existing profile that has been marked as deleted but hasn't yet been deleted, profile creation will fail with HRESULT_FROM_WIN32(ERROR_DELETE_PENDING).
+            After the API is called, the profile will be marked for deletion. The local profile's directory will be deleted at browser process exit. If it fails to delete, because something else is holding the files open, WebView2 will try to delete the profile at all future browser process starts until successful. The corresponding CoreWebView2s will be closed and the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2Profile.Deleted"/> event will be raised. See <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2Profile.Deleted"/> for more information. If you try to create a new profile with the same name as an existing profile that has been marked as deleted but hasn't yet been deleted, profile creation will fail with HRESULT_FROM_WIN32(ERROR_DELETE_PENDING).
             </remarks>
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs">
@@ -4419,6 +4698,26 @@
             The most restrictive level of tracking prevention. Set to this level to protect against malicious trackers and most trackers across sites. Content and ads will likely have minimal personalization. This level blocks the most trackers but could cause some websites to not behave as expected. See [Current tracking prevention behavior](/microsoft-edge/web-platform/tracking-prevention#current-tracking-prevention-behavior) for fine-grained information on what is being blocked with this level and can change with different Edge versions.
             </summary>
         </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2TextDirectionKind">
+            <summary>
+            Indicates the text direction of the notification.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2TextDirectionKind.Default">
+            <summary>
+            Indicates that the notification text direction adopts the browser's language setting behavior.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2TextDirectionKind.LeftToRight">
+            <summary>
+            Indicates that the notification text is left-to-right.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2TextDirectionKind.RightToLeft">
+            <summary>
+            Indicates that the notification text is right-to-left.
+            </summary>
+        </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2SharedBufferAccess">
             <summary>
             Specifies the desired access from script to <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2SharedBuffer"/>.
@@ -4492,6 +4791,75 @@
         <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2ScriptDialogKind.Beforeunload">
             <summary>
             Indicates that the dialog uses <c>window.beforeunload</c> JavaScript event.
+            </summary>
+            
+        </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIResult">
+            <summary>
+            Status of a programmatic Save As call. Indicates the result of the <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.ShowSaveAsUIAsync"/> method.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIResult.Success">
+            <summary>
+            The `ShowSaveAsUIAsync` method call completed successfully.
+            </summary>
+            <remarks>
+            By default, the system Save As dialog opens. If <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIShowingEventArgs.SuppressDefaultDialog"/> is set to `TRUE`, the system dialog is skipped and the download is started.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIResult.InvalidPath">
+            <summary>
+            Could not perform Save As because the destination file path is an invalid path.
+            </summary>
+            <remarks>
+            The path is invalid when it is empty, a relative path, or a directory, or when the parent path does not exist.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIResult.FileAlreadyExists">
+            <summary>
+            Could not perform Save As because the destination file path already exists and replacing files was not allowed by the <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIShowingEventArgs.AllowReplace"/> property.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIResult.KindNotSupported">
+            <summary>
+            Could not perform Save As because the `Kind` property selection is not supported due to content MIME type or system limits.
+            </summary>
+            <remarks>
+            See <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsKind"/> for MIME type limits. System limits include when the `HtmlOnly` kind is selected for an error page at child mode, or when the `Complete` kind is selected and the WebView is running in an App Container.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIResult.Cancelled">
+            <summary>
+            Did not perform Save As because the end user cancelled or the <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIShowingEventArgs.Cancel"/> was set to `TRUE`.
+            </summary>
+            
+        </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsKind">
+            <summary>
+            Specifies <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIShowingEventArgs.Kind"/> selection options.
+            </summary>
+            <remarks>
+            For HTML documents, we support 3 Save As kinds: HtmlOnly, SingleFile and Complete. For non-HTML documents, you must use Default. MIME types of `text/html` and `application/xhtml+xml` are considered HTML documents.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsKind.Default">
+            <summary>
+            Default kind to save non-HTML content. If this kind is selected for an HTML page, the behavior is the same as the `HtmlOnly` kind.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsKind.HtmlOnly">
+            <summary>
+            Save the page as HTML. Only the top-level document is saved, excluding subresources.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsKind.SingleFile">
+            <summary>
+            Save the page as [MHTML](https://en.wikipedia.org/wiki/MHTML).
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsKind.Complete">
+            <summary>
+            Save the page as HTML and download the page-related source files (for example: CSS, JavaScript, images, etc.) in a directory with the same filename prefix.
             </summary>
             
         </member>
@@ -5375,6 +5743,36 @@
             Indicates that the frame is an [object](https://developer.mozilla.org/docs/Web/HTML/Element/object) element.
             </summary>
         </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2FileSystemHandlePermission">
+            <summary>
+            Allowed permissions of <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2FileSystemHandle"/> as described in [FileSystemHandle.requestPermission()](https://developer.mozilla.org/docs/Web/API/FileSystemHandle/requestPermission)
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2FileSystemHandlePermission.ReadOnly">
+            <summary>
+            Read-only permission for FileSystemHandle
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2FileSystemHandlePermission.ReadWrite">
+            <summary>
+            Read and write permissions for FileSystemHandle
+            </summary>
+        </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2FileSystemHandleKind">
+            <summary>
+            Kind of CoreWebView2FileSystemHandle as described in [FileSystemHandle.kind](https://developer.mozilla.org/docs/Web/API/FileSystemHandle/kind)
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2FileSystemHandleKind.File">
+            <summary>
+            FileSystemHandle is for a file (i.e. [FileSystemFileHandle](https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle))
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2FileSystemHandleKind.Directory">
+            <summary>
+            FileSystemHandle is for a directory (i.e. [FileSystemDirectoryHandle](https://developer.mozilla.org/docs/Web/API/FileSystemDirectoryHandle))
+            </summary>
+        </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2FaviconImageFormat">
             <summary>
             The requested format to get the Favicon from <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.GetFaviconAsync(Microsoft.Web.WebView2.Core.CoreWebView2FaviconImageFormat)"/>.
@@ -5996,7 +6394,7 @@
             <exception cref="T:System.Runtime.InteropServices.COMException">The content failed to load.</exception>
             <remarks>
             A <c>null</c> stream means no content was found. Note content (if any) for redirect responses is ignored.
-            This method returns <c>null</c> if content size is more tha 123MB or for navigations that become downloads or if response is downloadable content type (e.g., application/octet-stream). See <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.DownloadStarting"/> event to handle the response.
+            This method returns <c>null</c> if content size is more than 123MB. If <c>msWebView2EnableDownloadContentInWebResourceResponseReceived</c> feature flag is disabled, for navigations that become downloads or if response is downloadable content type (e.g., application/octet-stream), this method also returns <c>null</c>. See <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.DownloadStarting"/> event to handle the response or enable the feature flag. The Stream object that is returned will be thread-safe and as reads will be blocking while waiting for data to be available, it is recommended to read from a background thread.
             If this method is being called again before a first call has completed, it will complete at the same time all prior calls do.
             If this method is being called after a first call has completed, it will return immediately (asynchronously).
             </remarks>
@@ -6424,8 +6822,21 @@
         </member>
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Settings.IsNonClientRegionSupportEnabled">
             <summary>
-            Use this property to get/set if nonclient region support is enabled
+            The `IsNonClientRegionSupportEnabled` property enables web pages to use the
             </summary>
+            `app-region` CSS style. Disabling/Enabling the `IsNonClientRegionSupportEnabled`
+            takes effect after the next navigation. Defaults to `false`.
+            
+            When this property is `true`, then all the non-client region features
+            will be enabled:
+            Draggable Regions will be enabled, they are regions on a webpage that
+            are marked with the CSS attribute `app-region: drag/no-drag`. When set to
+            `drag`, these regions will be treated like the window's title bar, supporting
+            dragging of the entire WebView and its host app window; the system menu shows
+            upon right click, and a double click will trigger maximizing/restoration of the
+            window size.
+            When set to `false`, all non-client region support will be disabled.
+            The `app-region` CSS style will be ignored on web pages.
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2ServerCertificateErrorDetectedEventArgs">
             <summary>
@@ -6549,6 +6960,65 @@
             <remarks>
             Use this to <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Deferral.Complete"/> the event at a later time.
             </remarks>
+        </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIShowingEventArgs">
+            <summary>
+            Event args for the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.SaveAsUIShowing"/> event.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIShowingEventArgs.ContentMimeType">
+            <summary>
+            Mime type of content to be saved.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIShowingEventArgs.Cancel">
+            <summary>
+            Indicates whether to cancel the save as before download.
+            </summary>
+            <remarks>
+            Set this property to `TRUE` to cancel the Save As action and prevent the download from starting. <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.ShowSaveAsUIAsync"/> returns <see cref="F:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIResult.Cancelled"/>.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIShowingEventArgs.SuppressDefaultDialog">
+            <summary>
+            Indicates if the system default dialog will be suppressed.
+            </summary>
+            <remarks>
+            When this property is FALSE, the default Save As dialog is shown and the values assigned through `SaveAsFilePath`, `AllowReplace` and `Kind` are ignored when the event args invoke completed. When it is `TRUE`, the system dialog is skipped and all assigned values are used.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIShowingEventArgs.SaveAsFilePath">
+            <summary>
+            The absolute full path of save as location.
+            </summary>
+            <remarks>
+            It includes the file name and extension. If it is not valid (for example, the root drive does not exist), Save As is denied, and <see cref="F:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIResult.InvalidPath"/> is returned. If the associated download completes successfully, a target file is saved at this location. If the `Kind` property is <see cref="F:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsKind.Complete"/>, there will be an additional directory with resources files.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIShowingEventArgs.AllowReplace">
+            <summary>
+            Indicates whether to allow replace old file when it already exists in the target save file path.
+            </summary>
+            <remarks>
+            Setting this property to `TRUE` allows existing files to be replaced. Setting this property to `FALSE` will not replace existing files and will return <see cref="F:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIResult.FileAlreadyExists"/>.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIShowingEventArgs.Kind">
+            <summary>
+            The option to save content to different document. <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsKind"/>
+            </summary>
+            <remarks>
+            If it is not allowed for the current document, method <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.ShowSaveAsUIAsync"/> returns <see cref="F:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIResult.InvalidPath"/>.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2SaveAsUIShowingEventArgs.GetDeferral">
+            <summary>
+            Gets a <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Deferral"/> object.
+            </summary>
+            <remarks>
+            This will defer showing the default Save As dialog. Use this to <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Deferral.Complete"/> the event at a later time to perform a Save As operation.
+            </remarks>
+            
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2ProcessInfo">
             <summary>
@@ -7282,6 +7752,40 @@
             The permission state set from the <c>PermissionRequested</c>  event is saved in the profile by default; it is persisted across sessions and becomes the new default behavior for future <c>PermissionRequested</c>  events. Browser heuristics can affect whether the event continues to be raised when the state is persisted.
             </remarks>
         </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2NotificationReceivedEventArgs">
+            <summary>
+            Event args for the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NotificationReceived"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2NotificationReceivedEventArgs.SenderOrigin">
+            <summary>
+            The origin of the web content that sends the notification, such as <c>https://example.com/</c> or <c>https://www.example.com/</c>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2NotificationReceivedEventArgs.Notification">
+            <summary>
+            The notification that was received.
+            </summary>
+            <remarks>
+            You can access the properties on the Notification object to show your own notification.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2NotificationReceivedEventArgs.Handled">
+            <summary>
+            Sets whether the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NotificationReceived"/> is handled by the host after the event handler completes or if there is a deferral then after the deferral is completed.
+            </summary>
+            <remarks>
+            If <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2NotificationReceivedEventArgs.Handled"/> is set to <c>true</c> then WebView will not display the notification with the default UI, and the host will be responsible for handling the notification and for letting the web content know that the notification has been displayed, clicked, or closed. You must set <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2NotificationReceivedEventArgs.Handled"/> to <c>true</c> before you call <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Notification.ReportShown"/>, <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Notification.ReportClicked"/> and <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Notification.ReportClosed"/>, otherwise they will fail with <c>HRESULT_FROM_WIN32(ERROR_INVALID_STATE)</c>. If after the event handler or deferral completes <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2NotificationReceivedEventArgs.Handled"/> is set to <c>false</c> then WebView will display the default notification UI. Note that you cannot un-handle this event once you have set <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2NotificationReceivedEventArgs.Handled"/> to be <c>true</c>. The initial value is <c>false</c>.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2NotificationReceivedEventArgs.GetDeferral">
+            <summary>
+            Gets a <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Deferral"/> object.
+            </summary>
+            <remarks>
+            Use this to <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Deferral.Complete"/> the event at a later time.
+            </remarks>
+        </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2NonClientRegionChangedEventArgs">
             <summary>
             Event args for the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2CompositionController.NonClientRegionChanged"/> event.
@@ -7614,6 +8118,26 @@
             Gets the created frame.
             </summary>
             <seealso cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Frame"/>
+        </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2FileSystemHandle">
+            <summary>
+            Representation of a DOM [FileSystemHandle](https://developer.mozilla.org/docs/Web/API/FileSystemHandle) object.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2FileSystemHandle.Kind">
+            <summary>
+            The kind of the FileSystemHandle. It can either be a file or a directory.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2FileSystemHandle.Path">
+            <summary>
+            The path to the FileSystemHandle.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2FileSystemHandle.Permission">
+            <summary>
+            The permissions granted to the FileSystemHandle.
+            </summary>
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2File">
             <summary>

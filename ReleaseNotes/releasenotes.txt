@@ -1,3 +1,28 @@
+## Version 2.0.8.4 PRE-RELEASE NOTE
+- **New features:**
+  - Added new possibility for RCON messages since Broadcast does not work via RCON and has not been fixed by Wilcard (see the Information release note for more info)
+  - Added the proposal to install the Pelayori plugin: Advanced Messages Ascended 1.2 with all the logic that follows for installing the API and activating it
+  -  Added the proposal to install the srdev plugin UnicodeRCON ASA 1.1 Turns "???? ???" to pretty "Γειά σου" in RCON (word used is Hello)
+- **Improvements**
+  - Modified PlayerBaseStatMultiplier to add all entries to the array instead of one by one
+  - Removed character limitation in RCON message sending textbox following proposal to add UnicodeRCON plugin
+  - Fixed a line of English translation
+  - Full review of how the activation/deactivation of checkboxes in the API tab works
+  - Changed the official API website
+  - Updated the link to ASA plugins
+  - Added API documentation
+  - Changed API installation message to indicate that prerequisites are also installed (Microsoft Visual C++ 2019 Redistributable Package)
+- **Bug fixes:**
+  - PerLevelStatsMultiplier is now correctly loaded when launching the manager from the ini file
+  - Fixed a bug that locked the Game.ini file in CustomOverride and prevented a new save by showing a message with Access Denied
+  - Fixed a bug that locked the Game.ini-xxx.bak file because it was copied while the server was running and therefore in read only mode, causing an access denied message
+- **Informations**
+  - In the API tab you can now force the code to use the free Pelayori plugin: Advanced Messages Ascended 1.2 this will send notifications as Broadcast and replace the RCON messages currently sent in chat
+  - Please note that you must have configured the API with its database as well as the permission plugin
+  - Common issues:I am getting error 126 when loading the plugin. You need the Visual C++ Redistributable for Visual Studio 2019 as I compile my plugins with latest Visual Studio 2019.
+  - Unicode support for messages. NOTE: Sending messages manyally from RCON requires the Unicode Rcon Plugin: https://ark-server-api.com/resources/unicodercon-asa.96/ Turns "???? ???" to pretty "Γειά σου" in RCON (word used is Hello)
+  - Official plugin page: https://ark-server-api.com/resources/advanced-messages-ascended.38/
+
 ## Version 2.0.8.3 PRE-RELEASE NOTE
 - **New features:**
   - Added PerLevelStatsMultiplier

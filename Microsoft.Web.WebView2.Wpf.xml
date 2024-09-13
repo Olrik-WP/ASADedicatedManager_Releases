@@ -120,6 +120,26 @@
             <returns>A <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2ControllerOptions"/> object or null if no controller-related properties are set.</returns>
             <exception cref="T:System.NullReferenceException">Thrown if the parameter environment is null.</exception>
         </member>
+        <member name="T:Microsoft.Web.WebView2.Wpf.Direct3DHelper">
+            <summary>
+            This class provides helper methods for working with Direct3D in the WebView2 WPF control.
+            It includes methods for creating Direct3D9 and Direct3D11 devices, creating textures,
+            copying resources, and getting shared handles, among others. These methods are used in
+            the GraphicsItemD3DImage class to interact with Direct3D objects and resources.
+            </summary>
+            <remarks>
+            The class includes PInvoke declarations for calling Direct3D functions from unmanaged code.
+            It also defines several COM interfaces and structures necessary for interacting with
+            Direct3D objects.
+            Note: This class is intended for internal use by the WebView2 WPF control and should not
+            be used directly by application developers.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.Web.WebView2.Wpf.GraphicsItemD3DImage">
+            <summary>
+            This Class is a <see cref="T:System.Windows.Interop.D3DImage"/> capturing the content of the provided <see cref="T:Windows.UI.Composition.ContainerVisual"/> (the WebView2 visual).
+            </summary>
+        </member>
         <member name="T:Microsoft.Web.WebView2.Wpf.ImplicitInitGate">
             <summary>
             Tracks the conditions which block implicit initialization and whether it has been requested or not.
@@ -611,6 +631,22 @@
             <c>false</c> if only logical focus was set to this element, or if the call to this method did not force the focus to change.
             </summary>
         </member>
+        <member name="T:Microsoft.Web.WebView2.Wpf.IWebView2Private">
+            <summary>
+            Defines internal operations specific to the WebView2 WPF control, separating the control-specific logic
+            that cannot be shared across different types of controls.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.IWebView2Private.InitializeController(System.IntPtr,Microsoft.Web.WebView2.Core.CoreWebView2ControllerOptions)">
+            <summary>
+            Initializes the WebView2 controller with operations specific to the control type.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.IWebView2Private.UninitializeController">
+            <summary>
+            Unregister controller's handlers specific to the control type.
+            </summary>
+        </member>
         <member name="T:Microsoft.Web.WebView2.Wpf.WebView2">
              <summary>
              A control to embed web content in a WPF application.
@@ -754,6 +790,18 @@
             <returns>Return value varies by message.</returns>
             <seealso cref="M:System.Windows.Interop.HwndHost.WndProc(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr,System.Boolean@)"/>
         </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.OnGotFocus(System.Windows.RoutedEventArgs)">
+            <summary>
+            We override the  <see cref="M:System.Windows.UIElement.OnGotFocus(System.Windows.RoutedEventArgs)"/> to prevent the focus event from propagating.
+            We expect the event raised from <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2Base.CoreWebView2Controller_GotFocus(System.Object,System.Object)"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.OnLostFocus(System.Windows.RoutedEventArgs)">
+            <summary>
+            We override the  <see cref="M:System.Windows.UIElement.OnLostFocus(System.Windows.RoutedEventArgs)"/> to prevent the focus event from propagating.
+            We expect the event raised from <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2Base.CoreWebView2Controller_LostFocus(System.Object,System.Object)"/>
+            </summary>
+        </member>
         <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.OnRender(System.Windows.Media.DrawingContext)">
             <summary>
             Override for painting to draw
@@ -764,6 +812,12 @@
             <inheritdoc/>
         </member>
         <member name="E:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2InitializationCompleted">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.Microsoft#Web#WebView2#Wpf#IWebView2Private#InitializeController(System.IntPtr,Microsoft.Web.WebView2.Core.CoreWebView2ControllerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.Microsoft#Web#WebView2#Wpf#IWebView2Private#UninitializeController">
             <inheritdoc/>
         </member>
         <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.EnsureCoreWebView2Async(Microsoft.Web.WebView2.Core.CoreWebView2Environment,Microsoft.Web.WebView2.Core.CoreWebView2ControllerOptions)">
@@ -879,20 +933,6 @@
             </summary>
             <param name="request">Information about how the focus is moving.</param>
             <returns><c>true</c> to indicate that we handled the navigation, or <c>false</c> to indicate that we didn't.</returns>
-        </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.OnGotKeyboardFocus(System.Windows.Input.KeyboardFocusChangedEventArgs)">
-            <summary>
-            This is overridden from <see cref="T:System.Windows.UIElement"/> and is called to inform us when we receive the keyboard focus.
-            We handle this by passing the keyboard focus on to the underlying <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/>.
-            We never want to land in a state where our window (this.Handle) actually has the keyboard focus.
-            </summary>
-            <param name="e">Arguments from the underlying GotKeyboardFocus event.</param>
-            <remarks>
-            Note that it's actually possible for us to receive keyboard focus without this method being called.
-            One known case where that happens is when our parent window is deactivated while we have focus, then reactivated.
-            We handle that case in <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2.WndProc(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr,System.Boolean@)"/>.
-            </remarks>
-            <seealso cref="M:Microsoft.Web.WebView2.Wpf.WebView2.WndProc(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr,System.Boolean@)"/>
         </member>
         <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.OnKeyDown(System.Windows.Input.KeyEventArgs)">
             <summary>
@@ -1022,7 +1062,7 @@
         </member>
         <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.CoreWebView2_ProcessFailed(System.Object,Microsoft.Web.WebView2.Core.CoreWebView2ProcessFailedEventArgs)">
             <summary>
-            This is an event handler for our CoreWebView2's ProcessFailedEvent
+            This is an event handler for our CoreWebView2's ProcessFailedEvent.
             </summary>
         </member>
         <member name="F:Microsoft.Web.WebView2.Wpf.WebView2Base._implicitInitGate">
@@ -1297,6 +1337,27 @@
             We just need to propagate the event to WPF.
             </summary>
         </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.TabInto(System.Windows.Input.TraversalRequest)">
+            <summary>
+            Moves focus to the CoreWebView2Controller according to the <seealso cref="T:System.Windows.Input.TraversalRequest"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.OnGotKeyboardFocus(System.Object,System.Windows.Input.KeyboardFocusChangedEventArgs)">
+            <summary>
+            This is an event handler for the <see cref="E:System.Windows.UIElement.GotKeyboardFocus"/> event.
+            It is called to inform us when we receive the keyboard focus.
+            We handle this by passing the keyboard focus on to the underlying <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2"/>.
+            We never want to land in a state where our control actually has the keyboard focus.
+            </summary>
+            <param name="sender">The control that received keyboard focus.</param>
+            <param name="e">Arguments from the underlying GotKeyboardFocus event.</param>
+            <remarks>
+            For WebView2 control, it's actually possible for us to receive keyboard focus without this method being called.
+            One known case where that happens is when our parent window is deactivated while we have focus, then reactivated.
+            We handle that case in <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2.WndProc(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr,System.Boolean@)"/>.
+            </remarks>
+            <seealso cref="M:Microsoft.Web.WebView2.Wpf.WebView2.WndProc(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr,System.Boolean@)"/>
+        </member>
         <member name="M:Microsoft.Web.WebView2.Wpf.WebView2Base.Focus">
             <summary>
             Implementation of <see cref="M:System.Windows.UIElement.Focus"/> pattern.
@@ -1308,6 +1369,557 @@
             Implementation of the <see cref="T:System.IDisposable"/> pattern.
             Should on be called during m_element's Dispose().
             When this is called, it means all resources releted to the control are disposed and we can safely remove the control from the dictionary.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl">
+             <summary>
+             Visual hosting version of the WebView2 control.
+             </summary>
+             <remarks>
+             This control is effectively a wrapper around the [WebView2 COM
+             API](https://aka.ms/webview2). You can directly access the underlying
+             ICoreWebView2 interface and all of its functionality by accessing the
+             <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CoreWebView2"/> property. Some of the most common COM
+             functionality is also accessible directly through wrapper
+             methods/properties/events on the control.
+            
+             Upon creation, the control's <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CoreWebView2"/> property will be
+             <c>null</c>. This is because creating the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CoreWebView2"/> is an
+             expensive operation which involves things like launching Edge browser
+             processes. There are two ways to cause the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CoreWebView2"/> to
+             be created:
+             <list type="bullet">
+             <item><description>
+             Call the <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.EnsureCoreWebView2Async(Microsoft.Web.WebView2.Core.CoreWebView2Environment,Microsoft.Web.WebView2.Core.CoreWebView2ControllerOptions)"/> method.  This is
+             referred to as explicit initialization.
+             </description></item>
+             <item><description>
+             Set the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.Source"/> property (which could be done from
+             markup, for example).  This is referred to as implicit initialization.
+             Either option will start initialization in the background and return
+             back to the caller without waiting for it to finish.
+             To specify options regarding the initialization process, either pass
+             your own <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Environment"/> to <see
+             cref="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.EnsureCoreWebView2Async(Microsoft.Web.WebView2.Core.CoreWebView2Environment,Microsoft.Web.WebView2.Core.CoreWebView2ControllerOptions)"/> or set the control's <see
+             cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CreationProperties"/> property prior to initialization.
+             </description></item>
+             </list>
+            
+             When initialization has finished (regardless of how it was triggered or
+             whether it succeeded) then the following things will occur, in this
+             order:
+             <list type="number">
+             <item><description>
+             The control's <see cref="E:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CoreWebView2InitializationCompleted"/> event
+             will be invoked. If you need to perform one time setup operations on
+             the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CoreWebView2"/> prior to its use then you should
+             do so in a handler for that event.
+             </description></item>
+             <item><description>
+             If initialization was successful and a Uri has been set to the <see
+             cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.Source"/> property then the control will start navigating to it in
+             the background (i.e. these steps will continue without waiting for the
+             navigation to finish).
+             </description></item>
+             <item><description>
+             The Task returned from <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.EnsureCoreWebView2Async(Microsoft.Web.WebView2.Core.CoreWebView2Environment,Microsoft.Web.WebView2.Core.CoreWebView2ControllerOptions)"/> will
+             complete.
+             </description></item>
+             </list>
+            
+             For more details about any of the methods/properties/events involved in
+             the initialization process, see its specific documentation.
+            
+             Because the control's <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CoreWebView2"/> is a very heavyweight
+             object (potentially responsible for multiple running processes and
+             megabytes of disk space) the control implements <see
+             cref="T:System.IDisposable"/> to provide an explicit means to free it.
+             Calling <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.Dispose"/> will release the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CoreWebView2"/>
+             and its underlying resources (except any that are also being used by other
+             WebViews), and reset <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CoreWebView2"/> to <c>null</c>. After <see
+             cref="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.Dispose"/> has been called the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CoreWebView2"/> cannot be
+             re-initialized, and any attempt to use functionality which requires it
+             will throw an <see cref="T:System.ObjectDisposedException"/>.
+            
+             Accelerator key presses (e.g. Ctrl+P) that occur within the control will
+             fire standard key press events such as OnKeyDown. You can suppress the
+             control's default implementation of an accelerator key press (e.g.
+             printing, in the case of Ctrl+P) by setting the Handled property of its
+             EventArgs to true. Also note that the underlying browser process is
+             blocked while these handlers execute, so:
+             <list type="number">
+             <item>
+             <description>You should avoid doing a lot of work in these handlers.</description>
+             </item>
+             <item><description>
+             Some of the WebView2 and CoreWebView2 APIs may throw errors if
+             invoked within these handlers due to being unable to communicate with
+             the browser process.
+             </description></item>
+             </list>
+             If you need to do a lot of work and/or invoke WebView2 APIs in response to
+             accelerator keys then consider kicking off a background task or queuing
+             the work for later execution on the UI thread.
+            
+             This control extends <see cref="T:System.Windows.Controls.Control"/> in order to host the image
+             displaying WebView's content using template. This has some
+             implications regarding the control's input and output behavior as well as
+             the functionality it "inherits" from <see cref="T:System.Windows.UIElement"/> and <see
+             cref="T:System.Windows.FrameworkElement"/>.
+            
+             The content of <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl"/> is rendered by an <see cref="T:System.Windows.Controls.Image"/>.
+             By default, <see cref="P:System.Windows.FrameworkElement.UseLayoutRounding"/> of WebView2CompositionControl
+             is set to true. This can prevent the <see cref="T:System.Windows.Controls.Image"/> from becoming blurry at certain dimensions,
+             but it disables anti-aliasing. Set it to false if you want to keep the anti-aliasing.
+             </remarks>
+             <seealso cref="T:System.Windows.Controls.Control"/>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.PartImageName">
+            <summary>
+            TemplatePart Name constant for the Image used to represent WebView2.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl._image">
+            <summary>
+            Image control uses to display content of WebView2.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl._d3dImage">
+            <summary>
+            Component used to capture from WebView visual and work as source of Image.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.OnApplyTemplate">
+            <summary>
+            <see cref="M:System.Windows.FrameworkElement.OnApplyTemplate"/> interface.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.#cctor">
+            <summary>
+            Static constructor for the WebView2CompositionControl class.
+            </summary>
+            <remarks>
+            This static constructor is responsible for overriding the default style key property
+            for instances of the WebView2CompositionControl class. It sets the metadata to use
+            the type of the WebView2CompositionControl as the default style key.
+            See href="https://learn.microsoft.com/en-us/dotnet/api/system.windows.frameworkelement.defaultstylekey?view=netframework-4.8.1"/>
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.#ctor">
+            <summary>
+            Creates a new instance of a WebView2Composition control.
+            Note that the control's <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CoreWebView2"/> will be null until initialized.
+            See the <see cref="T:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl"/> class documentation for an initialization overview.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.WebView2CompositionControl_SizeChanged(System.Object,System.Windows.SizeChangedEventArgs)">
+            <summary>
+            This is an event handler for WPF control's SizeChanged event.
+            We use CoreWebView2Controller.NotifyParentWindowPositionChanged to notify our browser our
+            size and relative location has changed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.WebView2CompositionControl_LocationChanged(System.Object,System.EventArgs)">
+            <summary>
+            This is an event handler for WPF control's LocationChange event.
+            We use CoreWebView2Controller.NotifyParentWindowPositionChanged to notify our browser our
+            position has changed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.InitializeCoreDispatcher">
+            <summary>
+            Initialize the dispatcher queue.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CoreWebView2Controller_CursorChanged(System.Object,System.Object)">
+            <summary>
+            This is an event handler for our CoreWebView2CompositionController's CursorChanged event.
+            We use CursorInteropHelper to Obtain a WPF Cursor from the provided Win32 Handle.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.SendPointerInput(Microsoft.Web.WebView2.Core.CoreWebView2PointerEventKind,Microsoft.Web.WebView2.Core.CoreWebView2PointerInfo)">
+            <summary>
+            Send the pointer event to the WebView2 Control.
+            </summary>
+            <seealso cref="M:Microsoft.Web.WebView2.Core.CoreWebView2CompositionController.SendPointerInput(Microsoft.Web.WebView2.Core.CoreWebView2PointerEventKind,Microsoft.Web.WebView2.Core.CoreWebView2PointerInfo)"/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.OnTouchDown(System.Windows.Input.TouchEventArgs)">
+            <summary>
+            This is an event handler for WPF control's OnTouchDown event.
+            We use CoreWebView2CompositionController.SendPointerInput to send the touch input to our browser.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.OnTouchMove(System.Windows.Input.TouchEventArgs)">
+            <summary>
+            This is an event handler for WPF control's OnTouchMove event.
+            We use CoreWebView2CompositionController.SendPointerInput to send the touch input to our browser.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.OnTouchUp(System.Windows.Input.TouchEventArgs)">
+            <summary>
+            This is an event handler for WPF control's OnTouchUp event.
+            We use CoreWebView2CompositionController.SendPointerInput to send the touch input to our browser.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.GetMouseEventVirtualKeys(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Helper function to get the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2MouseEventVirtualKeys"/> of the mouse event.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.SendMouseInput(Microsoft.Web.WebView2.Core.CoreWebView2MouseEventKind,Microsoft.Web.WebView2.Core.CoreWebView2MouseEventVirtualKeys,System.UInt32,System.Drawing.Point)">
+            <summary>
+            Send the mouse event to the WebView2 Control.
+            </summary>
+            <seealso cref="M:Microsoft.Web.WebView2.Core.CoreWebView2CompositionController.SendMouseInput(Microsoft.Web.WebView2.Core.CoreWebView2MouseEventKind,Microsoft.Web.WebView2.Core.CoreWebView2MouseEventVirtualKeys,System.UInt32,System.Drawing.Point)"/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.OnMouseMove(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            This is an event handler for WPF control's OnMouseMove event.
+            We use CoreWebView2CompositionController.SendMouseInput to send the mouse input to our browser.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.OnMouseDown(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            This is an event handler for WPF control's OnMouseDown event.
+            We use CoreWebView2CompositionController.SendMouseInput to send the mouse input to our browser.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.OnMouseUp(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            This is an event handler for WPF control's OnMouseUp event.
+            We use CoreWebView2CompositionController.SendMouseInput to send the mouse input to our browser.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.OnMouseWheel(System.Windows.Input.MouseWheelEventArgs)">
+            <summary>
+            This is an event handler for WPF control's OnMouseWheel event.
+            We use CoreWebView2CompositionController.SendMouseInput to send the input to our browser.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.OnMouseDoubleClick(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            This is an event handler for WPF control's OnMouseDoubleClick event.
+            We use CoreWebView2CompositionController.SendMouseInput to send the input to our browser.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CreationPropertiesProperty">
+            <summary>
+            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CreationProperties"/> property.
+            </summary>
+            <seealso cref="T:System.Windows.DependencyProperty"/>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CreationProperties">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.OnRender(System.Windows.Media.DrawingContext)">
+            <summary>
+            Override for painting to draw
+            </summary>
+            <param name="dc">The tools to handle the drawing via <see cref="T:System.Windows.Media.DrawingContext"/>.</param>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CoreWebView2">
+            <inheritdoc/>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CoreWebView2InitializationCompleted">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.Microsoft#Web#WebView2#Wpf#IWebView2Private#InitializeController(System.IntPtr,Microsoft.Web.WebView2.Core.CoreWebView2ControllerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.Microsoft#Web#WebView2#Wpf#IWebView2Private#UninitializeController">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.EnsureCoreWebView2Async(Microsoft.Web.WebView2.Core.CoreWebView2Environment,Microsoft.Web.WebView2.Core.CoreWebView2ControllerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.EnsureCoreWebView2Async(Microsoft.Web.WebView2.Core.CoreWebView2Environment)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.Dispose">
+            <summary>
+            Implementation of the <see cref="T:System.IDisposable"/> pattern.
+            This will release all of our underlying COM resources.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.BeginInit">
+            <summary>
+            Implementation of the ISupportInitialize pattern.
+            Prevents the control from implicitly initializing its <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CoreWebView2"/> until <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.EndInit"/> is called.
+            Does *not* prevent explicit initialization of the CoreWebView2 (i.e. <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.EnsureCoreWebView2Async(Microsoft.Web.WebView2.Core.CoreWebView2Environment,Microsoft.Web.WebView2.Core.CoreWebView2ControllerOptions)"/>).
+            Mainly intended for use by interactive UI designers.
+            </summary>
+            <remarks>
+            Note that the "Initialize" in ISupportInitialize and the "Init" in BeginInit/EndInit mean
+            something different and more general than this control's specific concept of initializing
+            its CoreWebView2 (explicitly or implicitly).  This ISupportInitialize pattern is a general
+            way to set batches of properties on the control to their initial values without triggering
+            any dependent side effects until all of the values are set (i.e. until EndInit is called).
+            In the case of this control, a specific side effect to be avoided is triggering implicit
+            initialization of the CoreWebView2 when setting the Source property.
+            For example, normally if you set <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CreationProperties"/> after you've already set Source,
+            the data set to CreationProperties is ignored because implicit initialization has already started.
+            However, if you set the two properties (in the same order) in between calls to BeginInit and
+            EndInit then the implicit initialization of the CoreWebView2 is delayed until EndInit, so the data
+            set to CreationProperties is still used even though it was set after Source.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.EndInit">
+            <summary>
+            Implementation of the ISupportInitialize pattern.
+            Invokes any functionality that has been delayed since the corresponding call to <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.BeginInit"/>.
+            Mainly intended for use by interactive UI designers.
+            </summary>
+            <remarks>
+            See the documentation of <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.BeginInit"/> for more information.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.SourceProperty">
+            <summary>
+            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.Source"/> property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.Source">
+            <inheritdoc/>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.SourceChanged">
+            <inheritdoc/>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.NavigationStarting">
+            <inheritdoc/>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.NavigationCompleted">
+            <inheritdoc/>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CanGoBackProperty">
+            <summary>
+            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CanGoBack"/> property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CanGoBack">
+            <inheritdoc/>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CanGoForwardProperty">
+            <summary>
+            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CanGoForward"/> property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CanGoForward">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.KeyboardInputSite">
+            <summary>
+            WebView2Composition Control only needs IKeyboardInputSink:TabInto to get the direction of tab traversal.
+            KeyboardInputSite is not implemented by WebView2Composition.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.OnGotFocus(System.Windows.RoutedEventArgs)">
+            <summary>
+            We override the  <see cref="M:System.Windows.UIElement.OnGotFocus(System.Windows.RoutedEventArgs)"/> to prevent the focus event from propagating.
+            We expect the event raised from <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2Base.CoreWebView2Controller_GotFocus(System.Object,System.Object)"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.OnLostFocus(System.Windows.RoutedEventArgs)">
+            <summary>
+            We override the  <see cref="M:System.Windows.UIElement.OnLostFocus(System.Windows.RoutedEventArgs)"/> to prevent the focus event from propagating.
+            We expect the event raised from <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2Base.CoreWebView2Controller_LostFocus(System.Object,System.Object)"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CoreWebView2Controller_GotFocus(System.Object,System.Object)">
+            <summary>
+            This is an event handler for our CoreWebView2Controller's GotFocus event.
+            Used to record whether the control currently has focus.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.CoreWebView2Controller_LostFocus(System.Object,System.Object)">
+            <summary>
+            This is an event handler for our CoreWebView2Controller's Lost event.
+            We just need to propagate the event to WPF.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.HasFocusWithin">
+            <summary>
+            IKeyboardInputSink:HasFocusWithin interface.
+            Whether WebView has focus.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.OnMnemonic(System.Windows.Interop.MSG@,System.Windows.Input.ModifierKeys)">
+            <summary>
+            IKeyboardInputSink:OnMnemonic interface.
+            Not implemented by WebView2.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.RegisterKeyboardInputSink(System.Windows.Interop.IKeyboardInputSink)">
+            <summary>
+            IKeyboardInputSink:RegisterKeyboardInputSink interface.
+            Not implemented by WebView2.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.TabInto(System.Windows.Input.TraversalRequest)">
+            <summary>
+            IKeyboardInputSink:TabInto interface.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.TranslateAccelerator(System.Windows.Interop.MSG@,System.Windows.Input.ModifierKeys)">
+            <summary>
+            IKeyboardInputSink:TranslateAccelerator interface.
+            Not implemented by WebView2.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.TranslateChar(System.Windows.Interop.MSG@,System.Windows.Input.ModifierKeys)">
+            <summary>
+            IKeyboardInputSink:TranslateChar interface.
+            Not implemented by WebView2.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.OnKeyDown(System.Windows.Input.KeyEventArgs)">
+            <summary>
+            This is overridden from <see cref="T:System.Windows.UIElement"/> and called to allow us to handle key press input.
+            WPF should never actually call this in response to keyboard events because the focus is on the controller's HWND.
+            When Controller's HWND has focus, WPF does not know the Controller's HWND belongs to this control, and the key event will not be fired for this control and WPF main window.
+            This override should only be called when we're explicitly forwarding accelerator key input from the CoreWebView2 to WPF (in CoreWebView2Controller_AcceleratorKeyPressed).
+            Even then, this KeyDownEvent is only triggered because our PreviewKeyDownEvent implementation explicitly triggers it, matching WPF's usual system.
+            So the process is:
+            <list type="number">
+            <item><description>CoreWebView2Controller_AcceleratorKeyPressed</description></item>
+            <item><description>PreviewKeyDownEvent</description></item>
+            <item><description>KeyDownEvent</description></item>
+            <item><description>OnKeyDown</description></item>
+            </list>
+            .
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.OnKeyUp(System.Windows.Input.KeyEventArgs)">
+            <summary>
+            See <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.OnKeyDown(System.Windows.Input.KeyEventArgs)"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.OnPreviewKeyDown(System.Windows.Input.KeyEventArgs)">
+            <summary>
+            This is the "Preview" (i.e. tunneling) version of <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.OnKeyDown(System.Windows.Input.KeyEventArgs)"/>, so it actually happens first.
+            Like OnKeyDown, this will only ever be called if we're explicitly forwarding key presses from the CoreWebView2.
+            In order to mimic WPF's standard input handling, when we receive this we turn around and fire off the standard bubbling KeyDownEvent.
+            That way others in the WPF tree see the same standard pair of input events that WPF itself would have triggered if it were handling the key press.
+            </summary>
+            <seealso cref="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.OnKeyDown(System.Windows.Input.KeyEventArgs)"/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.OnPreviewKeyUp(System.Windows.Input.KeyEventArgs)">
+            <summary>
+            See <see cref="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.OnPreviewKeyDown(System.Windows.Input.KeyEventArgs)"/>.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.ZoomFactorProperty">
+            <summary>
+            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.ZoomFactor"/> property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.ZoomFactor">
+            <inheritdoc/>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.ZoomFactorChanged">
+            <inheritdoc/>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.DefaultBackgroundColorProperty">
+            <summary>
+            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.DefaultBackgroundColor"/> property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.DefaultBackgroundColor">
+            <inheritdoc/>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.AllowExternalDropProperty">
+            <summary>
+            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="F:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.AllowExternalDropProperty"/> property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.AllowExternalDrop">
+            <inheritdoc/>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.DesignModeForegroundColorProperty">
+            <summary>
+            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.DesignModeForegroundColor"/> property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.DesignModeForegroundColor">
+            <inheritdoc/>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.FpsDividerProperty">
+            <summary>
+            The WPF <see cref="T:System.Windows.DependencyProperty"/> which backs the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.FpsDivider"/> property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.FpsDivider">
+            <summary>
+            Gets or sets the divider for the rendering frame rate of the WebViewCompositionControl.
+            </summary>
+            <remarks>
+            The FpsDivider property affects how the rendering frame rate is divided. For example, if the default rendering frame rate of the content is 60 frames
+            per second (fps), setting the FpsDivider to 2 reduces the frame rate to 30 fps. This property is useful for reducing the rendering load and improving
+            performance for scenarios where high frame rates are unnecessary.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.FpsDividerChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            This is a callback that WPF calls when our WPF FpsDivider property's value changes.
+            We implement it by setting the FpsDivider of the GraphicsItemD3DImage.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.GoBack">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.GoForward">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.Reload">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.Stop">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.NavigateToString(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.ContentLoading">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.ExecuteScriptAsync(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="E:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.WebMessageReceived">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Wpf.WebView2CompositionControl.IsInDesignMode">
+            <summary>
+            True when we're in design mode and shouldn't create an underlying CoreWebView2.
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
             </summary>
         </member>
     </members>
