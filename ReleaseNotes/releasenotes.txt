@@ -1,3 +1,24 @@
+## Version 2.0.8.6 PRE-RELEASE NOTE
+- **New features:**
+  - Fixed a critical bug when stopping the server certain timer and status were no longer reset correctly
+  - Start of moving logs for a full implementation of logs later
+- **Bug fixes:**
+  - Fixed a critical bug when stopping the server certain timer and status were no longer reset correctly
+  - Fixed a critical bug when crash detection was triggered all statuses were not reset this could cause duplicate timers and performance issues
+- **Improvements**
+  - **Crash detection:**
+    - The system now waits for 3 minutes before performing the first server check after activation. This ensures the server has enough time to fully start. This will avoid loop restarts if the server crashes upon launch.
+    - To detect if the server crashes, server checks will now occur every minute (instead of every 5 seconds). 
+    - The server (PID) will be checked 3 times every 15 seconds. For the server to be detected as crashed, 3 PID check failures must be cumulative. This will make the crash detection time longer (1 Minute). But will make the system more reliable by avoiding false detections.
+    - Ensures that server checks (PID) do not overlap, making the process more efficient and reducing the risk of errors.
+    - Now when crash detection detects a crash it immediately deactivates before restarting the server to avoid any inappropriate launch
+    - Enhanced Logging all important events and errors are now logged
+    - Added an ellipse to indicate the status of crash detection when monitoring is active the color is green
+- **New Validation team members**
+  - Welcome orkid1989, Digby420
+- **Credits:**
+  - Added new contributors
+
 ## Version 2.0.8.5 PRE-RELEASE NOTE
 - **Bug fixes:**
   - Fix Removed character limitation in RCON message sending textbox following proposal to add UnicodeRCON plugin
