@@ -1,6 +1,16 @@
+## Version 2.0.8.7 PRE-RELEASE NOTE
+- **Bug fixes:**
+  - Fixed a bug when using the Cancel Stop button that caused crash detection to be disabled
+- **Improvements**
+  - Added new status to crash detection (Pending -> Yellow)
+  - Improved new Logs tab
+- **Validation team improvements**
+  - Added ClickUp link to beta download button
+- **New Validation team members**
+  - Welcome Stevie senpai
+
 ## Version 2.0.8.6 PRE-RELEASE NOTE
 - **New features:**
-  - Fixed a critical bug when stopping the server certain timer and status were no longer reset correctly
   - Start of moving logs for a full implementation of logs later
 - **Bug fixes:**
   - Fixed a critical bug when stopping the server certain timer and status were no longer reset correctly
