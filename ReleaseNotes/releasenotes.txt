@@ -1,3 +1,11 @@
+## Version 2.0.8.8 PRE-RELEASE NOTE
+- **Fix following team validation feedback:**  
+  - Fixed a bug in crash detection status
+  - PlayerBaseStatMultiplier removed unused stats 
+  - PlayerBaseStatMultiplier added Arrow in the datagird sor selection
+  - PlayerBaseStatMultiplier Changing the default stats
+  - PlayerBaseStatMultiplier Added automatic calculation of Output
+
 ## Version 2.0.8.7 PRE-RELEASE NOTE
 - **Bug fixes:**
   - Fixed a bug when using the Cancel Stop button that caused crash detection to be disabled
