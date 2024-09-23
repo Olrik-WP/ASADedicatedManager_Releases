@@ -1,3 +1,7 @@
+## Version 2.0.9.0 PRE-RELEASE NOTE
+- **Fix following team validation feedback:**  
+  - Fixed Torpidity in PlayerBaseStatMultiplier
+
 ## Version 2.0.8.9 PRE-RELEASE NOTE
 - **Fix following team validation feedback:**  
   - Fixed the inversion between PlayerBaseStatMultiplier and PerLevelStatsMultiplier
