@@ -1,3 +1,13 @@
+## Version 2.0.8.9 PRE-RELEASE NOTE
+- **Fix following team validation feedback:**  
+  - Fixed the inversion between PlayerBaseStatMultiplier and PerLevelStatsMultiplier
+  - PlayerBaseStatMultiplier Updated automatic calculation of Output
+  - PlayerBaseStatMultiplier Removing unused stats But kept in case of loading from ini
+- **Updated Validation team members**
+  - Chief Bodo
+- **New Validation team members**
+  - Welcome anarchy0001
+
 ## Version 2.0.8.8 PRE-RELEASE NOTE
 - **Fix following team validation feedback:**  
   - Fixed a bug in crash detection status
