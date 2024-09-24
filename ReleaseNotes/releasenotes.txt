@@ -1,5 +1,13 @@
+## Version 2.0.9.2 PRE-RELEASE NOTE
+- **Improvements**
+    - Added Server Management Core to enable tabs to be displayed in large screen
+    - Added automatic collapse of the Server Management Core Expander when clicking on a tab
+    - Added an option in the option menu to Enable or Disable automatic minimization of the Expander Server Management Core when clicking on a tab
+    - Moved PerLevelStatsMultiplier to a new tab
+    - Changed maximum datagird size to unlimited
+
 ## Version 2.0.9.1 PRE-RELEASE NOTE
-- **Bug fixes:**
+- **Fix following team validation feedback:**  
   - Crash detection: Fixed a bug when stopping or killing the server, monitoring was not stopped during the monitoring waiting period (yellow status), which caused monitoring to continue despite the fact that its stop was requested.
 - **Improvements**
     - Crash detection: The waiting time from 3 minutes has been changed to 30 seconds (waiting for monitoring yellow status)
