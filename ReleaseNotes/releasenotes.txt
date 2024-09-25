@@ -1,3 +1,9 @@
+## Version 2.0.9.3 PRE-RELEASE NOTE
+- **Improvements**
+  - Management of processes that did not exist before activating crash detection to allow the reinitialization of the interface, timers and all statuses to the correct values
+- **Bug fixes:**
+  - Fixed a critical bug generating an application crash if the dedicated server process was null when applying CPU affinity
+
 ## Version 2.0.9.2 PRE-RELEASE NOTE
 - **Improvements**
     - Added Server Management Core to enable tabs to be displayed in large screen
