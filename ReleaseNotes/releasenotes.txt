@@ -1,3 +1,7 @@
+## Version 2.0.9.8 PRE-RELEASE NOTE
+- **Fix following team validation feedback:**  
+  - Add to update CreatureStats.csv
+
 ## Version 2.0.9.7 PRE-RELEASE NOTE
 - **Fix following team validation feedback:**  
   - Improved player profile save message handling: Now, messages will only be sent if the "Show save message" option is enabled in the settings. If this option is disabled, no messages will be displayed in the chat or via the plugin.
