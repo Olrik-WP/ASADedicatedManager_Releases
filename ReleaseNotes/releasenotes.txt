@@ -1,3 +1,7 @@
+## Version 2.0.9.9 PRE-RELEASE NOTE
+- **Fix following team validation feedback:**  
+  - Try fix missing CreatureStats.csv
+
 ## Version 2.0.9.8 PRE-RELEASE NOTE
 - **Fix following team validation feedback:**  
   - Add to update CreatureStats.csv
