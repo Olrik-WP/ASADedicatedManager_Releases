@@ -1,3 +1,7 @@
+## Version 2.0.9.6 PRE-RELEASE NOTE
+- **Improvements**
+  - PerLevelStatsMultiplier DinoWild (Last)
+
 ## Version 2.0.9.5 PRE-RELEASE NOTE
 - **New features:**
   - Added automatic calculation of DinoWild for PerLevelStatsMultiplier (preview)
