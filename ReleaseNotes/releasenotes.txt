@@ -1,3 +1,12 @@
+## Version 2.0.9.4 PRE-RELEASE NOTE
+- **Improvements**
+  - Added a button for clear Logs
+  - Working on PerLevelStatsMultiplier (preview)
+- **Fix following team validation feedback:**  
+  - Fixed a bug in restart methods that could cause multiple consoles to launch in rare cases
+  - Fixed a bug when canceling a shutdown or restart while waiting for a warning that could cause multiple consoles to launch in rare cases
+  - Clicking the kill server button now cancels a scheduled shutdown
+
 ## Version 2.0.9.3 PRE-RELEASE NOTE
 - **Improvements**
   - Management of processes that did not exist before activating crash detection to allow the reinitialization of the interface, timers and all statuses to the correct values
