@@ -1,3 +1,7 @@
+## Version 2.1.0.0 PRE-RELEASE NOTE
+- **Bug fixes:**
+  -Moved CreatureStats.csv to new folder
+
 ## Version 2.0.9.9 PRE-RELEASE NOTE
 - **Fix following team validation feedback:**  
   - Try fix missing CreatureStats.csv
