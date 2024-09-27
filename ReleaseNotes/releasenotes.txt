@@ -1,3 +1,7 @@
+## Version 2.1.0.5 PRE-RELEASE NOTE
+- **Bug fixes:**
+  - Bug fix After closing the discord bot window reopening it made the manager spit out
+
 ## Version 2.1.0.4 PRE-RELEASE NOTE
 - **Bug fixes:**
   - Fixed closing the manager causes an exception
