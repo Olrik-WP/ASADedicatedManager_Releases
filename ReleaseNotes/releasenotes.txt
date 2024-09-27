@@ -1,3 +1,7 @@
+## Version 2.1.0.2 PRE-RELEASE NOTE
+- **Bug fixes:**
+  - Fixed Stuck on loading screen
+
 ## Version 2.1.0.1 PRE-RELEASE NOTE
 - **Fix following team validation feedback:**  
   - Improved save message handling: Now, messages will only be sent if the "Show save message" option is enabled in the settings. If this option is disabled, no messages will be displayed in the chat or via the plugin.
