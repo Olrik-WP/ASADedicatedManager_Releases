@@ -1,3 +1,14 @@
+## Version 2.1.0.1 PRE-RELEASE NOTE
+- **Fix following team validation feedback:**  
+  - Improved save message handling: Now, messages will only be sent if the "Show save message" option is enabled in the settings. If this option is disabled, no messages will be displayed in the chat or via the plugin.
+- **Discord bot new feature:**
+  - Complete review of the Discord Bot:
+  - Modification of the log methods to improve it and various crashes, Performance improvement...
+  - Addition of sending the server status live
+  - Addition of a new Discord Channel ID field in the discord window **this field is mandatory to allow to indicate to the bot where to send the server status messages**
+  - Added new command: !saveworld <ProfileName>  Save a specific profile
+  - Added new command: !fullbackup <ProfileName> Perform a full backup with a zip for a specific profile
+
 ## Version 2.1.0.0 PRE-RELEASE NOTE
 - **Bug fixes:**
   -Moved CreatureStats.csv to new folder
