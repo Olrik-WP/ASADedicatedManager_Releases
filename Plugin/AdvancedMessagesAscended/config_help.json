@@ -1,0 +1,116 @@
+{
+	"AdvancedMessages": {
+		"WelcomeMessage": {
+			"EnableWelcomeMessage": true, // true if you want welcome message enabled, false if not
+			"WelcomeMessageType": "Server", // Message type can be either "Client", "Server" or "Notification"
+			"Message": "Welcome to the server {0}", // Welcome message, {0} stands for the player's character name
+			"WelcomeMessageColour": { //Welcome message colour, uses RGB code
+				"R": 1,
+				"G": 0,
+				"B": 0
+			},
+			"NotificationDisplayScale": 2, // If welcome message type is a notification, then this values set display time and scale
+			"NotificationDisplayTime": 10,
+			"Icon_BP": "/Game/PrimalEarth/CoreBlueprints/Items/Armor/Mammoth/Icons/MammothLegs_Icon.MammothLegs_Icon" // Icon blueprint that will be displayed with **Notification** welcome message type
+		},
+		"ClientChatSenderName": "MyArkServer", // Sender name for client chat triggered from command am.sendclient
+		"ServerMessageColor": { // Server chat message colour for command am.sendserver
+			"R": 0,
+			"G": 1,
+			"B": 0
+		},
+		"ClientChatColour": { // Client chat message colour for command am.sendclient
+			"R": 0,
+			"G": 1,
+			"B": 0
+		},
+		"NotificationDisplayScale": 3, // Notification display scale for command am.sendnotification
+		"NotificationDisplayTime": 10, // Notification display time (in seconds) for command am.sendnotification
+		"NotificationColor": { // Notification colour for command am.sendnotification
+			"R": 0.0,
+			"G": 1.0,
+			"B": 0.0
+		}
+	},
+	"TimedMessages": {
+		"Enabled": false, // Enable or disable timed messages
+		"Interval": 300, //Interval to send messages, in seconds
+		"Messages": [
+			{
+				"MessageToSend": "Client Message",
+				"MessageType": "Client",
+				"Sender": "Server",
+				"MessageColour": {
+					"R": 255,
+					"G": 0,
+					"B": 0
+				},
+				"Exclude_Permissions_Groups": [ "Admin", "Youtube" ]
+			},
+			{
+				"MessageToSend": "Server Message",
+				"MessageType": "Server",
+				"MessageColour": {
+					"R": 255,
+					"G": 0,
+					"B": 0
+				},
+				"Only_Send_To_Permission_Groups": [ "Default" ]
+			},
+			{
+				"MessageToSend": "Notification",
+				"MessageType": "Notification",
+				"DisplayTime": 10,
+				"DisplayScale": 2,
+				"MessageColour": {
+					"R": 255,
+					"G": 0,
+					"B": 0
+				}
+			},
+			{
+				"MessageToSend": "Notification with Icon",
+				"MessageType": "Notification",
+				"DisplayTime": 10,
+				"Icon_BP": "/Game/PrimalEarth/CoreBlueprints/Items/Armor/Mammoth/Icons/MammothLegs_Icon.MammothLegs_Icon",
+				"DisplayScale": 2,
+				"MessageColour": {
+					"R": 255,
+					"G": 0,
+					"B": 0
+				}
+			}
+		]
+	},
+	"CustomCommands": {
+		"/chat-rules": { // The command name, the one players will have to execute
+			"Message": "Be sure to follow the rules!", // Message to send to player
+			"Type": "Chat", // Type of the message, can be "Chat", "Server" and "Notification"
+			"Sender": "Server", // If message is "Chat" type, sender name in the message sent
+			"MessageColor": [ 255, 0, 0 ], // Color of the message, in RGB format
+			"RequiredPermissionGroups": [ "Default" ] // Needed permission to execute this command, everyone will be allowed if "Default" rank is put, or if this section is not present in the config
+		},
+		"/rules-server": {
+			"Message": "Be sure to follow the rules!",
+			"Type": "Server",
+			"MessageColor": [ 255, 0, 0 ],
+			"RequiredPermissionGroups": [ "Admins" ]
+		},
+		"/rules-notification": {
+			"Message": "Be sure to follow the rules!",
+			"Type": "Notification",
+			"DisplayTime": 10, // If message is notification type, this will set display time of the notification
+			"DisplayScale": 2, // If message is notification type, this will set display scale of the notification
+			"Icon_BP": "/Game/PrimalEarth/CoreBlueprints/Items/Armor/Mammoth/Icons/MammothLegs_Icon.MammothLegs_Icon", // Icon BP to show next to the notification msg
+			"MessageColor": [ 255, 0, 0 ]
+		},
+		"/store": {
+			"Message": "Check out this command alias!",
+			"Type": "Chat",
+			"Sender": "AdvancedMessages",
+			"MessageColor": [ 0, 255, 0 ],
+			"Command_To_Execute": "/shop" // Command to execute after doing this command. This will send a chat message, so only chat commands will be executed
+		}
+	},
+	"NoPermission": "You don't have permission to perform this command" // Message to send to the player, when doing a custom command without permission
+}

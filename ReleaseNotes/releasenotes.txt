@@ -1,3 +1,250 @@
+## Version 2.1.1.0 FINAL-RELEASE NOTE
+- **New Features:**
+  - **Discord Bot Overhaul:**
+    - Complete review of the Discord Bot.
+    - Modified logging methods to improve performance and fix various crashes.
+    - Added live server status updates in dedicated channel.
+    - Added a new Discord Channel ID field in the Discord window (**this field is mandatory to specify where to send server status messages**).
+    - Added new commands:
+      - `!saveworld <ProfileName>` to save a specific profile.
+      - `!fullbackup <ProfileName>` to perform a full backup with a zip for a specific profile.
+  - **Added PerLevelStatsMultiplier feature.**
+  - **Added automatic calculation of DinoWild for PerLevelStatsMultiplier.**
+  - **Started implementation of logs for a full logs system in the future (New log tab).**
+    - Added a button to clear logs
+  - **Added new options for RCON messages:**
+    - Since Broadcast does not work via RCON and has not been fixed by Wildcard, added support for **Pelayori's Advanced Messages Ascended 1.2** plugin (in API tab).
+    - Added proposal to install **srdev's UnicodeRCON ASA 1.1** plugin (in API tab).
+- **Improvements:**
+  - **Process Management:**
+    - Improved management of processes that did not exist before activating crash detection to allow the reinitialization of the interface, timers, and all statuses to the correct values.
+  - **Crash Detection Enhancements:**
+    - The system now waits for 3 minutes (changed to 30 seconds) before performing the first server check after activation to ensure the server has enough time to fully start and avoid loop restarts if the server crashes upon launch.
+    - To detect if the server crashes, server checks now occur every minute (instead of every 5 seconds).
+    - The server (PID) is checked 3 times every 15 seconds. For the server to be detected as crashed, 3 PID check failures must be cumulative.
+    - Ensured that server checks (PID) do not overlap, making the process more efficient and reducing the risk of errors.
+    - Now when crash detection detects a crash, it immediately deactivates before restarting the server to avoid any inappropriate launch.
+    - Enhanced logging: all important events and errors are now logged.
+    - Added an ellipse to indicate the status of crash detection when monitoring is active; the color is green.
+    - Added new status to crash detection (**Pending -> Yellow**).
+  - **Save Message Handling:**
+    - Messages will only be sent if the **"Show save message"** option is enabled in the settings. If disabled, no messages will be displayed in the chat or via the plugin.
+  - **PlayerBaseStatMultiplier and PerLevelStatsMultiplier:**
+    - Modified PlayerBaseStatMultiplier to add all entries to the array instead of one by one.
+    - Updated automatic calculation of Output in PlayerBaseStatMultiplier.
+    - Removed unused stats in PlayerBaseStatMultiplier (but kept in case of loading from ini).
+    - Changed default stats in PlayerBaseStatMultiplier.
+    - Added arrow in the datagrid for selection in PlayerBaseStatMultiplier.
+    - Moved PerLevelStatsMultiplier to a new tab.
+    - Changed maximum datagrid size to unlimited.
+    - Full implementation of PerLevelStatsMultiplier.
+  - **User Interface Improvements:**
+    - Added **Server Management Core** to enable tabs to be displayed on large screens.
+    - Added automatic collapse of the **Server Management Core Expander** when clicking on a tab.
+    - Added an option in the options menu to enable or disable automatic minimization of the **Expander Server Management Core** when clicking on a tab.
+    - Added ClickUp link to beta download button.
+    - Fixed a line of English translation.
+  - **API and Plugin Integration:**
+    - Removed character limitation in RCON message sending textbox following the addition of **UnicodeRCON** plugin support.
+    - Full review of how the activation/deactivation of checkboxes in the API tab works.
+    - Changed the official API website.
+    - Updated the link to ASA plugins.
+    - Added API documentation.
+    - Changed API installation message to indicate that prerequisites are also installed (**Microsoft Visual C++ 2019 Redistributable Package**).
+- **Bug Fixes:**
+  - Fixed an exception that occurred when closing the manager.
+  - Fixed a bug in crash detection status.
+  - Fixed a bug when using the **Cancel Stop** button that caused crash detection to be disabled.
+  - Fixed bugs in restart methods that could cause multiple consoles to launch in rare cases.
+  - Fixed a bug when canceling a shutdown or restart while waiting for a warning that could cause multiple consoles to launch in rare cases.
+  - Clicking the kill server button now cancels a scheduled shutdown.
+  - Fixed a critical bug generating an application crash if the dedicated server process was null when applying CPU affinity.
+  - **Crash detection:**
+    - Fixed a bug when stopping or killing the server, monitoring was not stopped during the monitoring waiting period (yellow status), which caused monitoring to continue despite the stop request.
+    - Fixed a critical bug when stopping the server; certain timers and statuses were not reset correctly.
+    - Fixed a critical bug when crash detection was triggered; all statuses were not reset, causing duplicate timers and performance issues.
+  - Fixed a bug that locked the **Game.ini** file in **CustomOverride** and prevented a new save by showing an Access Denied message.
+  - Fixed a bug that locked the **Game.ini-xxx.bak** file because it was copied while the server was running and therefore in read-only mode, causing an Access Denied message.
+  - **PerLevelStatsMultiplier** is now correctly loaded when launching the manager from the ini file.
+- **Other Changes:**
+  - **Information:**
+    - In the API tab, you can now force the code to use the free Pelayori plugin: **Advanced Messages Ascended 1.2**. This will send notifications as Broadcast and replace the RCON messages currently sent in chat.
+    - Please note that you must have configured the API with its database as well as the permission plugin.
+    - Common issues: If you are getting error 126 when loading the plugin, you need the **Visual C++ Redistributable for Visual Studio 2019**.
+    - Unicode support for messages: Sending messages manually from RCON requires the **UnicodeRCON** plugin: [https://ark-server-api.com/resources/unicodercon-asa.96/](https://ark-server-api.com/resources/unicodercon-asa.96/).
+    - Official plugin page: [https://ark-server-api.com/resources/advanced-messages-ascended.38/](https://ark-server-api.com/resources/advanced-messages-ascended.38/).
+  - **Credits:**
+    - Added new contributors.
+  - **Validation Team Updates:**
+    - Added new validation team members: **orkid1989**, **Digby420**, **Stevie senpai**, **anarchy0001**, **Chief Bodo**.
+
+## Version 2.1.0.5 PRE-RELEASE NOTE
+- **Bug fixes:**
+  - Bug fix After closing the discord bot window reopening it made the manager spit out
+
+## Version 2.1.0.4 PRE-RELEASE NOTE
+- **Bug fixes:**
+  - Fixed closing the manager causes an exception
+
+## Version 2.1.0.3 PRE-RELEASE NOTE
+- **Bug fixes:**
+  - Fixed Kill server crash the manager
+
+## Version 2.1.0.2 PRE-RELEASE NOTE
+- **Bug fixes:**
+  - Fixed Stuck on loading screen
+
+## Version 2.1.0.1 PRE-RELEASE NOTE
+- **Fix following team validation feedback:**  
+  - Improved save message handling: Now, messages will only be sent if the "Show save message" option is enabled in the settings. If this option is disabled, no messages will be displayed in the chat or via the plugin.
+- **Discord bot new feature:**
+  - Complete review of the Discord Bot:
+  - Modification of the log methods to improve it and various crashes, Performance improvement...
+  - Addition of sending the server status live
+  - Addition of a new Discord Channel ID field in the discord window **this field is mandatory to allow to indicate to the bot where to send the server status messages**
+  - Added new command: !saveworld <ProfileName>  Save a specific profile
+  - Added new command: !fullbackup <ProfileName> Perform a full backup with a zip for a specific profile
+
+## Version 2.1.0.0 PRE-RELEASE NOTE
+- **Bug fixes:**
+  -Moved CreatureStats.csv to new folder
+
+## Version 2.0.9.9 PRE-RELEASE NOTE
+- **Fix following team validation feedback:**  
+  - Try fix missing CreatureStats.csv
+
+## Version 2.0.9.8 PRE-RELEASE NOTE
+- **Fix following team validation feedback:**  
+  - Add to update CreatureStats.csv
+
+## Version 2.0.9.7 PRE-RELEASE NOTE
+- **Fix following team validation feedback:**  
+  - Improved player profile save message handling: Now, messages will only be sent if the "Show save message" option is enabled in the settings. If this option is disabled, no messages will be displayed in the chat or via the plugin.
+
+## Version 2.0.9.6 PRE-RELEASE NOTE
+- **Improvements**
+  - PerLevelStatsMultiplier DinoWild (Last)
+
+## Version 2.0.9.5 PRE-RELEASE NOTE
+- **New features:**
+  - Added automatic calculation of DinoWild for PerLevelStatsMultiplier (preview)
+
+## Version 2.0.9.4 PRE-RELEASE NOTE
+- **Improvements**
+  - Added a button for clear Logs
+  - Working on PerLevelStatsMultiplier (preview)
+- **Fix following team validation feedback:**  
+  - Fixed a bug in restart methods that could cause multiple consoles to launch in rare cases
+  - Fixed a bug when canceling a shutdown or restart while waiting for a warning that could cause multiple consoles to launch in rare cases
+  - Clicking the kill server button now cancels a scheduled shutdown
+
+## Version 2.0.9.3 PRE-RELEASE NOTE
+- **Improvements**
+  - Management of processes that did not exist before activating crash detection to allow the reinitialization of the interface, timers and all statuses to the correct values
+- **Bug fixes:**
+  - Fixed a critical bug generating an application crash if the dedicated server process was null when applying CPU affinity
+
+## Version 2.0.9.2 PRE-RELEASE NOTE
+- **Improvements**
+    - Added Server Management Core to enable tabs to be displayed in large screen
+    - Added automatic collapse of the Server Management Core Expander when clicking on a tab
+    - Added an option in the option menu to Enable or Disable automatic minimization of the Expander Server Management Core when clicking on a tab
+    - Moved PerLevelStatsMultiplier to a new tab
+    - Changed maximum datagird size to unlimited
+
+## Version 2.0.9.1 PRE-RELEASE NOTE
+- **Fix following team validation feedback:**  
+  - Crash detection: Fixed a bug when stopping or killing the server, monitoring was not stopped during the monitoring waiting period (yellow status), which caused monitoring to continue despite the fact that its stop was requested.
+- **Improvements**
+    - Crash detection: The waiting time from 3 minutes has been changed to 30 seconds (waiting for monitoring yellow status)
+
+## Version 2.0.9.0 PRE-RELEASE NOTE
+- **Fix following team validation feedback:**  
+  - Fixed Torpidity in PlayerBaseStatMultiplier
+
+## Version 2.0.8.9 PRE-RELEASE NOTE
+- **Fix following team validation feedback:**  
+  - Fixed the inversion between PlayerBaseStatMultiplier and PerLevelStatsMultiplier
+  - PlayerBaseStatMultiplier Updated automatic calculation of Output
+  - PlayerBaseStatMultiplier Removing unused stats But kept in case of loading from ini
+- **Updated Validation team members**
+  - Chief Bodo
+- **New Validation team members**
+  - Welcome anarchy0001
+
+## Version 2.0.8.8 PRE-RELEASE NOTE
+- **Fix following team validation feedback:**  
+  - Fixed a bug in crash detection status
+  - PlayerBaseStatMultiplier removed unused stats 
+  - PlayerBaseStatMultiplier added Arrow in the datagird sor selection
+  - PlayerBaseStatMultiplier Changing the default stats
+  - PlayerBaseStatMultiplier Added automatic calculation of Output
+
+## Version 2.0.8.7 PRE-RELEASE NOTE
+- **Bug fixes:**
+  - Fixed a bug when using the Cancel Stop button that caused crash detection to be disabled
+- **Improvements**
+  - Added new status to crash detection (Pending -> Yellow)
+  - Improved new Logs tab
+- **Validation team improvements**
+  - Added ClickUp link to beta download button
+- **New Validation team members**
+  - Welcome Stevie senpai
+
+## Version 2.0.8.6 PRE-RELEASE NOTE
+- **New features:**
+  - Start of moving logs for a full implementation of logs later
+- **Bug fixes:**
+  - Fixed a critical bug when stopping the server certain timer and status were no longer reset correctly
+  - Fixed a critical bug when crash detection was triggered all statuses were not reset this could cause duplicate timers and performance issues
+- **Improvements**
+  - **Crash detection:**
+    - The system now waits for 3 minutes before performing the first server check after activation. This ensures the server has enough time to fully start. This will avoid loop restarts if the server crashes upon launch.
+    - To detect if the server crashes, server checks will now occur every minute (instead of every 5 seconds). 
+    - The server (PID) will be checked 3 times every 15 seconds. For the server to be detected as crashed, 3 PID check failures must be cumulative. This will make the crash detection time longer (1 Minute). But will make the system more reliable by avoiding false detections.
+    - Ensures that server checks (PID) do not overlap, making the process more efficient and reducing the risk of errors.
+    - Now when crash detection detects a crash it immediately deactivates before restarting the server to avoid any inappropriate launch
+    - Enhanced Logging all important events and errors are now logged
+    - Added an ellipse to indicate the status of crash detection when monitoring is active the color is green
+- **New Validation team members**
+  - Welcome orkid1989, Digby420
+- **Credits:**
+  - Added new contributors
+
+## Version 2.0.8.5 PRE-RELEASE NOTE
+- **Bug fixes:**
+  - Fix Removed character limitation in RCON message sending textbox following proposal to add UnicodeRCON plugin
+
+## Version 2.0.8.4 PRE-RELEASE NOTE
+- **New features:**
+  - Added new possibility for RCON messages since Broadcast does not work via RCON and has not been fixed by Wilcard (see the Information release note for more info)
+  - Added the proposal to install the Pelayori plugin: Advanced Messages Ascended 1.2 with all the logic that follows for installing the API and activating it
+  - Added the proposal to install the srdev plugin UnicodeRCON ASA 1.1 Turns "???? ???" to pretty word in RCON (word used is Hello)
+- **Improvements**
+  - Removed character limitation in RCON message sending textbox following proposal to add UnicodeRCON plugin
+  - Full review of how the activation/deactivation of checkboxes in the API tab works
+  - Changed the official API website
+  - Updated the link to ASA plugins
+  - Added API documentation
+  - Changed API installation message to indicate that prerequisites are also installed (Microsoft Visual C++ 2019 Redistributable Package)
+- **Bug fixes:**
+  - PerLevelStatsMultiplier is now correctly loaded when launching the manager from the ini file
+  - Fixed a bug that locked the Game.ini file in CustomOverride and prevented a new save by showing a message with Access Denied
+  - Fixed a bug that locked the Game.ini-xxx.bak file because it was copied while the server was running and therefore in read only mode, causing an access denied message
+- **Informations**
+  - In the API tab you can now force the code to use the free Pelayori plugin: Advanced Messages Ascended 1.2 this will send notifications as Broadcast and replace the RCON messages currently sent in chat
+  - Please note that you must have configured the API with its database as well as the permission plugin
+  - Common issues:I am getting error 126 when loading the plugin. You need the Visual C++ Redistributable for Visual Studio 2019 as I compile my plugins with latest Visual Studio 2019.
+  - Unicode support for messages. NOTE: Sending messages manyally from RCON requires the Unicode Rcon Plugin: https://ark-server-api.com/resources/unicodercon-asa.96/ Turns "???? ???" to pretty word in RCON (word used is Hello)
+  - Official plugin page: https://ark-server-api.com/resources/advanced-messages-ascended.38/
+
+## Version 2.0.8.3 PRE-RELEASE NOTE
+- **New features:**
+  - Added PerLevelStatsMultiplier
+- **Improvements**
+  - Modified PlayerBaseStatMultiplier to add all entries to the array instead of one by one
+  - Fixed a line of English translation
+
 ## Version 2.0.8.2 FINAL-RELEASE NOTE
 - **New features:**
   - Added more time when sending an information message when stopping or restarting the server from 30 seconds to 30 minutes

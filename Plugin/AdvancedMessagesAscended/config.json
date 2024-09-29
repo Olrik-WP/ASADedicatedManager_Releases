@@ -1,0 +1,117 @@
+{
+	"AdvancedMessages": {
+		"WelcomeMessage": {
+			"EnableWelcomeMessage": true,
+			"WelcomeMessageType": "Chat",
+			"Message": "Welcome to the server {0}",
+			"WelcomeMessageColour": {
+				"R": 1,
+				"G": 0,
+				"B": 0
+			},
+			"NotificationDisplayScale": 2,
+			"NotificationDisplayTime": 10,
+			"Icon_BP": "/Game/PrimalEarth/CoreBlueprints/Items/Armor/Mammoth/Icons/MammothLegs_Icon.MammothLegs_Icon"
+		},
+		"ClientChatSenderName": "MyArkServer",
+		"ServerMessageColor": {
+			"R": 0,
+			"G": 1,
+			"B": 0
+		},
+		"ClientChatColour": {
+			"R": 0,
+			"G": 1,
+			"B": 0
+		},
+		"NotificationDisplayScale": 3,
+		"NotificationDisplayTime": 10,
+		"NotificationColor": {
+			"R": 0.0,
+			"G": 1.0,
+			"B": 0.0
+		}
+	},
+	"TimedMessages": {
+		"Enabled": false,
+		"Interval": 300,
+		"Messages": [
+			{
+				"MessageToSend": "Client Message",
+				"MessageType": "Client",
+				"Sender": "Server",
+				"MessageColour": {
+					"R": 255,
+					"G": 0,
+					"B": 0
+				},
+				"Exclude_Permissions_Groups": [ "Admin", "Youtube" ]
+			},
+			{
+				"MessageToSend": "Server Message",
+				"MessageType": "Server",
+				"MessageColour": {
+					"R": 255,
+					"G": 0,
+					"B": 0
+				},
+				"Only_Send_To_Permission_Groups": [ "Default" ]
+			},
+			{
+				"MessageToSend": "Notification",
+				"MessageType": "Notification",
+				"DisplayTime": 10,
+				"DisplayScale": 2,
+				"MessageColour": {
+					"R": 255,
+					"G": 0,
+					"B": 0
+				}
+			},
+			{
+				"MessageToSend": "Notification with Icon",
+				"MessageType": "Notification",
+				"DisplayTime": 10,
+				"Icon_BP": "/Game/PrimalEarth/CoreBlueprints/Items/Armor/Mammoth/Icons/MammothLegs_Icon.MammothLegs_Icon",
+				"DisplayScale": 2,
+				"MessageColour": {
+					"R": 255,
+					"G": 0,
+					"B": 0
+				}
+			}
+		]
+	},
+	"CustomCommands": {
+
+		"/chat-rules": {
+			"Message": "Be sure to follow the rules!",
+			"Type": "Chat",
+			"Sender": "Server",
+			"MessageColor": [ 0, 0, 0 ],
+			"RequiredPermissionGroups": [ "Default" ]
+		},
+		"/rules-server": {
+			"Message": "Be sure to follow the rules!",
+			"Type": "Server",
+			"MessageColor": [ 0, 0, 0 ],
+			"RequiredPermissionGroups": [ "Admins" ]
+		},
+		"/rules-notification": {
+			"Message": "Be sure to follow the rules!",
+			"Type": "Notification",
+			"DisplayTime": 10,
+			"DisplayScale": 2,
+			"Icon_BP": "/Game/PrimalEarth/CoreBlueprints/Items/Armor/Mammoth/Icons/MammothLegs_Icon.MammothLegs_Icon",
+			"MessageColor": [ 0, 0, 0 ]
+		},
+		"/store": {
+			"Message": "Check out this command alias!",
+			"Type": "Chat",
+			"Sender": "AdvancedMessages",
+			"MessageColor": [ 0, 0, 0 ],
+			"Command_To_Execute": "/shop"
+		}
+	},
+	"NoPermission": "You don't have permission to perform this command"
+}

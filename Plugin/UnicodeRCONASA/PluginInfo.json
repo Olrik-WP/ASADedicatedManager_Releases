@@ -1,0 +1,6 @@
+{
+  "FullName": "Unicode Rcon",
+  "Description": "Unicode support for RCON",
+  "Version": 1.0,
+  "MinApiVersion": 1.15
+}
