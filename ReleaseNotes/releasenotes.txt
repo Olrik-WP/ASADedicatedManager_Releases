@@ -1,3 +1,10 @@
+## Version 2.1.1.2 PRE-RELEASE NOTE
+- **CRITICAL Bug fixes:**  
+  - **Fixed issue with update check interval**: The server update check time was incorrect (set to 1 second instead of the selected value). This issue has been resolved by ensuring that the interval selected in the list is correctly applied.
+   - **Improved server update detection**: An issue prevented the detection of server updates, even when updates were available. This issue has been fixed, and the check now works correctly.
+   - **Enhanced display of the next update check interval**: The message displaying the next update check now accurately reflects the time selected by the user.
+   - **Fixed error messages**: Error messages are now clearer when there is an issue during the update check, providing better understanding.
+
 ## Version 2.1.1.1 FINAL-RELEASE NOTE
 - Added automatic log management: Limit logs to 500 lines in the RichTextBox. The oldest lines are automatically deleted when the limit is reached.
 - Performance maintenance: Improved performance by avoiding excessive accumulation of logs in the interface.
