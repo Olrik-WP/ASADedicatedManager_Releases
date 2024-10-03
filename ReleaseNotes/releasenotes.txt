@@ -1,3 +1,7 @@
+## Version 2.1.1.1 FINAL-RELEASE NOTE
+- Added automatic log management: Limit logs to 500 lines in the RichTextBox. The oldest lines are automatically deleted when the limit is reached.
+- Performance maintenance: Improved performance by avoiding excessive accumulation of logs in the interface.
+
 ## Version 2.1.1.0 FINAL-RELEASE NOTE
 - **New Features:**
   - **Discord Bot Overhaul:**
