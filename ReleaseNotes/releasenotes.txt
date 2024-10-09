@@ -1,3 +1,14 @@
+## Version 2.1.1.3 PRE-RELEASE NOTE
+- **New Features:**
+  - Redesigned Server management tab
+  - **All options in the Server management tab can work together**
+  - Start, stop, and update processes are now coordinated to avoid overlap, ensuring smooth execution.
+  - Multiple attempts to restart, shut down or update during an automated process are now prevented, reducing the risk of conflicts or errors.
+  - Logs messages are displayed when the server is already starting, starting, stopping, or updating.
+  - Removed stop or kill box messages, they are now displayed in the logs.
+- **CRITICAL Bug fixes:** 
+  - Fixed destroywilddinos method the timer is now saved every 60 seconds if the manager is restarted it will correctly resume where it left off
+
 ## Version 2.1.1.2 PRE-RELEASE NOTE
 - **CRITICAL Bug fixes:**  
   - **Fixed issue with update check interval**: The server update check time was incorrect (set to 1 second instead of the selected value). This issue has been resolved by ensuring that the interval selected in the list is correctly applied.
