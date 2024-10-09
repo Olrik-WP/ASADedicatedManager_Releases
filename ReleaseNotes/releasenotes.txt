@@ -1,3 +1,8 @@
+## Version 2.1.1.4 PRE-RELEASE NOTE
+- **Bug fixes:**  
+  - Automatic server updates are now correctly triggered when the auto-update option is enabled and an update is available.
+  - Added Dispatcher to ensure update and check messages are properly displayed to the user
+
 ## Version 2.1.1.3 PRE-RELEASE NOTE
 - **New Features:**
   - Redesigned Server management tab
