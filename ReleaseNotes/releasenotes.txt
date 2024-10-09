@@ -1,3 +1,12 @@
+## Version 2.1.1.5 PRE-RELEASE NOTE
+- **Bug fixes:**  
+  - Resolved the "Missing 'gid' in the API response" error by adjusting the data path in the API response JSON.
+  - Added additional checks to handle cases where certain sections of the JSON response are missing, improving code robustness.
+  - Removed the use of semaphores for synchronization in favor of using flags.
+  - Improved code clarity and maintainability by simplifying concurrency control logic.
+  - Properly reset update flag after each update attempt.
+  - Added a new flag to ensure updates are properly locked, preventing shutdowns or restarts during an update.
+
 ## Version 2.1.1.4 PRE-RELEASE NOTE
 - **Bug fixes:**  
   - Automatic server updates are now correctly triggered when the auto-update option is enabled and an update is available.
