@@ -1,4 +1,19 @@
-## Version 2.1.2.7 FINAL-RELEASE NOTE
+## Version 2.1.2.8 PRE-RELEASE NOTE
+- **New Features:**
+  - **Discord Bot Enhancements:**
+    - Implemented a system for the Discord bot to edit existing server status messages instead of posting new ones each time there is a status update. This change will reduce message spam in the channel and keep the information concise and organized.
+- **Improvements:**
+  - **Profile Backup Process:**
+    - Increased the delay for saving profiles from 3 seconds to 20 seconds after player connection or disconnection to allow the game sufficient time to release file access.
+    - Implemented 4 retry attempts with a 5-second interval between each attempt when creating the ZIP file, to ensure that the `.arkprofile` file is fully accessible before compressing.
+    - These changes aim to reduce the occurrence of empty ZIP files caused by the game still accessing the profile file during the backup process.
+- **Bug Fixes:**
+  - Addressed an issue where ZIP files were created empty or without the `.arkprofile` file due to the file being locked by the game during compression.
+- **Other Changes:**
+  - **Stability Enhancements:**
+    - Improved the overall stability of the backup process by ensuring the manager handles file access conflicts more gracefully.
+
+## Version 2.1.2.7 PRE-RELEASE NOTE
 - **New Features:**
   - **Player Warning Option:**
     - Added an option to disable player warnings before server updates by selecting "0 minutes" in the settings.
@@ -15,7 +30,7 @@
   - **Translation Updates:**
     - Updated translations for scheduled reboot messages to provide more detailed context and improve clarity for users.
 
-## Version 2.1.1.6 FINAL-RELEASE NOTE
+## Version 2.1.1.6 PRE-RELEASE NOTE
 - **New Features:**
   - **Concurrency Control:**
     - Added a mechanism to prevent simultaneous execution of multiple manifest checks, ensuring that only one check can run at a time.
