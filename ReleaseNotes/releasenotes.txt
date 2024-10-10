@@ -1,3 +1,20 @@
+## Version 2.1.2.7 FINAL-RELEASE NOTE
+- **New Features:**
+  - **Player Warning Option:**
+    - Added an option to disable player warnings before server updates by selecting "0 minutes" in the settings.
+  - **Scheduled Reboot Warning System:**
+    - Implemented a scheduled reboot warning system with customizable countdown options, allowing better control over server maintenance alerts.
+- **Improvements:**
+  - **Automatic Update Process:**
+    - Enhanced the ability to cancel automatic updates during the player warning stage. Once the server starts shutting down, the update process cannot be canceled.
+  - **User Interface Enhancements:**
+    - Polished the interface of the Server Management tab for a more intuitive user experience.
+    - Improved messaging during server updates to provide clearer information to users about the update process.
+    - Refined user messages for server shutdowns and reboots to make the process more transparent and easier to understand.
+- **Other Changes:**
+  - **Translation Updates:**
+    - Updated translations for scheduled reboot messages to provide more detailed context and improve clarity for users.
+
 ## Version 2.1.1.6 FINAL-RELEASE NOTE
 - **New Features:**
   - **Concurrency Control:**
@@ -6,10 +23,13 @@
     - Implemented flags (`isUpdateInProgress` and `isChekingInProgress`) to lock `UpdateStatusLabel` during the `PerformUpdateAsync` process to prevent modification by other methods during the update.
 - **Improvements:**
   - **Manifest Check Process:**
-    - Implemented a **random delay** (up to 6 seconds) before starting the manifest check to stagger multiple checks and avoid simultaneous executions.
+    - Implemented a random delay (up to 6 seconds) before starting the manifest check to stagger multiple checks and avoid simultaneous executions.
     - Improved the overall logic to properly disable and re-enable the check button based on the check's status.
     - Moved the `await Checkmanifest()` call to the final `finally` block to ensure that status changes to `UpdateStatusLabel` happen after the update is completed.
     - Added a new flag `shouldRetryUpdate` to handle scenarios where the update process needs to restart automatically if specific errors are encountered during the process.
+  - **API Request Delays and Retry Logic:**
+    - Added a delay of 11 seconds between retry attempts when the API call fails or when required data is missing, to reduce server load and improve stability.
+    - Configured the API request to retry up to 3 times (`maxRetries = 3`) in case of failure, to ensure robustness in handling transient errors.
   - **UI Status Changes:**
     - Prevented changes to `UpdateStatusLabel.Content` during the entire `PerformUpdateAsync` process, ensuring it remains as "Updating" until the update process is fully completed.
     - Added logic to ensure `UpdateStatusLabel` correctly indicates the status of the update process, even in cases where retries are necessary.
@@ -28,11 +48,12 @@
   - Removed redundant `finally` block to ensure proper code execution and cleanup after the update process.
   - Corrected the implementation of the `Dispatcher.Invoke` method to ensure all UI updates are properly executed on the main thread, preventing interface lockups.
   - Fixed a bug that caused `CheckUpdate.IsEnabled` to not re-enable properly after an error was thrown during the manifest check.
-- **Other Changes:**  - **User Feedback Improvements:**
+- **Other Changes:**
+  - **User Feedback Improvements:**
     - Added informative messages to alert users when a manifest check or update is skipped because another process is already in progress.
     - Ensured that all important status updates related to the manifest check process are clearly communicated in the UI.
   - **Automatic Retry Mechanism:**
-    - **Implemented a mechanism to automatically delete the `appmanifest_2430930.acf` file and restart the update process if a specific error (`Error! App '2430930' state is 0x486`) is encountered during the update.**
+    - Implemented a mechanism to automatically delete the `appmanifest_2430930.acf` file and restart the update process if a specific error (`Error! App '2430930' state is 0x486`) is encountered during the update.
 
 ## Version 2.1.1.5 PRE-RELEASE NOTE
 - **Bug fixes:**  
