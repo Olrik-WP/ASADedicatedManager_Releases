@@ -1,3 +1,39 @@
+## Version 2.1.1.6 FINAL-RELEASE NOTE
+- **New Features:**
+  - **Concurrency Control:**
+    - Added a mechanism to prevent simultaneous execution of multiple manifest checks, ensuring that only one check can run at a time.
+  - **Update Status Locking:**
+    - Implemented flags (`isUpdateInProgress` and `isChekingInProgress`) to lock `UpdateStatusLabel` during the `PerformUpdateAsync` process to prevent modification by other methods during the update.
+- **Improvements:**
+  - **Manifest Check Process:**
+    - Implemented a **random delay** (up to 6 seconds) before starting the manifest check to stagger multiple checks and avoid simultaneous executions.
+    - Improved the overall logic to properly disable and re-enable the check button based on the check's status.
+    - Moved the `await Checkmanifest()` call to the final `finally` block to ensure that status changes to `UpdateStatusLabel` happen after the update is completed.
+    - Added a new flag `shouldRetryUpdate` to handle scenarios where the update process needs to restart automatically if specific errors are encountered during the process.
+  - **UI Status Changes:**
+    - Prevented changes to `UpdateStatusLabel.Content` during the entire `PerformUpdateAsync` process, ensuring it remains as "Updating" until the update process is fully completed.
+    - Added logic to ensure `UpdateStatusLabel` correctly indicates the status of the update process, even in cases where retries are necessary.
+  - **Status Display Enhancements:**
+    - Added new status messages for better clarity during operations:
+      - `Updating`: Displays as "Update in progress."
+      - `Checkingupdate`: Displays as "Checking..."
+      - `Checkupdatefailed`: Displays as "Failed check logs."
+    - Implemented translations for these status messages to support multi-language users.
+  - **Error Handling Enhancements:**
+    - Enhanced error handling to ensure that when exceptions occur, the interface correctly reflects the error state and resets UI elements.
+    - Updated error messages to provide more user-friendly feedback when an issue is encountered during the manifest check or update process.
+- **Bug Fixes:**
+  - Resolved an issue where the manifest check would repeatedly show the message "Manifest check skipped because a check is currently in progress," even when no check was running.
+  - Fixed a logic error where the `isChekingInProgress` flag was not properly reset, causing subsequent checks to be blocked unintentionally.
+  - Removed redundant `finally` block to ensure proper code execution and cleanup after the update process.
+  - Corrected the implementation of the `Dispatcher.Invoke` method to ensure all UI updates are properly executed on the main thread, preventing interface lockups.
+  - Fixed a bug that caused `CheckUpdate.IsEnabled` to not re-enable properly after an error was thrown during the manifest check.
+- **Other Changes:**  - **User Feedback Improvements:**
+    - Added informative messages to alert users when a manifest check or update is skipped because another process is already in progress.
+    - Ensured that all important status updates related to the manifest check process are clearly communicated in the UI.
+  - **Automatic Retry Mechanism:**
+    - **Implemented a mechanism to automatically delete the `appmanifest_2430930.acf` file and restart the update process if a specific error (`Error! App '2430930' state is 0x486`) is encountered during the update.**
+
 ## Version 2.1.1.5 PRE-RELEASE NOTE
 - **Bug fixes:**  
   - Resolved the "Missing 'gid' in the API response" error by adjusting the data path in the API response JSON.
