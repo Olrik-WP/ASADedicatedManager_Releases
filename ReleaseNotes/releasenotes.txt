@@ -1,3 +1,13 @@
+## Version 2.1.3.0 PRE-RELEASE NOTE
+- **Improvements:**
+  - **Stability Enhancements:**
+    - Optimized overall application performance to improve stability and responsiveness.
+    - Reduced instances of freezes, leading to a smoother user experience.
+- **Bug Fixes:**
+  - **Information Messages:**
+    - Fixed an issue that prevented certain information messages from being displayed.
+    - Important notifications now display correctly, ensuring users receive all relevant alerts.
+
 ## Version 2.1.2.9 PRE-RELEASE NOTE
 - **New Features:**
   - **Improved Message Display Logic:**
