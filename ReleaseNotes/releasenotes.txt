@@ -1,3 +1,111 @@
+## Version 2.1.4.0 FINAL-RELEASE NOTE
+### New Features:
+- **API Update:**
+  - Transitioned from using the Steamcmd.net API to ASADedicatedManager's own dedicated API, offering greater reliability, control, and improved performance for managing updates and server interactions.
+- **Discord Bot Enhancements:**
+  - Implemented a system for the Discord bot to edit existing server status messages instead of posting new ones each time there is a status update. This change reduces message spam in the channel and keeps the information concise and organized.
+- **Improved Message Display Logic:**
+  - Added logic to ensure that message boxes are always displayed correctly, even when no owner window is set or visible.
+  - Implemented `Topmost = true` and `WindowStartupLocation = CenterScreen` to guarantee that message boxes are always visible to the user.
+- **Player Warning Option:**
+  - Added an option to disable player warnings before server updates by selecting "0 minutes" in the settings.
+- **Scheduled Reboot Warning System:**
+  - Implemented a scheduled reboot warning system with customizable countdown options, allowing better control over server maintenance alerts.
+- **Redesigned Server Management Tab:**
+  - **All options in the Server Management tab can now work together.**
+  - Start, stop, and update processes are coordinated to avoid overlap, ensuring smooth execution.
+  - Logs messages are displayed when the server is already starting, stopping, or updating.
+  - Removed stop or kill confirmation boxes; messages are now displayed in the logs.
+### Improvements:
+- **Manifest Check Process:**
+  - Added a User-Agent header to API requests to simulate browser behavior and reduce the chance of being blocked.
+  - Removed unnecessary checks for `encryptedmanifests` to streamline the manifest validation process.
+  - Implemented a random delay (up to 6 seconds) before starting the manifest check to stagger multiple checks and avoid simultaneous executions.
+  - Improved the logic to properly disable and re-enable the check button based on the check's status.
+  - Moved the `await Checkmanifest()` call to the final `finally` block to ensure that status changes to `UpdateStatusLabel` happen after the update is completed.
+  - Added a new flag `shouldRetryUpdate` to handle scenarios where the update process needs to restart automatically if specific errors are encountered during the process.
+- **UI Enhancements:**
+  - Improved status messaging during the manifest check to provide clearer feedback on the process.
+  - Polished the interface of the Server Management tab for a more intuitive user experience.
+  - Improved messaging during server updates to provide clearer information to users about the update process.
+  - Refined user messages for server shutdowns and reboots to make the process more transparent and easier to understand.
+  - Enhanced display of the next update check interval to accurately reflect the time selected by the user.
+  - Prevented changes to `UpdateStatusLabel.Content` during the entire update process, ensuring it remains as "Updating" until fully completed.
+  - Added new status messages for better clarity during operations:
+    - `Updating`: Displays as "Update in progress."
+    - `Checkingupdate`: Displays as "Checking..."
+    - `Checkupdatefailed`: Displays as "Failed check logs."
+  - Implemented translations for these status messages to support multi-language users.
+- **Stability Enhancements:**
+  - Optimized overall application performance to improve stability and responsiveness.
+  - Reduced instances of freezes, leading to a smoother user experience.
+  - Improved the overall stability of the backup process by ensuring the manager handles file access conflicts more gracefully.
+- **Backup Process Enhancements:**
+  - Increased the delay for saving profiles from 3 seconds to 20 seconds after player connection or disconnection to allow the game sufficient time to release file access.
+  - Implemented 4 retry attempts with a 5-second interval between each attempt when creating the ZIP file, to ensure that the `.arkprofile` file is fully accessible before compressing.
+  - These changes aim to reduce the occurrence of empty ZIP files caused by the game still accessing the profile file during the backup process.
+- **Automatic Update Process:**
+  - Enhanced the ability to cancel automatic updates during the player warning stage. Once the server starts shutting down, the update process cannot be canceled.
+  - Automatic server updates are now correctly triggered when the auto-update option is enabled and an update is available.
+  - Added a mechanism to automatically delete the `appmanifest_2430930.acf` file and restart the update process if a specific error (`Error! App '2430930' state is 0x486`) is encountered during the update.
+- **Concurrency Control:**
+  - Added a mechanism to prevent simultaneous execution of multiple manifest checks, ensuring that only one check can run at a time.
+  - Implemented flags (`isUpdateInProgress` and `isChekingInProgress`) to lock `UpdateStatusLabel` during the `PerformUpdateAsync` process to prevent modification by other methods during the update.
+  - Removed the use of semaphores for synchronization in favor of using flags.
+  - Improved code clarity and maintainability by simplifying concurrency control logic.
+- **API Call Optimization:** 
+  - Update checks are no longer triggered every time a profile tab is clicked, reducing unnecessary API calls and improving performance.
+- **API Request Delays and Retry Logic:**
+  - Added a delay of 11 seconds between retry attempts when the API call fails or when required data is missing, to reduce server load and improve stability.
+  - Configured the API request to retry up to 3 times (`maxRetries = 3`) in case of failure, to ensure robustness in handling transient errors.
+- **Event Handling Optimization:**
+  - Refactored the event handling logic by directly subscribing to the Click event of the OK button instead of using the `WeakEventManager`.
+  - Simplified event detachment to prevent memory leaks and ensure more efficient event management.
+- **User Feedback Improvements:**
+  - Added informative messages to alert users when a manifest check or update is skipped because another process is already in progress.
+  - Ensured that all important status updates related to the manifest check process are clearly communicated in the UI.
+  - Error messages are now clearer when there is an issue during the update check, providing better understanding.
+- **Translation Updates:**
+  - Updated translations for scheduled reboot messages to provide more detailed context and improve clarity for users.
+### Bug Fixes:
+- **Manifest Verification:**
+  - Resolved issues causing incorrect handling of API response data during manifest verification.
+  - Fixed a problem where the manifest check process would get stuck if certain conditions were not met.
+  - Resolved the "Missing 'gid' in the API response" error by adjusting the data path in the API response JSON.
+  - Added additional checks to handle cases where certain sections of the JSON response are missing, improving code robustness.
+- **Update Process:**
+  - Fixed a logic error where the `isChekingInProgress` flag was not properly reset, causing subsequent checks to be blocked unintentionally.
+  - Fixed a bug that caused `CheckUpdate.IsEnabled` to not re-enable properly after an error was thrown during the manifest check.
+  - Removed redundant `finally` block to ensure proper code execution and cleanup after the update process.
+  - Corrected the implementation of the `Dispatcher.Invoke` method to ensure all UI updates are properly executed on the main thread, preventing interface lockups.
+  - Automatic updates are now correctly triggered when the auto-update option is enabled and an update is available.
+- **Information Messages:**
+  - Fixed an issue that prevented certain information messages from being displayed.
+  - Important notifications now display correctly, ensuring users receive all relevant alerts.
+  - Resolved an issue where users received an error and were blocked when trying to display a message box without a visible owner window.
+  - Fixed problems with message box visibility by ensuring that important messages are always displayed on top of other windows.
+- **Backup Process:**
+  - Addressed an issue where ZIP files were created empty or without the `.arkprofile` file due to the file being locked by the game during compression.
+- **DestroyWildDinos Method:**
+  - Fixed the `destroywilddinos` method; the timer is now saved every 60 seconds. If the manager is restarted, it will correctly resume where it left off.
+- **Update Check Interval:**
+  - Fixed issue with update check interval: The server update check time was incorrect (set to 1 second instead of the selected value). This has been resolved by ensuring that the interval selected in the list is correctly applied.
+  - Enhanced display of the next update check interval: The message now accurately reflects the time selected by the user.
+### Other Changes:
+- **Code Cleanup:**
+  - Streamlined the message display logic to reduce unnecessary checks and improve overall code readability and maintainability.
+  - Removed redundant checks and unnecessary code in manifest verification.
+- **User Experience Enhancements:**
+  - Improved user experience by ensuring that critical messages are always properly displayed without causing interruptions or errors.
+  - Multiple attempts to restart, shut down, or update during an automated process are now prevented, reducing the risk of conflicts or errors.
+- **Stability Improvements:**
+  - Improved the overall stability of the application by handling file access conflicts more gracefully and optimizing performance.
+- **Error Handling:**
+  - Enhanced error handling to ensure that when exceptions occur, the interface correctly reflects the error state and resets UI elements.
+  - Updated error messages to provide more user-friendly feedback when an issue is encountered during the manifest check or update process.
+- **Credits:**
+  - Added new contributors.
+
 ## Version 2.1.3.1 PRE-RELEASE NOTE
 - **Improvements:**
   - **Manifest Check Process:**
