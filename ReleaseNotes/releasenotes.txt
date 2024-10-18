@@ -1,3 +1,11 @@
+## Version 2.1.4.2 PRE-RELEASE NOTE
+- **Improvements:**
+  - **UI Enhancement for Mod Navigation:**
+    - Moved the page navigation controls (Home, Previous, Next) outside of the `Expander` to enhance accessibility and user experience.
+    - The controls are now always visible for easy navigation between pages without having to expand the search options.
+  - **Improved Layout:**
+    - Adjusted the layout to ensure a clean and organized interface, keeping search options within the `Expander` and navigation buttons directly accessible.
+
 ## Version 2.1.4.1 PRE-RELEASE NOTE
 - **New Features:**
   - **Mod URL Clickable in Mod Cards:**
