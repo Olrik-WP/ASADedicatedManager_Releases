@@ -1,3 +1,33 @@
+## Version 2.1.4.1 PRE-RELEASE NOTE
+- **New Features:**
+  - **Mod URL Clickable in Mod Cards:**
+    - Users can now click on mod images to open the corresponding mod page in their browser.
+  - **Display Mod ID on Mod Cards:**
+    - Mod cards now display the Mod ID, allowing users to quickly reference specific mods.
+  - **Completely Rebuilt Mod Search:**
+    - Redesigned the mod search method to improve performance and user experience.
+    - Users can now search for mods more efficiently without relying on embedded browsers.
+  - **Custom API Integration:**
+    - Developed our own API that communicates with the CurseForge API.
+    - This change ensures compliance with CurseForge's policies and improves security.    
+- **Improvements:**
+  - **Removed WebView2 Dependency:**
+    - The integrated WebView2 browser has been removed.
+    - Application no longer requires WebView2 as a prerequisite, simplifying installation.
+  - **Simplified Prerequisites:**
+    - Reduced the number of prerequisites needed to run the application.
+    - Users can now set up the application more easily.
+  - **Enhanced Mod Pagination:**
+    - Added support for navigating through multiple pages of mods, with display of the total number of pages.    
+- **Bug Fixes:**
+  - **Mod Download Feature Temporarily Removed:**
+    - As planned, the mod download functionality has been temporarily disabled.
+    - This feature will return in a future update pending CurseForge's response.    
+- **Other Changes:**
+  - **Policy Compliance:**
+    - Adjusted application features to align with CurseForge's policies.
+    - Ensured that all API calls and functionalities are compliant.
+
 ## Version 2.1.4.0 FINAL-RELEASE NOTE
 ### New Features:
 - **API Update:**
