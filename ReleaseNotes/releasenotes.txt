@@ -1,3 +1,39 @@
+## Version 2.1.4.3 FINAL-RELEASE NOTE
+- **New Features:**
+  - **Completely Rebuilt Mod Search:**
+    - Redesigned the mod search method to significantly improve performance and user experience.
+    - Users can now search for mods more efficiently, without the need for embedded browsers.
+  - **Custom API Integration:**
+    - The application now uses a custom API that communicates with the CurseForge API, ensuring compliance with CurseForge's policies and improving overall security.
+  - **Mod URL Clickable in Mod Cards:**
+    - Users can now click on mod images to open the corresponding mod page in their browser, improving ease of access to mod information.
+  - **Display Mod ID on Mod Cards:**
+    - Mod cards now display the Mod ID, allowing users to quickly reference specific mods.
+- **Improvements:**
+  - **UI Enhancement for Mod Navigation:**
+    - Page navigation controls (Home, Previous, Next) have been moved outside of the `Expander` to enhance accessibility and user experience.
+    - The controls are now always visible, making it easier to navigate between pages without expanding search options.
+  - **Improved Layout:**
+    - Adjusted the layout to ensure a cleaner and more organized interface. Search options are kept within the `Expander`, while navigation buttons are directly accessible.
+  - **Removed WebView2 Dependency:**
+    - The application no longer relies on the WebView2 embedded browser.
+    - WebView2 is no longer required as a prerequisite, simplifying installation and setup.
+  - **Simplified Prerequisites:**
+    - The application now requires fewer dependencies, making installation easier and more user-friendly.
+  - **Enhanced Mod Pagination:**
+    - Added support for navigating through multiple pages of mods.
+    - Users can now see the total number of pages available and quickly move between pages.
+  - **Mod Download Feature Temporarily Removed:**
+    - **As planned, the mod download functionality has been temporarily disabled due to ongoing discussions with CurseForge.**
+    - *The feature will return in a future update, pending a response from CurseForge regarding their policies.*
+- **Other Changes:**
+  - **Policy Compliance:**
+    - Adjusted application features and API calls to ensure full compliance with CurseForge's updated policies.
+    - Ensured that all functionalities adhere to CurseForge's guidelines for API usage and mod handling.
+- **Fix following team validation feedback:**  
+  - **Simplified Mod Management Grid:**
+    - Removed the mod image column from the mod management DataGrid to reduce clutter and improve readability based on user feedback.
+
 ## Version 2.1.4.2 PRE-RELEASE NOTE
 - **Improvements:**
   - **UI Enhancement for Mod Navigation:**
