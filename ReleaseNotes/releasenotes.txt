@@ -1,3 +1,7 @@
+## Version 2.1.4.4 FINAL-RELEASE NOTE
+- **Improvements:**
+   - Switching internally developed APIs to HTTPS (steam api and cruseforge api) redirecting clients who have not migrated to https
+
 ## Version 2.1.4.3 FINAL-RELEASE NOTE
 - **New Features:**
   - **Completely Rebuilt Mod Search:**
