@@ -1,3 +1,7 @@
+## Version 2.1.4.6 PRE-RELEASE NOTE
+- **Bug Fixes:**
+  - fixed a bug when closing the application that prevented the closing code from continuing
+
 ## Version 2.1.4.5 PRE-RELEASE NOTE
 - **New Features:**
   - Added -HalloweenColors command line
