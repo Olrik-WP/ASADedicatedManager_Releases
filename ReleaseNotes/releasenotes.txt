@@ -1,3 +1,18 @@
+## Version 2.1.4.5 PRE-RELEASE NOTE
+- **New Features:**
+  - Added -HalloweenColors command line
+- **Improvements:**
+    - Moved MaxPlayers variable to main interface (default 70) this is no longer read in GameUserSettings.ini
+    - The [Script/Engine.GameSession] section in GameUserSettings.ini, is now automatically removed as well as MaxPlayers=70
+    - The application is now hidden when loading tabs
+    - The application is now centered on the screen when loading
+    - QueryPort has been removed from the launch command line (Not used in ASA)
+    - In GameUserSettings.ini under the [SessionSettings] section, QueryPort is now automatically removed (Not used in ASA)
+- **Bug Fixes:**
+  - Modification of the methods of adding tabs to allow the display of error messages (before they disappeared immediately without being visible) addition of the name of the tab concerned by the error
+- **Validation Team Updates:**
+  - Added new validation team members: **WulfmanGER**  
+
 ## Version 2.1.4.4 FINAL-RELEASE NOTE
 - **Improvements:**
    - Switching internally developed APIs to HTTPS (steam api and cruseforge api) redirecting clients who have not migrated to https
