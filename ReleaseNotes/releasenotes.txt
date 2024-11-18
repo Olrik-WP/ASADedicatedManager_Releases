@@ -1,4 +1,4 @@
-## Version 2.1.5.0 FINAL-RELEASE NOTE
+## Version 2.1.5.1 FINAL-RELEASE NOTE
 - **New Features:**
   - Added `-HalloweenColors` command line.
 - **Improvements:**
@@ -14,10 +14,11 @@
   - Add custom mod settings: fixed issues with merging existing INI sections, allowing the addition of new keys to existing sections, ensuring proper handling of duplicates, and preserving formatting.
   - Fixed a bug when closing the application that prevented the closing code from continuing.
   - Fixed a bug in cleaning the `GameUserSettings.ini` file that prevented tabs from loading if the `.ini` file was readonly.
+  - Fix Release notes
 - **Validation Team Updates:**
   - Added new validation team members: **WulfmanGER**.
 
-Version 2.1.4.9 PRE-RELEASE NOTE  
+## Version 2.1.4.9 PRE-RELEASE NOTE  
 Bug Fixes:  
 - Add custom mod settings: fixed issues with merging existing INI sections, allowing the addition of new keys to existing sections, ensuring proper handling of duplicates, and preserving formatting.
 
