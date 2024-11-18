@@ -1,3 +1,26 @@
+
+## Version 2.1.4.8 PRE-RELEASE NOTE
+- **Improvements:**
+  - Added a mechanism to automatically delete the `appmanifest_2430930.acf` file and restart the update process if a specific error (`Error! App '2430930' state is 0x426`) is encountered during the update.
+- **Bug Fixes:**
+  - Fixed a bug in cleaning the GameUserSetting.ini file that prevented tabs from loading if the ini file was readonly
+
+## Version 2.1.4.7 PRE-RELEASE NOTE
+- **New Features:**
+  - Added -HalloweenColors command line
+- **Improvements:**
+    - Moved MaxPlayers variable to main interface (default 70) this is no longer read in GameUserSettings.ini
+    - The [Script/Engine.GameSession] section in GameUserSettings.ini, is now automatically removed as well as MaxPlayers=70
+    - The application is now hidden when loading tabs
+    - The application is now centered on the screen when loading
+    - QueryPort has been removed from the launch command line (Not used in ASA)
+    - In GameUserSettings.ini under the [SessionSettings] section, QueryPort is now automatically removed (Not used in ASA)
+- **Bug Fixes:**
+  - Modification of the methods of adding tabs to allow the display of error messages (before they disappeared immediately without being visible) addition of the name of the tab concerned by the error
+    - fixed a bug when closing the application that prevented the closing code from continuing
+- **Validation Team Updates:**
+  - Added new validation team members: **WulfmanGER**  
+
 ## Version 2.1.4.6 PRE-RELEASE NOTE
 - **Bug Fixes:**
   - fixed a bug when closing the application that prevented the closing code from continuing
