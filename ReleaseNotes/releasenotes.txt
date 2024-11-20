@@ -1,3 +1,8 @@
+## Version 2.1.5.2 PRE-RELEASE NOTE
+- **New Features:**
+  - Added Dedicated server logs in logs tab.
+  - Removed Download update mods
+
 ## Version 2.1.5.1 FINAL-RELEASE NOTE
 - **New Features:**
   - Added `-HalloweenColors` command line.
