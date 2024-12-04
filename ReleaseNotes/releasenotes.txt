@@ -1,7 +1,42 @@
+## Version 2.1.6.0 PRE-RELEASE NOTE
+- **New Features:**
+  - Added account creation with email validation functionality.
+    - Users receive a validation email to confirm their email address.
+    - Added support for resending the validation email if not received.
+  - Implemented password reset functionality.
+    - Users can request a password reset via email.
+    - Added support for using a token to securely reset the password.
+  - Introduced Premium subscription management.
+    - Users can subscribe, cancel, and renew Premium subscriptions.
+    - Premium features are unlocked immediately upon subscription.
+    - Subscription remains active until the end of the period, even after cancellation.
+  - Added authentication token management.
+    - Access tokens are valid for 15 minutes and automatically refreshed every 14 minutes using a refresh token.
+    - Refresh tokens are valid for 30 days; after expiration, re-login is required for security purposes.
+    - Displayed token information in the application:
+      - Shows the remaining time before the next required login.
+      - Provides details on the current token's last refresh and expiration time.
+  - Added a Premium panel in the application to display subscription details and manage Premium features.
+  - Created a dedicated API for subscription management, allowing secure and efficient integration with the manager.
+  - Added the ability for users to log out of the application.
+  - Created web pages for payment success and payment error to improve user experience.
+  - Premium features currently include:
+    - Searching for mods.
+    - Updating servers.
+  - Introduced Premium to support the project and the associated costs, including:
+    - API hosting in the cloud.
+    - Website hosting.
+    - SSL certificates.
+    - AI integration for Discord.
+    - Development time and effort.
+- **Bug Fixes:**
+  - None at this stage.
+
 ## Version 2.1.5.2 PRE-RELEASE NOTE
 - **New Features:**
   - Added Dedicated server logs in logs tab.
-  - Removed Download update mods
+- **Improvements:**
+  - Removed unused Download update mods
 
 ## Version 2.1.5.1 FINAL-RELEASE NOTE
 - **New Features:**
