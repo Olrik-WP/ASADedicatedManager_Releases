@@ -1,3 +1,14 @@
+## Version 2.1.6.1 PRE-RELEASE NOTE
+- **New Features:**
+  - Added ability to add discount coupons during checkout
+  - Added daily subscription for testing
+- **Improvements:**
+  - Updated the backend with a fallback API in case the main API is unavailable
+  - Added a method to try when the token renewal request fails rather than immediately logging the user out 11 attempts every 5 seconds
+  - Added last payment price in subscription window under Amount Paid
+- **Bug Fixes:**
+  - In the subscription window the Renewal Price indicating the price of the payment made instead of the renewal price
+
 ## Version 2.1.6.0 PRE-RELEASE NOTE
 - **New Features:**
   - Added account creation with email validation functionality.
