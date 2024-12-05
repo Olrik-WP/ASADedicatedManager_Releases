@@ -1,6 +1,12 @@
+## Version 2.1.6.4 PRE-RELEASE NOTE
+- **Improvements:**
+  - Added information text on renewal in Subscription Management Window
+- **Bug Fixes:**
+  - Fix application not closing after click on Quit in windows tray
+
 ## Version 2.1.6.3 PRE-RELEASE NOTE
 - **Bug Fixes:**
-  - Fix  crash at start when StartServer is enabled at start
+  - Fix a crash at start when StartServer is enabled at start
 
 ## Version 2.1.6.2 PRE-RELEASE NOTE
 - **New Features:**
