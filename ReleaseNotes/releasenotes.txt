@@ -1,3 +1,7 @@
+## Version 2.1.6.7 PRE-RELEASE NOTE
+- **Bug Fixes:**
+  - Close all windows at logout
+
 ## Version 2.1.6.6 PRE-RELEASE NOTE
 - **Bug Fixes:**
   - Payment and renewal dates are now displayed in the customer's local time.
