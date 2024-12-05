@@ -1,0 +1,168 @@
+﻿
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASADedicatedManager UI</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+    <style>
+        body {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+        .profile {
+            background-color: #2d3748;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .profile:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen p-8">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-4xl font-bold mb-8 text-center">ASADedicatedManager UI</h1>
+        <div id="profiles" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
+    </div>
+
+    <script>
+        const apiUrl = 'http://localhost:5000';
+        const token = 'e2e4063dc6744051a4381b1eb5839981';
+
+        async function fetchProfiles() {
+            try {
+                console.log("Fetching profiles with token:", token);
+                const response = await fetch(`${apiUrl}/profiles`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error("Error fetching profiles:", errorText);
+                    throw new Error(`Error fetching profiles: ${errorText}`);
+                }
+                const profiles = await response.json();
+                console.log("Profiles fetched successfully:", profiles);
+                displayProfiles(profiles);
+            } catch (error) {
+                console.error(error);
+                alert(error.message);
+            }
+        }
+
+        function displayProfiles(profiles) {
+            const profilesDiv = document.getElementById('profiles');
+            profilesDiv.innerHTML = '';
+
+            profiles.forEach(profile => {
+                const div = document.createElement('div');
+                div.className = 'profile p-6';
+                div.innerHTML = `
+                    <h3 class="text-xl font-semibold mb-4">${profile.ProfileName}</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="startServer('${profile.ProfileName}')" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Start</button>
+                        <button onclick="stopServer('${profile.ProfileName}')" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Stop</button>
+                        <button onclick="getPlayers('${profile.ProfileName}')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Players</button>
+                        <button onclick="sendRcon('${profile.ProfileName}')" class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Send RCON</button>
+                        <button onclick="saveWorld('${profile.ProfileName}')" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Save World</button>
+                        <button onclick="fullBackup('${profile.ProfileName}')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Full Backup</button>
+                        <button onclick="updateServer('${profile.ProfileName}')" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded">Update</button>
+                        <button onclick="destroyDinos('${profile.ProfileName}')" class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded">Destroy Dinos</button>
+                    </div>
+                `;
+                profilesDiv.appendChild(div);
+            });
+        }
+
+        async function startServer(profileName) {
+            await sendCommand('/start', { profileName });
+        }
+
+        async function stopServer(profileName) {
+            await sendCommand('/stop', { profileName });
+        }
+
+        async function getPlayers(profileName) {
+            try {
+                const response = await fetch(`${apiUrl}/players`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ profileName })
+                });
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`Error fetching players: ${errorText}`);
+                }
+                const data = await response.json();
+                alert(`Players on ${profileName}:\n${data.players.map(p => `${p.Index}: ${p.Name} (${p.ID})`).join('\n')}`);
+            } catch (error) {
+                console.error(error);
+                alert(error.message);
+            }
+        }
+
+        async function sendRcon(profileName) {
+            const message = prompt('Enter RCON message:');
+            if (message) {
+                await sendCommand('/rcon', { profileName, message });
+            }
+        }
+
+        async function saveWorld(profileName) {
+            await sendCommand('/saveworld', { profileName });
+        }
+
+        async function fullBackup(profileName) {
+            await sendCommand('/fullbackup', { profileName });
+        }
+
+        async function updateServer(profileName) {
+            await sendCommand('/update', { profileName });
+        }
+
+        async function destroyDinos(profileName) {
+            await sendCommand('/destroy', { profileName });
+        }
+
+        async function sendCommand(endpoint, body) {
+            try {
+                console.log(`Sending command to ${endpoint} with body:`, body);
+                const response = await fetch(`${apiUrl}${endpoint}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(body)
+                });
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error(`Error: ${errorText}`);
+                    throw new Error(`Error: ${errorText}`);
+                }
+                const data = await response.json();
+                alert(data.message);
+            } catch (error) {
+                console.error(error);
+                alert(error.message);
+            }
+        }
+
+        window.onload = fetchProfiles;
+    </script>
+</body>
+</html>

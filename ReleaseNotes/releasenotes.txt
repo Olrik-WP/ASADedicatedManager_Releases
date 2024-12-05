@@ -1,3 +1,20 @@
+## Version 2.1.6.2 PRE-RELEASE NOTE
+- **New Features:**
+  - Start of implementation of the Manager management API (disabled to the public for the moment)
+- **Improvements:**
+  - Access tokens are now valid for 1 hour and automatically refreshed every 50 minutes using a refresh token.
+  - Refresh tokens are valid for 30 days; after expiration, re-login is required for security purposes.
+  - Payment and renewal dates are now displayed in the customer's local time.
+- **Automatic Update Process:**
+  - Added a mechanism to automatically delete the `appmanifest_2430930.acf` file and restart the update process if a specific error (`Error! App '2430930' state is 0x`) is encountered during the update.
+- **Bug Fixes:**
+  - Important bug fix: when the program was minimized lot of tasks and timers were stopped the discord bot also
+  - Fix close and dispose methods
+  - Fix bug in systray
+  - Fix bug that displayed login window multiple times
+  - Cleanup of commented code in the main window
+  - Removal of unnecessary console write lines to improve performance in production
+
 ## Version 2.1.6.1 PRE-RELEASE NOTE
 - **New Features:**
   - Added ability to add discount coupons during checkout
