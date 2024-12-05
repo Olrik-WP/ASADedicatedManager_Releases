@@ -1,3 +1,11 @@
+## Version 2.1.6.5 PRE-RELEASE NOTE
+- **Improvements:**
+  - Translated API text in english
+  - Removed API stop message when closing the app
+  - Clean App not used folder or files
+- **Bug Fixes:**
+  - Definitely solved application not closing after click on Quit in windows tray
+
 ## Version 2.1.6.4 PRE-RELEASE NOTE
 - **Improvements:**
   - Added information text on renewal in Subscription Management Window
