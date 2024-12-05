@@ -1,3 +1,7 @@
+## Version 2.1.6.3 PRE-RELEASE NOTE
+- **Bug Fixes:**
+  - Fix  crash at start when StartServer is enabled at start
+
 ## Version 2.1.6.2 PRE-RELEASE NOTE
 - **New Features:**
   - Start of implementation of the Manager management API (disabled to the public for the moment)
@@ -6,7 +10,7 @@
   - Refresh tokens are valid for 30 days; after expiration, re-login is required for security purposes.
   - Payment and renewal dates are now displayed in the customer's local time.
 - **Automatic Update Process:**
-  - Added a mechanism to automatically delete the `appmanifest_2430930.acf` file and restart the update process if a specific error (`Error! App '2430930' state is 0x`) is encountered during the update.
+  - Added a mechanism to automatically delete the `appmanifest_2430930.acf` file and restart the update process if a specific error (`Error! App '2430930' state is 0x6`) is encountered during the update.
 - **Bug Fixes:**
   - Important bug fix: when the program was minimized lot of tasks and timers were stopped the discord bot also
   - Fix close and dispose methods
