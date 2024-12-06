@@ -1,3 +1,12 @@
+## Version 2.1.7.0 PRE-RELEASE NOTE
+- **Improvements:**
+  - Fix Single Session Management
+  - The system now manages one session per manager if two managers are launched with the same account on different machines the second is disconnected within 5 minutes and vice versa a warning message is launched at the connection asking if the new connection should take over
+- **Bug Fixes:**
+  - Correction of many bugs in the authentication and token renewal system
+- **NOTES:**
+  - I haven't had time to test the new token renewal system, I'll let you confirm that you are not disconnected every hour, thank you!
+
 ## Version 2.1.6.9 PRE-RELEASE NOTE
 - **Improvements:**
   - Added tab saving on logout
