@@ -1,3 +1,9 @@
+## Version 2.1.6.9 PRE-RELEASE NOTE
+- **Improvements:**
+  - Added tab saving on logout
+- **Bug Fixes:**
+  - Fixed Tabs are not saved when closing the main window
+
 ## Version 2.1.6.8 PRE-RELEASE NOTE
 - **Improvements:**
   - Implementing Single Session Management
