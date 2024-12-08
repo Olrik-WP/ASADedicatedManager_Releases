@@ -1,3 +1,11 @@
+## Version 2.1.7.1 PRE-RELEASE NOTE
+- **Improvements:**
+  - Sessions are necessarily invalidated upon connection even if the user has not disconnected to ensure session consistency
+- **Bug Fixes:**
+  - Fix authentication System (Frontend and Backend)
+  - Fix Single Session Management
+  - Fix token renewal system
+
 ## Version 2.1.7.0 PRE-RELEASE NOTE
 - **Improvements:**
   - Fix Single Session Management
