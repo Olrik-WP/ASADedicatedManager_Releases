@@ -1,3 +1,9 @@
+## Version 2.1.7.3 PRE-RELEASE NOTE
+- **Improvements:**
+  - Added support for the Enter key to trigger the login button in the login window.
+- **Bug Fixes:**
+  - Fixed an issue causing a System.InvalidCastException when accessing MainWindow in certain scenarios.
+
 ## Version 2.1.7.2 PRE-RELEASE NOTE
 - **New Features:**
   - Addition of the Extinction map in the manager Note that it is officially released on December 16, 2024 this addition is preventive and does not allow you to play it now
@@ -5,8 +11,8 @@
   - Improved handling of new windows
   - Logout no longer displays message boxes, information is now displayed in the login window
   - Remove message boxes when taking an existing session
- - **Bug Fixes:**
-   - Improved public IP detection mechanism with enhanced fallback support.
+- **Bug Fixes:**
+  - Improved public IP detection mechanism with enhanced fallback support.
 
 ## Version 2.1.7.1 PRE-RELEASE NOTE
 - **Improvements:**
