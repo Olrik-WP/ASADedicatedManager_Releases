@@ -1,3 +1,12 @@
+## Version 2.1.7.4 PRE-RELEASE NOTE
+- **New Features:**
+  - Added: Secure password storage option with local encryption for user convenience.
+- **Improvements:**
+  - Improved session management to handle token reuse for same-session logins and ensure complete invalidation of forced sessions.
+- **Bug Fixes:**
+  - Fixed login window behavior to prevent session takeover prompts when reconnecting on the same device.
+  - Fixed MainWindow and LoginWindow closure behavior to ensure proper application shutdown and prevent duplicate tray icons or lingering windows.
+
 ## Version 2.1.7.3 PRE-RELEASE NOTE
 - **Improvements:**
   - Added support for the Enter key to trigger the login button in the login window.
