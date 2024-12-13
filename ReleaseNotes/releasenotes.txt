@@ -1,3 +1,9 @@
+## Version 2.1.7.6 PRE-RELEASE NOTE
+**Improvements:**
+  - Added: Automatic user logout upon application closure to enhance security.
+- **Bug Fixes:**
+  - Fixed RegisterWindows closure behavior after clic on Register button
+ 
 ## Version 2.1.7.4 PRE-RELEASE NOTE
 - **New Features:**
   - Added: Secure password storage option with local encryption for user convenience.
