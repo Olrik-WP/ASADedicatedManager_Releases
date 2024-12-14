@@ -1,3 +1,11 @@
+## Version 2.1.7.7 PRE-RELEASE NOTE
+- **New Features:**
+  - Replacing SplashScreen with Animation
+**Improvements:**
+  - Changed the domain name of the APIs to those that will be used in production
+- **Bug Fixes:**
+  - Fix E-mail not saved after login
+
 ## Version 2.1.7.6 PRE-RELEASE NOTE
 **Improvements:**
   - Added: Automatic user logout upon application closure to enhance security.
