@@ -1,3 +1,7 @@
+## Version 2.1.7.9 PRE-RELEASE NOTE
+- **Bug Fixes:**
+  - Multi-account detection update from 2 to 30 minutes to avoid load on the backend
+
 ## Version 2.1.7.8 PRE-RELEASE NOTE
 - **Improvements:**
   - Fixed (Frontend, Backend) In case of multiple session The active session is no longer disconnected
