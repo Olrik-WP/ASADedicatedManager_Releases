@@ -1,13 +1,22 @@
+## Version 2.1.7.8 PRE-RELEASE NOTE
+- **Improvements:**
+  - Fixed (Frontend, Backend) In case of multiple session The active session is no longer disconnected
+  - Modified (Frontend, Backend) the disconnection methods to adapt them to the prohibition of multiple sessions
+  - Improved all message boxes
+- **Bug Fixes:**
+  - Fixed Premium status is not updated when loading a tab via profile manager
+  - Fixed a bug that multiplied the Icons and instances of the application in the tray
+
 ## Version 2.1.7.7 PRE-RELEASE NOTE
 - **New Features:**
   - Replacing SplashScreen with Animation
-**Improvements:**
+- **Improvements:**
   - Changed the domain name of the APIs to those that will be used in production
 - **Bug Fixes:**
   - Fix E-mail not saved after login
 
 ## Version 2.1.7.6 PRE-RELEASE NOTE
-**Improvements:**
+- **Improvements:**
   - Added: Automatic user logout upon application closure to enhance security.
 - **Bug Fixes:**
   - Fixed RegisterWindows closure behavior after clic on Register button
