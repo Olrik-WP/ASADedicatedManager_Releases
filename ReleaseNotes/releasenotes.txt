@@ -1,3 +1,10 @@
+## Version 2.1.8.0 PRE-RELEASE NOTE
+- **Improvements:**
+  - Added a button to Quit the application and log out properly
+  - Renamed the exit buttons in the sysTray to include log out
+- **Bug Fixes:**
+  - Cyrillic text fields in ini are no longer misformatted when launching the manager
+
 ## Version 2.1.7.9 PRE-RELEASE NOTE
 - **Bug Fixes:**
   - Multi-account detection update from 2 to 30 minutes to avoid load on the backend
