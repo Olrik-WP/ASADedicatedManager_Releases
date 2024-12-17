@@ -1,3 +1,11 @@
+## Version 2.1.8.1 PRE-RELEASE NOTE
+- **New Features:**
+  - Added AutoLogin
+  - Added automatic validation of session message boxes after 30 seconds to automatically force the session to not block autologin
+  - Added incident portal link
+- **Improvements:**
+  - Handle Autologin in logout
+
 ## Version 2.1.8.0 PRE-RELEASE NOTE
 - **Improvements:**
   - Added a button to Quit the application and log out properly
