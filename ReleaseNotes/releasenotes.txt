@@ -1,3 +1,13 @@
+## Version 2.1.8.2 PRE-RELEASE NOTE
+- **Improvements:**
+  - Added a button to show external ip and prevent screenshots with ip
+  - All buttons and tabs and checkbox related to premium are now gold when premium is not subscribed
+  - Implementation of automatic start with a configurable delay (replacement of the registry key by a scheduled task)
+  - Overall review of the checkbox style
+- **Bug Fixes:**
+  - Fixed an issue where PlayerBaseStatMultipliers and PerLevelStatsMultiplier values were incorrectly rounded in the DataGrid display. 
+  - Server management checkboxes are now associated with premium
+
 ## Version 2.1.8.1 PRE-RELEASE NOTE
 - **New Features:**
   - Added AutoLogin
