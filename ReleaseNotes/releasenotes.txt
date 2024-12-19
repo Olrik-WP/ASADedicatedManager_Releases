@@ -1,3 +1,7 @@
+## Version 2.1.8.3 PRE-RELEASE NOTE
+- **Bug Fixes:**
+  - Reduced the conditions to perform a backup this should fix empty zips for Modded maps
+
 ## Version 2.1.8.2 PRE-RELEASE NOTE
 - **Improvements:**
   - Added a button to show external ip and prevent screenshots with ip
