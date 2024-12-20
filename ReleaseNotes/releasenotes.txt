@@ -1,3 +1,13 @@
+## Version 2.1.8.4 PRE-RELEASE NOTE
+- **New Features:**
+  - Added ability to move multiple mods to the top (translated into all available languages)
+  - Added Auto-close Search Mods Expander to let user choose
+  - Added Auto-close Server Management Expander to let user choose
+- **Improvements:**
+  - Changed the number of mods displayed to avoid holes in mod cards when searching following API change
+  - Moved the method to check for forbidden multisessions into the refresh token method to reduce backend calls and remove redundant calls every 30 minutes (impact multisessions will only be disconnected after 60 minutes)
+  - The task delay scheduled from manager launch to windows startup is now retrieved when the manager is launched
+
 ## Version 2.1.8.3 PRE-RELEASE NOTE
 - **Bug Fixes:**
   - Reduced the conditions to perform a backup this should fix empty zips for Modded maps
