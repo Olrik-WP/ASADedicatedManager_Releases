@@ -1,3 +1,13 @@
+## Version 2.1.9.0 PRE-RELEASE NOTE
+- **New Features:**
+  - Added the lifetime subscription
+  - Updated the subscription window to take into account the lifetime
+  - Updated the Stripe backend to take into account the lifetime
+- **Improvements:**
+  - Added a clear display during subscription checks in the subscription window
+  - Moved the login time information to the top menu
+  - Removed the daily test subscription at €1
+
 ## Version 2.1.8.4 PRE-RELEASE NOTE
 - **New Features:**
   - Added ability to move multiple mods to the top (translated into all available languages)
