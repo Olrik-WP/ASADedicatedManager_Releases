@@ -1,3 +1,306 @@
+## Version 2.2.0.0 FINAL-RELEASE NOTE
+- **New Features:**
+  - Added account creation with email validation functionality:
+    - Users receive a validation email to confirm their email address.
+    - Added support for resending the validation email if not received.
+    - Added: Secure password storage option with local encryption for user convenience.
+    - Added the ability for users to log out of the application.
+    - Added AutoLogin
+    - Added automatic validation of session message boxes after 30 seconds to automatically force the session to not block autologin
+  - Added authentication token management:
+    - Access tokens are valid for 60 minutes and automatically refreshed every 55 minutes using a refresh token.
+    - Refresh tokens are valid for 30 days; after expiration, re-login is required for security purposes.
+    - Displayed token information in the application:
+      - Shows the remaining time before the next required login.
+      - Provides details on the current token's last refresh and expiration time.
+  - Implemented password reset functionality:
+    - Users can request a password reset via email.
+    - Added support for using a token to securely reset the password.
+  - Introduced Premium to support the project and the associated costs, including:
+    - API hosting in the cloud.
+    - Website hosting.
+    - SSL certificates.
+    - AI integration for Discord.
+    - Development time and effort.
+  - Introduced Premium subscription management:
+    - Premium features currently include:
+      - Searching for mods.
+      - Updating servers.
+      - Start of implementation of the Manager management API (Currently inactive will soon arrive in the premium subscription at no additional cost)
+    - Created a dedicated API for subscription management, allowing secure and efficient integration with the manager.
+    - Users can subscribe, cancel, and renew Premium subscriptions.
+    - Premium features are unlocked immediately upon subscription.
+    - Subscription remains active until the end of the period, even after cancellation.
+    - Added the lifetime subscription
+    - Added a Premium panel in the application to display subscription details and manage Premium features.
+    - Created web pages for payment success and payment error to improve user experience.
+    - Added incident portal link (Portal dedicated to payment incidents only, no support on the manager here)
+    - Added ability to add discount coupons during checkout
+  - Others:
+    - Replacing SplashScreen with Animation
+    - Added ability to move multiple mods to the top (translated into all available languages)
+    - Added Auto-close Search Mods Expander to let user choose
+    - Added Auto-close Server Management Expander to let user choose
+- **Improvements:**
+  - Changed the number of mods displayed to avoid holes in mod cards when searching following API change
+  - Implementation of automatic start with a configurable delay (replacement of the registry key by a scheduled task)
+    - The task delay scheduled from manager launch to windows startup is now retrieved when the manager is launched
+  - Added a button to show external ip and prevent screenshots with ip
+  - All buttons and tabs and checkbox related to premium are now gold when premium is not subscribed
+  - Overall review of the checkbox style
+  - Added a button to Quit the application and log out properly
+  - Renamed the exit buttons in the sysTray to include log out
+  - Implementing Single Session Management
+    - Modified (Frontend, Backend) to adapt them to the prohibition of multiple sessions
+    - The system now manages one session per manager if two managers are launched with the same account on different machines the second is disconnected within 60 minutes and vice versa a warning message is launched at the connection asking if the new connection should take over
+  - Improved all message boxes
+  - Added: Automatic user logout upon application closure to enhance security.
+  - Added support for the Enter key to trigger the login button in the login window.
+  - Added tab saving on logout
+  - Minor graphical adjustments to the main interface
+  - Updated the backend with a fallback API in case the main API is unavailable
+- **Bug Fixes:**
+  - **Reduced the conditions to perform a backup this should fix empty zips for Modded maps**
+  - **Added a mechanism to automatically delete the appmanifest_2430930.acf file and restart the update process if a specific error (Error! App '2430930' state is 0x6) is encountered during the update.**
+  - **Important bug fix: when the program was minimized lot of tasks and timers were stopped the discord bot also**
+  - **Fixed an issue where PlayerBaseStatMultipliers and PerLevelStatsMultiplier values were incorrectly rounded in the DataGrid display.**
+  - **Cyrillic text fields in ini are no longer misformatted when launching the manager**
+  - Server management checkboxes are now associated with premium
+  - Fixed a bug that multiplied the Icons and instances of the application in the tray
+  - Moved the official website and incident portal and api buttons to avoid overlapping on small screens
+  - Clean App not used folder or files
+  - Fix a crash at start when StartServer is enabled at start
+  - Cleanup of commented code in the main window
+  - Removal of unnecessary console write lines to improve performance in production
+
+## Version 2.1.9.0 PRE-RELEASE NOTE
+- **New Features:**
+  - Added the lifetime subscription
+  - Updated the subscription window to take into account the lifetime
+  - Updated the Stripe backend to take into account the lifetime
+- **Improvements:**
+  - Added a clear display during subscription checks in the subscription window
+  - Moved the login time information to the top menu
+  - Removed the daily test subscription at 1 euros
+
+## Version 2.1.8.4 PRE-RELEASE NOTE
+- **New Features:**
+  - Added ability to move multiple mods to the top (translated into all available languages)
+  - Added Auto-close Search Mods Expander to let user choose
+  - Added Auto-close Server Management Expander to let user choose
+- **Improvements:**
+  - Changed the number of mods displayed to avoid holes in mod cards when searching following API change
+  - Moved the method to check for forbidden multisessions into the refresh token method to reduce backend calls and remove redundant calls every 30 minutes (impact multisessions will only be disconnected after 60 minutes)
+  - The task delay scheduled from manager launch to windows startup is now retrieved when the manager is launched
+
+## Version 2.1.8.3 PRE-RELEASE NOTE
+- **Bug Fixes:**
+  - Reduced the conditions to perform a backup this should fix empty zips for Modded maps
+
+## Version 2.1.8.2 PRE-RELEASE NOTE
+- **Improvements:**
+  - Added a button to show external ip and prevent screenshots with ip
+  - All buttons and tabs and checkbox related to premium are now gold when premium is not subscribed
+  - Implementation of automatic start with a configurable delay (replacement of the registry key by a scheduled task)
+  - Overall review of the checkbox style
+- **Bug Fixes:**
+  - Fixed an issue where PlayerBaseStatMultipliers and PerLevelStatsMultiplier values were incorrectly rounded in the DataGrid display. 
+  - Server management checkboxes are now associated with premium
+
+## Version 2.1.8.1 PRE-RELEASE NOTE
+- **New Features:**
+  - Added AutoLogin
+  - Added automatic validation of session message boxes after 30 seconds to automatically force the session to not block autologin
+  - Added incident portal link
+- **Improvements:**
+  - Handle Autologin in logout
+
+## Version 2.1.8.0 PRE-RELEASE NOTE
+- **Improvements:**
+  - Added a button to Quit the application and log out properly
+  - Renamed the exit buttons in the sysTray to include log out
+- **Bug Fixes:**
+  - Cyrillic text fields in ini are no longer misformatted when launching the manager
+
+## Version 2.1.7.9 PRE-RELEASE NOTE
+- **Bug Fixes:**
+  - Multi-account detection update from 2 to 30 minutes to avoid load on the backend
+
+## Version 2.1.7.8 PRE-RELEASE NOTE
+- **Improvements:**
+  - Fixed (Frontend, Backend) In case of multiple session The active session is no longer disconnected
+  - Modified (Frontend, Backend) the disconnection methods to adapt them to the prohibition of multiple sessions
+  - Improved all message boxes
+- **Bug Fixes:**
+  - Fixed Premium status is not updated when loading a tab via profile manager
+  - Fixed a bug that multiplied the Icons and instances of the application in the tray
+
+## Version 2.1.7.7 PRE-RELEASE NOTE
+- **New Features:**
+  - Replacing SplashScreen with Animation
+- **Improvements:**
+  - Changed the domain name of the APIs to those that will be used in production
+- **Bug Fixes:**
+  - Fix E-mail not saved after login
+
+## Version 2.1.7.6 PRE-RELEASE NOTE
+- **Improvements:**
+  - Added: Automatic user logout upon application closure to enhance security.
+- **Bug Fixes:**
+  - Fixed RegisterWindows closure behavior after clic on Register button
+ 
+## Version 2.1.7.4 PRE-RELEASE NOTE
+- **New Features:**
+  - Added: Secure password storage option with local encryption for user convenience.
+- **Improvements:**
+  - Improved session management to handle token reuse for same-session logins and ensure complete invalidation of forced sessions.
+- **Bug Fixes:**
+  - Fixed login window behavior to prevent session takeover prompts when reconnecting on the same device.
+  - Fixed MainWindow and LoginWindow closure behavior to ensure proper application shutdown and prevent duplicate tray icons or lingering windows.
+
+## Version 2.1.7.3 PRE-RELEASE NOTE
+- **Improvements:**
+  - Added support for the Enter key to trigger the login button in the login window.
+- **Bug Fixes:**
+  - Fixed an issue causing a System.InvalidCastException when accessing MainWindow in certain scenarios.
+
+## Version 2.1.7.2 PRE-RELEASE NOTE
+- **New Features:**
+  - Addition of the Extinction map in the manager Note that it is officially released on December 16, 2024 this addition is preventive and does not allow you to play it now
+  - **Improvements:**
+  - Improved handling of new windows
+  - Logout no longer displays message boxes, information is now displayed in the login window
+  - Remove message boxes when taking an existing session
+- **Bug Fixes:**
+  - Improved public IP detection mechanism with enhanced fallback support.
+
+## Version 2.1.7.1 PRE-RELEASE NOTE
+- **Improvements:**
+  - Sessions are necessarily invalidated upon connection even if the user has not disconnected to ensure session consistency
+- **Bug Fixes:**
+  - Fix authentication System (Frontend and Backend)
+  - Fix Single Session Management
+  - Fix token renewal system
+
+## Version 2.1.7.0 PRE-RELEASE NOTE
+- **Improvements:**
+  - Fix Single Session Management
+  - The system now manages one session per manager if two managers are launched with the same account on different machines the second is disconnected within 5 minutes and vice versa a warning message is launched at the connection asking if the new connection should take over
+- **Bug Fixes:**
+  - Correction of many bugs in the authentication and token renewal system
+- **NOTES:**
+  - I haven't had time to test the new token renewal system, I'll let you confirm that you are not disconnected every hour, thank you!
+
+## Version 2.1.6.9 PRE-RELEASE NOTE
+- **Improvements:**
+  - Added tab saving on logout
+- **Bug Fixes:**
+  - Fixed Tabs are not saved when closing the main window
+
+## Version 2.1.6.8 PRE-RELEASE NOTE
+- **Improvements:**
+  - Implementing Single Session Management
+  - Minor graphical adjustments to the main interface
+- **Bug Fixes:**
+  - Moved the official website and incident portal and api buttons to avoid overlapping on small screens
+  - Fixed a crash when clicking on the not yet implemented Incident Portal link
+
+## Version 2.1.6.7 PRE-RELEASE NOTE
+- **Bug Fixes:**
+  - Close all windows at logout
+
+## Version 2.1.6.6 PRE-RELEASE NOTE
+- **Bug Fixes:**
+  - Payment and renewal dates are now displayed in the customer's local time.
+  - Fixed display errors
+  - fixed text errors
+
+## Version 2.1.6.5 PRE-RELEASE NOTE
+- **Improvements:**
+  - Translated API text in english
+  - Removed API stop message when closing the app
+  - Clean App not used folder or files
+- **Bug Fixes:**
+  - Definitely solved application not closing after click on Quit in windows tray
+
+## Version 2.1.6.4 PRE-RELEASE NOTE
+- **Improvements:**
+  - Added information text on renewal in Subscription Management Window
+- **Bug Fixes:**
+  - Fix application not closing after click on Quit in windows tray
+
+## Version 2.1.6.3 PRE-RELEASE NOTE
+- **Bug Fixes:**
+  - Fix a crash at start when StartServer is enabled at start
+
+## Version 2.1.6.2 PRE-RELEASE NOTE
+- **New Features:**
+  - Start of implementation of the Manager management API (disabled to the public for the moment)
+- **Improvements:**
+  - Access tokens are now valid for 1 hour and automatically refreshed every 50 minutes using a refresh token.
+  - Refresh tokens are valid for 30 days; after expiration, re-login is required for security purposes.
+  - Payment and renewal dates are now displayed in the customer's local time.
+- **Automatic Update Process:**
+  - Added a mechanism to automatically delete the `appmanifest_2430930.acf` file and restart the update process if a specific error (`Error! App '2430930' state is 0x6`) is encountered during the update.
+- **Bug Fixes:**
+  - Important bug fix: when the program was minimized lot of tasks and timers were stopped the discord bot also
+  - Fix close and dispose methods
+  - Fix bug in systray
+  - Fix bug that displayed login window multiple times
+  - Cleanup of commented code in the main window
+  - Removal of unnecessary console write lines to improve performance in production
+
+## Version 2.1.6.1 PRE-RELEASE NOTE
+- **New Features:**
+  - Added ability to add discount coupons during checkout
+  - Added daily subscription for testing
+- **Improvements:**
+  - Updated the backend with a fallback API in case the main API is unavailable
+  - Added a method to try when the token renewal request fails rather than immediately logging the user out 11 attempts every 5 seconds
+  - Added last payment price in subscription window under Amount Paid
+- **Bug Fixes:**
+  - In the subscription window the Renewal Price indicating the price of the payment made instead of the renewal price
+
+## Version 2.1.6.0 PRE-RELEASE NOTE
+- **New Features:**
+  - Added account creation with email validation functionality.
+    - Users receive a validation email to confirm their email address.
+    - Added support for resending the validation email if not received.
+  - Implemented password reset functionality.
+    - Users can request a password reset via email.
+    - Added support for using a token to securely reset the password.
+  - Introduced Premium subscription management.
+    - Users can subscribe, cancel, and renew Premium subscriptions.
+    - Premium features are unlocked immediately upon subscription.
+    - Subscription remains active until the end of the period, even after cancellation.
+  - Added authentication token management.
+    - Access tokens are valid for 15 minutes and automatically refreshed every 14 minutes using a refresh token.
+    - Refresh tokens are valid for 30 days; after expiration, re-login is required for security purposes.
+    - Displayed token information in the application:
+      - Shows the remaining time before the next required login.
+      - Provides details on the current token's last refresh and expiration time.
+  - Added a Premium panel in the application to display subscription details and manage Premium features.
+  - Created a dedicated API for subscription management, allowing secure and efficient integration with the manager.
+  - Added the ability for users to log out of the application.
+  - Created web pages for payment success and payment error to improve user experience.
+  - Premium features currently include:
+    - Searching for mods.
+    - Updating servers.
+  - Introduced Premium to support the project and the associated costs, including:
+    - API hosting in the cloud.
+    - Website hosting.
+    - SSL certificates.
+    - AI integration for Discord.
+    - Development time and effort.
+- **Bug Fixes:**
+  - None at this stage.
+
+## Version 2.1.5.2 PRE-RELEASE NOTE
+- **New Features:**
+  - Added Dedicated server logs in logs tab.
+- **Improvements:**
+  - Removed unused Download update mods
+
 ## Version 2.1.5.3 FINAL-RELEASE NOTE
 - **New Features:**
   - Addition of the Extinction map in the manager Note that it is officially released on December 16, 2024 this addition is preventive and does not allow you to play it now
@@ -6,12 +309,6 @@
   - Removed unused Download update mods
  - **Bug Fixes:**
    - Improved public IP detection mechanism with enhanced fallback support.
-
-## Version 2.1.5.2 PRE-RELEASE NOTE
-- **New Features:**
-  - Added Dedicated server logs in logs tab.
-- **Improvements:**
-  - Removed unused Download update mods
 
 ## Version 2.1.5.1 FINAL-RELEASE NOTE
 - **New Features:**
