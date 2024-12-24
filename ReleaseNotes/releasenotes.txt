@@ -1,3 +1,7 @@
+## Version 2.2.1.0 FINAL-RELEASE NOTE
+- **Improvements:**
+  - Emergency fix for US WOW (Wide Open West) internet provider issues with DNS blocking. Using the world's best service (cloudflare) instead of the free no-ip service.
+
 ## Version 2.2.0.0 FINAL-RELEASE NOTE
 - **New Features:**
   - Added account creation with email validation functionality:
