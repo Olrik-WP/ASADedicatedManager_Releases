@@ -1,3 +1,8 @@
+## Version 2.2.1.1 PRE-RELEASE NOTE
+- **Bug Fixes:**
+  - Fixed the status of the Update Server after Shutdown and Auto Update Server checkboxes which were checked each time the manager was restarted in premium mode
+  - Fixed large backups, when creating the zip a filter is now in place preventing the addition of backups from the dedicated server of type: MAP_WP_06.10.2024_04.14.10.ark
+
 ## Version 2.2.1.0 FINAL-RELEASE NOTE
 - **Improvements:**
   - Emergency fix for US WOW (Wide Open West) internet provider issues with DNS blocking. Using the world's best service (cloudflare) instead of the free no-ip service.
