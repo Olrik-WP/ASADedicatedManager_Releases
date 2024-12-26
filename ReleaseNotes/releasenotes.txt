@@ -1,3 +1,11 @@
+## Version 2.2.1.2 PRE-RELEASE NOTE
+- **Improvements:**
+  - Add full logs on backup operation
+- **Bug Fixes:**
+  - Fix definitive backups using regex to filter dates in backups
+- **Validation Team Updates:**
+  - Added KJ Rᴇɢᴇʟʙʀᴇᴄʜᴇʀ to Validation Team
+
 ## Version 2.2.1.1 PRE-RELEASE NOTE
 - **Bug Fixes:**
   - Fixed the status of the Update Server after Shutdown and Auto Update Server checkboxes which were checked each time the manager was restarted in premium mode
