@@ -1,3 +1,7 @@
+## Version 2.2.1.6 FINAL-RELEASE NOTE
+- **Bug Fixes:**
+  - In Advanced Schedule, added condition to force dino respawn only if 'Shutdown Server At' and 'Destroy Wild Dino After Shutdown' checkboxes are checked and the 'Launch button' is not used, **to prevent this from being applied when starting the server via the start button.**
+
 ## Version 2.2.1.5 FINAL-RELEASE NOTE
 - **Improvements:**
   - In Advanced Schedule Added ability to destroy wild dinosaurs on startup
