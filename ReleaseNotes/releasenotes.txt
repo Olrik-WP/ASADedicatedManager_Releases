@@ -1,3 +1,7 @@
+## Version 2.2.1.5 FINAL-RELEASE NOTE
+- **Improvements:**
+  - In Advanced Schedule Added ability to destroy wild dinosaurs on startup
+
 ## Version 2.2.1.4 FINAL-RELEASE NOTE
 - **Improvements:**
   - Add full logs on backup operation
