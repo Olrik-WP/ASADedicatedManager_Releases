@@ -1,3 +1,14 @@
+## Version 2.2.1.8 FINAL-RELEASE NOTE
+- **Improvements:**
+- Enhanced Advanced Schedule logic to prevent forcing dino respawn when specific actions are triggered.
+- Added condition to enforce dependency between 'Restart After Shutdown' and 'Destroy Wild Dino After Shutdown', **to ensure 'Destroy Wild Dino After Shutdown' can only be enabled if 'Restart After Shutdown' is checked.**
+- **Critical Bug Fixes:**
+- Added condition to exclude the 'Start All Servers' button from triggering dino respawn, **to prevent this from being applied when updating servers via this button.**
+- Added condition to exclude the 'Update All Servers' button from triggering dino respawn, **to prevent this from being applied when updating servers via this button.**
+- Added condition to exclude Discord bot commands '!start' and '!update' from triggering dino respawn, **to prevent this from being applied when starting or updating servers remotely via the bot.**
+- Added condition to exclude automatic profile-based server starts at launch from triggering dino respawn, **to prevent this from being applied when servers start automatically based on user profiles.**
+- Added condition to exclude crash detection restarts from triggering dino respawn, **to prevent this from being applied when servers restart automatically after a crash is detected.**
+
 ## Version 2.2.1.7 FINAL-RELEASE NOTE
 - **Bug Fixes:**
   - In Advanced Schedule, added condition to force dino respawn only if 'Shutdown Server At' and 'Destroy Wild Dino After Shutdown' checkboxes are checked and neither the 'Launch' nor 'Restart' buttons are used, **to prevent this from being applied when starting or restarting the server via these buttons.**
