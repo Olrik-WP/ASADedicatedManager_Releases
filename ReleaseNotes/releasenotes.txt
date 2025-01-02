@@ -1,3 +1,15 @@
+## Version 2.2.1.9 PRE-RELEASE NOTE
+- **Improvements:**
+  - **Crash Detection & Process Reattachment**  
+    - Now uses both **PID** and **Launch Time** (StartTime) for identifying if the server is still the same process.  
+    - This ensures **100% reliability** in distinguishing a restarted process from the original one.  
+    - Enhanced checks prevent accidental double launches or attaching to the wrong process if the PID is reused by Windows.
+- **Bug Fixes:**
+  - Fixed issues with server reattachment logic sometimes missing the actual running process or incorrectly interpreting a new process as the old one.
+- **Important Notice:**
+  - **All users must relaunch their server at least once** so that the new PID + StartTime file format is created. This file is crucial for **crash detection** and **automatic reattachment**.
+  - We have chosen **PID + Launch Time** as a robust method to avoid any ambiguity (e.g., PID reuse by the OS). This approach is more reliable and eliminates the need for storing or comparing command lines.
+
 ## Version 2.2.1.8 FINAL-RELEASE NOTE
 - **Improvements:**
 - Enhanced Advanced Schedule logic to prevent forcing dino respawn when specific actions are triggered.
