@@ -1,3 +1,7 @@
+## Version 2.2.2.1 PRE-RELEASE NOTE
+- **New Features:**
+  - Added `-UseDynamicConfig` CheckBox in Command Line tab translated to all language
+
 ## Version 2.2.2.0 PRE-RELEASE NOTE
 - **Bug Fixes:**
   - Added `isFromBot` parameter to `DestroyWildDinos` method and updated `IServerTab` interface to prevent timer interference when invoked by the Discord bot.
