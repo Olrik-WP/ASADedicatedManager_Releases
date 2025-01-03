@@ -1,3 +1,7 @@
+## Version 2.2.2.2 PRE-RELEASE NOTE
+- **Bug Fixes:**
+  - Auto Start at launch now stores and verifies PID and launch time for reliable server process detection and avoiding duplicate starts.
+
 ## Version 2.2.2.1 PRE-RELEASE NOTE
 - **New Features:**
   - Added `-UseDynamicConfig` CheckBox in Command Line tab translated to all language
