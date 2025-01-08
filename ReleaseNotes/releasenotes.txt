@@ -1,3 +1,7 @@
+## Version 2.2.2.3 PRE-RELEASE NOTE
+- **Improvements:**
+  - Now uses both **PID** and **Launch Time** (StartTime) and **SessionName** for identifying if the server is still the same process. **(WORK IN PROGRESS FIX)**
+
 ## Version 2.2.2.2 PRE-RELEASE NOTE
 - **Bug Fixes:**
   - Auto Start at launch now stores and verifies PID and launch time for reliable server process detection and avoiding duplicate starts.
