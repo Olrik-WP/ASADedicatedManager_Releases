@@ -1,3 +1,14 @@
+## Version 2.2.2.5 PRE-RELEASE NOTE
+- **Improvements:**
+  - Dedicated server updates no longer check files (validate option in steam cmd)
+  - Added a button to start checking dedicated server files (validate option in steam cmd)
+  - Limited the maximum number of retries in case of an update failure to 3
+  - On the 2nd failed attempt steam cmd is reinstalled
+    - Added errors: "0x486"," 0x426"," 0x6", "0x202","0x203","0x602"
+    - Added a special message in case of lack of space "0x202"
+  - Removed the update check when launching the application for non-premium to relieve API calls dedicated to Premium users
+  - Check for updates, remove random check delays. Remove fake browser agents. Since we host the API
+
 ## Version 2.2.2.4 PRE-RELEASE NOTE
 - **Improvements:**
   - Now uses both **PID** and **Launch Time** (StartTime) and **SessionName** for identifying if the server is still the same process. **(FINAL VERSION)**
