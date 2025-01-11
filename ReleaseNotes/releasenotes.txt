@@ -1,3 +1,19 @@
+## Version 2.2.2.4 PRE-RELEASE NOTE
+- **Improvements:**
+  - Now uses both **PID** and **Launch Time** (StartTime) and **SessionName** for identifying if the server is still the same process. **(FINAL VERSION)**
+  - Added a huge amount of logs in each startup method, crash detection and recovery on running processes
+  - Complete modification of the server launch method for retrieving PIDs with and without API Loader
+  - Removal of the console hiding parameter -oldconsole with API which caused a bug in retrieving PIDs
+  - Created a dedicated method to hide the dedicated server window
+  - Added a new checkbox in Server Management Core to hide the dedicated servers window
+  - Used the new method to hide the API window if Show API Console is unchecked
+  - Stopping the server and killing it now deletes the serverInfo.txt file
+  - Added a confirmation and a Full backup before stopping or restarting a server this will slow down your stopping or killing of servers but secure your server
+  - Added a clear confirmation before killing a server
+- **Bug Fixes:**
+  - Fixed unrecognized spaces for SessionName in command line of all methods
+  - Fixed application freezing when displaying certain messages
+
 ## Version 2.2.2.3 PRE-RELEASE NOTE
 - **Improvements:**
   - Now uses both **PID** and **Launch Time** (StartTime) and **SessionName** for identifying if the server is still the same process. **(WORK IN PROGRESS FIX)**
