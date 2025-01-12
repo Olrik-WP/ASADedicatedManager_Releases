@@ -1,3 +1,8 @@
+## Version 2.2.2.7 PRE-RELEASE NOTE
+- **Improvements:**
+  - Reduced cooldown time after reboot from 30 to 5 seconds
+  - Changed semaphore check time from 300 to 3600 seconds (5 minutes -> 1 hour)
+
 ## Version 2.2.2.6 PRE-RELEASE NOTE
 - **Improvements:**
   - Added ini file name with error in logs when there is a problem adding a tab when loading the manager
