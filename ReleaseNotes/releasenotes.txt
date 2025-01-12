@@ -1,3 +1,8 @@
+## Version 2.2.2.8 PRE-RELEASE NOTE
+- **Improvements:**
+  - Add advanced network setups only
+  - Implementation of semaphore lock when automatically updating servers 
+
 ## Version 2.2.2.7 PRE-RELEASE NOTE
 - **Improvements:**
   - Reduced cooldown time after reboot from 30 to 5 seconds
