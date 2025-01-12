@@ -1,4 +1,8 @@
-## Version 2.2.2.9 PRE-RELEASE NOTE
+## Version 2.2.3.0 PRE-RELEASE NOTE
+- **Improvements:**
+- Removed of -Oldconsole for API and management argument suite not supported correctly in ASA
+
+## Version 2.2.3.9 PRE-RELEASE NOTE
 - **Improvements:**
 - Reactivation of -Oldconsole for API and management of checkboxes accordingly
 
