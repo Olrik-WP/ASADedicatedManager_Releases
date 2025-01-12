@@ -1,3 +1,8 @@
+## Version 2.2.2.6 PRE-RELEASE NOTE
+- **Improvements:**
+  - Added ini file name with error in logs when there is a problem adding a tab when loading the manager
+  - Advanced Schedule ans Basic Added a sempahore lock to delay reboots scheduled at the same time and avoid multiple launches at the same time which lead to saturation of the machine and non-recovery of PIDs
+
 ## Version 2.2.2.5 PRE-RELEASE NOTE
 - **Improvements:**
   - Dedicated server updates no longer check files (validate option in steam cmd)
