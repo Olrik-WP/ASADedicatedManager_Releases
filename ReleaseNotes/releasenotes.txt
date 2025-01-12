@@ -1,3 +1,7 @@
+## Version 2.2.2.9 PRE-RELEASE NOTE
+- **Improvements:**
+- Reactivation of -Oldconsole for API and management of checkboxes accordingly
+
 ## Version 2.2.2.8 PRE-RELEASE NOTE
 - **Improvements:**
   - Add advanced network setups only
