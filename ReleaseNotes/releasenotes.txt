@@ -1,3 +1,13 @@
+## Version 2.2.3.1 PRE-RELEASE NOTE
+- **Improvements:**
+  - Added dedicated server port override and RCON port in the Command Line tab
+  - Modified the launch command line: replaced ?port= with -port= removed the useless and unused ?listen on a dedicated server
+  - Added duplicate session name verification forbidden checked when launching the manager and when launching the servers
+  - Added duplicate rcon port verification forbidden checked when launching the manager and NOW when launching the servers
+  - Added -Oldconsole in the API tab
+- **Validation Team Updates:**
+  - Added new validation team members: **CHIEF BODO** test machine.
+
 ## Version 2.2.3.0 PRE-RELEASE NOTE
 - **Improvements:**
 - Removed of -Oldconsole for API and management argument suite not supported correctly in ASA
