@@ -1,3 +1,7 @@
+## Version 2.2.3.4 PRE-RELEASE NOTE
+- **Bug Fixes:**
+  -Prohibition of " in session name verification when starting the manager and launching servers
+
 ## Version 2.2.3.3 PRE-RELEASE NOTE
 - **New Features:**
   - Added information panel capable of containing multiple messages managed via the incident portal
