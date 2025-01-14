@@ -1,3 +1,9 @@
+## Version 2.2.3.3 PRE-RELEASE NOTE
+- **New Features:**
+  - Added information panel capable of containing multiple messages managed via the incident portal
+- **Improvements:**
+  - Added duplicate checking in dedicated server ports
+
 ## Version 2.2.3.2 PRE-RELEASE NOTE
 - **Improvements:**
   - It is no longer possible to change ports when the server is started
