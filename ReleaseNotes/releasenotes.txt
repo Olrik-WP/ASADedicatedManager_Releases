@@ -1,3 +1,13 @@
+## Version 2.2.3.2 PRE-RELEASE NOTE
+- **Improvements:**
+  - It is no longer possible to change ports when the server is started
+  - Changed RCONEnabled logic. The check box is now hidden useless for the user
+  - Changed enable logic of Override GameUserSettings.ini server port and RCON settings. Changed color to reflect enabled disabled states
+  - Added clear messages during server shutdown - Backup and kill task if the time limit is exceeded for the shutdown the kill is now displayed with a progress bar if the server does not stop normally within the time limit (i.e. 30 seconds after the backup)
+- **Bug Fixes:**
+  - **Changed Autoupdate semaphore check time from 300 to 3600 seconds (5 minutes -> 1 hour)**
+  - The cancel stop button can no longer be clicked when the stop phase is initiated
+
 ## Version 2.2.3.1 PRE-RELEASE NOTE
 - **Improvements:**
   - Added dedicated server port override and RCON port in the Command Line tab
