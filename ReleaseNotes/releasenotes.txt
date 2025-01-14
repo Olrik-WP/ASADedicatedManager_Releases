@@ -1,6 +1,10 @@
+## Version 2.2.3.5 PRE-RELEASE NOTE
+- **Bug Fixes:**
+  - Full backups are only performed via the stop button and no longer in automatic tasks
+
 ## Version 2.2.3.4 PRE-RELEASE NOTE
 - **Bug Fixes:**
-  -Prohibition of " in session name verification when starting the manager and launching servers
+  - Prohibition of " in session name verification when starting the manager and launching servers
 
 ## Version 2.2.3.3 PRE-RELEASE NOTE
 - **New Features:**
