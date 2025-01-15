@@ -1,3 +1,8 @@
+## Version 2.2.3.7 PRE-RELEASE NOTE
+- **Improvements:**
+  - Removed unnecessary logs in crash detection to avoid log flooding
+  - Removed 5 minutes in autoupdate check
+
 ## Version 2.2.3.6 PRE-RELEASE NOTE
 - **Improvements:**
   - Added more logs in kill and stop tasks
