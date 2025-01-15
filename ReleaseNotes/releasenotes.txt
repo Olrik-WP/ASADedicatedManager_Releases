@@ -1,3 +1,9 @@
+## Version 2.2.3.8 PRE-RELEASE NOTE
+- **Improvements:**
+  - Added 5 minutes in autoupdate check for tests
+- **Bug Fixes:**
+  - Attempt to fix RCON infinite loop
+
 ## Version 2.2.3.7 PRE-RELEASE NOTE
 - **Improvements:**
   - Removed unnecessary logs in crash detection to avoid log flooding
