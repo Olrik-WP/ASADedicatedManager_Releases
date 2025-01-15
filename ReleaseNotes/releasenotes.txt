@@ -1,3 +1,7 @@
+## Version 2.2.4.0 PRE-RELEASE NOTE
+- **Bug Fixes:**
+  - Try Fix Kill when server not closing with old method working
+
 ## Version 2.2.3.9 PRE-RELEASE NOTE
 - **Bug Fixes:**
   - Add method tag in logs for RCON
