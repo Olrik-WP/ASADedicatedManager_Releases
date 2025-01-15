@@ -1,3 +1,12 @@
+## Version 2.2.3.6 PRE-RELEASE NOTE
+- **Improvements:**
+  - Added more logs in kill and stop tasks
+- **Bug Fixes:**
+  - Added backups in automated tasks with better management
+  - Modified the kill method to better manage errors
+  - Removed unnecessary logs at each PID check to avoid log flooding
+  - Changed the status of some buttons when relaunching the manager to reflect the desired state before the relaunch
+
 ## Version 2.2.3.5 PRE-RELEASE NOTE
 - **Bug Fixes:**
   - Full backups are only performed via the stop button and no longer in automatic tasks
