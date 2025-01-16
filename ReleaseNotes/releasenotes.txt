@@ -1,3 +1,7 @@
+## Version 2.2.4.4 FINAL-RELEASE NOTE
+- **Bug Fixes:**
+  - Removal of the message box normally intended for logs: The dedicated server with session 'SessionName' is already running (PID: 'PID')
+
 ## Version 2.2.4.3 FINAL-RELEASE NOTE
 - **New Features:**
   - Added `-UseDynamicConfig` CheckBox in the Command Line tab, translated into all supported languages.
