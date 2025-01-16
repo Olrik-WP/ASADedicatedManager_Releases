@@ -1,3 +1,64 @@
+## Version 2.2.4.3 FINAL-RELEASE NOTE
+- **New Features:**
+  - Added `-UseDynamicConfig` CheckBox in the Command Line tab, translated into all supported languages.
+  - Added information panel capable of containing multiple messages managed via the incident portal.
+- **Improvements:**
+  - **Crash Detection & Process Reattachment:**
+    - Now uses **PID**, **Launch Time** (StartTime), and **SessionName** to reliably identify if the server process is still the same.
+    - Enhanced checks to prevent accidental double launches or attaching to incorrect processes due to PID reuse by the OS.
+    - Extensive logging added for startup methods, crash detection, and process recovery.
+    - Modified server launch methods for improved PID retrieval with and without API Loader.
+    - Confirmation and full backup implemented before stopping or restarting servers to ensure data safety.
+    - Servers now delete the `serverInfo.txt` file when stopped or killed.
+  - **Scheduling and Semaphore Locks:**
+    - SteamCMD updates are no longer performed if the update is not necessary.
+    - Added semaphore locks to delay overlapping scheduled reboots (Basic, Advanced, and Auto Update), avoiding machine saturation and PID recovery failures.
+    - Added semaphore check time to 14400 seconds (4 hours).
+    - Added a random delay when acquiring semaphores to prevent servers from all trying to acquire them at the same time.
+    - Reduced cooldown time after reboots from 30 seconds to 5 seconds.
+  - **Network and Update Enhancements:**
+    - Added advanced network for better understanding of server configurations.
+    - Dedicated server updates no longer validate files by default, streamlining updates.
+    - Added a button for manual file validation.
+    - Added dedicated server port override and RCON port in the Command Line tab.
+    - Modified the launch command line by replacing `?port=` with `-port=` and removed the unused `?listen` parameter on dedicated servers.
+    - Added duplicate session name verification checks when launching the manager and servers.
+    - Added duplicate RCON port verification checks when launching the manager and servers.
+    - Added `-Oldconsole` in the API tab.
+    - Limited maximum retries for update failures to **3 attempts**:
+      - On the 2nd failure, SteamCMD is reinstalled.
+      - Added specific error handling for common errors (`0x486`, `0x426`, `0x6`, `0x202`, `0x203`, `0x602`).
+      - Added a special message for space-related errors (`0x202`).
+    - Removed update checks on application launch for non-premium users to reduce API load.
+    - Eliminated random update check delays and fake browser agents as updates are now hosted directly on the API for faster queries.
+  - **Enhanced Logs and Error Handling:**
+    - Added detailed logs when errors occur during tab loading or configuration issues.
+    - Added clear messages during server shutdown. Backup and kill task if the time limit is exceeded for shutdown now display with a progress bar (if the server does not stop normally within the time limit of 30 seconds).
+    - Logs now include the **ini file name** causing errors, simplifying debugging.
+    - Improved log messages for startup, crash detection, and server recovery.
+  - **UI and Interaction:**
+    - Added duplicate checking in dedicated server ports.
+    - Added a clear confirmation prompt before killing or stopping and restarting a server.
+    - Improved handling of dedicated server windows with a dedicated method to hide windows, along with a new checkbox in Server Management Core and API tab for visibility control.
+- **Bug Fixes:**
+  - Fixed application freezing when displaying specific messages.
+  - Fixed unrecognized spaces in the `SessionName` command line for all methods.
+  - Resolved issues with server reattachment logic misidentifying processes or missing active ones.
+  - Fixed timer interference in the `DestroyWildDinos` method when invoked by the Discord bot by adding the `isFromBot` parameter.
+  - Auto Start at launch now reliably stores and verifies **PID** and **Launch Time**, avoiding duplicate server starts.
+  - Fixed a bug that prevented reading dedicated server logs when using the API and restarting.
+  - Fixed and improved all auto-restart methods (Auto Update, Advanced Schedule, Basic Schedule).
+  - Prohibition of `"` in session name verification when starting the manager and launching servers.
+  - Modified the kill method to better manage errors.
+  - Fixed a bug in Auto Update that could cause the same server to restart multiple times.
+  - Added backups in automated tasks with better management.
+  - Changed the status of some buttons when relaunching the manager to reflect the desired state before the relaunch.
+- **Important Notices:**
+  - **All users must relaunch their servers at least once** to generate the new PID + StartTime file format. This file is essential for improved crash detection and automatic reattachment.
+  - Using the new **PID + Launch Time + SessionName** identification method ensures **100% reliability** in distinguishing restarted processes from the original ones.
+  - Added safeguards to prevent multiple simultaneous launches during scheduled reboots.
+- **This update is a comprehensive improvement in stability, performance, and user experience. We highly recommend updating to this version to benefit from all the enhancements and fixes. Unfortunately, despite testing it may add new bugs**
+
 ## Version 2.2.4.2 PRE-RELEASE NOTE
 - **Improvements:**
   - SteamCMD updates are no longer performed if the update is not necessary
@@ -156,14 +217,14 @@
 
 ## Version 2.2.1.8 FINAL-RELEASE NOTE
 - **Improvements:**
-- Enhanced Advanced Schedule logic to prevent forcing dino respawn when specific actions are triggered.
-- Added condition to enforce dependency between 'Restart After Shutdown' and 'Destroy Wild Dino After Shutdown', **to ensure 'Destroy Wild Dino After Shutdown' can only be enabled if 'Restart After Shutdown' is checked.**
+  - Enhanced Advanced Schedule logic to prevent forcing dino respawn when specific actions are triggered.
+  - Added condition to enforce dependency between 'Restart After Shutdown' and 'Destroy Wild Dino After Shutdown', **to ensure 'Destroy Wild Dino After Shutdown' can only be enabled if 'Restart After Shutdown' is checked.**
 - **Critical Bug Fixes:**
-- Added condition to exclude the 'Start All Servers' button from triggering dino respawn, **to prevent this from being applied when updating servers via this button.**
-- Added condition to exclude the 'Update All Servers' button from triggering dino respawn, **to prevent this from being applied when updating servers via this button.**
-- Added condition to exclude Discord bot commands '!start' and '!update' from triggering dino respawn, **to prevent this from being applied when starting or updating servers remotely via the bot.**
-- Added condition to exclude automatic profile-based server starts at launch from triggering dino respawn, **to prevent this from being applied when servers start automatically based on user profiles.**
-- Added condition to exclude crash detection restarts from triggering dino respawn, **to prevent this from being applied when servers restart automatically after a crash is detected.**
+  - Added condition to exclude the 'Start All Servers' button from triggering dino respawn, **to prevent this from being applied when updating servers via this button.**
+  - Added condition to exclude the 'Update All Servers' button from triggering dino respawn, **to prevent this from being applied when updating servers via this button.**
+  - Added condition to exclude Discord bot commands '!start' and '!update' from triggering dino respawn, **to prevent this from being applied when starting or updating servers remotely via the bot.**
+  - Added condition to exclude automatic profile-based server starts at launch from triggering dino respawn, **to prevent this from being applied when servers start automatically based on user profiles.**
+  - Added condition to exclude crash detection restarts from triggering dino respawn, **to prevent this from being applied when servers restart automatically after a crash is detected.**
 
 ## Version 2.2.1.7 FINAL-RELEASE NOTE
 - **Bug Fixes:**
