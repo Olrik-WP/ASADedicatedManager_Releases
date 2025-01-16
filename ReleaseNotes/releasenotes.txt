@@ -1,3 +1,14 @@
+## Version 2.2.4.2 PRE-RELEASE NOTE
+- **Improvements:**
+  - SteamCMD updates are no longer performed if the update is not necessary
+  - Added a random delay when acquiring semaphores to prevent servers from all trying to acquire them at the same time
+  - Changed semaphore check time from 3600 to 14400 seconds (1 hour -> 4 hour)
+  - Moved backup and kill information for better visibility
+- **Bug Fixes:**
+  - Fixed a bug that prevents reading dedicated server logs when using the API and restarting
+  - Fixed and improved all auto-restart methods Auto Update Advanced Schedule Basic Schedule
+  - Fixed a bug in Auto Update that could cause the same server to restart multiple times
+
 ## Version 2.2.4.1 PRE-RELEASE NOTE
 - **Bug Fixes:**
   - Fixed save text showing continuously
