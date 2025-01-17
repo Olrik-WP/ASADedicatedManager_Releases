@@ -1,5 +1,10 @@
+## Version 2.2.4.7 FINAL-RELEASE NOTE
+- **Improvements:**
+  - Added tabs and port and rcon port impacted by duplicates
+  - Tabs are now saved when opened and closed in addition to when the application is closed
+
 ## Version 2.2.4.6 FINAL-RELEASE NOTE
-- **Bug Fixes:**
+- **New Features:**
   - Added the ability to add the -dev argument to each mod in the mod management tab (advanced configuration for mods in development only)
 
 ## Version 2.2.4.5 FINAL-RELEASE NOTE
