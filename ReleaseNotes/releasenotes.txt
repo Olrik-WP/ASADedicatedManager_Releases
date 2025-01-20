@@ -1,3 +1,19 @@
+## Version 2.2.4.8 PRE-RELEASE NOTE
+- **New Features:**
+  - Added an option to toggle between a splash video and a static splash image
+- **Improvements:**
+- The CPU affinity setting has been completely reworked, it now uses a dedicated class, and now accesses the Windows API. There are no more delays to wait when starting the server. + a button allows to apply the affinity immediately in real time
+- CPU affinity should be able to handle more than 64 threads thanks to the use of the windows API (not currently tested)
+- Re-enable elevators in listboxes and listviews
+- **Bug Fixes:**
+  - Fixed a bug in the logic of reading logs to know the status of the dedicated server
+  - Fixed bug in CPU priority application logic
+  - Fixed a bug in displaying list boxes due to a custom style
+  - Fixed a bug in the API window hiding logic
+  - Fixed a bug in the dedicated server window hiding logic
+- **Validation Team Updates:**
+  - Added new validation team members: **elcone**
+
 ## Version 2.2.4.7 FINAL-RELEASE NOTE
 - **Improvements:**
   - Added tabs and port and rcon port impacted by duplicates
