@@ -1,3 +1,10 @@
+## Version 2.2.4.9 PRE-RELEASE NOTE
+- **Improvements:**
+  - Reorganization of CPU priority order
+  - Fixed visibility of affinity button and cores listbox
+- **Bug Fixes:**
+  - **Fixed a critical issue that could cause the manager to crash when releasing unacquired semaphores which sometimes prevented the server from restarting properly in Basic, Advanced Schedule, and Autoupdate methods.**
+
 ## Version 2.2.4.8 PRE-RELEASE NOTE
 - **New Features:**
   - Added an option to toggle between a splash video and a static splash image
