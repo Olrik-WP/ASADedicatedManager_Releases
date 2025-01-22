@@ -1,3 +1,7 @@
+## Version 2.2.5.0 PRE-RELEASE NOTE
+- **New Features:**
+  - This beta allows you to use the API with version.dll. Be careful, **it is not finished and when restarting the manager, only the version.dll checkbox is saved.**
+
 ## Version 2.2.4.9 PRE-RELEASE NOTE
 - **Improvements:**
   - Reorganization of CPU priority order
