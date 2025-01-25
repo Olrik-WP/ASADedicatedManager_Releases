@@ -1,3 +1,18 @@
+## Version 2.2.5.1 PRE-RELEASE NOTE
+- **New Features:**
+  - Added the ability to configure CPU core usage for the server within the current processor group.
+    - Introduced new UI buttons:
+      - **Select All**: Quickly select all cores in the current group.
+      - **Clear All**: Deselect all cores in the current group.
+      - **Invert**: Invert the current selection of cores.
+- **Improvements:**
+  - Optimized CPU core management to avoid errors related to Windows limitations on multi-group processes.
+  - Changed CPU display in machine language to 0 instead of 1
+- **Known Limitations:**
+  - **Multi-group core management is not supported**: Due to Windows restrictions, the application can only manage cores within the current group where the process is running.
+- **Bug Fixes:**
+  - Fixed bug in saving CPU affinity activation checkbox
+
 ## Version 2.2.5.0 PRE-RELEASE NOTE
 - **New Features:**
   - This beta allows you to use the API with version.dll. Be careful, **it is not finished and when restarting the manager, only the version.dll checkbox is saved.**
