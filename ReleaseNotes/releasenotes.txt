@@ -1,3 +1,7 @@
+## Version 2.2.5.5 PRE-RELEASE NOTE
+- **New Features:**
+  - Added the ability rollback to a previous version of the dedicated
+
 ## Version 2.2.5.4 FINAL-RELEASE NOTE
 - **New Features**
    - Added the ability to disable backups when stopping the server.
@@ -30,10 +34,6 @@
   - **Multi-Group Core Managemen Unsupported:** Due to Windows restrictions, the application can only manage cores within the current processor group where the process is running.
 - **Validation Team Updates**
   - Welcomed **elcone** to the validation team, enhancing our quality assurance processes.
-
-## Version 2.2.5.3 PRE-RELEASE NOTE
-- **New Features:**
-  - Added the ability rollback to a previous version of the dedicated
 
 ## Version 2.2.5.2 PRE-RELEASE NOTE
 - **New Features:**
