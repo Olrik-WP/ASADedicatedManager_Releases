@@ -1,4 +1,4 @@
-## Version 2.2.5.4 FINAL RELEASE NOTE
+## Version 2.2.5.4 FINAL-RELEASE NOTE
 - **New Features**
    - Added the ability to disable backups when stopping the server.
    - Introduced the ability to configure CPU core usage for the server within the current processor group.
