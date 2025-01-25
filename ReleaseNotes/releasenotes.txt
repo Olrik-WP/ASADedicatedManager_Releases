@@ -1,3 +1,40 @@
+## Version 2.2.5.4 FINAL RELEASE NOTE
+- **New Features**
+   - Added the ability to disable backups when stopping the server.
+   - Introduced the ability to configure CPU core usage for the server within the current processor group.
+     - **Select All:** Quickly select all cores in the current group.
+     - **Clear All:** Deselect all cores in the current group.
+     - **Invert:** Invert the current selection of cores.
+   - Enabled API usage with `version.dll`.
+   - Added an option to toggle between a splash video and a static splash image. 
+- **Improvements**
+  - Slight reorganization of the core management user interface for better usability.
+  - Reorganized CPU priority order for enhanced performance management.
+  - Completely reworked CPU affinity settings using a dedicated class and accessing the Windows API.
+    - Eliminated delays when starting the server.
+    - Introduced a button to apply affinity changes in real-time.
+    - Enhanced CPU affinity to handle more than 64 threads (pending testing).
+  - Re-enabled elevators in listboxes and listviews for improved navigation.
+  - Improved the logic for reading logs to accurately determine the status of the dedicated server.
+  - Changed CPU display in machine language to start from 0 instead of 1 for consistency.
+- **Bug Fixes**
+  - **Fixed a critical issue that could cause the manager to crash when releasing unacquired semaphores, which sometimes prevented the server from restarting properly in Basic, Advanced Schedule, and Autoupdate methods.**
+  - Fixed a bug in the CPU affinity activation checkbox saving mechanism.
+  - Resolved issues in the CPU priority application logic to ensure proper functionality.
+  - Fixed bugs related to the visibility of the affinity button and cores listbox.
+  - Corrected display issues in list boxes caused by custom styles.
+  - Fixed bugs in the API window hiding logic.
+  - Resolved issues in the dedicated server window hiding logic.
+  - Fixed a bug in the logic of reading logs to know the status of the dedicated server.
+- **Known Limitations**
+  - **Multi-Group Core Managemen Unsupported:** Due to Windows restrictions, the application can only manage cores within the current processor group where the process is running.
+- **Validation Team Updates**
+  - Welcomed **elcone** to the validation team, enhancing our quality assurance processes.
+
+## Version 2.2.5.3 PRE-RELEASE NOTE
+- **New Features:**
+  - Added the ability rollback to a previous version of the dedicated
+
 ## Version 2.2.5.2 PRE-RELEASE NOTE
 - **New Features:**
   - Added the ability to disable backup when stopping the server
