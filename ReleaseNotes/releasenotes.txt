@@ -1,3 +1,16 @@
+## Version 2.2.5.6 PRE-RELEASE NOTE
+- **Improvements**
+  - Added the ability to cancel the download (the steamcmd process is killed and half-downloaded files are deleted)
+  - Once the download is done, it is not possible to cancel the copy of the files to avoid corrupting the dedicated server
+  - Added a progress bar during the download
+  - Added a progress bar during the file copy
+  - Impossible to close the window during the rollback process
+  - Improved rollback windows UI
+  - Improved API UI
+- **Bug Fixes**
+  - Fixed various missing bindings for premium status and display of the Public IP
+  - Fixed a bug in the API activation logic that prevented the Pelayori Advanced Messages Ascended plugin from being used if the dll was used
+
 ## Version 2.2.5.5 PRE-RELEASE NOTE
 - **New Features:**
   - Added the ability rollback to a previous version of the dedicated
