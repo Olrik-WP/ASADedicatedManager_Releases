@@ -1,3 +1,9 @@
+## Version 2.2.5.7 PRE-RELEASE NOTE
+- **New Features:**
+  - API Release (Early Access)
+- **Bug Fixes**
+  - Fixed a manager crash when launching rollback due to an operation not performed on the UI thread
+
 ## Version 2.2.5.6 PRE-RELEASE NOTE
 - **Improvements**
   - Added the ability to cancel the download (the steamcmd process is killed and half-downloaded files are deleted)
