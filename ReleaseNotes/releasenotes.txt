@@ -1,3 +1,15 @@
+## Version 2.2.5.9 PRE-RELEASE NOTE
+- **Improvements**
+  - Final release of API UI
+  - Added authentication system to API via token
+  - Removed API stop and start info messages
+  - **Changed the timeout at startup to retrieve PIDs from 5 to 20 seconds**
+- **Bug Fixes**
+  - Fixed a bug that left the dino replacement save button disabled after server shutdown
+- **Next API developments:**
+  - Added the ability to set the port
+  - Added the ability to see the status of the servers
+
 ## Version 2.2.5.8 PRE-RELEASE NOTE
 - **Bug Fixes**
   - Added missing ui.html
