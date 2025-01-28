@@ -1,3 +1,16 @@
+## Version 2.2.6.0 PRE-RELEASE NOTE
+- **Improvements**
+  - Added premium status to the API
+  - Redesigned the API UI in the manager
+  - Redesigned token management (now managed in the manager)
+  - Added the ability to modify the API port
+  - Checked the API port (cannot use a port that is already in use), Banned WEB Browser ports
+  - Added the display of server status (refresh every 10 seconds)
+  - Added confirmation boxes on critical API buttons
+  - Various API improvements
+- **Bug Fixes**
+  - API Fixed a bug that prevent server updates
+
 ## Version 2.2.5.9 PRE-RELEASE NOTE
 - **Improvements**
   - Final release of API UI

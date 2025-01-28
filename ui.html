@@ -43,17 +43,19 @@
 
         h1 {
             font-size: 2.5rem;
-            background: linear-gradient(135deg, #dc2626, #ea580c, #000000);
+            background: linear-gradient(135deg, #e63946, #f59e0b, #ffd700);
+            background-size: 200% 200%;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             text-align: center;
             margin-bottom: 2rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            letter-spacing: 1px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1.5px;
             font-weight: 800;
             position: relative;
             padding-bottom: 1rem;
+            animation: gradientAnimation 4s ease infinite;
         }
 
             h1::after {
@@ -64,9 +66,34 @@
                 transform: translateX(-50%);
                 width: 100px;
                 height: 4px;
-                background: linear-gradient(90deg, #dc2626, #ea580c, #000000);
+                background: linear-gradient(90deg, #e63946, #f59e0b, #ffd700);
                 border-radius: 2px;
+                animation: barAnimation 2s infinite;
             }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes barAnimation {
+            0%, 100% {
+                width: 100px;
+            }
+
+            50% {
+                width: 120px;
+            }
+        }
 
         h2 {
             font-size: 1.8rem;
@@ -407,6 +434,30 @@
             gap: 12px;
             margin-top: 24px;
         }
+
+        #server-status-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+            #server-status-table th, #server-status-table td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: center;
+            }
+
+            #server-status-table th {
+                background-color: #f2f2f2;
+            }
+
+        .card {
+            background-color: #2d3748;
+            padding: 20px;
+            border-radius: 8px;
+            color: white;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -426,17 +477,11 @@
     </div>
 
     <div class="container">
-        <h1>ASADedicatedManager UI</h1>
+        <h1>ASADedicatedManager WEB UI</h1>
 
         <div class="card">
             <h2>Token Management</h2>
             <div class="input-group">
-                <label for="token-description">Generate New Token</label>
-                <input type="text" id="token-description" placeholder="Token description">
-                <button onclick="generateToken()" class="btn-success">Generate</button>
-            </div>
-
-            <div class="input-group" style="margin-top: 1rem;">
                 <label for="manual-token">Manual Token Entry</label>
                 <div style="display: flex; gap: 0.5rem;">
                     <input type="text" id="manual-token" placeholder="Enter existing token">
@@ -451,7 +496,6 @@
                     <tr>
                         <th>Token</th>
                         <th>Description</th>
-                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody id="tokens-table-body"></tbody>
@@ -460,187 +504,366 @@
         </div>
 
         <div class="card">
+            <h2>Server Status</h2>
+
+            <table id="server-status-table">
+                <thead>
+                    <tr>
+                        <th>Profile Name</th>
+                        <th>Status</th>
+                        <th>Server Version</th>
+                        <th>Official Version</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Les statuts des serveurs seront insérés ici par JavaScript -->
+                </tbody>
+            </table>
             <h2>Profile Management</h2>
             <div id="profiles" class="grid"></div>
         </div>
     </div>
 
-    <script>
-        async function validateStoredToken() {
-            const storedToken = localStorage.getItem('authToken');
-            if (!storedToken) return false;
+        <script>
+            let authToken = localStorage.getItem('authToken') || '';
+            let apiBaseUrl = '';
 
-            try {
-                const response = await fetch('http://localhost:5000/list-tokens', {
-                    headers: {
-                        'Authorization': `Bearer ${storedToken}`
+            async function initialize() {
+                try {
+                    const configResponse = await fetch('/config');
+                    if (configResponse.ok) {
+                        const configData = await configResponse.json();
+                        apiBaseUrl = configData.baseUrl;
+                        console.log(`API Base URL: ${apiBaseUrl}`);
+                    } else {
+                        throw new Error('Failed to fetch API configuration.');
                     }
-                });
 
-                if (!response.ok) {
+                    const isValid = await validateStoredToken();
+                    if (isValid) {
+                        authToken = localStorage.getItem('authToken');
+                        listTokens();
+                        fetchProfiles();
+                        fetchServerStatuses(); // Charger les statuts au démarrage
+                    } else {
+                        authToken = '';
+                        showMessage('Your session has expired or no token is set. Please set a token via the WPF interface.', 'warning');
+                    }
+                } catch (error) {
+                    console.error('Initialization error:', error);
+                    showMessage('Error initializing interface.', 'error');
+                }
+            }
+
+            window.onload = initialize;
+
+            async function validateStoredToken() {
+                const storedToken = localStorage.getItem('authToken');
+                if (!storedToken) return false;
+
+                try {
+                    const response = await fetch(`${apiBaseUrl}list-tokens`, {
+                        headers: {
+                            'Authorization': `Bearer ${storedToken}`
+                        }
+                    });
+
+                    if (!response.ok) {
+                        localStorage.removeItem('authToken');
+                        return false;
+                    }
+
+                    return true;
+                } catch (error) {
+                    console.error('Token validation error:', error);
                     localStorage.removeItem('authToken');
                     return false;
                 }
-
-                return true;
-            } catch (error) {
-                console.error('Token validation error:', error);
-                localStorage.removeItem('authToken');
-                return false;
-            }
-        }
-
-        function showMessage(message, type = 'info') {
-            const container = document.getElementById('message-container');
-            const messageBox = document.createElement('div');
-            messageBox.className = `message-box ${type}`;
-
-            const icons = {
-                success: 'bi-check-circle-fill',
-                error: 'bi-x-circle-fill',
-                info: 'bi-info-circle-fill',
-                warning: 'bi-exclamation-triangle-fill'
-            };
-
-            messageBox.innerHTML = `
-                    <i class="bi ${icons[type]}"></i>
-                    <div class="content">${message}</div>
-                    <i class="bi bi-x close" onclick="this.parentElement.remove()"></i>
-                `;
-
-            container.appendChild(messageBox);
-
-            setTimeout(() => {
-                messageBox.style.animation = 'slideOutRight 0.3s ease forwards';
-                setTimeout(() => messageBox.remove(), 300);
-            }, 5000);
-        }
-
-        async function setManualToken() {
-            const manualToken = document.getElementById('manual-token').value.trim();
-            if (!manualToken) {
-                showMessage('Please enter a token', 'warning');
-                return;
             }
 
-            try {
-                const response = await fetch('http://localhost:5000/list-tokens', {
-                    headers: {
-                        'Authorization': `Bearer ${manualToken}`
-                    }
-                });
+            function showMessage(message, type = 'info') {
+                const container = document.getElementById('message-container');
+                const messageBox = document.createElement('div');
+                messageBox.className = `message-box ${type}`;
 
-                if (!response.ok) {
-                    throw new Error('Invalid token');
-                }
+                const icons = {
+                    success: 'bi-check-circle-fill',
+                    error: 'bi-x-circle-fill',
+                    info: 'bi-info-circle-fill',
+                    warning: 'bi-exclamation-triangle-fill'
+                };
 
-                authToken = manualToken;
-                localStorage.setItem('authToken', authToken);
-                showMessage('Token successfully set and saved', 'success');
+                messageBox.innerHTML = `
+                                <i class="bi ${icons[type]}"></i>
+                                <div class="content">${message}</div>
+                                <i class="bi bi-x close" onclick="this.parentElement.remove()"></i>
+                            `;
 
-                document.getElementById('manual-token').value = '';
+                container.appendChild(messageBox);
+
                 setTimeout(() => {
-                    window.location.reload();
-                }, 1500);
-            } catch (error) {
-                showMessage('Invalid token. Please check and try again.', 'error');
+                    messageBox.style.animation = 'slideOutRight 0.3s ease forwards';
+                    setTimeout(() => messageBox.remove(), 300);
+                }, 5000);
             }
-        }
 
-        function showConfirmModal(message, onConfirm) {
-            const modal = document.getElementById('confirm-modal');
-            const confirmBtn = document.getElementById('modal-confirm');
-            document.getElementById('modal-message').textContent = message;
+            async function fetchServerStatuses() {
+                if (!authToken) return;
 
-            modal.classList.add('active');
+                try {
+                    const response = await fetch(`${apiBaseUrl}server-status`, {
+                        headers: {
+                            'Authorization': `Bearer ${authToken}`
+                        }
+                    });
 
-            confirmBtn.onclick = () => {
-                onConfirm();
-                closeModal();
-            };
-        }
-
-        function closeModal() {
-            document.getElementById('confirm-modal').classList.remove('active');
-        }
-
-        let authToken = localStorage.getItem('authToken') || '';
-
-        async function generateToken() {
-            const description = document.getElementById('token-description').value.trim();
-
-            try {
-                const response = await fetch('http://localhost:5000/list-tokens', {
-                    headers: {
-                        'Authorization': `Bearer ${authToken}`
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch server statuses.');
                     }
-                });
 
-                if (!response.ok) {
-                    throw new Error(await response.text());
+                    const data = await response.json();
+                    displayServerStatuses(data.servers);
+                } catch (error) {
+                    console.error(error);
+                    showMessage('Error retrieving server statuses.', 'error');
                 }
+            }
 
-                const data = await response.json();
-                if (Object.keys(data.tokens).length > 0) {
-                    showMessage('A token already exists. Cannot generate a new one.', 'error');
+            function displayServerStatuses(servers) {
+                const tbody = document.querySelector('#server-status-table tbody');
+                tbody.innerHTML = ''; // Effacer les lignes existantes
+
+                servers.forEach(server => {
+                    const tr = document.createElement('tr');
+
+                    // Nom du Profil
+                    const profileTd = document.createElement('td');
+                    profileTd.textContent = server.ProfileName;
+                    tr.appendChild(profileTd);
+
+                    // Statut
+                    const statusTd = document.createElement('td');
+                    statusTd.innerHTML = `${server.StatusEmoji} ${server.Status}`;
+                    tr.appendChild(statusTd);
+
+                    // Version du Serveur
+                    const versionTd = document.createElement('td');
+                    versionTd.textContent = server.ServerVersion;
+                    tr.appendChild(versionTd);
+
+                    // Version Officielle
+                    const officialVersionTd = document.createElement('td');
+                    officialVersionTd.textContent = server.OfficialServerVersion;
+                    tr.appendChild(officialVersionTd);
+
+                    tbody.appendChild(tr);
+                });
+            }
+
+            // Mettre à jour les statuts toutes les 10 secondes
+            setInterval(fetchServerStatuses, 10000);
+
+            async function setManualToken() {
+                const manualToken = document.getElementById('manual-token').value.trim();
+                if (!manualToken) {
+                    showMessage('Please enter a token', 'warning');
                     return;
                 }
-            } catch (error) {
-                console.error(error);
-                showMessage(error.message, 'error');
-                return;
-            }
 
-            if (!description) {
-                showMessage('Please enter a description for the token.', 'warning');
-                return;
-            }
-
-            try {
-                const response = await fetch('http://localhost:5000/generate-token', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        ...(authToken && { 'Authorization': `Bearer ${authToken}` })
-                    },
-                    body: JSON.stringify({ description })
-                });
-
-                if (!response.ok) {
-                    throw new Error(await response.text());
-                }
-
-                const data = await response.json();
-                showMessage(`Token successfully generated: ${data.token}`, 'success');
-                authToken = data.token;
-                localStorage.setItem('authToken', authToken);
-                showMessage('New token saved and used for authentication.', 'success');
-
-                setTimeout(() => {
-                    window.location.reload();
-                }, 1500);
-
-            } catch (error) {
-                console.error(error);
-                showMessage(error.message, 'error');
-            }
-        }
-
-        async function revokeToken(token) {
-            if (!authToken) {
-                showMessage('Please save your authentication token.', 'warning');
-                return;
-            }
-
-            showConfirmModal('Are you sure you want to revoke this token?', async () => {
                 try {
-                    const response = await fetch('http://localhost:5000/revoke-token', {
+                    const response = await fetch(`${apiBaseUrl}list-tokens`, {
+                        headers: {
+                            'Authorization': `Bearer ${manualToken}`
+                        }
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Token invalide');
+                    }
+
+                    authToken = manualToken;
+                    localStorage.setItem('authToken', authToken);
+                    showMessage('Token saved', 'success');
+
+                    document.getElementById('manual-token').value = '';
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1500);
+                } catch (error) {
+                    showMessage('Invalid token. Please check and try again.', 'error');
+                }
+            }
+
+            function showConfirmModal(message, onConfirm) {
+                const modal = document.getElementById('confirm-modal');
+                const confirmBtn = document.getElementById('modal-confirm');
+                document.getElementById('modal-message').textContent = message;
+
+                modal.classList.add('active');
+
+                confirmBtn.onclick = () => {
+                    onConfirm();
+                    closeModal();
+                };
+            }
+
+            function closeModal() {
+                document.getElementById('confirm-modal').classList.remove('active');
+            }
+
+            async function listTokens() {
+                if (!authToken) return;
+
+                try {
+                    const response = await fetch(`${apiBaseUrl}list-tokens`, {
+                        headers: {
+                            'Authorization': `Bearer ${authToken}`
+                        }
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(await response.text());
+                    }
+
+                    const data = await response.json();
+                    displayTokens(data.tokens);
+                } catch (error) {
+                    console.error(error);
+                    showMessage(error.message, 'error');
+                }
+            }
+
+            function displayTokens(tokens) {
+                const tbody = document.getElementById('tokens-table-body');
+                tbody.innerHTML = '';
+
+                for (const [token, description] of Object.entries(tokens)) {
+                    const tr = document.createElement('tr');
+                    tr.className = 'animate-fade-in';
+
+                    const tokenCell = document.createElement('td');
+                    tokenCell.className = 'token-cell';
+
+                    const actionsDiv = document.createElement('div');
+                    actionsDiv.className = 'token-actions';
+
+                    const tokenSpan = document.createElement('span');
+                    tokenSpan.textContent = token;
+                    tokenSpan.className = 'token-hidden';
+                    actionsDiv.appendChild(tokenSpan);
+
+                    const toggleButton = document.createElement('button');
+                    toggleButton.className = 'token-toggle';
+                    toggleButton.innerHTML = '<i class="bi bi-eye"></i>';
+                    toggleButton.title = 'Show/Hide Token';
+                    toggleButton.onclick = () => {
+                        tokenSpan.classList.toggle('token-hidden');
+                        toggleButton.innerHTML = tokenSpan.classList.contains('token-hidden') ?
+                            '<i class="bi bi-eye"></i>' :
+                            '<i class="bi bi-eye-slash"></i>';
+                    };
+                    actionsDiv.appendChild(toggleButton);
+
+                    const copyButton = document.createElement('button');
+                    copyButton.className = 'copy-button';
+                    copyButton.innerHTML = '<i class="bi bi-clipboard"></i>';
+                    copyButton.title = 'Copy Token';
+                    copyButton.onclick = async () => {
+                        try {
+                            await navigator.clipboard.writeText(token);
+                            copyButton.innerHTML = '<i class="bi bi-clipboard-check"></i>';
+                            showMessage('Token copied to clipboard', 'success');
+                            setTimeout(() => {
+                                copyButton.innerHTML = '<i class="bi bi-clipboard"></i>';
+                            }, 2000);
+                        } catch (err) {
+                            showMessage('Échec de la copie du token', 'error');
+                        }
+                    };
+                    actionsDiv.appendChild(copyButton);
+
+                    tokenCell.appendChild(actionsDiv);
+
+                    const descriptionCell = document.createElement('td');
+                    descriptionCell.textContent = description;
+
+                    tr.appendChild(tokenCell);
+                    tr.appendChild(descriptionCell);
+                    tbody.appendChild(tr);
+                }
+            }
+
+            async function startServer(profileName) {
+                showConfirmModal('Are you sure you want to start the server?', async () => {
+                    await sendCommand('/start', { profileName });
+                });
+            }
+
+            async function stopServer(profileName) {
+                showConfirmModal('Are you sure you want to stop the server?', async () => {
+                    await sendCommand('/stop', { profileName });
+                });
+            }
+
+            async function getPlayers(profileName) {
+                try {
+                    const response = await fetch(`${apiBaseUrl}players`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${authToken}`
+                            ...(authToken && { 'Authorization': `Bearer ${authToken}` })
                         },
-                        body: JSON.stringify({ token })
+                        body: JSON.stringify({ profileName })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(await response.text());
+                    }
+
+                    const data = await response.json();
+                    showMessage(`Players sur ${profileName}:\n${data.players.map(p => `${p.Index}: ${p.Name} (${p.ID})`).join('\n')}`, 'info');
+                } catch (error) {
+                    console.error(error);
+                    showMessage(error.message, 'error');
+                }
+            }
+
+            async function sendRcon(profileName) {
+                const message = prompt('Enter the RCON Chat command:');
+                if (message) {
+                    await sendCommand('/rcon', { profileName, message });
+                }
+            }
+
+            async function saveWorld(profileName) {
+                await sendCommand('/saveworld', { profileName });
+            }
+
+            async function fullBackup(profileName) {
+                await sendCommand('/fullbackup', { profileName });
+            }
+
+            async function updateServer(profileName) {
+                showConfirmModal('Are you sure you want to stop update and start the server?', async () => {
+                    await sendCommand('/update', { profileName });
+                });
+            }
+
+            async function destroyDinos(profileName) {
+                showConfirmModal('Are you sure you want to destroy all the wild dinos?', async () => {
+                    await sendCommand('/destroy', { profileName });
+                });
+            }
+
+            async function sendCommand(endpoint, body) {
+                try {
+                    const response = await fetch(`${apiBaseUrl}${endpoint}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            ...(authToken && { 'Authorization': `Bearer ${authToken}` })
+                        },
+                        body: JSON.stringify(body)
                     });
 
                     if (!response.ok) {
@@ -649,1390 +872,71 @@
 
                     const data = await response.json();
                     showMessage(data.message, 'success');
-
-                    if (token === authToken) {
-                        authToken = '';
-                        localStorage.removeItem('authToken');
-                        showMessage('Current authentication token has been revoked.', 'info');
-                    }
-
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 1500);
-
                 } catch (error) {
                     console.error(error);
                     showMessage(error.message, 'error');
                 }
-            });
-        }
+            }
 
-        async function listTokens() {
-            if (!authToken) return;
+            async function fetchProfiles() {
+                try {
+                    const response = await fetch(`${apiBaseUrl}profiles`, {
+                        headers: {
+                            ...(authToken && { 'Authorization': `Bearer ${authToken}` })
+                        }
+                    });
 
-            try {
-                const response = await fetch('http://localhost:5000/list-tokens', {
-                    headers: {
-                        'Authorization': `Bearer ${authToken}`
+                    if (!response.ok) {
+                        throw new Error(await response.text());
                     }
+
+                    const profiles = await response.json();
+                    displayProfiles(profiles);
+                } catch (error) {
+                    console.error(error);
+                    showMessage(error.message, 'error');
+                }
+            }
+
+            function displayProfiles(profiles) {
+                const profilesDiv = document.getElementById('profiles');
+                profilesDiv.innerHTML = '';
+
+                profiles.forEach(profile => {
+                    const div = document.createElement('div');
+                    div.className = 'card animate-fade-in';
+                    div.innerHTML = `
+                                    <h3>${profile.ProfileName}</h3>
+                                    <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 0.75rem;">
+                                        <button onclick="startServer('${profile.ProfileName}')" class="btn-success">
+                                            <i class="bi bi-play-circle-fill"></i> Start Server
+                                        </button>
+                                        <button onclick="stopServer('${profile.ProfileName}')" class="btn-danger">
+                                            <i class="bi bi-stop-circle-fill"></i> Stop Server
+                                        </button>
+                                        <button onclick="getPlayers('${profile.ProfileName}')" class="btn-info">
+                                            <i class="bi bi-people-fill"></i> List Players
+                                        </button>
+                                        <button onclick="sendRcon('${profile.ProfileName}')" class="btn-warning">
+                                            <i class="bi bi-terminal-fill"></i> RCON Chat
+                                        </button>
+                                        <button onclick="saveWorld('${profile.ProfileName}')" class="btn-primary">
+                                            <i class="bi bi-save-fill"></i> Save Game
+                                        </button>
+                                        <button onclick="fullBackup('${profile.ProfileName}')" class="btn-info">
+                                            <i class="bi bi-archive-fill"></i> Full Backup
+                                        </button>
+                                        <button onclick="updateServer('${profile.ProfileName}')" class="btn-success">
+                                            <i class="bi bi-arrow-clockwise"></i> Update Restart Server
+                                        </button>
+                                        <button onclick="destroyDinos('${profile.ProfileName}')" class="btn-danger">
+                                            <i class="bi bi-x-octagon-fill"></i> Destroy Wild Dino
+                                        </button>
+                                    </div>
+                                `;
+                    profilesDiv.appendChild(div);
                 });
-
-                if (!response.ok) {
-                    throw new Error(await response.text());
-                }
-
-                const data = await response.json();
-                displayTokens(data.tokens);
-
-                const tokenGenerationSection = document.getElementById('token-description').parentElement;
-                if (Object.keys(data.tokens).length > 0) {
-                    const existingWarning = tokenGenerationSection.querySelector('.text-warning');
-                    if (existingWarning) {
-                        existingWarning.remove();
-                    }
-
-                    tokenGenerationSection.style.opacity = '0.5';
-                    tokenGenerationSection.style.pointerEvents = 'none';
-                    document.getElementById('token-description').disabled = true;
-                    const generateButton = tokenGenerationSection.querySelector('button');
-                    generateButton.disabled = true;
-
-                    if (!tokenGenerationSection.querySelector('.text-warning')) {
-                        tokenGenerationSection.insertAdjacentHTML('beforeend',
-                            '<p class="text-warning" style="margin-top: 0.5rem;"><i class="bi bi-exclamation-triangle-fill"></i> A token already exists</p>'
-                        );
-                    }
-                }
-            } catch (error) {
-                console.error(error);
-                showMessage(error.message, 'error');
             }
-        }
-
-        function displayTokens(tokens) {
-            const tbody = document.getElementById('tokens-table-body');
-            tbody.innerHTML = '';
-
-            for (const [token, description] of Object.entries(tokens)) {
-                const tr = document.createElement('tr');
-                tr.className = 'animate-fade-in';
-
-                const tokenCell = document.createElement('td');
-                tokenCell.className = 'token-cell';
-
-                const actionsDiv = document.createElement('div');
-                actionsDiv.className = 'token-actions';
-
-                const tokenSpan = document.createElement('span');
-                tokenSpan.textContent = token;
-                tokenSpan.className = 'token-hidden';
-                actionsDiv.appendChild(tokenSpan);
-
-                const toggleButton = document.createElement('button');
-                toggleButton.className = 'token-toggle';
-                toggleButton.innerHTML = '<i class="bi bi-eye"></i>';
-                toggleButton.title = 'Show/Hide Token';
-                toggleButton.onclick = () => {
-                    tokenSpan.classList.toggle('token-hidden');
-                    toggleButton.innerHTML = tokenSpan.classList.contains('token-hidden') ?
-                        '<i class="bi bi-eye"></i>' :
-                        '<i class="bi bi-eye-slash"></i>';
-                };
-                actionsDiv.appendChild(toggleButton);
-
-                const copyButton = document.createElement('button');
-                copyButton.className = 'copy-button';
-                copyButton.innerHTML = '<i class="bi bi-clipboard"></i>';
-                copyButton.title = 'Copy Token';
-                copyButton.onclick = async () => {
-                    try {
-                        await navigator.clipboard.writeText(token);
-                        copyButton.innerHTML = '<i class="bi bi-clipboard-check"></i>';
-                        showMessage('Token copied to clipboard', 'success');
-                        setTimeout(() => {
-                            copyButton.innerHTML = '<i class="bi bi-clipboard"></i>';
-                        }, 2000);
-                    } catch (err) {
-                        showMessage('Failed to copy token', 'error');
-                    }
-                };
-                actionsDiv.appendChild(copyButton);
-
-                tokenCell.appendChild(actionsDiv);
-
-                const descriptionCell = document.createElement('td');
-                descriptionCell.textContent = description;
-
-                const actionsCell = document.createElement('td');
-                actionsCell.innerHTML = `
-                        <button onclick="revokeToken('${token}')" class="btn-danger">
-                            <i class="bi bi-trash"></i> Revoke
-                        </button>
-                    `;
-
-                tr.appendChild(tokenCell);
-                tr.appendChild(descriptionCell);
-                tr.appendChild(actionsCell);
-
-                tbody.appendChild(tr);
-            }
-        }
-
-        async function startServer(profileName) {
-            await sendCommand('/start', { profileName });
-        }
-
-        async function stopServer(profileName) {
-            await sendCommand('/stop', { profileName });
-        }
-
-        async function getPlayers(profileName) {
-            try {
-                const response = await fetch('http://localhost:5000/players', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        ...(authToken && { 'Authorization': `Bearer ${authToken}` })
-                    },
-                    body: JSON.stringify({ profileName })
-                });
-
-                if (!response.ok) {
-                    throw new Error(await response.text());
-                }
-
-                const data = await response.json();
-                showMessage(`Players on ${profileName}:\n${data.players.map(p => `${p.Index}: ${p.Name} (${p.ID})`).join('\n')}`, 'info');
-            } catch (error) {
-                console.error(error);
-                showMessage(error.message, 'error');
-            }
-        }
-
-        async function sendRcon(profileName) {
-            const message = prompt('Enter RCON command:');
-            if (message) {
-                await sendCommand('/rcon', { profileName, message });
-            }
-        }
-
-        async function saveWorld(profileName) {
-            await sendCommand('/saveworld', { profileName });
-        }
-
-        async function fullBackup(profileName) {
-            await sendCommand('/fullbackup', { profileName });
-        }
-
-        async function updateServer(profileName) {
-            await sendCommand('/update', { profileName });
-        }
-
-        async function destroyDinos(profileName) {
-            showConfirmModal('Are you sure you want to destroy all dinosaurs?', async () => {
-                await sendCommand('/destroy', { profileName });
-            });
-        }
-
-        async function sendCommand(endpoint, body) {
-            try {
-                const response = await fetch(`http://localhost:5000${endpoint}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        ...(authToken && { 'Authorization': `Bearer ${authToken}` })
-                    },
-                    body: JSON.stringify(body)
-                });
-
-                if (!response.ok) {
-                    throw new Error(await response.text());
-                }
-
-                const data = await response.json();
-                showMessage(data.message, 'success');
-            } catch (error) {
-                console.error(error);
-                showMessage(error.message, 'error');
-            }
-        }
-
-        async function fetchProfiles() {
-            try {
-                const response = await fetch('http://localhost:5000/profiles', {
-                    headers: {
-                        ...(authToken && { 'Authorization': `Bearer ${authToken}` })
-                    }
-                });
-
-                if (!response.ok) {
-                    throw new Error(await response.text());
-                }
-
-                const profiles = await response.json();
-                displayProfiles(profiles);
-            } catch (error) {
-                console.error(error);
-                showMessage(error.message, 'error');
-            }
-        }
-
-        function displayProfiles(profiles) {
-            const profilesDiv = document.getElementById('profiles');
-            profilesDiv.innerHTML = '';
-
-            profiles.forEach(profile => {
-                const div = document.createElement('div');
-                div.className = 'card animate-fade-in';
-                div.innerHTML = `
-                        <h3>${profile.ProfileName}</h3>
-                        <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 0.75rem;">
-                            <button onclick="startServer('${profile.ProfileName}')" class="btn-success">
-                                <i class="bi bi-play-circle-fill"></i> Start
-                            </button>
-                            <button onclick="stopServer('${profile.ProfileName}')" class="btn-danger">
-                                <i class="bi bi-stop-circle-fill"></i> Stop
-                            </button>
-                            <button onclick="getPlayers('${profile.ProfileName}')" class="btn-info">
-                                <i class="bi bi-people-fill"></i> Players
-                            </button>
-                            <button onclick="sendRcon('${profile.ProfileName}')" class="btn-warning">
-                                <i class="bi bi-terminal-fill"></i> RCON
-                            </button>
-                            <button onclick="saveWorld('${profile.ProfileName}')" class="btn-primary">
-                                <i class="bi bi-save-fill"></i> Save
-                            </button>
-                            <button onclick="fullBackup('${profile.ProfileName}')" class="btn-info">
-                                <i class="bi bi-archive-fill"></i> Backup
-                            </button>
-                            <button onclick="updateServer('${profile.ProfileName}')" class="btn-success">
-                                <i class="bi bi-arrow-clockwise"></i> Update
-                            </button>
-                            <button onclick="destroyDinos('${profile.ProfileName}')" class="btn-danger">
-                                <i class="bi bi-x-octagon-fill"></i> Destroy
-                            </button>
-                        </div>
-                    `;
-                profilesDiv.appendChild(div);
-            });
-        }
-
-        window.onload = async () => {
-            const isValid = await validateStoredToken();
-            if (isValid) {
-                authToken = localStorage.getItem('authToken');
-                listTokens();
-                fetchProfiles();
-            } else {
-                authToken = '';
-                showMessage('Your session has expired. Please set or generate a new token.', 'warning');
-            }
-        };
-    </script>
+        </script>
 </body>
 </html>
-
-<!--<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ASADedicatedManager UI - Interface de gestion des serveurs ARK">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title>ASADedicatedManager UI</title>
-    <style>
-        :root {
-            --primary: #646cff;
-            --primary-hover: #535bf2;
-            --bg-dark: #1a202c;
-            --bg-card: #2d3748;
-            --text-primary: #e2e8f0;
-            --text-secondary: #a0aec0;
-            --success: #059669;
-            --danger: #dc2626;
-            --warning: #d97706;
-            --info: #3b82f6;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: var(--bg-dark);
-            color: var(--text-primary);
-            font-family: system-ui, -apple-system, sans-serif;
-            line-height: 1.5;
-            min-height: 100vh;
-            padding: 2rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-align: center;
-            margin-bottom: 2rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            letter-spacing: 1px;
-            font-weight: 800;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-            h1::after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 100px;
-                height: 4px;
-                background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
-                border-radius: 2px;
-            }
-
-        h2 {
-            font-size: 1.8rem;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .card {
-            background: var(--bg-card);
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-            .card:hover {
-                transform: translateY(-2px);
-            }
-
-        .grid {
-            display: grid;
-            gap: 1.5rem;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        }
-
-        .input-group {
-            margin-bottom: 1rem;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--text-secondary);
-        }
-
-        input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--bg-card);
-            background: var(--bg-dark);
-            color: var(--text-primary);
-            border-radius: 0.375rem;
-            transition: border-color 0.3s ease;
-        }
-
-            input:focus {
-                outline: none;
-                border-color: var(--primary);
-                box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.2);
-            }
-
-        button {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 0.375rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: var(--primary);
-            color: white;
-        }
-
-            button:hover {
-                background: var(--primary-hover);
-                transform: translateY(-1px);
-            }
-
-            button:focus {
-                outline: none;
-                box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.2);
-            }
-
-        .btn-success {
-            background: var(--success);
-        }
-
-        .btn-danger {
-            background: var(--danger);
-        }
-
-        .btn-warning {
-            background: var(--warning);
-        }
-
-        .btn-info {
-            background: var(--info);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-        }
-
-        th, td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid var(--bg-card);
-        }
-
-        th {
-            color: var(--text-secondary);
-            font-weight: 600;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: 600;
-        }
-
-        .badge-success {
-            background: var(--success);
-        }
-
-        .badge-danger {
-            background: var(--danger);
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            .card {
-                padding: 1rem;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-fade-in {
-            animation: fadeIn 0.3s ease forwards;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>ASADedicatedManager UI</h1>
-
-        <div class="card">
-            <h2>Gestion des Tokens</h2>
-            <div class="input-group">
-                <label for="auth-token">Token d'Authentification</label>
-                <input type="text" id="auth-token" placeholder="Entrez votre token d'authentification">
-                <button onclick="saveAuthToken()" class="btn-primary">Sauvegarder</button>
-            </div>
-
-            <div class="input-group">
-                <label for="token-description">Générer un Nouveau Token</label>
-                <input type="text" id="token-description" placeholder="Description du token">
-                <button onclick="generateToken()" class="btn-success">Générer</button>
-            </div>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Token</th>
-                        <th>Description</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="tokens-table-body"></tbody>
-            </table>
-            <button onclick="listTokens()" class="btn-info">Rafraîchir</button>
-        </div>
-
-        <div class="card">
-            <h2>Gestion des Profils</h2>
-            <div id="profiles" class="grid"></div>
-        </div>
-    </div>
-
-    <script>
-        // Le code JavaScript reste le même que dans votre version originale
-        // car il contient déjà toute la logique nécessaire
-
-        let authToken = localStorage.getItem('authToken') || '';
-
-        function saveAuthToken() {
-            const tokenInput = document.getElementById('auth-token').value.trim();
-            if (tokenInput) {
-                authToken = tokenInput;
-                localStorage.setItem('authToken', authToken);
-                alert('Token d\'authentification enregistré.');
-                listTokens();
-                fetchProfiles();
-            } else {
-                alert('Veuillez entrer un token valide.');
-            }
-        }
-
-        async function generateToken() {
-            const description = document.getElementById('token-description').value.trim();
-            if (!description) {
-                alert('Veuillez entrer une description pour le token.');
-                return;
-            }
-
-            try {
-                const response = await fetch('http://localhost:5000/generate-token', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        ...(authToken && { 'Authorization': `Bearer ${authToken}` })
-                    },
-                    body: JSON.stringify({ description })
-                });
-
-                if (!response.ok) {
-                    throw new Error(await response.text());
-                }
-
-                const data = await response.json();
-                alert(`Token généré: ${data.token}`);
-                listTokens();
-                document.getElementById('token-description').value = '';
-
-                authToken = data.token;
-                localStorage.setItem('authToken', authToken);
-                document.getElementById('auth-token').value = authToken;
-                alert('Nouveau token enregistré et utilisé pour l\'authentification.');
-                fetchProfiles();
-
-            } catch (error) {
-                console.error(error);
-                alert(error.message);
-            }
-        }
-
-        async function revokeToken(token) {
-            if (!authToken) {
-                alert('Veuillez enregistrer votre token d\'authentification.');
-                return;
-            }
-
-            if (!confirm('Êtes-vous sûr de vouloir révoquer ce token ?')) return;
-
-            try {
-                const response = await fetch('http://localhost:5000/revoke-token', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${authToken}`
-                    },
-                    body: JSON.stringify({ token })
-                });
-
-                if (!response.ok) {
-                    throw new Error(await response.text());
-                }
-
-                const data = await response.json();
-                alert(data.message);
-                listTokens();
-
-                if (token === authToken) {
-                    authToken = '';
-                    localStorage.removeItem('authToken');
-                    document.getElementById('auth-token').value = '';
-                    alert('Le token d\'authentification actuel a été révoqué.');
-                    fetchProfiles();
-                }
-            } catch (error) {
-                console.error(error);
-                alert(error.message);
-            }
-        }
-
-        async function listTokens() {
-            if (!authToken) return;
-
-            try {
-                const response = await fetch('http://localhost:5000/list-tokens', {
-                    headers: {
-                        'Authorization': `Bearer ${authToken}`
-                    }
-                });
-
-                if (!response.ok) {
-                    throw new Error(await response.text());
-                }
-
-                const data = await response.json();
-                displayTokens(data.tokens);
-            } catch (error) {
-                console.error(error);
-                alert(error.message);
-            }
-        }
-
-        function displayTokens(tokens) {
-            const tbody = document.getElementById('tokens-table-body');
-            tbody.innerHTML = '';
-
-            for (const [token, description] of Object.entries(tokens)) {
-                const tr = document.createElement('tr');
-                tr.className = 'animate-fade-in';
-
-                tr.innerHTML = `
-                        <td class="token-cell">${token}</td>
-                        <td>${description}</td>
-                        <td>
-                            <button onclick="revokeToken('${token}')" class="btn-danger">
-                                Révoquer
-                            </button>
-                        </td>
-                    `;
-
-                tbody.appendChild(tr);
-            }
-        }
-
-        async function fetchProfiles() {
-            try {
-                const response = await fetch('http://localhost:5000/profiles', {
-                    headers: {
-                        ...(authToken && { 'Authorization': `Bearer ${authToken}` })
-                    }
-                });
-
-                if (!response.ok) {
-                    throw new Error(await response.text());
-                }
-
-                const profiles = await response.json();
-                displayProfiles(profiles);
-            } catch (error) {
-                console.error(error);
-                alert(error.message);
-            }
-        }
-
-        function displayProfiles(profiles) {
-            const profilesDiv = document.getElementById('profiles');
-            profilesDiv.innerHTML = '';
-
-            profiles.forEach(profile => {
-                const div = document.createElement('div');
-                div.className = 'card animate-fade-in';
-                div.innerHTML = `
-                        <h3>${profile.ProfileName}</h3>
-                        <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 0.75rem;">
-                            <button onclick="startServer('${profile.ProfileName}')" class="btn-success">
-                                <i class="bi bi-play-circle-fill"></i> Start
-                            </button>
-                            <button onclick="stopServer('${profile.ProfileName}')" class="btn-danger">
-                                <i class="bi bi-stop-circle-fill"></i> Stop
-                            </button>
-                            <button onclick="getPlayers('${profile.ProfileName}')" class="btn-info">
-                                <i class="bi bi-people-fill"></i> Players
-                            </button>
-                            <button onclick="sendRcon('${profile.ProfileName}')" class="btn-warning">
-                                <i class="bi bi-terminal-fill"></i> RCON
-                            </button>
-                            <button onclick="saveWorld('${profile.ProfileName}')" class="btn-primary">
-                                <i class="bi bi-save-fill"></i> Save
-                            </button>
-                            <button onclick="fullBackup('${profile.ProfileName}')" class="btn-info">
-                                <i class="bi bi-archive-fill"></i> Backup
-                            </button>
-                            <button onclick="updateServer('${profile.ProfileName}')" class="btn-success">
-                                <i class="bi bi-arrow-clockwise"></i> Update
-                            </button>
-                            <button onclick="destroyDinos('${profile.ProfileName}')" class="btn-danger">
-                                <i class="bi bi-x-octagon-fill"></i> Destroy
-                            </button>
-                        </div>
-                    `;
-                profilesDiv.appendChild(div);
-            });
-        }
-
-        // Fonctions de gestion des serveurs
-        async function startServer(profileName) {
-            await sendCommand('/start', { profileName });
-        }
-
-        async function stopServer(profileName) {
-            await sendCommand('/stop', { profileName });
-        }
-
-        async function getPlayers(profileName) {
-            try {
-                const response = await fetch('http://localhost:5000/players', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        ...(authToken && { 'Authorization': `Bearer ${authToken}` })
-                    },
-                    body: JSON.stringify({ profileName })
-                });
-
-                if (!response.ok) {
-                    throw new Error(await response.text());
-                }
-
-                const data = await response.json();
-                alert(`Joueurs sur ${profileName}:\n${data.players.map(p => `${p.Index}: ${p.Name} (${p.ID})`).join('\n')}`);
-            } catch (error) {
-                console.error(error);
-                alert(error.message);
-            }
-        }
-
-        async function sendRcon(profileName) {
-            const message = prompt('Entrez la commande RCON:');
-            if (message) {
-                await sendCommand('/rcon', { profileName, message });
-            }
-        }
-
-        async function saveWorld(profileName) {
-            await sendCommand('/saveworld', { profileName });
-        }
-
-        async function fullBackup(profileName) {
-            await sendCommand('/fullbackup', { profileName });
-        }
-
-        async function updateServer(profileName) {
-            await sendCommand('/update', { profileName });
-        }
-
-        async function destroyDinos(profileName) {
-            if (confirm('Êtes-vous sûr de vouloir détruire tous les dinosaures ?')) {
-                await sendCommand('/destroy', { profileName });
-            }
-        }
-
-        async function sendCommand(endpoint, body) {
-            try {
-                const response = await fetch(`http://localhost:5000${endpoint}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        ...(authToken && { 'Authorization': `Bearer ${authToken}` })
-                    },
-                    body: JSON.stringify(body)
-                });
-
-                if (!response.ok) {
-                    throw new Error(await response.text());
-                }
-
-                const data = await response.json();
-                alert(data.message);
-            } catch (error) {
-                console.error(error);
-                alert(error.message);
-            }
-        }
-
-        // Initialisation
-        window.onload = () => {
-            if (authToken) {
-                document.getElementById('auth-token').value = authToken;
-                listTokens();
-                fetchProfiles();
-            }
-        };
-    </script>
-</body>
-</html>-->
-<!--<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASADedicatedManager UI</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
-    <style>
-        body {
-            background-color: #1a202c;
-            color: #e2e8f0;
-        }
-
-        .profile, .token {
-            background-color: #2d3748;
-            border-radius: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-            .profile:hover, .token:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            }
-
-        button {
-            transition: all 0.3s ease;
-        }
-
-            button:hover {
-                transform: translateY(-1px);
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            }
-    </style>
-</head>
-<body class="min-h-screen p-8">
-    <div class="max-w-6xl mx-auto">
-        <h1 class="text-4xl font-bold mb-8 text-center">ASADedicatedManager UI</h1>-->
-<!-- Section pour gérer les tokens -->
-<!--<div class="mb-12">
-    <h2 class="text-2xl font-semibold mb-4">Gestion des Tokens</h2>-->
-<!-- Formulaire pour saisir le token d'authentification -->
-<!--<div class="mb-4">
-    <label for="auth-token" class="block text-lg mb-2">Votre Token d'Authentification :</label>
-    <input type="text" id="auth-token" class="w-full p-2 rounded bg-gray-700 text-white" placeholder="Entrez votre token ici">
-    <button onclick="saveAuthToken()" class="mt-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Enregistrer Token</button>
-</div>-->
-<!-- Formulaire pour générer un nouveau token -->
-<!--<div class="mb-4">
-    <h3 class="text-xl font-semibold mb-2">Générer un Nouveau Token</h3>
-    <input type="text" id="token-description" class="w-full p-2 rounded bg-gray-700 text-white mb-2" placeholder="Description du token">
-    <button onclick="generateToken()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Générer Token</button>
-</div>-->
-<!-- Liste des tokens existants -->
-<!--<div>
-    <h3 class="text-xl font-semibold mb-2">Liste des Tokens</h3>
-    <table class="w-full text-left">
-        <thead>
-            <tr>
-                <th class="px-4 py-2">Token</th>
-                <th class="px-4 py-2">Description</th>
-                <th class="px-4 py-2">Actions</th>
-            </tr>
-        </thead>
-        <tbody id="tokens-table-body">-->
-<!-- Les tokens seront insérés ici via JavaScript -->
-<!--</tbody>
-        </table>
-        <button onclick="listTokens()" class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Rafraîchir Liste</button>
-    </div>
-</div>-->
-<!-- Section pour gérer les profils -->
-<!--<div>
-            <h2 class="text-2xl font-semibold mb-4">Gestion des Profils</h2>
-            <div id="profiles" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
-        </div>
-    </div>
-
-    <script>
-        // Récupérer le token depuis localStorage si disponible
-        let authToken = localStorage.getItem('authToken') || '';
-
-        // Sauvegarder le token d'authentification saisi par l'utilisateur
-        function saveAuthToken() {
-            const tokenInput = document.getElementById('auth-token').value.trim();
-            if (tokenInput) {
-                authToken = tokenInput;
-                localStorage.setItem('authToken', authToken); // Sauvegarder dans localStorage
-                alert('Token d\'authentification enregistré.');
-                listTokens(); // Rafraîchir la liste des tokens après avoir enregistré le token
-                fetchProfiles(); // Rafraîchir les profils avec le nouveau token
-            } else {
-                alert('Veuillez entrer un token valide.');
-            }
-        }
-
-        // Générer un nouveau token
-        async function generateToken() {
-            const description = document.getElementById('token-description').value.trim();
-            if (!description) {
-                alert('Veuillez entrer une description pour le token.');
-                return;
-            }
-
-            try {
-                console.log("Generating token with description:", description);
-                const response = await fetch('http://localhost:5000/generate-token', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        ...(authToken && { 'Authorization': `Bearer ${authToken}` })
-                    },
-                    body: JSON.stringify({ description })
-                });
-
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    console.error("Error generating token:", errorText);
-                    throw new Error(`Error generating token: ${errorText}`);
-                }
-
-                const data = await response.json();
-                alert(`Token généré: ${data.token}`);
-                listTokens(); // Rafraîchir la liste des tokens
-                document.getElementById('token-description').value = '';
-
-                // Optionnel : Auto-sauvegarder le nouveau token comme authToken
-                // Si vous souhaitez que le nouveau token soit automatiquement utilisé, décommentez les lignes suivantes :
-
-                authToken = data.token;
-                localStorage.setItem('authToken', authToken);
-                document.getElementById('auth-token').value = authToken;
-                alert('Nouveau token enregistré et utilisé pour l\'authentification.');
-                fetchProfiles();
-
-            } catch (error) {
-                console.error(error);
-                alert(error.message);
-            }
-        }
-
-        // Révoquer un token
-        async function revokeToken(token) {
-            if (!authToken) {
-                alert('Veuillez enregistrer votre token d\'authentification avant de révoquer des tokens.');
-                return;
-            }
-
-            if (!confirm('Êtes-vous sûr de vouloir révoquer ce token ?')) return;
-
-            try {
-                console.log("Revoking token:", token);
-                const response = await fetch('http://localhost:5000/revoke-token', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${authToken}`
-                    },
-                    body: JSON.stringify({ token })
-                });
-
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    console.error("Error revoking token:", errorText);
-                    throw new Error(`Error revoking token: ${errorText}`);
-                }
-
-                const data = await response.json();
-                alert(data.message);
-                listTokens(); // Rafraîchir la liste des tokens
-
-                // Si le token révoqué est le token d'authentification actuel, le supprimer
-                if (token === authToken) {
-                    authToken = '';
-                    localStorage.removeItem('authToken');
-                    document.getElementById('auth-token').value = '';
-                    alert('Le token d\'authentification actuel a été révoqué.');
-                    fetchProfiles(); // Tenter de fetch sans token
-                }
-            } catch (error) {
-                console.error(error);
-                alert(error.message);
-            }
-        }
-
-        // Lister tous les tokens
-        async function listTokens() {
-            if (!authToken) {
-                console.log("No auth token available, cannot list tokens.");
-                return;
-            }
-
-            try {
-                console.log("Listing all tokens");
-                const response = await fetch('http://localhost:5000/list-tokens', {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${authToken}`
-                    }
-                });
-
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    console.error("Error listing tokens:", errorText);
-                    throw new Error(`Error listing tokens: ${errorText}`);
-                }
-
-                const data = await response.json();
-                displayTokens(data.tokens);
-            } catch (error) {
-                console.error(error);
-                alert(error.message);
-            }
-        }
-
-        // Afficher les tokens dans le tableau
-        function displayTokens(tokens) {
-            const tbody = document.getElementById('tokens-table-body');
-            tbody.innerHTML = '';
-
-            for (const [token, description] of Object.entries(tokens)) {
-                const tr = document.createElement('tr');
-                tr.className = 'token';
-
-                const tdToken = document.createElement('td');
-                tdToken.className = 'px-4 py-2 break-all';
-                tdToken.textContent = token;
-
-                const tdDescription = document.createElement('td');
-                tdDescription.className = 'px-4 py-2';
-                tdDescription.textContent = description;
-
-                const tdActions = document.createElement('td');
-                tdActions.className = 'px-4 py-2';
-                const revokeButton = document.createElement('button');
-                revokeButton.textContent = 'Révoquer';
-                revokeButton.className = 'bg-red-600 hover:bg-red-700 text-white font-bold py-1 px-2 rounded';
-                revokeButton.onclick = () => revokeToken(token);
-                tdActions.appendChild(revokeButton);
-
-                tr.appendChild(tdToken);
-                tr.appendChild(tdDescription);
-                tr.appendChild(tdActions);
-
-                tbody.appendChild(tr);
-            }
-        }
-
-        // Fonction pour fetcher et afficher les profils
-        async function fetchProfiles() {
-            try {
-                console.log("Fetching profiles with token:", authToken);
-                const response = await fetch('http://localhost:5000/profiles', {
-                    headers: {
-                        ...(authToken && { 'Authorization': `Bearer ${authToken}` })
-                    }
-                });
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    console.error("Error fetching profiles:", errorText);
-                    throw new Error(`Error fetching profiles: ${errorText}`);
-                }
-                const profiles = await response.json();
-                console.log("Profiles fetched successfully:", profiles);
-                displayProfiles(profiles);
-            } catch (error) {
-                console.error(error);
-                alert(error.message);
-            }
-        }
-
-        // Afficher les profils dans l'UI
-        function displayProfiles(profiles) {
-            const profilesDiv = document.getElementById('profiles');
-            profilesDiv.innerHTML = '';
-
-            profiles.forEach(profile => {
-                const div = document.createElement('div');
-                div.className = 'profile p-6';
-                div.innerHTML = `
-                        <h3 class="text-xl font-semibold mb-4">${profile.ProfileName}</h3>
-                        <div class="grid grid-cols-2 gap-2">
-                            <button onclick="startServer('${profile.ProfileName}')" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Start</button>
-                            <button onclick="stopServer('${profile.ProfileName}')" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Stop</button>
-                            <button onclick="getPlayers('${profile.ProfileName}')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Players</button>
-                            <button onclick="sendRcon('${profile.ProfileName}')" class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Send RCON</button>
-                            <button onclick="saveWorld('${profile.ProfileName}')" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Save World</button>
-                            <button onclick="fullBackup('${profile.ProfileName}')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Full Backup</button>
-                            <button onclick="updateServer('${profile.ProfileName}')" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded">Update</button>
-                            <button onclick="destroyDinos('${profile.ProfileName}')" class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded">Destroy Dinos</button>
-                        </div>
-                    `;
-                profilesDiv.appendChild(div);
-            });
-        }
-
-        async function startServer(profileName) {
-            await sendCommand('/start', { profileName });
-        }
-
-        async function stopServer(profileName) {
-            await sendCommand('/stop', { profileName });
-        }
-
-        async function getPlayers(profileName) {
-            try {
-                const response = await fetch('http://localhost:5000/players', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        ...(authToken && { 'Authorization': `Bearer ${authToken}` })
-                    },
-                    body: JSON.stringify({ profileName })
-                });
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    throw new Error(`Error fetching players: ${errorText}`);
-                }
-                const data = await response.json();
-                alert(`Players on ${profileName}:\n${data.players.map(p => `${p.Index}: ${p.Name} (${p.ID})`).join('\n')}`);
-            } catch (error) {
-                console.error(error);
-                alert(error.message);
-            }
-        }
-
-        async function sendRcon(profileName) {
-            const message = prompt('Enter RCON message:');
-            if (message) {
-                await sendCommand('/rcon', { profileName, message });
-            }
-        }
-
-        async function saveWorld(profileName) {
-            await sendCommand('/saveworld', { profileName });
-        }
-
-        async function fullBackup(profileName) {
-            await sendCommand('/fullbackup', { profileName });
-        }
-
-        async function updateServer(profileName) {
-            await sendCommand('/update', { profileName });
-        }
-
-        async function destroyDinos(profileName) {
-            await sendCommand('/destroy', { profileName });
-        }
-
-        async function sendCommand(endpoint, body) {
-            try {
-                console.log(`Sending command to ${endpoint} with body:`, body);
-                const response = await fetch(`http://localhost:5000${endpoint}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        ...(authToken && { 'Authorization': `Bearer ${authToken}` })
-                    },
-                    body: JSON.stringify(body)
-                });
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    console.error(`Error: ${errorText}`);
-                    throw new Error(`Error: ${errorText}`);
-                }
-                const data = await response.json();
-                alert(data.message);
-            } catch (error) {
-                console.error(error);
-                alert(error.message);
-            }
-        }
-
-        window.onload = () => {
-            // Si authToken est déjà enregistré, charger les tokens et les profils
-            if (authToken) {
-                listTokens();
-                fetchProfiles();
-            }
-        };
-    </script>
-</body>
-</html>-->
-<!--<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASADedicatedManager UI</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
-    <style>
-        body {
-            background-color: #1a202c;
-            color: #e2e8f0;
-        }
-        .profile {
-            background-color: #2d3748;
-            border-radius: 0.5rem;
-            transition: all 0.3s ease;
-        }
-        .profile:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        button {
-            transition: all 0.3s ease;
-        }
-        button:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-    </style>
-</head>
-<body class="min-h-screen p-8">
-    <div class="max-w-6xl mx-auto">
-        <h1 class="text-4xl font-bold mb-8 text-center">ASADedicatedManager UI</h1>
-        <div id="profiles" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
-    </div>
-
-    <script>
-        const apiUrl = 'http://localhost:5000';
-        const token = 'e2e4063dc6744051a4381b1eb5839981';
-
-        async function fetchProfiles() {
-            try {
-                console.log("Fetching profiles with token:", token);
-                const response = await fetch(`${apiUrl}/profiles`, {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                });
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    console.error("Error fetching profiles:", errorText);
-                    throw new Error(`Error fetching profiles: ${errorText}`);
-                }
-                const profiles = await response.json();
-                console.log("Profiles fetched successfully:", profiles);
-                displayProfiles(profiles);
-            } catch (error) {
-                console.error(error);
-                alert(error.message);
-            }
-        }
-
-        function displayProfiles(profiles) {
-            const profilesDiv = document.getElementById('profiles');
-            profilesDiv.innerHTML = '';
-
-            profiles.forEach(profile => {
-                const div = document.createElement('div');
-                div.className = 'profile p-6';
-                div.innerHTML = `
-                    <h3 class="text-xl font-semibold mb-4">${profile.ProfileName}</h3>
-                    <div class="grid grid-cols-2 gap-2">
-                        <button onclick="startServer('${profile.ProfileName}')" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Start</button>
-                        <button onclick="stopServer('${profile.ProfileName}')" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Stop</button>
-                        <button onclick="getPlayers('${profile.ProfileName}')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Players</button>
-                        <button onclick="sendRcon('${profile.ProfileName}')" class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Send RCON</button>
-                        <button onclick="saveWorld('${profile.ProfileName}')" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Save World</button>
-                        <button onclick="fullBackup('${profile.ProfileName}')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Full Backup</button>
-                        <button onclick="updateServer('${profile.ProfileName}')" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded">Update</button>
-                        <button onclick="destroyDinos('${profile.ProfileName}')" class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded">Destroy Dinos</button>
-                    </div>
-                `;
-                profilesDiv.appendChild(div);
-            });
-        }
-
-        async function startServer(profileName) {
-            await sendCommand('/start', { profileName });
-        }
-
-        async function stopServer(profileName) {
-            await sendCommand('/stop', { profileName });
-        }
-
-        async function getPlayers(profileName) {
-            try {
-                const response = await fetch(`${apiUrl}/players`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    },
-                    body: JSON.stringify({ profileName })
-                });
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    throw new Error(`Error fetching players: ${errorText}`);
-                }
-                const data = await response.json();
-                alert(`Players on ${profileName}:\n${data.players.map(p => `${p.Index}: ${p.Name} (${p.ID})`).join('\n')}`);
-            } catch (error) {
-                console.error(error);
-                alert(error.message);
-            }
-        }
-
-        async function sendRcon(profileName) {
-            const message = prompt('Enter RCON message:');
-            if (message) {
-                await sendCommand('/rcon', { profileName, message });
-            }
-        }
-
-        async function saveWorld(profileName) {
-            await sendCommand('/saveworld', { profileName });
-        }
-
-        async function fullBackup(profileName) {
-            await sendCommand('/fullbackup', { profileName });
-        }
-
-        async function updateServer(profileName) {
-            await sendCommand('/update', { profileName });
-        }
-
-        async function destroyDinos(profileName) {
-            await sendCommand('/destroy', { profileName });
-        }
-
-        async function sendCommand(endpoint, body) {
-            try {
-                console.log(`Sending command to ${endpoint} with body:`, body);
-                const response = await fetch(`${apiUrl}${endpoint}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    },
-                    body: JSON.stringify(body)
-                });
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    console.error(`Error: ${errorText}`);
-                    throw new Error(`Error: ${errorText}`);
-                }
-                const data = await response.json();
-                alert(data.message);
-            } catch (error) {
-                console.error(error);
-                alert(error.message);
-            }
-        }
-
-        window.onload = fetchProfiles;
-    </script>
-</body>
-</html>-->
