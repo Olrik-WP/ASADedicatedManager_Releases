@@ -1,3 +1,7 @@
+## Version 2.2.6.2 PRE-RELEASE NOTE
+- **Improvements**
+  - When rolling back, add a method to update the manifest in the appmanifest_2430930.acf file and allow the update to be detected (Not tested)
+
 ## Version 2.2.6.1 PRE-RELEASE NOTE
 - **Improvements**
   - Major modification of the API and WEB UI code
