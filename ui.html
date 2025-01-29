@@ -276,6 +276,20 @@
             .card {
                 padding: 1rem;
             }
+
+            table {
+                display: block;
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            #server-status-table {
+                display: block;
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
         }
 
         @keyframes fadeIn {
@@ -504,6 +518,12 @@
         </div>
 
         <div class="card">
+            <h2>API Configuration</h2>
+            <p id="api-base-url">Loading...</p>
+            <p id="api-external-url"></p> <!-- Pour afficher l'URL externe si applicable -->
+        </div>
+
+        <div class="card">
             <h2>Server Status</h2>
 
             <table id="server-status-table">
@@ -527,17 +547,27 @@
         <script>
             let authToken = localStorage.getItem('authToken') || '';
             let apiBaseUrl = '';
+            let apiExternalUrl = '';
 
             async function initialize() {
                 try {
                     const configResponse = await fetch('/config');
                     if (configResponse.ok) {
                         const configData = await configResponse.json();
-                        apiBaseUrl = configData.baseUrl;
-                        console.log(`API Base URL: ${apiBaseUrl}`);
+                        document.getElementById('api-base-url').textContent = `API Base URL: ${window.location.origin}/ui`;
+                        console.log(`API Base URL: ${window.location.origin}/`);
+
+                        // Si ListenExternally est vrai, afficher l'URL externe
+                        if (configData.listenExternally) {
+                            const externalIp = await getExternalIPAddress();
+                            const apiExternalUrl = `http://${externalIp}:${getPortFromBaseUrl(window.location.origin)}/ui`;
+                            document.getElementById('api-external-url').textContent = `External API URL: ${apiExternalUrl}`;
+                            console.log(`External API URL: ${apiExternalUrl}`);
+                        }
                     } else {
                         throw new Error('Failed to fetch API configuration.');
                     }
+
 
                     const isValid = await validateStoredToken();
                     if (isValid) {
@@ -770,16 +800,29 @@
                     copyButton.title = 'Copy Token';
                     copyButton.onclick = async () => {
                         try {
-                            await navigator.clipboard.writeText(token);
+                            if (navigator.clipboard && window.isSecureContext) {
+                                await navigator.clipboard.writeText(token);
+                            } else {
+                                // Fallback pour HTTP : création d'un élément temporaire
+                                const textArea = document.createElement("textarea");
+                                textArea.value = token;
+                                document.body.appendChild(textArea);
+                                textArea.select();
+                                document.execCommand("copy");
+                                document.body.removeChild(textArea);
+                            }
+
                             copyButton.innerHTML = '<i class="bi bi-clipboard-check"></i>';
                             showMessage('Token copied to clipboard', 'success');
                             setTimeout(() => {
                                 copyButton.innerHTML = '<i class="bi bi-clipboard"></i>';
                             }, 2000);
                         } catch (err) {
-                            showMessage('Échec de la copie du token', 'error');
+                            showMessage('Token copy failed', 'error');
+                            console.error("Clipboard copy failed:", err);
                         }
                     };
+
                     actionsDiv.appendChild(copyButton);
 
                     tokenCell.appendChild(actionsDiv);
@@ -821,7 +864,7 @@
                     }
 
                     const data = await response.json();
-                    showMessage(`Players sur ${profileName}:\n${data.players.map(p => `${p.Index}: ${p.Name} (${p.ID})`).join('\n')}`, 'info');
+                    showMessage(`Players on ${profileName}:\n${data.players.map(p => `${p.Index}: ${p.Name} (${p.ID})`).join('\n')}`, 'info');
                 } catch (error) {
                     console.error(error);
                     showMessage(error.message, 'error');
@@ -936,6 +979,28 @@
                                 `;
                     profilesDiv.appendChild(div);
                 });
+            }
+
+            // Fonction pour obtenir l'adresse IP externe
+            async function getExternalIPAddress() {
+                try {
+                    const response = await fetch('https://api.ipify.org?format=json');
+                    const data = await response.json();
+                    return data.ip;
+                } catch (error) {
+                    console.error('Failed to get external IP:', error);
+                    return 'Unavailable';
+                }
+            }
+
+            // Fonction pour extraire le port depuis l'URL
+            function getPortFromBaseUrl(baseUrl) {
+                try {
+                    const url = new URL(baseUrl);
+                    return url.port || (url.protocol === 'https:' ? 443 : 80);
+                } catch {
+                    return 5000; // Valeur par défaut
+                }
             }
         </script>
 </body>

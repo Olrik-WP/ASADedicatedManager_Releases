@@ -1,3 +1,14 @@
+## Version 2.2.6.1 PRE-RELEASE NOTE
+- **Improvements**
+  - Major modification of the API and WEB UI code
+  - Added the ability to expose the API on the internet (don't forget the redirection of the selected port in the router and the rule in the firewall)
+  - Modified the port management logic
+  - Modified the configuration structure of the API json
+  - Added error logs in the methods for reading the dedicated server logs which allow to know the status of the server for a future debug on the statuses of the infinite yellow ellipses
+- **Bug Fixes**
+  - WEB UI API: Fixed a bug that launched the server if it was already launched
+  - Fixed opening blank WEB pages on some systems and user settings
+
 ## Version 2.2.6.0 PRE-RELEASE NOTE
 - **Improvements**
   - Added premium status to the API
