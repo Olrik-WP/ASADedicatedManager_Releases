@@ -1,3 +1,16 @@
+## Version 2.2.6.3 PRE-RELEASE NOTE
+- **Improvements**
+  - Complete overhaul of the rollback code
+  - Use of a third-party repository Steam depot downloader utilizing the SteamKit2 library
+  - The SteamGuard code is no longer necessary, you just have to approve the connection from the mobile application
+  - In case of download failure or timeout, new attempts are made
+  - The manifest is updated at the end of the rollback
+  - A check of the manifest is launched at the end of the rollback
+  - Real progress bar and 100% adapted to the download
+  - New real-time logs
+  - the ScrollViewer is updated in real time
+  - New label for tracking steps
+
 ## Version 2.2.6.2 PRE-RELEASE NOTE
 - **Improvements**
   - When rolling back, add a method to update the manifest in the appmanifest_2430930.acf file and allow the update to be detected (Not tested)
