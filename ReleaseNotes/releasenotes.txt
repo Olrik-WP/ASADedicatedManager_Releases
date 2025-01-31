@@ -1,3 +1,17 @@
+## Version 2.2.6.5 PRE-RELEASE NOTE
+- **Improvements**
+  - Translation of the token generation window
+  - The rollback window is now launched centered on the screen
+  - The rollback window now keeps its original size
+  - Changing the text of the rollback window
+  - Fixed a typo in Profile Manager menu
+  - Added a warning message when the application is not launched as admin
+  - Added a warning message when the application is forced without admin
+  - Added the possibility to restart the application as administrator (runas)
+- **Bug Fixes**
+  - Fixed hidden display of player warning in case of too long text hidden by the scroll bar
+  - Removal of the test button reserved for dev test
+
 ## Version 2.2.6.4 PRE-RELEASE NOTE
 - **New Features:**
   - **Added the possibility to Kick the selected player from the server in the server management tab**
