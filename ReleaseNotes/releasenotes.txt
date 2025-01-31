@@ -1,3 +1,7 @@
+## Version 2.2.6.7 FINAL-RELEASE NOTE
+- **Bug Fixes**
+  - Fixed a bug in the activation/deactivation logic of the rollback server button
+
 ## Version 2.2.6.6 FINAL-RELEASE NOTE
 - **New Features**
   - **Final release of WEB UI API**
