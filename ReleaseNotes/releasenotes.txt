@@ -1,3 +1,11 @@
+## Version 2.2.6.4 PRE-RELEASE NOTE
+- **New Features:**
+  - **Added the possibility to Kick the selected player from the server in the server management tab**
+- **Improvements**
+  - Added the ability to rollback multiple servers with 1 single download. Now at the end of the 1st rollback a window offers to copy the files to the selected profiles (the manifest is also updated for these profiles as well as the manifest check to indicate that an update is available)
+- **Bug Fixes**
+  - Fixed hidden display of player warning in case of too long text hidden by the scroll bar
+
 ## Version 2.2.6.3 PRE-RELEASE NOTE
 - **Improvements**
   - Complete overhaul of the rollback code
