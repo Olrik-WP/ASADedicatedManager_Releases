@@ -1,3 +1,9 @@
+## Version 2.2.6.8 PRE-RELEASE NOTE
+- **New Features**
+  - Added log of last crash
+- **Improvements**
+  - Redesign of the log style
+
 ## Version 2.2.6.7 FINAL-RELEASE NOTE
 - **Bug Fixes**
   - Fixed a bug in the activation/deactivation logic of the rollback server button
