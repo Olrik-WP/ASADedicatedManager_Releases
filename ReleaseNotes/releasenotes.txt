@@ -1,3 +1,23 @@
+## Version 2.2.6.6 FINAL-RELEASE NOTE
+- **New Features**
+  - **Final release of WEB UI API**
+  - **Added a warning message when the application is not launched as admin**
+  - **Added the ability to rollback to a previous version of the dedicated server**
+  - **Added the possibility to Kick the selected player from the server in the server management tab**
+- **Improvements**
+  - **Changed the timeout at startup to retrieve PIDs from 5 to 20 seconds**
+  - Added the possibility to restart the application as administrator (runas)
+  - Added the ability to rollback multiple servers with 1 single download. Now at the end of the 1st rollback a window offers to copy the files to the selected profiles (the manifest is also updated for these profiles as well as the manifest check to indicate that an update is available)
+  - Added the ability to expose the API on the internet (don't forget the redirection of the selected port in the router and the rule in the firewall)
+  - Added error logs in the methods for reading the dedicated server logs which allow to know the status of the server for a future debug on the statuses of the infinite yellow ellipses
+- **Bug Fixes**
+  - Fixed a typo in Profile Manager menu
+  - Fixed hidden display of player warning in case of too long text hidden by the scroll bar
+  - Fixed opening blank WEB pages on some systems and user settings
+  - Fixed a bug that left the dino replacement save button disabled after server shutdown
+  - Fixed various missing bindings for premium status and display of the Public IP
+  - Fixed a bug in the API activation logic that prevented the Pelayori Advanced Messages Ascended plugin from being used if the dll was used
+
 ## Version 2.2.6.5 PRE-RELEASE NOTE
 - **Improvements**
   - Translation of the token generation window
@@ -9,7 +29,6 @@
   - Added a warning message when the application is forced without admin
   - Added the possibility to restart the application as administrator (runas)
 - **Bug Fixes**
-  - Fixed hidden display of player warning in case of too long text hidden by the scroll bar
   - Removal of the test button reserved for dev test
 
 ## Version 2.2.6.4 PRE-RELEASE NOTE
