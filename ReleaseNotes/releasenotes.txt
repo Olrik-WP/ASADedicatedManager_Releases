@@ -1,3 +1,124 @@
+## Version 2.2.6.6 FINAL-RELEASE NOTE
+- **New Features**
+  - **Final release of WEB UI API**
+  - **Added a warning message when the application is not launched as admin**
+  - **Added the ability to rollback to a previous version of the dedicated server**
+  - **Added the possibility to Kick the selected player from the server in the server management tab**
+- **Improvements**
+  - **Changed the timeout at startup to retrieve PIDs from 5 to 20 seconds**
+  - Added the possibility to restart the application as administrator (runas)
+  - Added the ability to rollback multiple servers with 1 single download. Now at the end of the 1st rollback a window offers to copy the files to the selected profiles (the manifest is also updated for these profiles as well as the manifest check to indicate that an update is available)
+  - Added the ability to expose the API on the internet (don't forget the redirection of the selected port in the router and the rule in the firewall)
+  - Added error logs in the methods for reading the dedicated server logs which allow to know the status of the server for a future debug on the statuses of the infinite yellow ellipses
+- **Bug Fixes**
+  - Fixed a typo in Profile Manager menu
+  - Fixed hidden display of player warning in case of too long text hidden by the scroll bar
+  - Fixed opening blank WEB pages on some systems and user settings
+  - Fixed a bug that left the dino replacement save button disabled after server shutdown
+  - Fixed various missing bindings for premium status and display of the Public IP
+  - Fixed a bug in the API activation logic that prevented the Pelayori Advanced Messages Ascended plugin from being used if the dll was used
+
+## Version 2.2.6.5 PRE-RELEASE NOTE
+- **Improvements**
+  - Translation of the token generation window
+  - The rollback window is now launched centered on the screen
+  - The rollback window now keeps its original size
+  - Changing the text of the rollback window
+  - Fixed a typo in Profile Manager menu
+  - Added a warning message when the application is not launched as admin
+  - Added a warning message when the application is forced without admin
+  - Added the possibility to restart the application as administrator (runas)
+- **Bug Fixes**
+  - Removal of the test button reserved for dev test
+
+## Version 2.2.6.4 PRE-RELEASE NOTE
+- **New Features:**
+  - **Added the possibility to Kick the selected player from the server in the server management tab**
+- **Improvements**
+  - Added the ability to rollback multiple servers with 1 single download. Now at the end of the 1st rollback a window offers to copy the files to the selected profiles (the manifest is also updated for these profiles as well as the manifest check to indicate that an update is available)
+- **Bug Fixes**
+  - Fixed hidden display of player warning in case of too long text hidden by the scroll bar
+
+## Version 2.2.6.3 PRE-RELEASE NOTE
+- **Improvements**
+  - Complete overhaul of the rollback code
+  - Use of a third-party repository Steam depot downloader utilizing the SteamKit2 library
+  - The SteamGuard code is no longer necessary, you just have to approve the connection from the mobile application
+  - In case of download failure or timeout, new attempts are made
+  - The manifest is updated at the end of the rollback
+  - A check of the manifest is launched at the end of the rollback
+  - Real progress bar and 100% adapted to the download
+  - New real-time logs
+  - the ScrollViewer is updated in real time
+  - New label for tracking steps
+
+## Version 2.2.6.2 PRE-RELEASE NOTE
+- **Improvements**
+  - When rolling back, add a method to update the manifest in the appmanifest_2430930.acf file and allow the update to be detected (Not tested)
+
+## Version 2.2.6.1 PRE-RELEASE NOTE
+- **Improvements**
+  - Major modification of the API and WEB UI code
+  - Added the ability to expose the API on the internet (don't forget the redirection of the selected port in the router and the rule in the firewall)
+  - Modified the port management logic
+  - Modified the configuration structure of the API json
+  - Added error logs in the methods for reading the dedicated server logs which allow to know the status of the server for a future debug on the statuses of the infinite yellow ellipses
+- **Bug Fixes**
+  - WEB UI API: Fixed a bug that launched the server if it was already launched
+  - Fixed opening blank WEB pages on some systems and user settings
+
+## Version 2.2.6.0 PRE-RELEASE NOTE
+- **Improvements**
+  - Added premium status to the API
+  - Redesigned the API UI in the manager
+  - Redesigned token management (now managed in the manager)
+  - Added the ability to modify the API port
+  - Checked the API port (cannot use a port that is already in use), Banned WEB Browser ports
+  - Added the display of server status (refresh every 10 seconds)
+  - Added confirmation boxes on critical API buttons
+  - Various API improvements
+- **Bug Fixes**
+  - API Fixed a bug that prevent server updates
+
+## Version 2.2.5.9 PRE-RELEASE NOTE
+- **Improvements**
+  - Final release of API UI
+  - Added authentication system to API via token
+  - Removed API stop and start info messages
+  - **Changed the timeout at startup to retrieve PIDs from 5 to 20 seconds**
+- **Bug Fixes**
+  - Fixed a bug that left the dino replacement save button disabled after server shutdown
+- **Next API developments:**
+  - Added the ability to set the port
+  - Added the ability to see the status of the servers
+
+## Version 2.2.5.8 PRE-RELEASE NOTE
+- **Bug Fixes**
+  - Added missing ui.html
+
+## Version 2.2.5.7 PRE-RELEASE NOTE
+- **New Features:**
+  - API Release (Early Access)
+- **Bug Fixes**
+  - Fixed a manager crash when launching rollback due to an operation not performed on the UI thread
+
+## Version 2.2.5.6 PRE-RELEASE NOTE
+- **Improvements**
+  - Added the ability to cancel the download (the steamcmd process is killed and half-downloaded files are deleted)
+  - Once the download is done, it is not possible to cancel the copy of the files to avoid corrupting the dedicated server
+  - Added a progress bar during the download
+  - Added a progress bar during the file copy
+  - Impossible to close the window during the rollback process
+  - Improved rollback windows UI
+  - Improved API UI
+- **Bug Fixes**
+  - Fixed various missing bindings for premium status and display of the Public IP
+  - Fixed a bug in the API activation logic that prevented the Pelayori Advanced Messages Ascended plugin from being used if the dll was used
+
+## Version 2.2.5.5 PRE-RELEASE NOTE
+- **New Features:**
+  - Added the ability rollback to a previous version of the dedicated
+
 ## Version 2.2.5.4 FINAL-RELEASE NOTE
 - **New Features**
    - Added the ability to disable backups when stopping the server.
@@ -30,10 +151,6 @@
   - **Multi-Group Core Managemen Unsupported:** Due to Windows restrictions, the application can only manage cores within the current processor group where the process is running.
 - **Validation Team Updates**
   - Welcomed **elcone** to the validation team, enhancing our quality assurance processes.
-
-## Version 2.2.5.3 PRE-RELEASE NOTE
-- **New Features:**
-  - Added the ability rollback to a previous version of the dedicated
 
 ## Version 2.2.5.2 PRE-RELEASE NOTE
 - **New Features:**
