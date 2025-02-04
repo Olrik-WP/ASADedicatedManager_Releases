@@ -1,3 +1,18 @@
+## Version 2.2.6.9 PRE-RELEASE NOTE
+- **New Features**
+  - Added backup conversion process with related logic:
+  - Added backup conversion procedure -converttostore
+  - Added use of converted backups -usestore
+  - Added ability to use separate profiles of new backup format -BackupTransferPlayerDatas
+  - Translated new backup conversion options into all languages
+- **Improvements**
+  - Redesign of the logs tab into 3 separate tabs
+  - Change of log colors
+  - Improved logs during crash when launching the server for novices indicating clearer instructions
+  - Added date and time of last detected crash
+**Note**
+ - Crash logs are only read at server startup
+
 ## Version 2.2.6.8 PRE-RELEASE NOTE
 - **New Features**
   - Added log of last crash
