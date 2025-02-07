@@ -1,3 +1,63 @@
+## Version 2.2.7.1 FINAL-RELEASE NOTE
+- **New Features**
+  - **Server Stability & Performance**
+    - Added `-NoHangDetection`: Prevents the server from shutting down if its start time exceeds 2700 seconds (45 minutes). Useful for servers with large saves or slow machines.
+    - Added `-ForceWipeTinkerExploitNoDinos`: Checks item quality only to avoid longer start-up times caused by checking creatures.
+    - Added `-ForceClampItemQuality`: Forces an item quality cap for blueprints. This can be used on unofficial servers to apply item quality caps for spawned and tinkered items using `GameUserSettings.ini` configurations.
+    - Added `-ForceWipeTinkerExploit`: Forces the wipe logic:  
+      - `MaxBlueprintDinoLevel = 300` → Only for Meks and Enforcers when spawned.  
+      - `MaxBlueprintDinoQuality = 200` → Only for Mek/Enforcer blueprints and Enforcer spawner items.  
+      - `MaxBlueprintItemQuality = 200` → Applies to all items/blueprints.  
+      - `MaxBlueprintScoutQuality = 2000` → For Scout weapons and blueprints.  
+      - This command forces a one-time application of the new settings. By default, it applies Official server values unless overridden in `GameUserSettings.ini`.
+    - Added `-ForceClearItemTraits`: One-time wipe of Item Traits to address an exploit allowing players to gain multiple unintended traits.
+    - Added backup conversion process with new related logic:
+      - `-converttostore`: Converts backups into a new format.
+      - `-usestore`: Uses converted backups.
+      - `-BackupTransferPlayerDatas`: Allows the use of separate profiles in the new backup format.
+    - Added log of the last crash for easier debugging.
+- **Improvements**
+  - **Logging & UI Enhancements**
+    - Redesigned the logs tab into three separate tabs for better organization.
+    - Changed log colors for improved readability.
+    - Improved logs during crashes when launching the server, providing clearer instructions for novices.
+    - Added the date and time of the last detected crash.
+    - Redesigned the log style for better readability.
+- **Notes**
+  - All new features and options have been translated into all supported languages.
+  - Crash logs are only read at server startup.
+
+## Version 2.2.7.0 PRE-RELEASE NOTE
+- **New Features**
+  - Added -NoHangDetection Prevents the server from shutdown if its start-time takes more than 2700 seconds (45 minutes). Useful for servers with big saves or very slow machines
+  - Added -ForceWipeTinkerExploitNoDinos that will check item quality only to avoid longer start-up times caused by checking creatures
+  - Added -ForceClampItemQuality Forces item quality cap for blueprints. Use on unofficial if you want item quality cap for spawned and tinkered items. These use GameUserSettings.ini configurations configs to cap
+  - Added -ForceWipeTinkerExploit Forces the wipe logic MaxBlueprintDinoLevel = 300 // Only for Meks and Enforcers when spawned. MaxBlueprintDinoQuality = 200 // Only for Mek/Enforcer blueprints and Enforcer spawner items MaxBlueprintItemQuality = 200 // For all items/blueprints. MaxBlueprintScoutQuality = 2000 // For Scout weapon and blueprint.on boot any time this command is present. Intended to run with this command once and remove it afterward. This also forces the new settings above to Official server values by default unless they are overridden in the GameUserSettings.ini configurations
+  - Added -ForceClearItemTraits One-time wipe of Item Traits due to an exploit that allowed players to get many of them unintentionally
+**Note**
+ - Translated into all languages
+
+## Version 2.2.6.9 PRE-RELEASE NOTE
+- **New Features**
+  - Added backup conversion process with related logic:
+  - Added backup conversion procedure -converttostore
+  - Added use of converted backups -usestore
+  - Added ability to use separate profiles of new backup format -BackupTransferPlayerDatas
+  - Translated new backup conversion options into all languages
+- **Improvements**
+  - Redesign of the logs tab into 3 separate tabs
+  - Change of log colors
+  - Improved logs during crash when launching the server for novices indicating clearer instructions
+  - Added date and time of last detected crash
+**Note**
+ - Crash logs are only read at server startup
+
+## Version 2.2.6.8 PRE-RELEASE NOTE
+- **New Features**
+  - Added log of last crash
+- **Improvements**
+  - Redesign of the log style
+
 ## Version 2.2.6.7 FINAL-RELEASE NOTE
 - **Bug Fixes**
   - Fixed a bug in the activation/deactivation logic of the rollback server button
