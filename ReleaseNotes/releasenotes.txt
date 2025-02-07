@@ -1,3 +1,12 @@
+## Version 2.2.7.2 FINAL-RELEASE NOTE
+- **New Features**
+  - Added an emergency unlock button to unlock -usestore and attempt a reconversion to be used only with full knowledge of the facts
+- **Improvements**
+  - Added a message box clearly explaining the save conversion process
+  - During the conversion of saves a progress bar is now displayed the application is in topmost and the stop, kill and restart buttons are locked during the process
+- **Bug Fixes**
+  - Fixed a critical bug in the backup conversion process where we did not wait for the end of the server startup before stopping it could corrupt the conversion process and the backups
+
 ## Version 2.2.7.1 FINAL-RELEASE NOTE
 - **New Features**
   - **Server Stability & Performance**
@@ -5,10 +14,10 @@
     - Added `-ForceWipeTinkerExploitNoDinos`: Checks item quality only to avoid longer start-up times caused by checking creatures.
     - Added `-ForceClampItemQuality`: Forces an item quality cap for blueprints. This can be used on unofficial servers to apply item quality caps for spawned and tinkered items using `GameUserSettings.ini` configurations.
     - Added `-ForceWipeTinkerExploit`: Forces the wipe logic:  
-      - `MaxBlueprintDinoLevel = 300` → Only for Meks and Enforcers when spawned.  
-      - `MaxBlueprintDinoQuality = 200` → Only for Mek/Enforcer blueprints and Enforcer spawner items.  
-      - `MaxBlueprintItemQuality = 200` → Applies to all items/blueprints.  
-      - `MaxBlueprintScoutQuality = 2000` → For Scout weapons and blueprints.  
+      - `MaxBlueprintDinoLevel = 300` Only for Meks and Enforcers when spawned.  
+      - `MaxBlueprintDinoQuality = 200` Only for Mek/Enforcer blueprints and Enforcer spawner items.  
+      - `MaxBlueprintItemQuality = 200` Applies to all items/blueprints.  
+      - `MaxBlueprintScoutQuality = 2000` For Scout weapons and blueprints.  
       - This command forces a one-time application of the new settings. By default, it applies Official server values unless overridden in `GameUserSettings.ini`.
     - Added `-ForceClearItemTraits`: One-time wipe of Item Traits to address an exploit allowing players to gain multiple unintended traits.
     - Added backup conversion process with new related logic:
