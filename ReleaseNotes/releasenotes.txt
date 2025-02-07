@@ -1,3 +1,9 @@
+## Version 2.2.7.3 FINAL-RELEASE NOTE
+- **New Features**
+  - Added a button to fix errors of missing mods in the console when launching the server for old deleted mods
+- **Improvements**
+  - When deleting mods, errors of missing mods in the server console are now fixed, thanks to @CHIEF BODO for the find
+
 ## Version 2.2.7.2 FINAL-RELEASE NOTE
 - **New Features**
   - Added an emergency unlock button to unlock -usestore and attempt a reconversion to be used only with full knowledge of the facts
