@@ -1,3 +1,7 @@
+## Version 2.2.7.4 FINAL-RELEASE NOTE
+- **Debug**
+  - Added Log on multiplke start server methode to identify the method responsible for restarting the servers after all servers have been shut down
+
 ## Version 2.2.7.3 FINAL-RELEASE NOTE
 - **New Features**
   - Added a button to fix errors of missing mods in the console when launching the server for old deleted mods
