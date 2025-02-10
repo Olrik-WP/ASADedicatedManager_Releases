@@ -1,4 +1,13 @@
-## Version 2.2.7.5 FINAL-RELEASE NOTE
+## Version 2.2.7.6 PRE-RELEASE NOTE
+- **Quality of life**
+  - Redesign of the size of the tabs
+  - Redesign of the resizing of the tabs
+  - Addition of the persistence of the color of the selected tabs
+  - Modification of the colors of the tabs
+  - Added a slight 3d effect to the tabs
+  - Slight increase in the text font
+
+## Version 2.2.7.5 PRE-RELEASE NOTE
 - **Improvements**
   - **WMI Retries & Fallback:**
     - Added a retry logic (3 attempts) to retrieve the command line via WMI. If after these attempts the response is still empty, the command line that the application built at launch is now used (fallback).
@@ -10,7 +19,7 @@
 - **Bug Fixes**
   - Fixed a bug with the command line tab displaying on small screens
 
-## Version 2.2.7.4 FINAL-RELEASE NOTE
+## Version 2.2.7.4 PRE-RELEASE NOTE
 - **Debug**
   - Added Log on multiplke start server methode to identify the method responsible for restarting the servers after all servers have been shut down
 
