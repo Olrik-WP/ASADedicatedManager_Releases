@@ -1,3 +1,23 @@
+# Version 2.2.7.7 FINAL-RELEASE NOTE
+- **Quality of Life**
+  - Redesign of the size of the tabs  
+  - Redesign of the resizing of the tabs  
+  - Addition of the persistence of the color of the selected tabs  
+  - Modification of the colors of the tabs  
+  - Added a slight 3D effect to the tabs  
+  - Slight increase in the text font  
+- **Improvements
+  - **WMI Retries & Fallback:**  
+    - Added a retry logic (3 attempts) to retrieve the command line via WMI. If after these attempts the response is still empty, the command line that the application built at launch is now used (fallback).  
+  - **API / Non-API Unification:**  
+    - The same approach (retry + fallback) is applied for AsaApiLoader.exe and for the direct executable ArkAscendedServer.exe, to ensure reliable detection of the SessionName.  
+  - **Improved Logs:**  
+    - More detailed debug messages allow identifying WMI attempts, possible fallback, and the final command string used for comparison. This makes it easier to diagnose in case of failure or crash.
+  - Changed the wait time for a server to start while converting saves to store from 5 minutes to 60 minutes
+  - Removed the ClickUp messagebox when downloading betas
+- ** Bug Fixes**
+  - Fixed a bug with the command line tab displaying on small screens
+
 ## Version 2.2.7.6 PRE-RELEASE NOTE
 - **Quality of life**
   - Redesign of the size of the tabs
