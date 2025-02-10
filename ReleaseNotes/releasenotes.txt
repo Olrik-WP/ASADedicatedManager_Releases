@@ -1,4 +1,4 @@
-# Version 2.2.7.7 FINAL-RELEASE NOTE
+## Version 2.2.7.7 FINAL-RELEASE NOTE
 - **Quality of Life**
   - Redesign of the size of the tabs  
   - Redesign of the resizing of the tabs  
@@ -6,7 +6,7 @@
   - Modification of the colors of the tabs  
   - Added a slight 3D effect to the tabs  
   - Slight increase in the text font  
-- **Improvements
+- **Improvements**
   - **WMI Retries & Fallback:**  
     - Added a retry logic (3 attempts) to retrieve the command line via WMI. If after these attempts the response is still empty, the command line that the application built at launch is now used (fallback).  
   - **API / Non-API Unification:**  
