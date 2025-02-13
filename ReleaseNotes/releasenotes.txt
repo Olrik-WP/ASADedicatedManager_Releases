@@ -1,4 +1,4 @@
-## Version 2.3.5.0 PRE-RELEASE NOTE
+## Version 2.3.5.0 FINAL-RELEASE NOTE
 - **MSI Bridge Release**
   - This Bridge update will allow you to use the new application deployment system during the next update. It does not contain anything more and allows you to prepare for the next update.
 
