@@ -1,3 +1,7 @@
+## Version 2.3.5.0 FINAL-RELEASE NOTE
+- **MSI Bridge Release**
+  - This Bridge update will allow you to use the new application deployment system during the next update. It does not contain anything more and allows you to prepare for the next update.
+
 ## Version 2.2.7.8 FINAL-RELEASE NOTE
 - **Quality of Life**
   - All logs are grouped in a subgroup of tabs
